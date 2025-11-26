@@ -1,7 +1,26 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import TalentCarousel from '@/components/TalentCarousel'
+import TalentFilter from '@/components/TalentFilter'
+import TalentFilterClient from '@/components/TalentFilterClient'
+import { getAllTalents } from '@/lib/markdown'
 
 export default function TalentPage() {
+  const allTalents = getAllTalents()
+  
+  // Group talents by category
+  const talentsByCategory = allTalents.reduce((acc, talent) => {
+    const category = talent.category
+    if (!acc[category]) {
+      acc[category] = []
+    }
+    acc[category].push(talent)
+    return acc
+  }, {} as Record<string, typeof allTalents>)
+
+  // Get unique categories dynamically
+  const categories = Object.keys(talentsByCategory).sort()
+
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -10,13 +29,13 @@ export default function TalentPage() {
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-4 md:space-y-6">
             <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-bold text-gray-900">
-              Talent Portal
+              Talent Showcase
             </h1>
-            <p className="text-[clamp(1rem,2.5vw,1.5rem)] text-primary-600 font-semibold">
-              Connect Talent with Opportunity
-            </p>
+            <h2 className="text-[clamp(1.25rem,3vw,2rem)] font-bold text-gray-900">
+              Find real talents, not paper talents
+            </h2>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Showcase your skills and connect with top employers looking for talented professionals.
+              Discover top performers from our community. These talents have proven their skills through regular in-house challenges and tasks.
             </p>
           </div>
         </div>
@@ -24,14 +43,7 @@ export default function TalentPage() {
 
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-900">
-              Coming Soon
-            </h2>
-            <p className="text-[clamp(1rem,2vw,1.25rem)] text-gray-600 mt-4">
-              Our talent portal is under development. Stay tuned for exciting opportunities!
-            </p>
-          </div>
+          <TalentFilterClient categories={categories} talentsByCategory={talentsByCategory} />
         </div>
       </section>
 
@@ -39,4 +51,5 @@ export default function TalentPage() {
     </main>
   )
 }
+
 

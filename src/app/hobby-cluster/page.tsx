@@ -1,7 +1,11 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import HobbyClusterClient from '@/components/HobbyClusterClient'
+import { getAllHobbyClusters } from '@/lib/markdown'
 
 export default function HobbyClusterPage() {
+  const hobbyClusters = getAllHobbyClusters()
+
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -16,7 +20,7 @@ export default function HobbyClusterPage() {
               Learn for the Love of It
             </p>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Explore your passions and hobbies with like-minded learners in our community-driven hobby clusters.
+              Explore your passions and hobbies with like-minded learners in our community-driven hobby clusters. Micro-communities within the club based on interests or professions.
             </p>
           </div>
         </div>
@@ -24,14 +28,7 @@ export default function HobbyClusterPage() {
 
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-900">
-              Coming Soon
-            </h2>
-            <p className="text-[clamp(1rem,2vw,1.25rem)] text-gray-600 mt-4">
-              Join hobby clusters and learn something new just for fun. Coming soon!
-            </p>
-          </div>
+          <HobbyClusterClient clusters={hobbyClusters} />
         </div>
       </section>
 
@@ -39,4 +36,5 @@ export default function HobbyClusterPage() {
     </main>
   )
 }
+
 

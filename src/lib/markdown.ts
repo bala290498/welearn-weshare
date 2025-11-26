@@ -1,0 +1,215 @@
+import 'server-only'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import { remark } from 'remark'
+import html from 'remark-html'
+
+const contentDirectory = path.join(process.cwd(), 'content')
+
+export interface CourseFrontmatter {
+  id: string
+  title: string
+  category: string
+  description: string
+  duration: string
+  level: string
+  instructor: string
+  price: string
+  contactEmail: string
+  contactPhone: string
+}
+
+export interface TalentFrontmatter {
+  id: string
+  name: string
+  category: string
+  skillLevel: string
+  photo: string
+  contactEmail: string
+  contactPhone: string
+  linkedin?: string
+  github?: string
+  website?: string
+  twitter?: string
+}
+
+export interface HobbyClusterFrontmatter {
+  id: string
+  name: string
+  category: string
+  icon: string
+  description: string
+  memberCount: number
+  communityHead: string
+  whatsappUrl: string
+}
+
+export function getCourseSlugs(): string[] {
+  const coursesDir = path.join(contentDirectory, 'courses')
+  if (!fs.existsSync(coursesDir)) return []
+  
+  const files = fs.readdirSync(coursesDir)
+  return files
+    .filter(file => file.endsWith('.md') && !file.startsWith('_'))
+    .map(file => file.replace(/\.md$/, ''))
+}
+
+export function getCourseBySlug(slug: string) {
+  const fullPath = path.join(contentDirectory, 'courses', `${slug}.md`)
+  if (!fs.existsSync(fullPath)) return null
+  
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const { data, content } = matter(fileContents)
+  
+  // Parse markdown sections
+  const sections = parseMarkdownSections(content)
+  
+  return {
+    frontmatter: data as CourseFrontmatter,
+    content: sections,
+    rawContent: content
+  }
+}
+
+export function getAllCourses() {
+  const slugs = getCourseSlugs()
+  return slugs
+    .map(slug => {
+      const course = getCourseBySlug(slug)
+      return course ? { ...course.frontmatter, slug } : null
+    })
+    .filter(Boolean) as (CourseFrontmatter & { slug: string })[]
+}
+
+export function getTalentSlugs(): string[] {
+  const talentsDir = path.join(contentDirectory, 'talents')
+  if (!fs.existsSync(talentsDir)) return []
+  
+  const files = fs.readdirSync(talentsDir)
+  return files
+    .filter(file => file.endsWith('.md') && !file.startsWith('_'))
+    .map(file => file.replace(/\.md$/, ''))
+}
+
+export function getTalentBySlug(slug: string) {
+  const fullPath = path.join(contentDirectory, 'talents', `${slug}.md`)
+  if (!fs.existsSync(fullPath)) return null
+  
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const { data, content } = matter(fileContents)
+  
+  const sections = parseMarkdownSections(content)
+  
+  return {
+    frontmatter: data as TalentFrontmatter,
+    content: sections,
+    rawContent: content
+  }
+}
+
+export function getAllTalents() {
+  const slugs = getTalentSlugs()
+  return slugs
+    .map(slug => {
+      const talent = getTalentBySlug(slug)
+      return talent ? { ...talent.frontmatter, slug } : null
+    })
+    .filter(Boolean) as (TalentFrontmatter & { slug: string })[]
+}
+
+export function getTalentsByCategory(category: string) {
+  return getAllTalents().filter(talent => 
+    talent.category.toLowerCase() === category.toLowerCase()
+  )
+}
+
+export function getHobbyClusterSlugs(): string[] {
+  const clustersDir = path.join(contentDirectory, 'hobby-clusters')
+  if (!fs.existsSync(clustersDir)) return []
+  
+  const files = fs.readdirSync(clustersDir)
+  return files
+    .filter(file => file.endsWith('.md') && !file.startsWith('_'))
+    .map(file => file.replace(/\.md$/, ''))
+}
+
+export function getHobbyClusterBySlug(slug: string) {
+  const fullPath = path.join(contentDirectory, 'hobby-clusters', `${slug}.md`)
+  if (!fs.existsSync(fullPath)) return null
+  
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const { data, content } = matter(fileContents)
+  
+  const sections = parseMarkdownSections(content)
+  
+  return {
+    frontmatter: data as HobbyClusterFrontmatter,
+    content: sections,
+    rawContent: content
+  }
+}
+
+export function getAllHobbyClusters() {
+  const slugs = getHobbyClusterSlugs()
+  return slugs
+    .map(slug => {
+      const cluster = getHobbyClusterBySlug(slug)
+      return cluster ? { ...cluster.frontmatter, slug, topics: extractTopics(cluster.rawContent) } : null
+    })
+    .filter(Boolean) as (HobbyClusterFrontmatter & { slug: string, topics: string[] })[]
+}
+
+function parseMarkdownSections(content: string) {
+  const sections: Record<string, string[]> = {}
+  const lines = content.split('\n')
+  let currentSection = ''
+  let currentItems: string[] = []
+
+  for (const line of lines) {
+    if (line.startsWith('## ')) {
+      if (currentSection) {
+        sections[currentSection] = currentItems
+      }
+      currentSection = line.replace('## ', '').trim()
+      currentItems = []
+    } else if (line.startsWith('- ') && currentSection) {
+      currentItems.push(line.replace('- ', '').trim())
+    } else if (line.match(/^\d+\.\s/) && currentSection) {
+      currentItems.push(line.replace(/^\d+\.\s/, '').trim())
+    }
+  }
+
+  if (currentSection) {
+    sections[currentSection] = currentItems
+  }
+
+  return sections
+}
+
+function extractTopics(content: string): string[] {
+  const topics: string[] = []
+  const lines = content.split('\n')
+  let inTopicsSection = false
+
+  for (const line of lines) {
+    if (line.includes('## Topics')) {
+      inTopicsSection = true
+      continue
+    }
+    if (inTopicsSection && line.startsWith('##')) {
+      break
+    }
+    if (inTopicsSection && line.startsWith('- ')) {
+      topics.push(line.replace('- ', '').trim())
+    }
+  }
+
+  return topics
+}
+
+export async function markdownToHtml(markdown: string): Promise<string> {
+  const result = await remark().use(html).process(markdown)
+  return result.toString()
+}
+
