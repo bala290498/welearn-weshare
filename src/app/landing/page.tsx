@@ -41,19 +41,23 @@ export default function LandingPage() {
                   <svg viewBox="0 0 200 200" className="w-full h-full">
                     <defs>
                       <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#fb923c" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#f97316" stopOpacity="0.6" />
+                        <stop offset="0%" stopColor="#fb923c" />
+                        <stop offset="100%" stopColor="#f97316" />
+                      </linearGradient>
+                      <linearGradient id="grad1Halo" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#fb923c" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="#f97316" stopOpacity="0.15" />
                       </linearGradient>
                     </defs>
-                    <circle cx="100" cy="100" r="60" fill="url(#grad1)" opacity="0.9" />
-                    <circle cx="100" cy="100" r="40" fill="url(#grad1)" opacity="0.7" />
-                    <circle cx="100" cy="100" r="20" fill="url(#grad1)" opacity="0.5" />
+                    {/* Large circular halo behind */}
+                    <circle cx="100" cy="100" r="80" fill="url(#grad1Halo)" />
+                    {/* Main icon with gradient */}
+                    <g transform="translate(100, 100)">
+                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="url(#grad1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
+                      </svg>
+                    </g>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="w-24 h-24 md:w-28 md:h-28 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
@@ -87,19 +91,23 @@ export default function LandingPage() {
                   <svg viewBox="0 0 200 200" className="w-full h-full">
                     <defs>
                       <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.6" />
+                        <stop offset="0%" stopColor="#60a5fa" />
+                        <stop offset="100%" stopColor="#3b82f6" />
+                      </linearGradient>
+                      <linearGradient id="grad2Halo" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.15" />
                       </linearGradient>
                     </defs>
-                    <circle cx="100" cy="100" r="60" fill="url(#grad2)" opacity="0.9" />
-                    <circle cx="100" cy="100" r="40" fill="url(#grad2)" opacity="0.7" />
-                    <circle cx="100" cy="100" r="20" fill="url(#grad2)" opacity="0.5" />
+                    {/* Large circular halo behind */}
+                    <circle cx="100" cy="100" r="80" fill="url(#grad2Halo)" />
+                    {/* Main icon with gradient */}
+                    <g transform="translate(100, 100)">
+                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
+                        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="url(#grad2)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
+                      </svg>
+                    </g>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="w-24 h-24 md:w-28 md:h-28 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                    </svg>
-                  </div>
                 </div>
               </div>
             </div>
@@ -111,19 +119,23 @@ export default function LandingPage() {
                   <svg viewBox="0 0 200 200" className="w-full h-full">
                     <defs>
                       <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.6" />
+                        <stop offset="0%" stopColor="#a78bfa" />
+                        <stop offset="100%" stopColor="#8b5cf6" />
+                      </linearGradient>
+                      <linearGradient id="grad3Halo" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.15" />
                       </linearGradient>
                     </defs>
-                    <circle cx="100" cy="100" r="60" fill="url(#grad3)" opacity="0.9" />
-                    <circle cx="100" cy="100" r="40" fill="url(#grad3)" opacity="0.7" />
-                    <circle cx="100" cy="100" r="20" fill="url(#grad3)" opacity="0.5" />
+                    {/* Large circular halo behind */}
+                    <circle cx="100" cy="100" r="80" fill="url(#grad3Halo)" />
+                    {/* Main icon with gradient */}
+                    <g transform="translate(100, 100)">
+                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
+                        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="url(#grad3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
+                      </svg>
+                    </g>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="w-24 h-24 md:w-28 md:h-28 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                  </div>
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
@@ -174,19 +186,23 @@ export default function LandingPage() {
                   <svg viewBox="0 0 200 200" className="w-full h-full">
                     <defs>
                       <linearGradient id="grad4" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#86efac" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#4ade80" stopOpacity="0.6" />
+                        <stop offset="0%" stopColor="#86efac" />
+                        <stop offset="100%" stopColor="#4ade80" />
+                      </linearGradient>
+                      <linearGradient id="grad4Halo" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#86efac" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="#4ade80" stopOpacity="0.15" />
                       </linearGradient>
                     </defs>
-                    <circle cx="100" cy="100" r="60" fill="url(#grad4)" opacity="0.9" />
-                    <circle cx="100" cy="100" r="40" fill="url(#grad4)" opacity="0.7" />
-                    <circle cx="100" cy="100" r="20" fill="url(#grad4)" opacity="0.5" />
+                    {/* Large circular halo behind */}
+                    <circle cx="100" cy="100" r="80" fill="url(#grad4Halo)" />
+                    {/* Main icon with gradient */}
+                    <g transform="translate(100, 100)">
+                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
+                        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="url(#grad4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
+                      </svg>
+                    </g>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="w-24 h-24 md:w-28 md:h-28 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </div>
                 </div>
               </div>
             </div>
@@ -198,19 +214,23 @@ export default function LandingPage() {
                   <svg viewBox="0 0 200 200" className="w-full h-full">
                     <defs>
                       <linearGradient id="grad5" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#f9a8d4" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#f472b6" stopOpacity="0.6" />
+                        <stop offset="0%" stopColor="#f9a8d4" />
+                        <stop offset="100%" stopColor="#f472b6" />
+                      </linearGradient>
+                      <linearGradient id="grad5Halo" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#f9a8d4" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="#f472b6" stopOpacity="0.15" />
                       </linearGradient>
                     </defs>
-                    <circle cx="100" cy="100" r="60" fill="url(#grad5)" opacity="0.9" />
-                    <circle cx="100" cy="100" r="40" fill="url(#grad5)" opacity="0.7" />
-                    <circle cx="100" cy="100" r="20" fill="url(#grad5)" opacity="0.5" />
+                    {/* Large circular halo behind */}
+                    <circle cx="100" cy="100" r="80" fill="url(#grad5Halo)" />
+                    {/* Main icon with gradient */}
+                    <g transform="translate(100, 100)">
+                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="url(#grad5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
+                      </svg>
+                    </g>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="w-24 h-24 md:w-28 md:h-28 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
@@ -269,19 +289,23 @@ export default function LandingPage() {
                   <svg viewBox="0 0 200 200" className="w-full h-full">
                     <defs>
                       <linearGradient id="grad6" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#818cf8" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#6366f1" stopOpacity="0.6" />
+                        <stop offset="0%" stopColor="#818cf8" />
+                        <stop offset="100%" stopColor="#6366f1" />
+                      </linearGradient>
+                      <linearGradient id="grad6Halo" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#818cf8" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="#6366f1" stopOpacity="0.15" />
                       </linearGradient>
                     </defs>
-                    <circle cx="100" cy="100" r="60" fill="url(#grad6)" opacity="0.9" />
-                    <circle cx="100" cy="100" r="40" fill="url(#grad6)" opacity="0.7" />
-                    <circle cx="100" cy="100" r="20" fill="url(#grad6)" opacity="0.5" />
+                    {/* Large circular halo behind */}
+                    <circle cx="100" cy="100" r="80" fill="url(#grad6Halo)" />
+                    {/* Main icon with gradient */}
+                    <g transform="translate(100, 100)">
+                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
+                        <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="url(#grad6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
+                      </svg>
+                    </g>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="w-24 h-24 md:w-28 md:h-28 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
                 </div>
               </div>
             </div>
@@ -293,19 +317,23 @@ export default function LandingPage() {
                   <svg viewBox="0 0 200 200" className="w-full h-full">
                     <defs>
                       <linearGradient id="grad7" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#5eead4" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#14b8a6" stopOpacity="0.6" />
+                        <stop offset="0%" stopColor="#5eead4" />
+                        <stop offset="100%" stopColor="#14b8a6" />
+                      </linearGradient>
+                      <linearGradient id="grad7Halo" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#5eead4" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="#14b8a6" stopOpacity="0.15" />
                       </linearGradient>
                     </defs>
-                    <circle cx="100" cy="100" r="60" fill="url(#grad7)" opacity="0.9" />
-                    <circle cx="100" cy="100" r="40" fill="url(#grad7)" opacity="0.7" />
-                    <circle cx="100" cy="100" r="20" fill="url(#grad7)" opacity="0.5" />
+                    {/* Large circular halo behind */}
+                    <circle cx="100" cy="100" r="80" fill="url(#grad7Halo)" />
+                    {/* Main icon with gradient */}
+                    <g transform="translate(100, 100)">
+                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="url(#grad7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
+                      </svg>
+                    </g>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="w-24 h-24 md:w-28 md:h-28 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                    </svg>
-                  </div>
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
@@ -367,19 +395,23 @@ export default function LandingPage() {
                   <svg viewBox="0 0 200 200" className="w-full h-full">
                     <defs>
                       <linearGradient id="grad8" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#fcd34d" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.6" />
+                        <stop offset="0%" stopColor="#fcd34d" />
+                        <stop offset="100%" stopColor="#f59e0b" />
+                      </linearGradient>
+                      <linearGradient id="grad8Halo" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#fcd34d" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.15" />
                       </linearGradient>
                     </defs>
-                    <circle cx="100" cy="100" r="60" fill="url(#grad8)" opacity="0.9" />
-                    <circle cx="100" cy="100" r="40" fill="url(#grad8)" opacity="0.7" />
-                    <circle cx="100" cy="100" r="20" fill="url(#grad8)" opacity="0.5" />
+                    {/* Large circular halo behind */}
+                    <circle cx="100" cy="100" r="80" fill="url(#grad8Halo)" />
+                    {/* Main icon with gradient */}
+                    <g transform="translate(100, 100)">
+                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
+                        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke="url(#grad8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
+                      </svg>
+                    </g>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="w-24 h-24 md:w-28 md:h-28 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                  </div>
                 </div>
               </div>
             </div>
