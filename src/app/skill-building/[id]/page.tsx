@@ -30,26 +30,32 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
   const course = courseData.frontmatter
   const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
-  const studentsEnrolled = course.studentsEnrolled || 0
-  const maxStudents = course.maxStudents || 100
+  const studentsEnrolled = course.studentsEnrolled ?? 0
+  const maxStudents = course.maxStudents ?? 100
   const currentPrice = calculateCurrentPrice(basePrice, studentsEnrolled, maxStudents)
   
-  const priceText = course.studentsEnrolled !== undefined && course.maxStudents !== undefined
-    ? `₹${currentPrice.toLocaleString('en-IN')} per student`
-    : course.price
+  // Build description with enrollment and pricing prominently displayed
+  let description = `${course.title} - ${course.description}`
+  
+  if (course.studentsEnrolled !== undefined && course.maxStudents !== undefined) {
+    description += ` | Students Enrolled: ${studentsEnrolled}/${maxStudents} | Current Price: ₹${currentPrice.toLocaleString('en-IN')} per student`
+  } else {
+    description += ` | Price: ${course.price}`
+  }
+  
+  description += ` | Duration: ${course.duration} | Price drops as more students join. Join now: welearnweshare.com/skill-building/${id}`
 
-  const enrollmentText = course.studentsEnrolled !== undefined && course.maxStudents !== undefined
-    ? `Students enrolled: ${studentsEnrolled}/${maxStudents} | `
-    : ''
-
-  const description = `${course.title} | ${course.description} | Duration: ${course.duration} | ${enrollmentText}${priceText} | Price drops as more students join. Join now at welearnweshare.com/skill-building/${id}`
+  // Create a more detailed Open Graph description with enrollment and pricing at the start
+  const ogDescription = course.studentsEnrolled !== undefined && course.maxStudents !== undefined
+    ? `📊 Students Enrolled: ${studentsEnrolled}/${maxStudents} | 💰 Current Price: ₹${currentPrice.toLocaleString('en-IN')} per student | ${course.description} | Duration: ${course.duration} | Price drops as more students join!`
+    : `${course.description} | Duration: ${course.duration} | ${course.price}`
 
   return {
     title: `${course.title} - WeLearnWeShare`,
     description,
     openGraph: {
       title: `${course.title} - WeLearnWeShare`,
-      description,
+      description: ogDescription,
       type: 'website',
       url: `https://welearnweshare.com/skill-building/${id}`,
       siteName: 'WeLearnWeShare',
@@ -59,10 +65,16 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     twitter: {
       card: 'summary',
       title: `${course.title} - WeLearnWeShare`,
-      description,
+      description: ogDescription,
       // Explicitly no images
       images: [],
     },
+    ...(course.studentsEnrolled !== undefined && {
+      other: {
+        'og:price:amount': currentPrice.toString(),
+        'og:price:currency': 'INR',
+      },
+    }),
   }
 }
 
