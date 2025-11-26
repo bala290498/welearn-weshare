@@ -1,6 +1,49 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
+const comparisonData = [
+  {
+    feature: 'Transparency',
+    traditional: 'Scam-based marketing',
+    welearn: 'Transparent community-driven system',
+  },
+  {
+    feature: 'Syllabus Quality',
+    traditional: 'Poor, outdated syllabus',
+    welearn: 'Updated, industry-aligned syllabus',
+  },
+  {
+    feature: 'Pricing',
+    traditional: 'High, fixed fees',
+    welearn: 'Community-powered decreasing price',
+  },
+  {
+    feature: 'Community Support',
+    traditional: 'No community support',
+    welearn: 'Active learning community',
+  },
+  {
+    feature: 'Trainer Quality',
+    traditional: 'Not real working professionals',
+    welearn: 'Working industry experts',
+  },
+  {
+    feature: 'Feedback System',
+    traditional: 'No feedback or voting',
+    welearn: 'Live voting + dynamic changes',
+  },
+  {
+    feature: 'Reviews',
+    traditional: 'Fake reviews',
+    welearn: 'Real, verified student outcomes',
+  },
+  {
+    feature: 'Career Growth',
+    traditional: 'Weak',
+    welearn: 'In-house tasks leading to hiring',
+  },
+]
+
 export default function LandingPage() {
   return (
     <main className="min-h-screen">
@@ -22,211 +65,173 @@ export default function LandingPage() {
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               At WeLearnWeShare, learning isn&apos;t individual—it&apos;s powered by the community. As more students join, everyone benefits with lower fees, better trainers, and stronger career outcomes.
             </p>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 md:pt-8 flex-wrap">
+              <a
+                href="#join"
+                className="bg-primary-600 text-white px-8 py-3 md:px-10 md:py-4 text-sm md:text-base rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 min-w-[160px] text-center"
+                aria-label="Join WeLearnWeShare now"
+              >
+                Join Now
+              </a>
+              <a
+                href="#courses"
+                className="bg-white text-primary-600 border-2 border-primary-600 px-8 py-3 md:px-10 md:py-4 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 min-w-[160px] text-center"
+                aria-label="Explore available courses"
+              >
+                Explore Courses
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Comparison Section */}
-      <section className="py-6 md:py-10 px-4 bg-white">
+      <section className="py-6 md:py-10 px-4 bg-white" aria-labelledby="comparison-heading">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="text-center space-y-4 md:space-y-6 mb-8 md:mb-12">
-            <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-bold text-gray-900">
+          <div className="text-center space-y-3 md:space-y-6 mb-6 md:mb-12">
+            <h2 id="comparison-heading" className="text-[clamp(1.25rem,4vw,2rem)] font-bold text-gray-900 px-2">
               Don&apos;t Fall for Traditional Institute Traps — See How WeLearnWeShare Makes Learning Smarter
             </h2>
-            <p className="text-[clamp(1rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-[clamp(0.875rem,2.5vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
               A clear side-by-side comparison to help students avoid scams, overpriced courses, and outdated teaching methods.
             </p>
           </div>
 
-          {/* Comparison Table */}
-          <div className="overflow-x-auto">
-            <div className="relative overflow-hidden rounded-2xl">
-              <table className="w-full border-collapse bg-white rounded-lg shadow-lg" style={{ minWidth: '600px' }}>
-              <thead>
-                <tr>
-                  <th className="text-center p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 whitespace-nowrap">
-                    Feature
-                  </th>
-                  <th className="text-center p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 whitespace-nowrap">
-                    Traditional Institute
-                  </th>
-                  <th className="text-center p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 shadow-sm relative z-10 whitespace-nowrap rounded-t-2xl">
-                    WeLearnWeShare
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
-                    Transparency
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span>Scam-based marketing</span>
-                    </div>
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Transparent community-driven system</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
-                    Syllabus Quality
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span>Poor, outdated syllabus</span>
-                    </div>
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Updated, industry-aligned syllabus</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
-                    Pricing
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span>High, fixed fees</span>
-                    </div>
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Community-powered decreasing price</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
-                    Community Support
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span>No community support</span>
-                    </div>
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Active learning community</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
-                    Trainer Quality
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span>Not real working professionals</span>
-                    </div>
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Working industry experts</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
-                    Feedback System
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span>No feedback or voting</span>
-                    </div>
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Live voting + dynamic changes</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
-                    Reviews
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span>Fake reviews</span>
-                    </div>
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Real, verified student outcomes</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
-                    Career Growth
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span>Weak</span>
-                    </div>
-                  </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50 relative z-10 rounded-b-2xl">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>In-house tasks leading to hiring</span>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          {/* Desktop Table View - Hidden on mobile/tablet */}
+          <div className="hidden md:block overflow-x-auto">
+            <div className="relative overflow-hidden rounded-2xl shadow-lg">
+              <table 
+                role="table" 
+                className="w-full border-collapse bg-white rounded-lg"
+                aria-label="Comparison between Traditional Institute and WeLearnWeShare"
+              >
+                <thead>
+                  <tr role="row">
+                    <th 
+                      role="columnheader" 
+                      className="text-left p-4 md:p-6 text-sm md:text-base font-semibold text-gray-900 bg-gray-50 rounded-tl-lg"
+                    >
+                      Feature
+                    </th>
+                    <th 
+                      role="columnheader" 
+                      className="text-left p-4 md:p-6 text-sm md:text-base font-semibold text-gray-900 bg-gray-50"
+                    >
+                      Traditional Institute
+                    </th>
+                    <th 
+                      role="columnheader" 
+                      className="text-left p-4 md:p-6 text-sm md:text-base font-semibold text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 rounded-tr-lg pl-6"
+                    >
+                      WeLearnWeShare
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonData.map((item, index) => (
+                    <tr 
+                      key={index} 
+                      role="row" 
+                      className="hover:bg-gray-50 transition focus-within:bg-gray-50"
+                    >
+                      <td 
+                        role="cell" 
+                        className="p-4 md:p-6 text-sm md:text-base font-medium text-gray-900 border-b border-gray-200"
+                      >
+                        {item.feature}
+                      </td>
+                      <td 
+                        role="cell" 
+                        className="p-4 md:p-6 text-sm md:text-base text-gray-600 border-b border-gray-200"
+                      >
+                        <div className="flex items-center gap-2">
+                          <svg 
+                            className="w-5 h-5 text-red-500 flex-shrink-0" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                          <span>{item.traditional}</span>
+                        </div>
+                      </td>
+                      <td 
+                        role="cell" 
+                        className={`p-4 md:p-6 text-sm md:text-base text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50 border-b border-gray-200 pl-6 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
+                          index === comparisonData.length - 1 ? 'rounded-br-lg' : ''
+                        }`}
+                        tabIndex={0}
+                      >
+                        <div className="flex items-center gap-2">
+                          <svg 
+                            className="w-5 h-5 text-green-600 flex-shrink-0" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{item.welearn}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
+          </div>
+
+          {/* Mobile/Tablet Card View - Visible only on mobile/tablet */}
+          <div className="md:hidden space-y-4">
+            {comparisonData.map((item, index) => (
+              <div
+                key={index}
+                role="article"
+                className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 focus-within:outline-none"
+                tabIndex={0}
+              >
+                {/* Feature Name - Line 1 */}
+                <h3 className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
+                  {item.feature}
+                </h3>
+                
+                {/* Traditional Value - Line 2 */}
+                <div className="flex items-start gap-2 mb-3 text-gray-600">
+                  <svg 
+                    className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    aria-label="Not available"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <p className="text-sm leading-relaxed">
+                    <span className="font-medium text-gray-700">Traditional Institute:</span> {item.traditional}
+                  </p>
+                </div>
+                
+                {/* Highlighted Value - Line 3 */}
+                <div className="flex items-start gap-2 p-3 rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 border-l-4 border-green-400">
+                  <svg 
+                    className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    aria-label="Available"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-sm leading-relaxed text-gray-900 font-medium">
+                    <span className="font-semibold text-green-700">WeLearnWeShare:</span> {item.welearn}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -617,125 +622,61 @@ export default function LandingPage() {
             </h2>
           </div>
           
-          {/* Process Flow */}
-          <div className="space-y-12 md:space-y-16">
-            {/* Top Row - 3 Steps */}
-            <div className="relative">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
-                {[
-                  {
-                    step: 1,
-                    title: 'Choose Your Course',
-                    description: 'Select a skill track that matches your career goals and book your seat',
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    step: 2,
-                    title: 'Join Community',
-                    description: 'Connect with peers, join forums, and start your learning journey together',
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                    ),
-                    highlighted: true,
-                  },
-                  {
-                    step: 3,
-                    title: 'Watch Fees Drop',
-                    description: 'As more students enroll, everyone pays less automatically through community pricing',
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    ),
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="text-center relative z-10">
-                    {/* Title */}
-                    <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-2">
-                      {item.title}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 leading-relaxed">
-                      {item.description}
-                    </p>
-                    
-                    {/* Connecting Line to Next Step - Desktop */}
-                    {index < 2 && (
-                      <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-primary-600 z-0" style={{ width: 'calc(100% - 2rem)', marginLeft: '1rem' }}></div>
-                    )}
-                  </div>
-                ))}
+          {/* Journey Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              {
+                step: 1,
+                title: 'Choose Your Course',
+                description: 'Select a skill track that matches your career goals and book your seat',
+              },
+              {
+                step: 2,
+                title: 'Join Community',
+                description: 'Connect with peers, join forums, and start your learning journey together',
+              },
+              {
+                step: 3,
+                title: 'Watch Fees Drop',
+                description: 'As more students enroll, everyone pays less automatically through community pricing',
+              },
+              {
+                step: 4,
+                title: 'Learn & Practice',
+                description: 'Get expert instruction at affordable rates and complete hands-on projects',
+              },
+              {
+                step: 5,
+                title: 'Earn Certification',
+                description: 'Receive official certification and get listed on our Talent Portal',
+              },
+              {
+                step: 6,
+                title: 'Get Hired',
+                description: 'Receive direct interview invites from employers and land your dream role',
+              },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none"
+                tabIndex={0}
+              >
+                {/* Numbered Icon */}
+                <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-primary-600 text-primary-600 font-bold text-lg md:text-xl mb-4 mx-auto bg-transparent">
+                  {item.step}
+                </div>
+                
+                {/* Title */}
+                <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-2 text-center">
+                  {item.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
+                  {item.description}
+                </p>
               </div>
-              
-              {/* Arrow Down - Mobile */}
-              <div className="md:hidden flex justify-center mt-8">
-                <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </div>
-            </div>
-            
-            {/* Bottom Row - 3 Steps */}
-            <div className="relative">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
-                {[
-                  {
-                    step: 4,
-                    title: 'Learn & Practice',
-                    description: 'Get expert instruction at affordable rates and complete hands-on projects',
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    step: 5,
-                    title: 'Earn Certification',
-                    description: 'Receive official certification and get listed on our Talent Portal',
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    step: 6,
-                    title: 'Get Hired',
-                    description: 'Receive direct interview invites from employers and land your dream role',
-                    icon: (
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    ),
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="text-center relative z-10">
-                    {/* Title */}
-                    <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-2">
-                      {item.title}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 leading-relaxed">
-                      {item.description}
-                    </p>
-                    
-                    {/* Connecting Line to Next Step - Desktop */}
-                    {index < 2 && (
-                      <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-primary-600 z-0" style={{ width: 'calc(100% - 2rem)', marginLeft: '1rem' }}></div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -755,16 +696,18 @@ export default function LandingPage() {
           <p className="text-[clamp(1.125rem,2.5vw,1.5rem)] font-bold">
             Learn more. Pay less. Build your future.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap pt-4">
             <a
               href="#join"
-              className="bg-white text-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
+              className="bg-white text-primary-600 px-8 py-3 md:px-10 md:py-4 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 min-w-[160px] text-center"
+              aria-label="Join WeLearnWeShare now"
             >
               Join Now
             </a>
             <a
               href="#courses"
-              className="bg-transparent text-white border-2 border-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-white/10 transition font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
+              className="bg-transparent text-white border-2 border-white px-8 py-3 md:px-10 md:py-4 text-sm md:text-base rounded-xl shadow-sm hover:bg-white/10 transition font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 min-w-[160px] text-center"
+              aria-label="Explore available courses"
             >
               Explore Courses
             </a>
