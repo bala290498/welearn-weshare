@@ -47,6 +47,17 @@ export interface HobbyClusterFrontmatter {
   whatsappUrl: string
 }
 
+export interface BlogFrontmatter {
+  id: string
+  title: string
+  author: string
+  date: string
+  category: string
+  description: string
+  image?: string
+  tags?: string[]
+}
+
 export function getCourseSlugs(): string[] {
   const coursesDir = path.join(contentDirectory, 'courses')
   if (!fs.existsSync(coursesDir)) return []
@@ -208,6 +219,40 @@ function extractTopics(content: string): string[] {
   }
 
   return topics
+}
+
+export function getBlogSlugs(): string[] {
+  const blogsDir = path.join(contentDirectory, 'blogs')
+  if (!fs.existsSync(blogsDir)) return []
+  
+  const files = fs.readdirSync(blogsDir)
+  return files
+    .filter(file => file.endsWith('.md') && !file.startsWith('_'))
+    .map(file => file.replace(/\.md$/, ''))
+}
+
+export function getBlogBySlug(slug: string) {
+  const fullPath = path.join(contentDirectory, 'blogs', `${slug}.md`)
+  if (!fs.existsSync(fullPath)) return null
+  
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const { data, content } = matter(fileContents)
+  
+  return {
+    frontmatter: data as BlogFrontmatter,
+    content: content,
+    rawContent: content
+  }
+}
+
+export function getAllBlogs() {
+  const slugs = getBlogSlugs()
+  return slugs
+    .map(slug => {
+      const blog = getBlogBySlug(slug)
+      return blog ? { ...blog.frontmatter, slug } : null
+    })
+    .filter(Boolean) as (BlogFrontmatter & { slug: string })[]
 }
 
 export async function markdownToHtml(markdown: string): Promise<string> {

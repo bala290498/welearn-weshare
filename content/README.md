@@ -1,6 +1,6 @@
 # Content Management Guide
 
-This directory contains all markdown-based content for the WeLearnWeShare platform. Admins can manage courses, talents, and hobby clusters by editing markdown files.
+This directory contains all markdown-based content for the WeLearnWeShare platform. Admins can manage courses, talents, hobby clusters, and blogs by editing markdown files.
 
 ## Directory Structure
 
@@ -16,10 +16,15 @@ content/
 │   ├── talent-1.md
 │   ├── talent-2.md
 │   └── ...
-└── hobby-clusters/   # Community clusters
-    ├── _template.md  # Template for new clusters
-    ├── it-devops.md
-    ├── it-linux.md
+├── hobby-clusters/   # Community clusters
+│   ├── _template.md  # Template for new clusters
+│   ├── it-devops.md
+│   ├── it-linux.md
+│   └── ...
+└── blogs/            # Blog posts
+    ├── _template.md  # Template for new blog posts
+    ├── getting-started-with-devops.md
+    ├── linux-command-line-basics.md
     └── ...
 ```
 
@@ -45,6 +50,13 @@ content/
 2. Fill in the frontmatter with cluster information
 3. Add topics list
 4. Save the file - it will automatically appear on the hobby cluster page
+
+### Adding a New Blog Post
+
+1. Copy `blogs/_template.md` to `blogs/your-blog-slug.md`
+2. Fill in the frontmatter with blog information
+3. Write your blog content using markdown
+4. Save the file - it will automatically appear on the blogs page
 
 ## Frontmatter Fields
 
@@ -83,6 +95,16 @@ content/
 - `communityHead`: Name of community head
 - `whatsappUrl`: WhatsApp group invite URL
 
+### Blog Frontmatter
+- `id`: Unique identifier (used in URL)
+- `title`: Blog post title
+- `author`: Author name
+- `date`: Publication date (YYYY-MM-DD format)
+- `category`: Blog category (e.g., DevOps, Linux, AWS, Technology)
+- `description`: Brief description (1-2 sentences, used for preview)
+- `image`: Featured image URL (optional, from Unsplash or other sources)
+- `tags`: Array of tags (optional)
+
 ## Content Sections
 
 ### Course Sections
@@ -98,6 +120,14 @@ Use markdown headings `##` for sections:
 
 ### Hobby Cluster Sections
 - `## Topics` - Bullet list of discussion topics
+
+### Blog Sections
+Blogs use standard markdown formatting:
+- Use `## Heading` for main sections
+- Use `### Subheading` for subsections
+- Use `- Item` for bullet lists
+- Use `**bold**` and `*italic*` for emphasis
+- Use `[link text](url)` for links
 
 ## Markdown Formatting
 

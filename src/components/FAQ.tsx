@@ -29,7 +29,7 @@ export default function FAQ() {
     {
       question: 'What is your refund policy?',
       answer:
-        "We offer a 30-day money-back guarantee. If you're not satisfied with the course within the first 30 days, you can request a full refund. Additionally, if the final price is lower than what you've already paid, you'll receive automatic refunds for the difference.",
+        "If the final price is lower than what you've already paid, you'll receive automatic refunds for the difference.",
     },
   ]
 
