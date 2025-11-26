@@ -30,45 +30,46 @@ export default function LandingPage() {
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-4 md:space-y-6 mb-8 md:mb-12">
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-900">
+            <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-bold text-gray-900">
               Don&apos;t Fall for Traditional Institute Traps — See How WeLearnWeShare Makes Learning Smarter
             </h2>
-            <p className="text-[clamp(1rem,2vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-[clamp(1rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               A clear side-by-side comparison to help students avoid scams, overpriced courses, and outdated teaching methods.
             </p>
           </div>
 
           {/* Comparison Table */}
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse bg-white rounded-lg shadow-lg overflow-hidden border-2 border-gray-300">
+            <div className="relative overflow-hidden rounded-2xl">
+              <table className="w-full border-collapse bg-white rounded-lg shadow-lg" style={{ minWidth: '600px' }}>
               <thead>
-                <tr className="bg-gray-50 border-b-2 border-gray-300">
-                  <th className="text-left p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 border-r border-gray-200">
+                <tr>
+                  <th className="text-center p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 whitespace-nowrap">
                     Feature
                   </th>
-                  <th className="text-left p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 border-r border-gray-200">
+                  <th className="text-center p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 whitespace-nowrap">
                     Traditional Institute
                   </th>
-                  <th className="text-left p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 border-l-2 border-green-400">
+                  <th className="text-center p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 shadow-sm relative z-10 whitespace-nowrap rounded-t-2xl">
                     WeLearnWeShare
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                <tr className="hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
                     Transparency
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                       <span>Scam-based marketing</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -76,20 +77,20 @@ export default function LandingPage() {
                     </div>
                   </td>
                 </tr>
-                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                <tr className="hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
                     Syllabus Quality
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                       <span>Poor, outdated syllabus</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -97,20 +98,20 @@ export default function LandingPage() {
                     </div>
                   </td>
                 </tr>
-                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                <tr className="hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
                     Pricing
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                       <span>High, fixed fees</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -118,20 +119,20 @@ export default function LandingPage() {
                     </div>
                   </td>
                 </tr>
-                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                <tr className="hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
                     Community Support
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                       <span>No community support</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -139,20 +140,20 @@ export default function LandingPage() {
                     </div>
                   </td>
                 </tr>
-                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                <tr className="hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
                     Trainer Quality
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                       <span>Not real working professionals</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -160,20 +161,20 @@ export default function LandingPage() {
                     </div>
                   </td>
                 </tr>
-                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                <tr className="hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
                     Feedback System
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                       <span>No feedback or voting</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -181,20 +182,20 @@ export default function LandingPage() {
                     </div>
                   </td>
                 </tr>
-                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                <tr className="hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
                     Reviews
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                       <span>Fake reviews</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -203,19 +204,19 @@ export default function LandingPage() {
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition">
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 whitespace-nowrap">
                     Career Growth
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                       <span>Weak</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
-                    <div className="flex items-center gap-2">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 font-medium bg-gradient-to-br from-green-50 to-emerald-50 relative z-10 rounded-b-2xl">
+                    <div className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -225,6 +226,7 @@ export default function LandingPage() {
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </section>
