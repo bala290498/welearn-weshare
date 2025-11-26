@@ -4,18 +4,33 @@ import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
-// Calculate current price per student based on enrollment
-// basePrice is the total goal amount, price per student decreases as more students join
+// Calculate current price per head based on enrollment
+// Formula: Price per head = total fixed price ÷ current number of enrolled students
+// This ensures the total revenue stays constant while price per head decreases
 function calculateCurrentPrice(basePrice: number, studentsEnrolled: number, maxStudents: number): number {
+  // Validation: avoid division by zero
   if (studentsEnrolled <= 0) {
-    return Math.floor(basePrice / 1) // If no students, show max price
+    return basePrice // If no students, show total price (one student would pay full amount)
   }
-  if (studentsEnrolled >= maxStudents) {
-    return Math.floor(basePrice / maxStudents) // At max capacity, minimum price
+  // Validation: prevent enrollments over max capacity
+  if (studentsEnrolled > maxStudents) {
+    return basePrice / maxStudents // At or over max capacity, use max capacity for calculation
   }
-  // Price per student = basePrice / current enrollment
-  // This ensures price decreases as more students join
-  return Math.floor(basePrice / studentsEnrolled)
+  // Price per head = total fixed price ÷ current number of enrolled students
+  return basePrice / studentsEnrolled
+}
+
+// Calculate potential price at full capacity
+function calculatePotentialPrice(basePrice: number, maxStudents: number): number {
+  if (maxStudents <= 0) {
+    return basePrice
+  }
+  return basePrice / maxStudents
+}
+
+// Format price without decimals for display
+function formatPrice(price: number): string {
+  return `₹${Math.round(price).toLocaleString('en-IN')}`
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
@@ -32,13 +47,15 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
   const studentsEnrolled = course.studentsEnrolled ?? 0
   const maxStudents = course.maxStudents ?? 100
-  const currentPrice = calculateCurrentPrice(basePrice, studentsEnrolled, maxStudents)
+  // Validation: ensure studentsEnrolled doesn't exceed maxStudents
+  const validEnrolled = Math.min(studentsEnrolled, maxStudents)
+  const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, maxStudents)
   
   // Build description with enrollment and pricing prominently displayed
   let description = `${course.title} - ${course.description}`
   
   if (course.studentsEnrolled !== undefined && course.maxStudents !== undefined) {
-    description += ` | Students Enrolled: ${studentsEnrolled}/${maxStudents} | Current Price: ₹${currentPrice.toLocaleString('en-IN')} per student`
+    description += ` | Students Enrolled: ${validEnrolled}/${maxStudents} | Current Price: ${formatPrice(currentPrice)} per head`
   } else {
     description += ` | Price: ${course.price}`
   }
@@ -47,7 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
   // Create a more detailed Open Graph description with enrollment and pricing at the start
   const ogDescription = course.studentsEnrolled !== undefined && course.maxStudents !== undefined
-    ? `📊 Students Enrolled: ${studentsEnrolled}/${maxStudents} | 💰 Current Price: ₹${currentPrice.toLocaleString('en-IN')} per student | ${course.description} | Duration: ${course.duration} | Price drops as more students join!`
+    ? `📊 Students Enrolled: ${validEnrolled}/${maxStudents} | 💰 Current Price: ${formatPrice(currentPrice)} per head | ${course.description} | Duration: ${course.duration} | Price drops as more students join!`
     : `${course.description} | Duration: ${course.duration} | ${course.price}`
 
   return {
@@ -88,6 +105,15 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
 
   const course = courseData.frontmatter
   const content = courseData.content
+  
+  // Calculate values for display
+  const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
+  const studentsEnrolled = course.studentsEnrolled ?? 0
+  const maxStudents = course.maxStudents ?? 100
+  // Validation: ensure studentsEnrolled doesn't exceed maxStudents
+  const validEnrolled = Math.min(studentsEnrolled, maxStudents)
+  const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, maxStudents)
+  const potentialPrice = calculatePotentialPrice(basePrice, maxStudents)
 
   return (
     <main className="min-h-screen">
@@ -130,25 +156,32 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               <h3 className="text-sm font-semibold text-gray-500 mb-2">Dynamic group pricing</h3>
               {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
                 <>
-                  <p className="text-lg font-bold text-primary-600 mb-2">
-                    ₹{calculateCurrentPrice(
-                      parseInt(course.price.replace(/[₹,]/g, '')),
-                      course.studentsEnrolled,
-                      course.maxStudents
-                    ).toLocaleString('en-IN')} per student
-                  </p>
-                  <div className="mb-3">
-                    <div className="flex items-center justify-between text-xs text-gray-600 mb-1">
-                      <span>Students enrolled: {course.studentsEnrolled} / {course.maxStudents}</span>
+                  <div className="mb-3 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-600">Course price:</span>
+                      <span className="text-sm font-semibold text-gray-900">{course.price}</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-600">Students enrolled:</span>
+                      <span className="text-sm font-semibold text-primary-600">{validEnrolled} / {course.maxStudents}</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
                       <div
                         className="bg-primary-600 h-2.5 rounded-full transition-all duration-300"
-                        style={{ width: `${(course.studentsEnrolled / course.maxStudents) * 100}%` }}
+                        style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
                       />
                     </div>
                   </div>
-                  <p className="text-xs text-gray-500">Price drops as more students join</p>
+                  <div className="pt-3 border-t border-gray-300">
+                    <p className="text-xs text-gray-600 mb-1">Price per head:</p>
+                    <p className="text-lg font-bold text-primary-600">
+                      {formatPrice(currentPrice)} - {formatPrice(potentialPrice)}
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      Current ({validEnrolled}): {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled} = {formatPrice(currentPrice)} | Capacity ({maxStudents}): {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
+                    </p>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-3">Price drops as more students join</p>
                 </>
               ) : (
                 <>
