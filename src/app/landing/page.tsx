@@ -26,6 +26,209 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Comparison Section */}
+      <section className="py-6 md:py-10 px-4 bg-white">
+        <div className="container mx-auto px-4 max-w-screen-lg">
+          <div className="text-center space-y-4 md:space-y-6 mb-8 md:mb-12">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-900">
+              Don&apos;t Fall for Traditional Institute Traps — See How WeLearnWeShare Makes Learning Smarter
+            </h2>
+            <p className="text-[clamp(1rem,2vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              A clear side-by-side comparison to help students avoid scams, overpriced courses, and outdated teaching methods.
+            </p>
+          </div>
+
+          {/* Comparison Table */}
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse bg-white rounded-lg shadow-lg overflow-hidden border-2 border-gray-300">
+              <thead>
+                <tr className="bg-gray-50 border-b-2 border-gray-300">
+                  <th className="text-left p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 border-r border-gray-200">
+                    Feature
+                  </th>
+                  <th className="text-left p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 border-r border-gray-200">
+                    Traditional Institute
+                  </th>
+                  <th className="text-left p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-semibold text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 border-l-2 border-green-400">
+                    WeLearnWeShare
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                    Transparency
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span>Scam-based marketing</span>
+                    </div>
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Transparent community-driven system</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                    Syllabus Quality
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span>Poor, outdated syllabus</span>
+                    </div>
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Updated, industry-aligned syllabus</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                    Pricing
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span>High, fixed fees</span>
+                    </div>
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Community-powered decreasing price</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                    Community Support
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span>No community support</span>
+                    </div>
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Active learning community</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                    Trainer Quality
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span>Not real working professionals</span>
+                    </div>
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Working industry experts</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                    Feedback System
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span>No feedback or voting</span>
+                    </div>
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Live voting + dynamic changes</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                    Reviews
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span>Fake reviews</span>
+                    </div>
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Real, verified student outcomes</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition">
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] font-medium text-gray-900 border-r border-gray-200">
+                    Career Growth
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 border-r border-gray-200">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span>Weak</span>
+                    </div>
+                  </td>
+                  <td className="p-4 md:p-6 text-[clamp(0.875rem,1.5vw,1rem)] text-gray-900 bg-gradient-to-br from-green-50 to-emerald-50 font-medium border-l-2 border-green-400">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>In-house tasks leading to hiring</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Section */}
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
@@ -52,10 +255,8 @@ export default function LandingPage() {
                     {/* Large circular halo behind */}
                     <circle cx="100" cy="100" r="80" fill="url(#grad1Halo)" />
                     {/* Main icon with gradient */}
-                    <g transform="translate(100, 100)">
-                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
-                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="url(#grad1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
-                      </svg>
+                    <g transform="translate(100, 100) scale(6)">
+                      <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="url(#grad1)" strokeWidth="0.25" strokeLinecap="round" strokeLinejoin="round" fill="none" transform="translate(-12, -12)" />
                     </g>
                   </svg>
                 </div>
@@ -102,10 +303,8 @@ export default function LandingPage() {
                     {/* Large circular halo behind */}
                     <circle cx="100" cy="100" r="80" fill="url(#grad2Halo)" />
                     {/* Main icon with gradient */}
-                    <g transform="translate(100, 100)">
-                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
-                        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="url(#grad2)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
-                      </svg>
+                    <g transform="translate(100, 100) scale(6)">
+                      <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="url(#grad2)" strokeWidth="0.25" strokeLinecap="round" strokeLinejoin="round" fill="none" transform="translate(-12, -12)" />
                     </g>
                   </svg>
                 </div>
@@ -130,10 +329,8 @@ export default function LandingPage() {
                     {/* Large circular halo behind */}
                     <circle cx="100" cy="100" r="80" fill="url(#grad3Halo)" />
                     {/* Main icon with gradient */}
-                    <g transform="translate(100, 100)">
-                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
-                        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="url(#grad3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
-                      </svg>
+                    <g transform="translate(100, 100) scale(6)">
+                      <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="url(#grad3)" strokeWidth="0.25" strokeLinecap="round" strokeLinejoin="round" fill="none" transform="translate(-12, -12)" />
                     </g>
                   </svg>
                 </div>
@@ -171,7 +368,7 @@ export default function LandingPage() {
                     <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Downloadable study materials</p>
                   </div>
                   <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
-                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Lifetime updates (where applicable)</p>
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Community updates</p>
                   </div>
                   <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
                     <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Project templates and case studies</p>
@@ -197,10 +394,8 @@ export default function LandingPage() {
                     {/* Large circular halo behind */}
                     <circle cx="100" cy="100" r="80" fill="url(#grad4Halo)" />
                     {/* Main icon with gradient */}
-                    <g transform="translate(100, 100)">
-                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
-                        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="url(#grad4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
-                      </svg>
+                    <g transform="translate(100, 100) scale(6)">
+                      <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="url(#grad4)" strokeWidth="0.25" strokeLinecap="round" strokeLinejoin="round" fill="none" transform="translate(-12, -12)" />
                     </g>
                   </svg>
                 </div>
@@ -225,10 +420,8 @@ export default function LandingPage() {
                     {/* Large circular halo behind */}
                     <circle cx="100" cy="100" r="80" fill="url(#grad5Halo)" />
                     {/* Main icon with gradient */}
-                    <g transform="translate(100, 100)">
-                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
-                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="url(#grad5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
-                      </svg>
+                    <g transform="translate(100, 100) scale(6)">
+                      <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="url(#grad5)" strokeWidth="0.25" strokeLinecap="round" strokeLinejoin="round" fill="none" transform="translate(-12, -12)" />
                     </g>
                   </svg>
                 </div>
@@ -300,10 +493,8 @@ export default function LandingPage() {
                     {/* Large circular halo behind */}
                     <circle cx="100" cy="100" r="80" fill="url(#grad6Halo)" />
                     {/* Main icon with gradient */}
-                    <g transform="translate(100, 100)">
-                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
-                        <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="url(#grad6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
-                      </svg>
+                    <g transform="translate(100, 100) scale(6)">
+                      <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="url(#grad6)" strokeWidth="0.25" strokeLinecap="round" strokeLinejoin="round" fill="none" transform="translate(-12, -12)" />
                     </g>
                   </svg>
                 </div>
@@ -328,10 +519,8 @@ export default function LandingPage() {
                     {/* Large circular halo behind */}
                     <circle cx="100" cy="100" r="80" fill="url(#grad7Halo)" />
                     {/* Main icon with gradient */}
-                    <g transform="translate(100, 100)">
-                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
-                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="url(#grad7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
-                      </svg>
+                    <g transform="translate(100, 100) scale(6)">
+                      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="url(#grad7)" strokeWidth="0.25" strokeLinecap="round" strokeLinejoin="round" fill="none" transform="translate(-12, -12)" />
                     </g>
                   </svg>
                 </div>
@@ -406,10 +595,8 @@ export default function LandingPage() {
                     {/* Large circular halo behind */}
                     <circle cx="100" cy="100" r="80" fill="url(#grad8Halo)" />
                     {/* Main icon with gradient */}
-                    <g transform="translate(100, 100)">
-                      <svg viewBox="0 0 24 24" className="w-24 h-24 md:w-28 md:h-28" fill="none">
-                        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke="url(#grad8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-12, -12)" />
-                      </svg>
+                    <g transform="translate(100, 100) scale(6)">
+                      <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke="url(#grad8)" strokeWidth="0.25" strokeLinecap="round" strokeLinejoin="round" fill="none" transform="translate(-12, -12)" />
                     </g>
                   </svg>
                 </div>
