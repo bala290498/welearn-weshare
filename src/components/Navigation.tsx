@@ -23,7 +23,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16 md:h-20">
           <div className="flex items-center">
             <a 
-              href="#" 
+              href="/" 
               className="text-[clamp(1rem,2.5vw,1.5rem)] font-bold text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded"
             >
               WeLearnWeShare
@@ -31,28 +31,28 @@ export default function Navigation() {
           </div>
           <div className="hidden md:flex items-center gap-4 lg:gap-6">
             <a 
-              href="#courses" 
+              href="/skill-building" 
               className="text-gray-700 hover:text-primary-600 transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded px-2 py-1"
             >
-              Courses
+              Skill Building
             </a>
             <a 
-              href="#how-it-works" 
+              href="/talent" 
               className="text-gray-700 hover:text-primary-600 transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded px-2 py-1"
             >
-              How It Works
+              Talent
             </a>
             <a 
-              href="#talent-portal" 
+              href="/hobby-cluster" 
               className="text-gray-700 hover:text-primary-600 transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded px-2 py-1"
             >
-              Talent Portal
+              Hobby Cluster
             </a>
             <a
-              href="#contact"
+              href="/blogs"
               className="text-gray-700 hover:text-primary-600 transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded px-2 py-1"
             >
-              Contact
+              Blogs
             </a>
             <a
               href="#join"
