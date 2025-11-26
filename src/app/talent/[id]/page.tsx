@@ -2,9 +2,42 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { getTalentBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
-export default function TalentDetailPage({ params }: { params: { id: string } }) {
-  const talentData = getTalentBySlug(params.id)
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const talentData = getTalentBySlug(id)
+  
+  if (!talentData) {
+    return {
+      title: 'Talent Not Found - WeLearnWeShare',
+    }
+  }
+
+  const talent = talentData.frontmatter
+  const description = `Meet ${talent.name}, a ${talent.category} expert from WeLearnWeShare. View portfolio, achievements, and connect.`
+
+  return {
+    title: `${talent.name} - Talent Showcase - WeLearnWeShare`,
+    description,
+    openGraph: {
+      title: `${talent.name} - ${talent.category} Expert`,
+      description,
+      type: 'profile',
+      url: `https://welearnweshare.com/talent/${id}`,
+      siteName: 'WeLearnWeShare',
+    },
+    twitter: {
+      card: 'summary',
+      title: `${talent.name} - ${talent.category} Expert`,
+      description,
+    },
+  }
+}
+
+export default async function TalentDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const talentData = getTalentBySlug(id)
 
   if (!talentData) {
     notFound()

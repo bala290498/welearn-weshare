@@ -2,6 +2,24 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import SkillBuildingClient from '@/components/SkillBuildingClient'
 import { getAllCourses } from '@/lib/markdown'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Skill Building Courses - WeLearnWeShare',
+  description: 'Discover comprehensive courses designed to help you master in-demand skills and advance your career. Dynamic group pricing - price drops as more students join.',
+  openGraph: {
+    title: 'Skill Building Courses - WeLearnWeShare',
+    description: 'Discover comprehensive courses designed to help you master in-demand skills and advance your career. Dynamic group pricing - price drops as more students join.',
+    type: 'website',
+    url: 'https://welearnweshare.com/skill-building',
+    siteName: 'WeLearnWeShare',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Skill Building Courses - WeLearnWeShare',
+    description: 'Discover comprehensive courses designed to help you master in-demand skills and advance your career.',
+  },
+}
 
 export default function SkillBuildingPage() {
   const courses = getAllCourses()

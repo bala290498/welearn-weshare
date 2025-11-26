@@ -4,6 +4,24 @@ import TalentCarousel from '@/components/TalentCarousel'
 import TalentFilter from '@/components/TalentFilter'
 import TalentFilterClient from '@/components/TalentFilterClient'
 import { getAllTalents } from '@/lib/markdown'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Talent Showcase - WeLearnWeShare',
+  description: 'Discover top performers from our community. Find real talents, not paper talents. These talents have proven their skills through regular in-house challenges and tasks.',
+  openGraph: {
+    title: 'Talent Showcase - WeLearnWeShare',
+    description: 'Discover top performers from our community. Find real talents, not paper talents.',
+    type: 'website',
+    url: 'https://welearnweshare.com/talent',
+    siteName: 'WeLearnWeShare',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Talent Showcase - WeLearnWeShare',
+    description: 'Discover top performers from our community. Find real talents, not paper talents.',
+  },
+}
 
 export default function TalentPage() {
   const allTalents = getAllTalents()

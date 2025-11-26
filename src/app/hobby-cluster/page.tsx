@@ -2,6 +2,24 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import HobbyClusterClient from '@/components/HobbyClusterClient'
 import { getAllHobbyClusters } from '@/lib/markdown'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Hobby Cluster - WeLearnWeShare',
+  description: 'Explore your passions and hobbies with like-minded learners in our community-driven hobby clusters. Micro-communities within the club based on interests or professions.',
+  openGraph: {
+    title: 'Hobby Cluster - WeLearnWeShare',
+    description: 'Explore your passions and hobbies with like-minded learners in our community-driven hobby clusters.',
+    type: 'website',
+    url: 'https://welearnweshare.com/hobby-cluster',
+    siteName: 'WeLearnWeShare',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Hobby Cluster - WeLearnWeShare',
+    description: 'Explore your passions and hobbies with like-minded learners in our community-driven hobby clusters.',
+  },
+}
 
 export default function HobbyClusterPage() {
   const hobbyClusters = getAllHobbyClusters()

@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
 // Calculate current price per student based on enrollment
 // basePrice is the total goal amount, price per student decreases as more students join
@@ -17,8 +18,57 @@ function calculateCurrentPrice(basePrice: number, studentsEnrolled: number, maxS
   return Math.floor(basePrice / studentsEnrolled)
 }
 
-export default function CourseDetailPage({ params }: { params: { id: string } }) {
-  const courseData = getCourseBySlug(params.id)
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const courseData = getCourseBySlug(id)
+  
+  if (!courseData) {
+    return {
+      title: 'Course Not Found - WeLearnWeShare',
+    }
+  }
+
+  const course = courseData.frontmatter
+  const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
+  const studentsEnrolled = course.studentsEnrolled || 0
+  const maxStudents = course.maxStudents || 100
+  const currentPrice = calculateCurrentPrice(basePrice, studentsEnrolled, maxStudents)
+  
+  const priceText = course.studentsEnrolled !== undefined && course.maxStudents !== undefined
+    ? `₹${currentPrice.toLocaleString('en-IN')} per student`
+    : course.price
+
+  const enrollmentText = course.studentsEnrolled !== undefined && course.maxStudents !== undefined
+    ? `Students enrolled: ${studentsEnrolled}/${maxStudents} | `
+    : ''
+
+  const description = `${course.title} | ${course.description} | Duration: ${course.duration} | ${enrollmentText}${priceText} | Price drops as more students join. Join now at welearnweshare.com/skill-building/${id}`
+
+  return {
+    title: `${course.title} - WeLearnWeShare`,
+    description,
+    openGraph: {
+      title: `${course.title} - WeLearnWeShare`,
+      description,
+      type: 'website',
+      url: `https://welearnweshare.com/skill-building/${id}`,
+      siteName: 'WeLearnWeShare',
+      // Explicitly no images
+      images: [],
+    },
+    twitter: {
+      card: 'summary',
+      title: `${course.title} - WeLearnWeShare`,
+      description,
+      // Explicitly no images
+      images: [],
+    },
+  }
+}
+
+export default async function CourseDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const courseData = getCourseBySlug(id)
 
   if (!courseData) {
     notFound()

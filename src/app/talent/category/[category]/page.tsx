@@ -4,12 +4,13 @@ import Link from 'next/link'
 import { getAllTalents } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 
-export default function CategoryTalentPage({ params }: { params: { category: string } }) {
+export default async function CategoryTalentPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params
   const allTalents = getAllTalents()
   
   // Normalize category name (handle URL encoding and case)
   // Convert "devops" -> "DevOps", "linux" -> "Linux", etc.
-  const categorySlug = decodeURIComponent(params.category).toLowerCase()
+  const categorySlug = decodeURIComponent(category).toLowerCase()
   
   // Find the actual category name from talents (case-insensitive match)
   const actualCategory = allTalents.find(t => 
