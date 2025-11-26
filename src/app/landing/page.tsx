@@ -36,11 +36,24 @@ export default function LandingPage() {
           <div className="space-y-8 md:space-y-12">
             {/* Feature 1 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <div className="relative bg-primary-50 rounded-xl p-8 md:p-12 border-2 border-primary-200 h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center">
-                  <svg className="w-32 h-32 md:w-40 md:h-40 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              <div className="order-2 md:order-1 flex items-center justify-center">
+                <div className="relative w-48 h-48 md:w-56 md:h-56">
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#fb923c" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#f97316" stopOpacity="0.6" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="60" fill="url(#grad1)" opacity="0.9" />
+                    <circle cx="100" cy="100" r="40" fill="url(#grad1)" opacity="0.7" />
+                    <circle cx="100" cy="100" r="20" fill="url(#grad1)" opacity="0.5" />
                   </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-24 h-24 md:w-28 md:h-28 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
@@ -69,22 +82,48 @@ export default function LandingPage() {
                   Because costs are shared across the community, you get expert-led training at a fraction of the usual price.
                 </p>
               </div>
-              <div>
-                <div className="relative bg-primary-50 rounded-xl p-8 md:p-12 border-2 border-primary-200 h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center">
-                  <svg className="w-32 h-32 md:w-40 md:h-40 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              <div className="flex items-center justify-center">
+                <div className="relative w-48 h-48 md:w-56 md:h-56">
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.6" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="60" fill="url(#grad2)" opacity="0.9" />
+                    <circle cx="100" cy="100" r="40" fill="url(#grad2)" opacity="0.7" />
+                    <circle cx="100" cy="100" r="20" fill="url(#grad2)" opacity="0.5" />
                   </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-24 h-24 md:w-28 md:h-28 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Feature 3 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <div className="relative bg-primary-50 rounded-xl p-8 md:p-12 border-2 border-primary-200 h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center">
-                  <svg className="w-32 h-32 md:w-40 md:h-40 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              <div className="order-2 md:order-1 flex items-center justify-center">
+                <div className="relative w-48 h-48 md:w-56 md:h-56">
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.6" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="60" fill="url(#grad3)" opacity="0.9" />
+                    <circle cx="100" cy="100" r="40" fill="url(#grad3)" opacity="0.7" />
+                    <circle cx="100" cy="100" r="20" fill="url(#grad3)" opacity="0.5" />
                   </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-24 h-24 md:w-28 md:h-28 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
@@ -112,44 +151,66 @@ export default function LandingPage() {
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed mb-4">
                   Every course includes:
                 </p>
-                <ul className="space-y-2 text-[clamp(0.875rem,2vw,1rem)] text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-600 mt-1">✓</span>
-                    <span>Completion certificate</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-600 mt-1">✓</span>
-                    <span>Downloadable study materials</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-600 mt-1">✓</span>
-                    <span>Lifetime updates (where applicable)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-600 mt-1">✓</span>
-                    <span>Project templates and case studies</span>
-                  </li>
-                </ul>
+                <div className="space-y-3">
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Completion certificate</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Downloadable study materials</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Lifetime updates (where applicable)</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Project templates and case studies</p>
+                  </div>
+                </div>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed pt-2">
                   Designed to help you learn effectively and build strong portfolios.
                 </p>
               </div>
-              <div>
-                <div className="relative bg-primary-50 rounded-xl p-8 md:p-12 border-2 border-primary-200 h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center">
-                  <svg className="w-32 h-32 md:w-40 md:h-40 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              <div className="flex items-center justify-center">
+                <div className="relative w-48 h-48 md:w-56 md:h-56">
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="grad4" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#86efac" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#4ade80" stopOpacity="0.6" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="60" fill="url(#grad4)" opacity="0.9" />
+                    <circle cx="100" cy="100" r="40" fill="url(#grad4)" opacity="0.7" />
+                    <circle cx="100" cy="100" r="20" fill="url(#grad4)" opacity="0.5" />
                   </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-24 h-24 md:w-28 md:h-28 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Feature 5 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <div className="relative bg-primary-50 rounded-xl p-8 md:p-12 border-2 border-primary-200 h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center">
-                  <svg className="w-32 h-32 md:w-40 md:h-40 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              <div className="order-2 md:order-1 flex items-center justify-center">
+                <div className="relative w-48 h-48 md:w-56 md:h-56">
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="grad5" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#f9a8d4" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#f472b6" stopOpacity="0.6" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="60" fill="url(#grad5)" opacity="0.9" />
+                    <circle cx="100" cy="100" r="40" fill="url(#grad5)" opacity="0.7" />
+                    <circle cx="100" cy="100" r="20" fill="url(#grad5)" opacity="0.5" />
                   </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-24 h-24 md:w-28 md:h-28 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
@@ -159,24 +220,20 @@ export default function LandingPage() {
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
                   Join a thriving learner community where you can:
                 </p>
-                <ul className="space-y-2 text-[clamp(0.875rem,2vw,1rem)] text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">•</span>
-                    <span>Ask questions</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">•</span>
-                    <span>Get help from peers</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">•</span>
-                    <span>Solve tasks together</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">•</span>
-                    <span>Receive mentor guidance</span>
-                  </li>
-                </ul>
+                <div className="space-y-3">
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Ask questions</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Get help from peers</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Solve tasks together</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Receive mentor guidance</p>
+                  </div>
+                </div>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed pt-2 font-semibold">
                   You&apos;ll never learn alone.
                 </p>
@@ -192,40 +249,63 @@ export default function LandingPage() {
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
                   Work on real tasks from our internal ecosystem. Standout performers:
                 </p>
-                <ul className="space-y-2 text-[clamp(0.875rem,2vw,1rem)] text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">→</span>
-                    <span>Get listed on our Talent Portal</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">→</span>
-                    <span>Receive direct hiring opportunities</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">→</span>
-                    <span>Build verified project experience</span>
-                  </li>
-                </ul>
+                <div className="space-y-3">
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Get listed on our Talent Portal</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Receive direct hiring opportunities</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Build verified project experience</p>
+                  </div>
+                </div>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed pt-2 font-semibold">
                   Your skills become your strongest asset.
                 </p>
               </div>
-              <div>
-                <div className="relative bg-primary-50 rounded-xl p-8 md:p-12 border-2 border-primary-200 h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center">
-                  <svg className="w-32 h-32 md:w-40 md:h-40 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <div className="flex items-center justify-center">
+                <div className="relative w-48 h-48 md:w-56 md:h-56">
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="grad6" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#818cf8" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#6366f1" stopOpacity="0.6" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="60" fill="url(#grad6)" opacity="0.9" />
+                    <circle cx="100" cy="100" r="40" fill="url(#grad6)" opacity="0.7" />
+                    <circle cx="100" cy="100" r="20" fill="url(#grad6)" opacity="0.5" />
                   </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-24 h-24 md:w-28 md:h-28 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Feature 7 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <div className="relative bg-primary-50 rounded-xl p-8 md:p-12 border-2 border-primary-200 h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center">
-                  <svg className="w-32 h-32 md:w-40 md:h-40 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              <div className="order-2 md:order-1 flex items-center justify-center">
+                <div className="relative w-48 h-48 md:w-56 md:h-56">
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="grad7" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#5eead4" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#14b8a6" stopOpacity="0.6" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="60" fill="url(#grad7)" opacity="0.9" />
+                    <circle cx="100" cy="100" r="40" fill="url(#grad7)" opacity="0.7" />
+                    <circle cx="100" cy="100" r="20" fill="url(#grad7)" opacity="0.5" />
                   </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-24 h-24 md:w-28 md:h-28 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                  </div>
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
@@ -235,24 +315,20 @@ export default function LandingPage() {
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
                   Every course includes a structured roadmap with:
                 </p>
-                <ul className="space-y-2 text-[clamp(0.875rem,2vw,1rem)] text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">✓</span>
-                    <span>Clear milestones</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">✓</span>
-                    <span>Hands-on projects</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">✓</span>
-                    <span>Weekly goals</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">✓</span>
-                    <span>Progress tracking</span>
-                  </li>
-                </ul>
+                <div className="space-y-3">
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Clear milestones</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Hands-on projects</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Weekly goals</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Progress tracking</p>
+                  </div>
+                </div>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed pt-2">
                   You always know exactly what to learn next.
                 </p>
@@ -268,33 +344,42 @@ export default function LandingPage() {
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
                   We support you beyond the classroom with:
                 </p>
-                <ul className="space-y-2 text-[clamp(0.875rem,2vw,1rem)] text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">→</span>
-                    <span>Resume building</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">→</span>
-                    <span>Portfolio review</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">→</span>
-                    <span>Mock interviews</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-1">→</span>
-                    <span>Growth planning</span>
-                  </li>
-                </ul>
+                <div className="space-y-3">
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Resume building</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Portfolio review</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Mock interviews</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 md:p-4 border-l-4 border-primary-600 border border-gray-200 shadow-sm">
+                    <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-900 font-medium">Growth planning</p>
+                  </div>
+                </div>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed pt-2">
                   So you can step confidently into your career.
                 </p>
               </div>
-              <div>
-                <div className="relative bg-primary-50 rounded-xl p-8 md:p-12 border-2 border-primary-200 h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center">
-                  <svg className="w-32 h-32 md:w-40 md:h-40 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              <div className="flex items-center justify-center">
+                <div className="relative w-48 h-48 md:w-56 md:h-56">
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="grad8" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#fcd34d" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.6" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="60" fill="url(#grad8)" opacity="0.9" />
+                    <circle cx="100" cy="100" r="40" fill="url(#grad8)" opacity="0.7" />
+                    <circle cx="100" cy="100" r="20" fill="url(#grad8)" opacity="0.5" />
                   </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-24 h-24 md:w-28 md:h-28 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -302,43 +387,134 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Journey Section - Flat Tile Cards */}
-      <section className="py-6 md:py-10 px-4 bg-gray-50">
+      {/* Journey Section - Step by Step Process */}
+      <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
-            🎯 Your Journey with WeLearnWeShare
-          </h2>
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-900 text-center">
+              Your Journey with WeLearnWeShare
+            </h2>
+          </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {[
-              { step: 1, title: 'Choose your course', description: 'Select a skill track that matches your career goals' },
-              { step: 2, title: 'Join the learning community', description: 'Connect with peers and start your learning journey' },
-              { step: 3, title: 'Watch fees reduce as more students enroll', description: 'As the community grows, everyone pays less automatically' },
-              { step: 4, title: 'Learn from top trainers', description: 'Get expert instruction at affordable community rates' },
-              { step: 5, title: 'Complete projects & tasks', description: 'Build real-world skills through hands-on practice' },
-              { step: 6, title: 'Earn certification', description: 'Receive official certification and downloadable materials' },
-              { step: 7, title: 'Get listed on our talent portal', description: 'Top performers get featured for employers to discover' },
-              { step: 8, title: 'Get hired', description: 'Receive direct interview invites and land your dream role' }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg p-4 md:p-6 border border-gray-200 hover:border-primary-300 hover:shadow-md transition-all"
-              >
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="flex-shrink-0 w-10 h-10 bg-primary-600 text-white rounded-lg flex items-center justify-center font-bold text-sm">
-                    {item.step}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-[clamp(0.875rem,1.5vw,1rem)] font-bold text-gray-900 leading-tight">
+          {/* Process Flow */}
+          <div className="space-y-12 md:space-y-16">
+            {/* Top Row - 3 Steps */}
+            <div className="relative">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
+                {[
+                  {
+                    step: 1,
+                    title: 'Choose Your Course',
+                    description: 'Select a skill track that matches your career goals and book your seat',
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    step: 2,
+                    title: 'Join Community',
+                    description: 'Connect with peers, join forums, and start your learning journey together',
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    ),
+                    highlighted: true,
+                  },
+                  {
+                    step: 3,
+                    title: 'Watch Fees Drop',
+                    description: 'As more students enroll, everyone pays less automatically through community pricing',
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    ),
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="text-center relative z-10">
+                    {/* Title */}
+                    <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-2">
                       {item.title}
                     </h3>
+                    
+                    {/* Description */}
+                    <p className="text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 leading-relaxed">
+                      {item.description}
+                    </p>
+                    
+                    {/* Connecting Line to Next Step - Desktop */}
+                    {index < 2 && (
+                      <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-primary-600 z-0" style={{ width: 'calc(100% - 2rem)', marginLeft: '1rem' }}></div>
+                    )}
                   </div>
-                </div>
-                <p className="text-[clamp(0.75rem,1.5vw,0.875rem)] text-gray-600 leading-relaxed">
-                  {item.description}
-                </p>
+                ))}
               </div>
-            ))}
+              
+              {/* Arrow Down - Mobile */}
+              <div className="md:hidden flex justify-center mt-8">
+                <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </div>
+            </div>
+            
+            {/* Bottom Row - 3 Steps */}
+            <div className="relative">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
+                {[
+                  {
+                    step: 4,
+                    title: 'Learn & Practice',
+                    description: 'Get expert instruction at affordable rates and complete hands-on projects',
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    step: 5,
+                    title: 'Earn Certification',
+                    description: 'Receive official certification and get listed on our Talent Portal',
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    step: 6,
+                    title: 'Get Hired',
+                    description: 'Receive direct interview invites from employers and land your dream role',
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    ),
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="text-center relative z-10">
+                    {/* Title */}
+                    <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-2">
+                      {item.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-[clamp(0.875rem,1.5vw,1rem)] text-gray-600 leading-relaxed">
+                      {item.description}
+                    </p>
+                    
+                    {/* Connecting Line to Next Step - Desktop */}
+                    {index < 2 && (
+                      <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-primary-600 z-0" style={{ width: 'calc(100% - 2rem)', marginLeft: '1rem' }}></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
