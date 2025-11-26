@@ -16,6 +16,8 @@ export interface CourseFrontmatter {
   level: string
   instructor: string
   price: string
+  studentsEnrolled?: number
+  maxStudents?: number
   contactEmail: string
   contactPhone: string
 }

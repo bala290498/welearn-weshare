@@ -132,15 +132,15 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
           {(isMobile ? talents : visibleTalents).map((talent) => (
             <div
               key={talent.id}
-              className={`bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow ${
+              className={`bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full ${
                 itemsPerView === 1 ? 'flex-shrink-0 w-full' : 'min-w-0'
               }`}
             >
               <Link
                 href={`/talent/${talent.slug}`}
-                className="block focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none rounded"
+                className="block focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none rounded flex-grow flex flex-col"
               >
-                <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-start gap-4 mb-4 flex-shrink-0">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
                     {talent.name.charAt(0)}
                   </div>
@@ -156,7 +156,7 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
                     </div>
                 </div>
                 
-                <div className="mb-4">
+                <div className="mb-4 flex-grow">
                   <h3 className="text-sm font-semibold text-gray-700 mb-2">Portfolio Preview</h3>
                   <p className="text-xs text-gray-600 line-clamp-2">
                     View full portfolio on profile page
@@ -164,7 +164,7 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
                 </div>
               </Link>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
                 {talent.linkedin && (
                   <a
                     href={talent.linkedin}

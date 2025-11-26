@@ -6,7 +6,9 @@ description: Comprehensive AWS training covering EC2, S3, Lambda, and cloud arch
 duration: 14 weeks
 level: Intermediate
 instructor: AWS Certified Solutions Architect
-price: ₹9,000 - ₹6,000
+price: ₹99,000
+studentsEnrolled: 12
+maxStudents: 100
 contactEmail: aws@welearnweshare.com
 contactPhone: "+91-9876543212"
 ---

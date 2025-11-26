@@ -6,7 +6,9 @@ description: Master DevOps practices, CI/CD pipelines, containerization, and clo
 duration: 12 weeks
 level: Intermediate
 instructor: Expert DevOps Engineer
-price: ₹8,000 - ₹5,000
+price: ₹99,000
+studentsEnrolled: 15
+maxStudents: 100
 contactEmail: devops@welearnweshare.com
 contactPhone: "+91-9876543210"
 ---

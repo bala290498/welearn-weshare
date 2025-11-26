@@ -3,6 +3,20 @@ import Footer from '@/components/Footer'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 
+// Calculate current price per student based on enrollment
+// basePrice is the total goal amount, price per student decreases as more students join
+function calculateCurrentPrice(basePrice: number, studentsEnrolled: number, maxStudents: number): number {
+  if (studentsEnrolled <= 0) {
+    return Math.floor(basePrice / 1) // If no students, show max price
+  }
+  if (studentsEnrolled >= maxStudents) {
+    return Math.floor(basePrice / maxStudents) // At max capacity, minimum price
+  }
+  // Price per student = basePrice / current enrollment
+  // This ensures price decreases as more students join
+  return Math.floor(basePrice / studentsEnrolled)
+}
+
 export default function CourseDetailPage({ params }: { params: { id: string } }) {
   const courseData = getCourseBySlug(params.id)
 
@@ -45,18 +59,41 @@ export default function CourseDetailPage({ params }: { params: { id: string } })
 
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
             <div className="bg-gray-50 rounded-lg p-4 md:p-6">
               <h3 className="text-sm font-semibold text-gray-500 mb-2">Duration</h3>
               <p className="text-lg font-bold text-gray-900">{course.duration}</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4 md:p-6">
-              <h3 className="text-sm font-semibold text-gray-500 mb-2">Level</h3>
-              <p className="text-lg font-bold text-gray-900">{course.level}</p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-4 md:p-6">
-              <h3 className="text-sm font-semibold text-gray-500 mb-2">Price</h3>
-              <p className="text-lg font-bold text-primary-600">{course.price}</p>
+              <h3 className="text-sm font-semibold text-gray-500 mb-2">Dynamic group pricing</h3>
+              {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
+                <>
+                  <p className="text-lg font-bold text-primary-600 mb-2">
+                    ₹{calculateCurrentPrice(
+                      parseInt(course.price.replace(/[₹,]/g, '')),
+                      course.studentsEnrolled,
+                      course.maxStudents
+                    ).toLocaleString('en-IN')} per student
+                  </p>
+                  <div className="mb-3">
+                    <div className="flex items-center justify-between text-xs text-gray-600 mb-1">
+                      <span>Students enrolled: {course.studentsEnrolled} / {course.maxStudents}</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div
+                        className="bg-primary-600 h-2.5 rounded-full transition-all duration-300"
+                        style={{ width: `${(course.studentsEnrolled / course.maxStudents) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500">Price drops as more students join</p>
+                </>
+              ) : (
+                <>
+                  <p className="text-lg font-bold text-primary-600 mb-1">{course.price}</p>
+                  <p className="text-xs text-gray-500">Price drops as more students join</p>
+                </>
+              )}
             </div>
           </div>
 

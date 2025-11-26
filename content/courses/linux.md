@@ -6,7 +6,9 @@ description: Learn Linux fundamentals, system administration, shell scripting, a
 duration: 10 weeks
 level: Beginner to Intermediate
 instructor: Senior Linux Administrator
-price: ₹7,000 - ₹4,500
+price: ₹49,000
+studentsEnrolled: 25
+maxStudents: 100
 contactEmail: linux@welearnweshare.com
 contactPhone: "+91-9876543211"
 ---

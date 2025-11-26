@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import CategoryFilter from './CategoryFilter'
 
 interface HobbyCluster {
   id: string
@@ -21,39 +22,25 @@ interface HobbyClusterClientProps {
 export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
   
-  const categories = ['All', ...Array.from(new Set(clusters.map(cluster => cluster.category)))]
+  const categories = Array.from(new Set(clusters.map(cluster => cluster.category)))
   const filteredClusters = selectedCategory === 'All' 
     ? clusters 
     : clusters.filter(cluster => cluster.category === selectedCategory)
 
   return (
     <>
-      {/* Category Filter */}
-      <div className="mb-6 md:mb-8">
-        <h3 className="text-sm font-semibold text-gray-700 mb-3">Filter by Category</h3>
-        <div className="flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
-                selectedCategory === category
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </div>
+      <CategoryFilter
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+        label="All Categories"
+      />
 
-      {/* Community Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {filteredClusters.map((cluster) => (
           <div
             key={cluster.id}
-            className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow"
+            className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-2xl flex-shrink-0">
@@ -69,11 +56,11 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
               </div>
             </div>
             
-            <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+            <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
               {cluster.description}
             </p>
 
-            <div className="space-y-2 mb-4 text-sm text-gray-600">
+            <div className="space-y-2 mb-4 text-sm text-gray-600 flex-shrink-0">
               <div className="flex items-center gap-2">
                 <span className="font-medium">Members:</span>
                 <span>{cluster.memberCount}</span>
@@ -85,7 +72,7 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
             </div>
 
             {cluster.topics && cluster.topics.length > 0 && (
-              <div className="mb-4">
+              <div className="mb-4 flex-shrink-0">
                 <h3 className="text-xs font-semibold text-gray-700 mb-2">Topics</h3>
                 <div className="flex flex-wrap gap-1">
                   {cluster.topics.slice(0, 3).map((topic, index) => (
@@ -105,7 +92,7 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
               </div>
             )}
 
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
               <a
                 href={cluster.whatsappUrl}
                 target="_blank"
