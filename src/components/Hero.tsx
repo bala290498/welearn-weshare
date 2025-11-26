@@ -48,16 +48,16 @@ export default function Hero() {
   }, [currentStudents, revenueGoal])
 
   return (
-    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-50 to-white relative">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center space-y-8 max-w-4xl mx-auto">
+    <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white relative">
+      <div className="container mx-auto px-4 max-w-screen-lg">
+        <div className="text-center space-y-6 md:space-y-8">
           {/* Hero Content */}
-          <div className="space-y-6">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-tight">
+          <div className="space-y-4 md:space-y-6">
+            <h1 className="text-[clamp(1.5rem,4vw,3rem)] md:text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900 leading-tight">
               Learn Together. Pay Less.{' '}
               <span className="text-primary-600 block">Get Hired.</span>
             </h1>
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-[clamp(0.875rem,2vw,1.125rem)] md:text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 leading-relaxed max-w-[90vw] md:max-w-3xl mx-auto">
               Community-powered courses taught by industry experts — fees fall as more students join.
               Start learning, build projects, and get listed on our talent portal.
             </p>
@@ -66,7 +66,7 @@ export default function Hero() {
           {/* Pricing Widget - Small Card */}
           <div className="flex justify-center">
             <div
-              className="bg-white rounded-xl shadow-lg p-5 border-2 border-primary-200 max-w-xs w-full"
+              className="bg-white rounded-xl shadow-lg p-4 md:p-5 border-2 border-primary-200 w-full max-w-xs"
               role="region"
               aria-label="Dynamic pricing widget"
             >
@@ -94,23 +94,23 @@ export default function Hero() {
           </div>
           
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap pt-4">
             <a
               href="#join"
-              className="bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition font-semibold text-lg shadow-lg text-center"
+              className="bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold text-center focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
             >
               Join Now
             </a>
             <a
               href="#courses"
-              className="bg-white text-primary-600 border-2 border-primary-600 px-8 py-4 rounded-lg hover:bg-primary-50 transition font-semibold text-lg text-center"
+              className="bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold text-center focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
             >
               See Courses
             </a>
           </div>
           
           {/* Features */}
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 pt-6">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 pt-4 md:pt-6">
             <span className="flex items-center justify-center gap-2 text-sm text-gray-600">
               <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />

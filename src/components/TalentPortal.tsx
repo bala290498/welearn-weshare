@@ -1,13 +1,13 @@
 export default function TalentPortal() {
   return (
-    <section id="talent-portal" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="talent-portal" className="py-6 md:py-10 px-4 bg-white">
+      <div className="container mx-auto px-4 max-w-screen-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="w-full">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-gray-900 mb-4 md:mb-6">
               Turn Projects Into Job Opportunities
             </h2>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 mb-6">
               Top performers on in-house tasks get featured on our Talent Portal. Employers can
               browse verified work and invite candidates directly for interviews. We also run curated
               hiring drives with partner companies.
@@ -67,16 +67,16 @@ export default function TalentPortal() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 md:mt-12">
           <a
             href="#talent-portal-employers"
-            className="bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition font-semibold text-center"
+            className="bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold text-center focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
           >
             Explore Talent Portal (for employers)
           </a>
           <a
             href="#talent-portal-learners"
-            className="bg-white text-primary-600 border-2 border-primary-600 px-8 py-3 rounded-lg hover:bg-primary-50 transition font-semibold text-center"
+            className="bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold text-center focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
           >
             How to Get Listed (for learners)
           </a>

@@ -27,12 +27,12 @@ export default function CourseRoadmap() {
   ]
 
   return (
-    <section id="courses" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-4">
+    <section id="courses" className="py-6 md:py-10 px-4 bg-white">
+      <div className="container mx-auto px-4 max-w-screen-lg">
+        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
           From Fundamentals to Job-Ready
         </h2>
-        <p className="text-center text-gray-600 mb-12">
+        <p className="text-center text-gray-600 mb-8 md:mb-12 text-[clamp(0.875rem,2vw,1rem)]">
           12-week structured learning path with clear milestones
         </p>
         <div className="max-w-4xl mx-auto">
@@ -71,7 +71,7 @@ export default function CourseRoadmap() {
           <div className="text-center mt-12">
             <a
               href="#syllabus"
-              className="inline-block bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition font-semibold"
+              className="inline-block bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
             >
               View Full Syllabus
             </a>

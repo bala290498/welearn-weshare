@@ -35,3 +35,18 @@ a {
   text-decoration: none;
 }
 
+/* Hide scrollbar for snap-scroll but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Focus visible styles */
+*:focus-visible {
+  outline: 2px solid theme('colors.primary.600');
+  outline-offset: 2px;
+}

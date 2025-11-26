@@ -48,15 +48,15 @@ export default function Testimonials() {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-4">
+    <section className="py-6 md:py-10 px-4 bg-gray-50">
+      <div className="container mx-auto px-4 max-w-screen-lg">
+        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
           Success Stories
         </h2>
-        <p className="text-center text-gray-600 mb-12">
+        <p className="text-center text-gray-600 mb-8 md:mb-12 text-[clamp(0.875rem,2vw,1rem)]">
           Real outcomes from real learners
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}

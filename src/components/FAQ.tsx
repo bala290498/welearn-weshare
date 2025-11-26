@@ -34,19 +34,19 @@ export default function FAQ() {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
+    <section className="py-6 md:py-10 px-4 bg-white">
+      <div className="container mx-auto px-4 max-w-screen-lg">
+        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
           Frequently Asked Questions
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-4 max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div
               key={index}
               className="border border-gray-200 rounded-lg overflow-hidden"
             >
               <button
-                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition"
+                className="w-full px-4 md:px-6 py-3 md:py-4 text-left flex justify-between items-center hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded-lg"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}

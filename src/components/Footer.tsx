@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <footer className="bg-gray-900 text-gray-300 py-6 md:py-10 px-4">
+      <div className="container mx-auto px-4 max-w-screen-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">WeLearnWeShare</h3>
             <p className="text-sm">Learn Together. Grow Together.</p>
@@ -11,17 +11,17 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Learn</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#courses" className="hover:text-white transition">
+                <a href="#courses" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
                   Courses
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" className="hover:text-white transition">
+                <a href="#how-it-works" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
                   How It Works
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-white transition">
+                <a href="#pricing" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
                   Pricing
                 </a>
               </li>

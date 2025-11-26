@@ -83,27 +83,45 @@ export default function Features() {
   ]
 
   return (
-    <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-4">
+    <section id="features" className="py-6 md:py-10 px-4 bg-gray-50">
+      <div className="container mx-auto px-4 max-w-screen-lg">
+        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
           Why We&apos;re Different
         </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto text-[clamp(0.875rem,2vw,1rem)]">
           Everything you need to learn, grow, and get hired — all in one place.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Mobile: Horizontal snap-scroll */}
+        <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4 pb-4">
+          <div className="flex gap-4 w-max">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition border border-gray-100 w-[calc(85vw_-_16px)] flex-shrink-0 snap-center"
+              >
+                <div className="text-primary-600 mb-4">{feature.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Desktop: Grid layout */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition border border-gray-100"
+              className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition border border-gray-100 h-auto overflow-hidden"
             >
-              <div className="text-primary-600 mb-4">{feature.icon}</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 text-sm">{feature.description}</p>
-            </div>
-          ))}
+                <div className="text-primary-600 mb-4">{feature.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm">{feature.description}</p>
+              </div>
+            ))}
         </div>
       </div>
     </section>
