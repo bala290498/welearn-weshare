@@ -50,3 +50,82 @@ a {
   outline: 2px solid theme('colors.primary.600');
   outline-offset: 2px;
 }
+
+/* Blob shape containers - Organic fluid shapes */
+.blob-shape-1 {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: blob1 8s ease-in-out infinite;
+}
+
+.blob-shape-2 {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blob2 10s ease-in-out infinite;
+}
+
+.blob-shape-3 {
+  border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+  animation: blob3 12s ease-in-out infinite;
+}
+
+.blob-shape-4 {
+  border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+  animation: blob4 9s ease-in-out infinite;
+}
+
+/* Smooth blob animations */
+@keyframes blob1 {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  25% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+  }
+  75% {
+    border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+  }
+}
+
+@keyframes blob2 {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+  }
+  75% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+}
+
+@keyframes blob3 {
+  0%, 100% {
+    border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+  }
+  33% {
+    border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+  }
+  66% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+}
+
+@keyframes blob4 {
+  0%, 100% {
+    border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+  }
+  25% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  50% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  75% {
+    border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+  }
+}
