@@ -50,7 +50,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="/openings" className="hover:text-white transition">
-                  Job Openings
+                  Openings
                 </a>
               </li>
               <li>

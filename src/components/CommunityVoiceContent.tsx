@@ -431,7 +431,7 @@ export default function CommunityVoiceContent() {
                 href="/openings"
                 className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
               >
-                View Job Openings
+                View Openings
               </a>
             </div>
           </div>

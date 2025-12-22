@@ -58,6 +58,25 @@ export interface BlogFrontmatter {
   tags?: string[]
 }
 
+export interface JobFrontmatter {
+  id: string
+  title: string
+  company: string
+  type: 'full-time' | 'freelance' | 'internship'
+  location: string
+  category: string
+  description: string
+  experience: string
+  salary?: string
+  postedDate: string
+  applyLink: string
+  companyWebsite?: string
+  companySize?: string
+  industry?: string
+  workMode?: string
+  skills?: string[]
+}
+
 export function getCourseSlugs(): string[] {
   const coursesDir = path.join(contentDirectory, 'courses')
   if (!fs.existsSync(coursesDir)) return []
@@ -258,5 +277,39 @@ export function getAllBlogs() {
 export async function markdownToHtml(markdown: string): Promise<string> {
   const result = await remark().use(html).process(markdown)
   return result.toString()
+}
+
+export function getJobSlugs(): string[] {
+  const jobsDir = path.join(contentDirectory, 'jobs')
+  if (!fs.existsSync(jobsDir)) return []
+  
+  const files = fs.readdirSync(jobsDir)
+  return files
+    .filter(file => file.endsWith('.md') && !file.startsWith('_'))
+    .map(file => file.replace(/\.md$/, ''))
+}
+
+export function getJobBySlug(slug: string) {
+  const fullPath = path.join(contentDirectory, 'jobs', `${slug}.md`)
+  if (!fs.existsSync(fullPath)) return null
+  
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const { data, content } = matter(fileContents)
+  
+  return {
+    frontmatter: data as JobFrontmatter,
+    content: content,
+    rawContent: content
+  }
+}
+
+export function getAllJobs() {
+  const slugs = getJobSlugs()
+  return slugs
+    .map(slug => {
+      const job = getJobBySlug(slug)
+      return job ? { ...job.frontmatter, slug } : null
+    })
+    .filter(Boolean) as (JobFrontmatter & { slug: string })[]
 }
 
