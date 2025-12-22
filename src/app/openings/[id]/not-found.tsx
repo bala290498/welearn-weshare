@@ -11,7 +11,7 @@ export default function JobNotFound() {
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Job Not Found</h1>
           <p className="text-gray-600 mb-8">
-            The job you're looking for doesn't exist or has been removed.
+            The job you&apos;re looking for doesn&apos;t exist or has been removed.
           </p>
           <Link
             href="/openings"
