@@ -439,7 +439,7 @@ export default function OpeningsContent() {
               Apply or Refer Someone
             </h2>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-primary-100 mb-8">
-              Looking for opportunities? Have someone to refer? We're here to help connect talent with opportunities.
+              Looking for opportunities? Have someone to refer? We&apos;re here to help connect talent with opportunities.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8">
@@ -449,7 +449,7 @@ export default function OpeningsContent() {
                   Apply for Jobs
                 </h3>
                 <p className="text-primary-100 text-sm mb-4">
-                  Browse our job openings and apply directly. We'll help match you with the right opportunities.
+                  Browse our job openings and apply directly. We&apos;ll help match you with the right opportunities.
                 </p>
                 <a
                   href="#job-openings"

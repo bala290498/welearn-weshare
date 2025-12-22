@@ -416,7 +416,7 @@ export default function CommunityVoiceContent() {
               Have a Course Idea?
             </h2>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
-              Suggest a course you'd like to see, and we'll create a poll for the community to vote on it.
+              Suggest a course you&apos;d like to see, and we&apos;ll create a poll for the community to vote on it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
               <a
