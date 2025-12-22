@@ -65,14 +65,14 @@ export default function Testimonials() {
               <div className="flex items-start gap-4 mb-4">
                 <div className="text-4xl">{testimonial.image}</div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900">{testimonial.name}</h3>
+                  <h3 className="text-[clamp(1rem,2vw,1.125rem)] font-semibold text-gray-900">{testimonial.name}</h3>
                   <p className="text-sm text-gray-600">
                     {testimonial.role} at {testimonial.company}
                   </p>
                   <p className="text-xs text-primary-600 mt-1">{testimonial.course}</p>
                 </div>
               </div>
-              <p className="text-gray-700 italic">&ldquo;{testimonial.quote}&rdquo;</p>
+              <p className="text-gray-700 italic text-sm md:text-base">&ldquo;{testimonial.quote}&rdquo;</p>
             </div>
           ))}
         </div>
@@ -84,7 +84,7 @@ export default function Testimonials() {
           </div>
         </div>
         <div className="mt-12">
-          <h3 className="text-center text-lg font-semibold text-gray-900 mb-6">
+          <h3 className="text-center text-[clamp(1rem,2vw,1.125rem)] font-semibold text-gray-900 mb-6">
             Partner Employers
           </h3>
           <div className="flex flex-wrap justify-center gap-6">

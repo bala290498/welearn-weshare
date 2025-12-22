@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { CheckCircle } from 'lucide-react'
 
 export default function Hero() {
   const revenueGoal = 100000 // ₹1,00,000 goal
@@ -97,13 +98,13 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap pt-4">
             <a
               href="#join"
-              className="bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold text-center focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
+              className="bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
             >
               Join Now
             </a>
             <a
               href="/skill-building"
-              className="bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold text-center focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
+              className="bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
             >
               See Courses
             </a>
@@ -112,15 +113,11 @@ export default function Hero() {
           {/* Features */}
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 pt-4 md:pt-6">
             <span className="flex items-center justify-center gap-2 text-sm text-gray-600">
-              <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
               Certificates included
             </span>
             <span className="flex items-center justify-center gap-2 text-sm text-gray-600">
-              <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
               Real hiring opportunities
             </span>
           </div>

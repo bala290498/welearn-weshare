@@ -33,7 +33,7 @@ export default function Pricing() {
           <div className="text-center">
             <a
               href="#join"
-              className="inline-block bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
+              className="inline-block bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
             >
               Reserve Your Seat
             </a>

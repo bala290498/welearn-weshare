@@ -1,3 +1,5 @@
+import { CheckCircle } from 'lucide-react'
+
 export default function TalentPortal() {
   return (
     <section id="talent-portal" className="py-6 md:py-10 px-4 bg-white">
@@ -14,33 +16,27 @@ export default function TalentPortal() {
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">Verified Work Portfolio</h3>
+                  <h3 className="text-[clamp(1rem,2vw,1.125rem)] font-semibold text-gray-900">Verified Work Portfolio</h3>
                   <p className="text-gray-600 text-sm">
                     Showcase your completed projects and in-house tasks to potential employers
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">Direct Interview Invites</h3>
+                  <h3 className="text-[clamp(1rem,2vw,1.125rem)] font-semibold text-gray-900">Direct Interview Invites</h3>
                   <p className="text-gray-600 text-sm">
                     Get contacted directly by employers who see your work on the portal
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">Curated Hiring Drives</h3>
+                  <h3 className="text-[clamp(1rem,2vw,1.125rem)] font-semibold text-gray-900">Curated Hiring Drives</h3>
                   <p className="text-gray-600 text-sm">
                     Participate in exclusive hiring events with our partner companies
                   </p>
@@ -70,13 +66,13 @@ export default function TalentPortal() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 md:mt-12">
           <a
             href="#talent-portal-employers"
-            className="bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold text-center focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
+            className="bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
           >
             Explore Talent Portal (for employers)
           </a>
           <a
             href="#talent-portal-learners"
-            className="bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold text-center focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
+            className="bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
           >
             How to Get Listed (for learners)
           </a>

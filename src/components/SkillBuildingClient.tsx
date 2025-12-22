@@ -72,19 +72,133 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
         label="All Categories"
       />
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {/* Mobile: Horizontal snap-scroll */}
+      <div className="lg:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4 pb-4">
+        <div className="flex gap-4 w-max">
+          {filteredCourses.map((course) => (
+            <Link
+              key={course.slug}
+              href={`/skill-building/${course.slug}`}
+              className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-auto w-[calc(85vw_-_16px)] flex-shrink-0 snap-center overflow-hidden"
+            >
+              <div className="mb-4">
+                <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full">
+                  {course.category}
+                </span>
+              </div>
+              <h2 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-2 flex-shrink-0">
+                {course.title}
+              </h2>
+              <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                {course.description}
+              </p>
+              <div className="space-y-3 mb-4 text-sm text-gray-600 flex-shrink-0">
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">Duration:</span>
+                  <span>{course.duration}</span>
+                </div>
+                
+                {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
+                  <>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-medium text-gray-600">Course price:</span>
+                        <span className="font-semibold text-gray-900">{course.price}</span>
+                      </div>
+                      {(() => {
+                        const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
+                        const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
+                        const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
+                        return (
+                          <>
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="font-medium text-gray-600">Students enrolled:</span>
+                              <span className="text-primary-600 font-semibold">
+                                {validEnrolled} / {course.maxStudents}
+                              </span>
+                            </div>
+                            <div className="w-full bg-gray-200 rounded-full h-2">
+                              <div
+                                className="bg-primary-600 h-2 rounded-full transition-all duration-300"
+                                style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
+                              />
+                            </div>
+                          </>
+                        )
+                      })()}
+                    </div>
+                    
+                    <div className="flex flex-col gap-1 pt-2 border-t border-gray-200">
+                      <div className="flex items-center gap-2 text-xs">
+                        <span className="font-medium text-gray-600">Price per head:</span>
+                      </div>
+                      {(() => {
+                        if (!mounted) {
+                          return (
+                            <>
+                              <span className="text-primary-600 font-semibold text-base">
+                                ₹0 - ₹0
+                              </span>
+                              <span className="text-gray-500 text-xs">
+                                Loading...
+                              </span>
+                            </>
+                          )
+                        }
+                        const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
+                        const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
+                        const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
+                        const potentialPrice = calculatePotentialPrice(basePrice, course.maxStudents)
+                        return (
+                          <>
+                            <span className="text-primary-600 font-semibold text-base">
+                              {formatPrice(currentPrice)} - {formatPrice(potentialPrice)}
+                            </span>
+                            <span className="text-gray-500 text-xs">
+                              Current ({validEnrolled}): {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled} = {formatPrice(currentPrice)}
+                            </span>
+                            <span className="text-gray-500 text-xs">
+                              Capacity ({course.maxStudents}): {basePrice.toLocaleString('en-IN')} ÷ {course.maxStudents} = {formatPrice(potentialPrice)}
+                            </span>
+                          </>
+                        )
+                      })()}
+                      <span className="text-gray-500 text-xs mt-1">Price drops as more students join</span>
+                    </div>
+                  </>
+                ) : (
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                      <span className="font-medium">Dynamic group pricing:</span>
+                    </div>
+                    <span className="text-primary-600 font-semibold text-xs">{course.price}</span>
+                    <span className="text-gray-500 text-xs">Price drops as more students join</span>
+                  </div>
+                )}
+              </div>
+              <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
+                <span className="text-primary-600 font-semibold text-sm hover:underline">
+                  View Details →
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+      {/* Desktop: Grid layout */}
+      <div className="hidden lg:grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 xl:gap-6">
         {filteredCourses.map((course) => (
           <Link
             key={course.slug}
             href={`/skill-building/${course.slug}`}
-            className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full"
+            className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full overflow-hidden"
           >
             <div className="mb-4">
               <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full">
                 {course.category}
               </span>
             </div>
-            <h2 className="text-xl font-bold text-gray-900 mb-2 flex-shrink-0">
+            <h2 className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold text-gray-900 mb-2 flex-shrink-0">
               {course.title}
             </h2>
             <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">

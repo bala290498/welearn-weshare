@@ -48,7 +48,7 @@ export default function CourseRoadmap() {
                       <span className="text-sm font-semibold text-primary-600">
                         {phase.weeks}
                       </span>
-                      <h3 className="text-xl font-semibold text-gray-900 mt-1">
+                      <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-semibold text-gray-900 mt-1">
                         {phase.title}
                       </h3>
                     </div>
@@ -71,7 +71,7 @@ export default function CourseRoadmap() {
           <div className="text-center mt-12">
             <a
               href="#syllabus"
-              className="inline-block bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
+              className="inline-block bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
             >
               View Full Syllabus
             </a>

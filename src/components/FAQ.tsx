@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import * as Accordion from '@radix-ui/react-accordion'
+import { ChevronDown } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
-
   const faqs = [
     {
       question: 'How does the price drop work?',
@@ -39,46 +39,49 @@ export default function FAQ() {
         <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
           Frequently Asked Questions
         </h2>
-        <div className="space-y-4 max-w-3xl mx-auto">
+        <Accordion.Root
+          type="single"
+          defaultValue="item-0"
+          collapsible
+          className="space-y-4 max-w-3xl mx-auto"
+        >
           {faqs.map((faq, index) => (
-            <div
+            <Accordion.Item
               key={index}
+              value={`item-${index}`}
               className="border border-gray-200 rounded-lg overflow-hidden"
             >
-              <button
-                className="w-full px-4 md:px-6 py-3 md:py-4 text-left flex justify-between items-center hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded-lg"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
-              >
-                <span className="font-semibold text-gray-900">{faq.question}</span>
-                <svg
-                  className={`w-5 h-5 text-gray-500 transition-transform ${
-                    openIndex === index ? 'transform rotate-180' : ''
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              <Accordion.Header>
+                <Accordion.Trigger
+                  className={cn(
+                    'w-full px-4 md:px-6 py-3 md:py-4 text-left flex justify-between items-center',
+                    'hover:bg-gray-50 transition',
+                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2',
+                    'group'
+                  )}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
+                  <span className="font-semibold text-gray-900">{faq.question}</span>
+                  <ChevronDown
+                    className={cn(
+                      'w-5 h-5 text-gray-500 transition-transform',
+                      'group-data-[state=open]:rotate-180'
+                    )}
                   />
-                </svg>
-              </button>
-              {openIndex === index && (
-                <div
-                  id={`faq-answer-${index}`}
-                  className="px-6 py-4 bg-gray-50 text-gray-700"
-                >
+                </Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content
+                className={cn(
+                  'overflow-hidden',
+                  'data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down'
+                )}
+              >
+                <div className="px-6 py-4 bg-gray-50 text-gray-700">
                   {faq.answer}
                 </div>
-              )}
-            </div>
+              </Accordion.Content>
+            </Accordion.Item>
           ))}
-        </div>
+        </Accordion.Root>
       </div>
     </section>
   )

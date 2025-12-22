@@ -1,9 +1,7 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import TalentCarousel from '@/components/TalentCarousel'
-import TalentFilter from '@/components/TalentFilter'
 import TalentFilterClient from '@/components/TalentFilterClient'
-import { getAllTalents } from '@/lib/markdown'
+import { getAllStudents } from '@/data/students'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -24,20 +22,36 @@ export const metadata: Metadata = {
 }
 
 export default function TalentPage() {
-  const allTalents = getAllTalents()
+  const allStudents = getAllStudents()
   
-  // Group talents by category
-  const talentsByCategory = allTalents.reduce((acc, talent) => {
-    const category = talent.category
+  // Group students by category
+  const studentsByCategory = allStudents.reduce((acc, student) => {
+    const category = student.category
     if (!acc[category]) {
       acc[category] = []
     }
-    acc[category].push(talent)
+    acc[category].push({
+      id: student.slug,
+      slug: student.slug,
+      name: student.name,
+      category: student.category,
+      skillLevel: student.skillLevel,
+      linkedin: student.socialLinks.linkedin,
+      github: student.socialLinks.github
+    })
     return acc
-  }, {} as Record<string, typeof allTalents>)
+  }, {} as Record<string, Array<{
+    id: string
+    slug: string
+    name: string
+    category: string
+    skillLevel: string
+    linkedin?: string
+    github?: string
+  }>>)
 
   // Get unique categories dynamically
-  const categories = Object.keys(talentsByCategory).sort()
+  const categories = Object.keys(studentsByCategory).sort()
 
   return (
     <main className="min-h-screen">
@@ -61,7 +75,7 @@ export default function TalentPage() {
 
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <TalentFilterClient categories={categories} talentsByCategory={talentsByCategory} />
+          <TalentFilterClient categories={categories} talentsByCategory={studentsByCategory} />
         </div>
       </section>
 

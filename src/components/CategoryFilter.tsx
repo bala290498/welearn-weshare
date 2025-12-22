@@ -1,5 +1,8 @@
 'use client'
 
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import { Filter, ChevronDown } from 'lucide-react'
+import { cn } from '@/lib/utils'
 import { useState } from 'react'
 
 interface CategoryFilterProps {
@@ -10,74 +13,72 @@ interface CategoryFilterProps {
 }
 
 export default function CategoryFilter({ categories, selectedCategory, onCategoryChange, label = 'All Categories' }: CategoryFilterProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
   return (
-    <div className="relative mb-8">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-        aria-label="Filter by category"
-        aria-expanded={isOpen}
-      >
-        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-        </svg>
-        <span className="text-sm font-medium text-gray-700">
-          {selectedCategory === 'All' ? label : selectedCategory}
-        </span>
-        <svg 
-          className={`w-4 h-4 text-gray-600 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
+    <div className="mb-8">
+      <DropdownMenu.Root open={open} onOpenChange={setOpen}>
+        <DropdownMenu.Trigger
+          className={cn(
+            'w-full max-w-[600px] flex items-center gap-2 px-3 py-2',
+            'bg-white border border-gray-300 rounded-lg',
+            'hover:bg-gray-50 transition',
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
+            open && 'bg-gray-50'
+          )}
+          aria-label="Filter by category"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+          <Filter className="w-5 h-5 text-gray-600" />
+          <span className="text-sm font-medium text-gray-700">
+            {selectedCategory === 'All' ? label : selectedCategory}
+          </span>
+          <ChevronDown className={cn('w-4 h-4 text-gray-600 transition-transform', open && 'rotate-180')} />
+        </DropdownMenu.Trigger>
 
-      {isOpen && (
-        <>
-          <div 
-            className="fixed inset-0 z-10" 
-            onClick={() => setIsOpen(false)}
-            aria-hidden="true"
-          />
-          <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-20 max-h-64 overflow-y-auto">
-            <div className="py-1">
-              <button
-                onClick={() => {
-                  onCategoryChange('All')
-                  setIsOpen(false)
-                }}
-                className={`w-full text-left px-4 py-2 text-sm transition ${
-                  selectedCategory === 'All'
-                    ? 'bg-primary-50 text-primary-700 font-semibold'
-                    : 'text-gray-700 hover:bg-gray-50'
-                }`}
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content
+            className={cn(
+              'min-w-[200px] bg-white border border-gray-200 rounded-lg shadow-lg',
+              'z-50 max-h-64 overflow-y-auto',
+              'will-change-[transform,opacity]',
+              'data-[state=open]:animate-in data-[state=closed]:animate-out',
+              'data-[state=closed]:fade-out data-[state=open]:fade-in',
+              'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
+              'data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2',
+              'data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+              'duration-200'
+            )}
+            sideOffset={8}
+            align="start"
+          >
+            <DropdownMenu.Item
+              className={cn(
+                'w-full text-left px-4 py-2 text-sm cursor-pointer',
+                'focus:outline-none focus:bg-primary-50 focus:text-primary-700',
+                'transition',
+                selectedCategory === 'All' && 'bg-primary-50 text-primary-700 font-semibold'
+              )}
+              onSelect={() => onCategoryChange('All')}
+            >
+              {label}
+            </DropdownMenu.Item>
+            {categories.map((category) => (
+              <DropdownMenu.Item
+                key={category}
+                className={cn(
+                  'w-full text-left px-4 py-2 text-sm cursor-pointer',
+                  'focus:outline-none focus:bg-primary-50 focus:text-primary-700',
+                  'transition',
+                  selectedCategory === category && 'bg-primary-50 text-primary-700 font-semibold'
+                )}
+                onSelect={() => onCategoryChange(category)}
               >
-                {label}
-              </button>
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => {
-                    onCategoryChange(category)
-                    setIsOpen(false)
-                  }}
-                  className={`w-full text-left px-4 py-2 text-sm transition ${
-                    selectedCategory === category
-                      ? 'bg-primary-50 text-primary-700 font-semibold'
-                      : 'text-gray-700 hover:bg-gray-50'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
+                {category}
+              </DropdownMenu.Item>
+            ))}
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
     </div>
   )
 }
