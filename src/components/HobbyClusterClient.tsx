@@ -9,7 +9,6 @@ interface HobbyCluster {
   category: string
   icon: string
   description: string
-  memberCount: number
   communityHead: string
   whatsappUrl: string
   topics: string[]
@@ -38,13 +37,13 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
 
       {/* Mobile: Horizontal snap-scroll */}
       <div className="lg:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4 pb-4">
-        <div className="flex gap-4 w-max">
+        <div className="flex gap-4 w-max items-stretch">
           {filteredClusters.map((cluster) => (
             <div
               key={cluster.id}
-              className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-auto w-[calc(85vw_-_16px)] flex-shrink-0 snap-center overflow-hidden"
+              className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full w-[calc(85vw_-_16px)] flex-shrink-0 snap-center overflow-hidden"
             >
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center gap-4 mb-4 min-h-[72px]">
                 <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-2xl flex-shrink-0">
                   {cluster.icon}
                 </div>
@@ -58,15 +57,11 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
                 </div>
               </div>
               
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+              <p className="text-gray-600 text-sm mb-4 line-clamp-3 min-h-[60px]">
                 {cluster.description}
               </p>
 
-              <div className="space-y-2 mb-4 text-sm text-gray-600 flex-shrink-0">
-                <div className="flex items-center gap-2">
-                  <span className="font-medium">Members:</span>
-                  <span>{cluster.memberCount}</span>
-                </div>
+              <div className="space-y-2 mb-4 text-sm text-gray-600 min-h-[28px]">
                 <div className="flex items-center gap-2">
                   <span className="font-medium">Community Head:</span>
                   <span className="text-primary-600">{cluster.communityHead}</span>
@@ -74,7 +69,7 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
               </div>
 
               {cluster.topics && cluster.topics.length > 0 && (
-                <div className="mb-4 flex-shrink-0">
+                <div className="mb-4 min-h-[60px]">
                   <h3 className="text-xs font-semibold text-gray-700 mb-2">Topics</h3>
                   <div className="flex flex-wrap gap-1">
                     {cluster.topics.slice(0, 3).map((topic, index) => (
@@ -94,7 +89,7 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
                 </div>
               )}
 
-              <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
+              <div className="pt-4 border-t border-gray-200 mt-auto min-h-[52px]">
                 <a
                   href={`https://wa.me/917010584543?text=${encodeURIComponent(`Hi! I would like to join the ${cluster.name} group. Please add me.`)}`}
                   target="_blank"
@@ -109,13 +104,13 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
         </div>
       </div>
       {/* Desktop: Grid layout */}
-      <div className="hidden lg:grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 xl:gap-6">
+      <div className="hidden lg:grid grid-cols-3 gap-4 xl:gap-6 items-stretch">
         {filteredClusters.map((cluster) => (
           <div
             key={cluster.id}
             className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full overflow-hidden"
           >
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-4 mb-4 min-h-[72px]">
               <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-2xl flex-shrink-0">
                 {cluster.icon}
               </div>
@@ -129,15 +124,11 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
               </div>
             </div>
             
-            <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+            <p className="text-gray-600 text-sm mb-4 line-clamp-3 min-h-[60px]">
               {cluster.description}
             </p>
 
-            <div className="space-y-2 mb-4 text-sm text-gray-600 flex-shrink-0">
-              <div className="flex items-center gap-2">
-                <span className="font-medium">Members:</span>
-                <span>{cluster.memberCount}</span>
-              </div>
+            <div className="space-y-2 mb-4 text-sm text-gray-600 min-h-[28px]">
               <div className="flex items-center gap-2">
                 <span className="font-medium">Community Head:</span>
                 <span className="text-primary-600">{cluster.communityHead}</span>
@@ -145,7 +136,7 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
             </div>
 
             {cluster.topics && cluster.topics.length > 0 && (
-              <div className="mb-4 flex-shrink-0">
+              <div className="mb-4 min-h-[60px]">
                 <h3 className="text-xs font-semibold text-gray-700 mb-2">Topics</h3>
                 <div className="flex flex-wrap gap-1">
                   {cluster.topics.slice(0, 3).map((topic, index) => (
@@ -165,7 +156,7 @@ export default function HobbyClusterClient({ clusters }: HobbyClusterClientProps
               </div>
             )}
 
-            <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
+            <div className="pt-4 border-t border-gray-200 mt-auto min-h-[52px]">
               <a
                 href={`https://wa.me/917010584543?text=${encodeURIComponent(`Hi! I would like to join the ${cluster.name} group. Please add me.`)}`}
                 target="_blank"

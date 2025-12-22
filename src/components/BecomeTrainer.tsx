@@ -39,26 +39,20 @@ export default function BecomeTrainer() {
   const applicationSteps = [
     {
       step: 1,
-      title: 'Submit Application',
-      description: 'Fill out our trainer application form with your credentials, experience, and course proposal',
+      title: 'Apply',
+      description: 'Tell us about your experience and course.',
       icon: <FileText className="w-8 h-8" />,
     },
     {
       step: 2,
-      title: 'Review & Interview',
-      description: 'Our team reviews your application and conducts a brief interview to assess fit',
+      title: 'Review',
+      description: 'We review your application.',
       icon: <Users className="w-8 h-8" />,
     },
     {
       step: 3,
-      title: 'Course Proposal',
-      description: 'Submit a detailed course outline, syllabus, and pricing structure for approval',
-      icon: <BookOpen className="w-8 h-8" />,
-    },
-    {
-      step: 4,
-      title: 'Onboarding',
-      description: 'Complete onboarding, set up your trainer profile, and prepare for your first cohort',
+      title: 'Launch',
+      description: 'Set up your profile, and start teaching.',
       icon: <CheckCircle className="w-8 h-8" />,
     },
   ]
@@ -98,17 +92,75 @@ export default function BecomeTrainer() {
   ]
 
   return (
-    <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
-      <div className="container mx-auto px-4 max-w-screen-lg">
-        {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-gray-900 mb-4">
-            Become a Trainer
-          </h2>
-          <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their career goals.
-          </p>
+    <>
+      {/* Hero Section */}
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-br from-primary-50 to-white">
+        <div className="container mx-auto px-4 max-w-screen-lg">
+          <div className="text-center space-y-6 md:space-y-8">
+            <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900">
+              Become a Trainer
+            </h1>
+            <p className="text-[clamp(1.25rem,3vw,2rem)] text-primary-600 font-semibold">
+              Share Your Expertise. Grow Your Impact.
+            </p>
+            <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their career goals.
+            </p>
+            {/* CTA Button */}
+            <div className="flex justify-center pt-4 md:pt-6">
+              <a
+                href="#apply"
+                className="bg-primary-600 text-white px-8 py-3 md:px-10 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 min-w-[200px] text-center"
+                aria-label="Apply to become a trainer"
+              >
+                Apply Now
+              </a>
+            </div>
+          </div>
         </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-12 md:py-16 px-4 bg-white">
+        <div className="container mx-auto px-4 max-w-screen-lg">
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
+            How It Works
+          </h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+            {applicationSteps.map((step, index) => (
+              <>
+                <div
+                  key={step.step}
+                  className="flex flex-col items-center text-center flex-1 max-w-[280px]"
+                >
+                  <div className="bg-primary-600 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-lg">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base">
+                    {step.description}
+                  </p>
+                </div>
+                {index < applicationSteps.length - 1 && (
+                  <>
+                    <div className="hidden md:block text-primary-600 flex-shrink-0">
+                      <ArrowRight className="w-8 h-8" />
+                    </div>
+                    <div className="md:hidden text-primary-600 rotate-90 my-2">
+                      <ArrowRight className="w-8 h-8" />
+                    </div>
+                  </>
+                )}
+              </>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
+        <div className="container mx-auto px-4 max-w-screen-lg">
 
         {/* Eligibility Criteria */}
         <div className="mb-12 md:mb-16">
@@ -139,35 +191,6 @@ export default function BecomeTrainer() {
           </div>
         </div>
 
-        {/* Application Process */}
-        <div className="mb-12 md:mb-16">
-          <h3 className="text-[clamp(1.125rem,2vw,1.75rem)] font-bold text-gray-900 mb-6 text-center">
-            Application Process
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {applicationSteps.map((step) => (
-              <div
-                key={step.step}
-                className="bg-white p-4 md:p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition text-center"
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="bg-primary-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">
-                    {step.step}
-                  </div>
-                </div>
-                <div className="text-primary-600 mb-4 flex justify-center">
-                  {step.icon}
-                </div>
-                <h4 className="text-[clamp(1rem,1.5vw,1.125rem)] font-semibold text-gray-900 mb-2">
-                  {step.title}
-                </h4>
-                <p className="text-gray-600 text-sm md:text-base">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Benefits */}
         <div className="mb-12 md:mb-16">
@@ -200,7 +223,7 @@ export default function BecomeTrainer() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 lg:p-12 border-2 border-primary-200">
+        <div id="apply" className="bg-white rounded-xl shadow-lg p-6 md:p-8 lg:p-12 border-2 border-primary-200 scroll-mt-20">
           <div className="text-center max-w-2xl mx-auto">
             <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900 mb-4">
               Ready to Start Teaching?
@@ -234,6 +257,7 @@ export default function BecomeTrainer() {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

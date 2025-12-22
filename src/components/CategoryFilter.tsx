@@ -16,11 +16,11 @@ export default function CategoryFilter({ categories, selectedCategory, onCategor
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="mb-8">
+    <div className="mb-8 flex">
       <DropdownMenu.Root open={open} onOpenChange={setOpen}>
         <DropdownMenu.Trigger
           className={cn(
-            'w-full max-w-[600px] flex items-center gap-2 px-3 py-2',
+            'w-auto inline-flex items-center gap-2 px-3 py-2',
             'bg-white border border-gray-300 rounded-lg',
             'hover:bg-gray-50 transition',
             'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',

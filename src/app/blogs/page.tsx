@@ -2,8 +2,8 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { getAllBlogs } from '@/lib/markdown'
+import { Calendar, User, ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Blogs - WeLearnWeShare',
@@ -36,16 +36,17 @@ export default function BlogsPage() {
     <main className="min-h-screen">
       <Navigation />
       
-      <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
+      {/* Hero Section */}
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="text-center space-y-4 md:space-y-6">
-            <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-bold text-gray-900">
+          <div className="text-center space-y-6 md:space-y-8">
+            <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900">
               Blogs
             </h1>
-            <p className="text-[clamp(1rem,2.5vw,1.5rem)] text-primary-600 font-semibold">
+            <p className="text-[clamp(1.25rem,3vw,2rem)] text-primary-600 font-semibold">
               Learn, Grow, Share
             </p>
-            <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Read insights, tips, and stories from our community of learners and experts.
             </p>
           </div>
@@ -67,50 +68,39 @@ export default function BlogsPage() {
             <>
               {/* Mobile: Horizontal snap-scroll */}
               <div className="lg:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4 pb-4">
-                <div className="flex gap-4 w-max">
+                <div className="flex gap-4 w-max items-stretch">
                   {sortedBlogs.map((blog) => (
                     <Link
                       key={blog.slug}
                       href={`/blogs/${blog.slug}`}
-                      className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-auto w-[calc(85vw_-_16px)] flex-shrink-0 snap-center overflow-hidden"
+                      className="bg-white rounded-xl border border-gray-200 p-5 md:p-6 shadow-sm hover:shadow-lg hover:border-primary-300 transition-all duration-300 focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full w-[calc(85vw_-_16px)] flex-shrink-0 snap-center overflow-hidden group"
                     >
-                      {blog.image && (
-                        <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
-                          <Image
-                            src={blog.image}
-                            alt={blog.title}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 85vw, 50vw"
-                          />
-                        </div>
-                      )}
-                      <div className="mb-2">
-                        <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full">
+                      <div className="mb-3 min-h-[32px] flex-shrink-0">
+                        <span className="inline-block px-3 py-1.5 bg-primary-100 text-primary-700 text-xs font-semibold rounded-full">
                           {blog.category}
                         </span>
                       </div>
-                      <h2 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-2 flex-shrink-0">
+                      <h2 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-3 line-clamp-2 min-h-[48px] flex-shrink-0 group-hover:text-primary-600 transition-colors">
                         {blog.title}
                       </h2>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-3 min-h-[60px] flex-shrink-0 leading-relaxed">
                         {blog.description}
                       </p>
-                      <div className="space-y-2 mb-4 text-sm text-gray-600 flex-shrink-0">
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium">Author:</span>
-                          <span>{blog.author}</span>
+                      <div className="space-y-2.5 mb-4 text-sm text-gray-600 flex-shrink-0 flex flex-col">
+                        <div className="flex items-center gap-2 min-h-[24px]">
+                          <User className="w-4 h-4 text-gray-400" />
+                          <span className="text-gray-700">{blog.author}</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium">Date:</span>
-                          <span>{new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                        <div className="flex items-center gap-2 min-h-[24px]">
+                          <Calendar className="w-4 h-4 text-gray-400" />
+                          <span className="text-gray-700">{new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
                         </div>
                         {blog.tags && blog.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-2 pt-2">
+                          <div className="flex flex-wrap gap-2 pt-1 min-h-[28px]">
                             {blog.tags.slice(0, 3).map((tag, index) => (
                               <span
                                 key={index}
-                                className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                                className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-medium"
                               >
                                 #{tag}
                               </span>
@@ -118,9 +108,10 @@ export default function BlogsPage() {
                           </div>
                         )}
                       </div>
-                      <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
-                        <span className="text-primary-600 font-semibold text-sm hover:underline">
-                          Read More →
+                      <div className="pt-4 border-t border-gray-200 mt-auto min-h-[40px] flex-shrink-0">
+                        <span className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm group-hover:gap-3 transition-all">
+                          Read More
+                          <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>
                     </Link>
@@ -128,65 +119,55 @@ export default function BlogsPage() {
                 </div>
               </div>
               {/* Desktop: Grid layout */}
-              <div className="hidden lg:grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 xl:gap-6">
+              <div className="hidden lg:grid grid-cols-3 gap-4 xl:gap-6 items-stretch auto-rows-fr">
                 {sortedBlogs.map((blog) => (
                   <Link
                     key={blog.slug}
                     href={`/blogs/${blog.slug}`}
-                    className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full overflow-hidden"
+                    className="bg-white rounded-xl border border-gray-200 p-5 md:p-6 shadow-sm hover:shadow-lg hover:border-primary-300 transition-all duration-300 focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full min-h-0 overflow-hidden group"
                   >
-                    {blog.image && (
-                      <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
-                        <Image
-                          src={blog.image}
-                          alt={blog.title}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 1200px) 50vw, 33vw"
-                        />
-                      </div>
-                    )}
-                    <div className="mb-2">
-                      <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full">
+                    <div className="mb-3 min-h-[32px] flex-shrink-0">
+                      <span className="inline-block px-3 py-1.5 bg-primary-100 text-primary-700 text-xs font-semibold rounded-full">
                         {blog.category}
                       </span>
                     </div>
-                    <h2 className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold text-gray-900 mb-2 flex-shrink-0">
+                    <h2 className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold text-gray-900 mb-3 line-clamp-2 min-h-[48px] flex-shrink-0 group-hover:text-primary-600 transition-colors">
                       {blog.title}
                     </h2>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
-                    {blog.description}
-                  </p>
-                  <div className="space-y-2 mb-4 text-sm text-gray-600 flex-shrink-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium">Author:</span>
-                      <span>{blog.author}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium">Date:</span>
-                      <span>{new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                    </div>
-                    {blog.tags && blog.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {blog.tags.slice(0, 3).map((tag, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
-                          >
-                            #{tag}
-                          </span>
-                        ))}
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-3 min-h-[60px] flex-shrink-0 leading-relaxed">
+                      {blog.description}
+                    </p>
+                    <div className="space-y-2.5 mb-4 text-sm text-gray-600 flex-shrink-0 flex flex-col">
+                      <div className="flex items-center gap-2 min-h-[24px]">
+                        <User className="w-4 h-4 text-gray-400" />
+                        <span className="text-gray-700">{blog.author}</span>
                       </div>
-                    )}
-                  </div>
-                  <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
-                    <span className="text-primary-600 font-semibold text-sm hover:underline">
-                      Read More →
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
+                      <div className="flex items-center gap-2 min-h-[24px]">
+                        <Calendar className="w-4 h-4 text-gray-400" />
+                        <span className="text-gray-700">{new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                      </div>
+                      {blog.tags && blog.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2 pt-1 min-h-[28px]">
+                          {blog.tags.slice(0, 3).map((tag, index) => (
+                            <span
+                              key={index}
+                              className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-medium"
+                            >
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div className="pt-4 border-t border-gray-200 mt-auto min-h-[40px] flex-shrink-0">
+                      <span className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm group-hover:gap-3 transition-all">
+                        Read More
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </>
           )}
         </div>
