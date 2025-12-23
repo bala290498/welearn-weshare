@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import ShareButton from '@/components/ShareButton'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -121,7 +122,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
       <Navigation />
       
       <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
-        <div className="container mx-auto px-4 max-w-screen-lg">
+        <div className="container mx-auto px-4 max-w-screen-xl">
           <div className="mb-4">
             <a 
               href="/skill-building" 
@@ -136,70 +137,69 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 {course.category}
               </span>
             </div>
-            <h1 className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-gray-900">
-              {course.title}
-            </h1>
-            <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 leading-relaxed">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <h1 className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-gray-900 flex-1">
+                {course.title}
+              </h1>
+              <div className="flex-shrink-0">
+                <ShareButton 
+                  url={`https://welearnweshare.com/skill-building/${id}`}
+                  title={course.title}
+                />
+              </div>
+            </div>
+            <p className="text-[clamp(0.875rem,2vw,1.25rem)] text-gray-600 leading-relaxed">
               {course.description}
             </p>
           </div>
         </div>
       </section>
 
+      {/* Dynamic Group Pricing Section */}
+      {course.studentsEnrolled !== undefined && course.maxStudents !== undefined && (
+        <section className="py-6 md:py-10 px-4 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-screen-lg">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Dynamic group pricing</h2>
+            
+            {/* Three Column Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Column 1: Students Enrolled */}
+              <div className="px-4 md:px-6 text-center">
+                <p className="text-xs text-gray-600 mb-2">Students enrolled:</p>
+                <p className="text-3xl md:text-4xl font-bold text-primary-600 mb-4">{validEnrolled} / {maxStudents}</p>
+                <div className="w-full bg-gray-200 rounded-full h-2.5">
+                  <div
+                    className="bg-primary-600 h-2.5 rounded-full transition-all duration-300"
+                    style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
+                  />
+                </div>
+              </div>
+              
+              {/* Column 2: Capacity Price */}
+              <div className="px-4 md:px-6 text-center">
+                <p className="text-xs text-gray-600 mb-1">Capacity price</p>
+                <p className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{formatPrice(potentialPrice)}</p>
+                <p className="text-xs text-gray-500">
+                  Capacity ({maxStudents}): {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
+                </p>
+              </div>
+              
+              {/* Column 3: Current Price */}
+              <div className="px-4 md:px-6 text-center">
+                <p className="text-xs text-gray-600 mb-1">Current price</p>
+                <p className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{formatPrice(currentPrice)}</p>
+                <p className="text-xs text-gray-500">
+                  Current ({validEnrolled}): {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled || 0} = {formatPrice(currentPrice)}
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6 text-center">Price drops as more students join</p>
+          </div>
+        </section>
+      )}
+
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
-            <div className="bg-gray-50 rounded-lg p-4 md:p-6">
-              <h3 className="text-sm font-semibold text-gray-500 mb-2">Duration</h3>
-              <p className="text-lg font-bold text-gray-900">{course.duration}</p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-4 md:p-6">
-              <h3 className="text-sm font-semibold text-gray-500 mb-4">Dynamic group pricing</h3>
-              {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm text-gray-600">Course price:</span>
-                      <span className="text-base font-semibold text-gray-900">{course.price}</span>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-gray-600">Students enrolled:</span>
-                      <span className="text-base font-semibold text-primary-600">{validEnrolled} / {maxStudents}</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                      <div
-                        className="bg-primary-600 h-2.5 rounded-full transition-all duration-300"
-                        style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
-                      />
-                    </div>
-                  </div>
-                  <div className="pt-3 border-t border-gray-300">
-                    <p className="text-sm text-gray-600 mb-2">Price per head:</p>
-                    <p className="text-xl font-bold text-primary-600 mb-3">
-                      {formatPrice(currentPrice)} - {formatPrice(potentialPrice)}
-                    </p>
-                    <div className="space-y-1 text-xs text-gray-500">
-                      <p>
-                        Current ({validEnrolled}): {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled} = {formatPrice(currentPrice)}
-                      </p>
-                      <p>
-                        Capacity ({maxStudents}): {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-500 mt-3">Price drops as more students join</p>
-                </div>
-              ) : (
-                <>
-                  <p className="text-lg font-bold text-primary-600 mb-1">{course.price}</p>
-                  <p className="text-xs text-gray-500">Price drops as more students join</p>
-                </>
-              )}
-            </div>
-          </div>
-
           <div className="space-y-8 md:space-y-12">
             {/* Instructor */}
             <div>

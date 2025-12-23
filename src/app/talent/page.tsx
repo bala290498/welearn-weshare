@@ -48,12 +48,20 @@ export default function TalentPage() {
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover top performers from our community. These talents have proven their skills through regular in-house challenges and tasks.
             </p>
+            <div className="flex justify-center items-center pt-4">
+              <a
+                href="#talent-content"
+                className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+              >
+                Browse Talent
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Talent Content Section */}
-      <section className="py-6 md:py-10 px-4 bg-gray-50">
+      <section id="talent-content" className="py-6 md:py-10 px-4 bg-gray-50 scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-xl">
           <TalentContent studentsByCategory={studentsByCategory} />
         </div>

@@ -136,7 +136,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                       'inline-block px-3 py-1 text-sm font-semibold rounded-full',
                       course.batchType === 'prime'
                         ? 'bg-orange-100 text-orange-700'
-                        : 'bg-blue-100 text-blue-700'
+                        : 'bg-purple-100 text-purple-700'
                     )}>
                       {course.batchType === 'prime' ? 'Prime' : 'Collective'}
                     </span>
@@ -148,6 +148,136 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                 <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
                   {course.description}
                 </p>
+                {course.batchType !== 'prime' && (
+                  <div className="space-y-3 mb-4 text-sm text-gray-600 flex-shrink-0">
+                    {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
+                      <>
+                        <div className="flex flex-col gap-2">
+                          {(() => {
+                            const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
+                            const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
+                            const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
+                            return (
+                              <>
+                                <div className="flex items-center justify-between text-xs">
+                                  <span className="font-medium text-gray-600">Students enrolled:</span>
+                                  <span className="text-primary-600 font-semibold">
+                                    {validEnrolled} / {course.maxStudents}
+                                  </span>
+                                </div>
+                                <div className="w-full bg-gray-200 rounded-full h-2">
+                                  <div
+                                    className="bg-primary-600 h-2 rounded-full transition-all duration-300"
+                                    style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
+                                  />
+                                </div>
+                              </>
+                            )
+                          })()}
+                        </div>
+                        
+                        <div className="pt-2 border-t border-gray-200">
+                          {(() => {
+                            if (!mounted) {
+                              return (
+                                <div className="grid grid-cols-2 gap-3">
+                                  <div>
+                                    <p className="text-xs text-gray-600 mb-1">Current price</p>
+                                    <p className="text-primary-600 font-semibold text-sm">₹0</p>
+                                    <p className="text-gray-500 text-xs">Loading...</p>
+                                  </div>
+                                  <div>
+                                    <p className="text-xs text-gray-600 mb-1">Capacity price</p>
+                                    <p className="text-primary-600 font-semibold text-sm">₹0</p>
+                                    <p className="text-gray-500 text-xs">Loading...</p>
+                                  </div>
+                                </div>
+                              )
+                            }
+                            const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
+                            const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
+                            const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
+                            const potentialPrice = calculatePotentialPrice(basePrice, course.maxStudents)
+                            const displayEnrolled = validEnrolled === 0 ? 0 : validEnrolled
+                            return (
+                              <div className="grid grid-cols-2 gap-3">
+                                <div>
+                                  <p className="text-xs text-gray-600 mb-1">Current price</p>
+                                  <p className="text-primary-600 font-semibold text-sm">{formatPrice(currentPrice)}</p>
+                                  <p className="text-gray-500 text-xs">
+                                    {basePrice.toLocaleString('en-IN')} ÷ {displayEnrolled} = {formatPrice(currentPrice)}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-xs text-gray-600 mb-1">Capacity price</p>
+                                  <p className="text-primary-600 font-semibold text-sm">{formatPrice(potentialPrice)}</p>
+                                  <p className="text-gray-500 text-xs">
+                                    {basePrice.toLocaleString('en-IN')} ÷ {course.maxStudents} = {formatPrice(potentialPrice)}
+                                  </p>
+                                </div>
+                              </div>
+                            )
+                          })()}
+                          <p className="text-gray-500 text-xs mt-3 text-center">Price drops as more students join</p>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-2">
+                          <span className="font-medium">Dynamic group pricing:</span>
+                        </div>
+                        <span className="text-primary-600 font-semibold text-xs">{course.price}</span>
+                        <span className="text-gray-500 text-xs block text-center">Price drops as more students join</span>
+                      </div>
+                    )}
+                  </div>
+                )}
+                <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0 text-center">
+                  <span className="text-primary-600 font-semibold text-sm hover:underline">
+                    View Details →
+                  </span>
+                </div>
+              </Link>
+            ))
+          )}
+        </div>
+      </div>
+      
+      {/* Desktop: Grid layout */}
+      <div className="hidden lg:grid grid-cols-3 gap-4 xl:gap-6">
+        {filteredCourses.length === 0 ? (
+          <div className="col-span-full text-center py-12 text-gray-500">
+            No courses found matching your filters.
+          </div>
+        ) : (
+          filteredCourses.map((course) => (
+            <Link
+              key={course.slug}
+              href={`/skill-building/${course.slug}`}
+              className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full overflow-hidden"
+            >
+              <div className="mb-4 flex flex-wrap gap-2">
+                <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full">
+                  {course.category}
+                </span>
+                {course.batchType && (
+                  <span className={cn(
+                    'inline-block px-3 py-1 text-sm font-semibold rounded-full',
+                    course.batchType === 'prime'
+                      ? 'bg-orange-100 text-orange-700'
+                      : 'bg-purple-100 text-purple-700'
+                  )}>
+                    {course.batchType === 'prime' ? 'Prime' : 'Collective'}
+                  </span>
+                )}
+              </div>
+              <h2 className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold text-gray-900 mb-2 flex-shrink-0">
+                {course.title}
+              </h2>
+              <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                {course.description}
+              </p>
+              {course.batchType !== 'prime' && (
                 <div className="space-y-3 mb-4 text-sm text-gray-600 flex-shrink-0">
                   {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
                     <>
@@ -230,134 +360,8 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                     </div>
                   )}
                 </div>
-                <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
-                  <span className="text-primary-600 font-semibold text-sm hover:underline">
-                    View Details →
-                  </span>
-                </div>
-              </Link>
-            ))
-          )}
-        </div>
-      </div>
-      
-      {/* Desktop: Grid layout */}
-      <div className="hidden lg:grid grid-cols-3 gap-4 xl:gap-6">
-        {filteredCourses.length === 0 ? (
-          <div className="col-span-full text-center py-12 text-gray-500">
-            No courses found matching your filters.
-          </div>
-        ) : (
-          filteredCourses.map((course) => (
-            <Link
-              key={course.slug}
-              href={`/skill-building/${course.slug}`}
-              className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full overflow-hidden"
-            >
-              <div className="mb-4 flex flex-wrap gap-2">
-                <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full">
-                  {course.category}
-                </span>
-                {course.batchType && (
-                  <span className={cn(
-                    'inline-block px-3 py-1 text-sm font-semibold rounded-full',
-                    course.batchType === 'prime'
-                      ? 'bg-orange-100 text-orange-700'
-                      : 'bg-blue-100 text-blue-700'
-                  )}>
-                    {course.batchType === 'prime' ? 'Prime' : 'Collective'}
-                  </span>
-                )}
-              </div>
-              <h2 className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold text-gray-900 mb-2 flex-shrink-0">
-                {course.title}
-              </h2>
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
-                {course.description}
-              </p>
-              <div className="space-y-3 mb-4 text-sm text-gray-600 flex-shrink-0">
-                {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
-                  <>
-                    <div className="flex flex-col gap-2">
-                      {(() => {
-                        const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
-                        const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
-                        const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
-                        return (
-                          <>
-                            <div className="flex items-center justify-between text-xs">
-                              <span className="font-medium text-gray-600">Students enrolled:</span>
-                              <span className="text-primary-600 font-semibold">
-                                {validEnrolled} / {course.maxStudents}
-                              </span>
-                            </div>
-                            <div className="w-full bg-gray-200 rounded-full h-2">
-                              <div
-                                className="bg-primary-600 h-2 rounded-full transition-all duration-300"
-                                style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
-                              />
-                            </div>
-                          </>
-                        )
-                      })()}
-                    </div>
-                    
-                    <div className="pt-2 border-t border-gray-200">
-                      {(() => {
-                        if (!mounted) {
-                          return (
-                            <div className="grid grid-cols-2 gap-3">
-                              <div>
-                                <p className="text-xs text-gray-600 mb-1">Current price</p>
-                                <p className="text-primary-600 font-semibold text-sm">₹0</p>
-                                <p className="text-gray-500 text-xs">Loading...</p>
-                              </div>
-                              <div>
-                                <p className="text-xs text-gray-600 mb-1">Capacity price</p>
-                                <p className="text-primary-600 font-semibold text-sm">₹0</p>
-                                <p className="text-gray-500 text-xs">Loading...</p>
-                              </div>
-                            </div>
-                          )
-                        }
-                        const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
-                        const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
-                        const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
-                        const potentialPrice = calculatePotentialPrice(basePrice, course.maxStudents)
-                        const displayEnrolled = validEnrolled === 0 ? 0 : validEnrolled
-                        return (
-                          <div className="grid grid-cols-2 gap-3">
-                            <div>
-                              <p className="text-xs text-gray-600 mb-1">Current price</p>
-                              <p className="text-primary-600 font-semibold text-sm">{formatPrice(currentPrice)}</p>
-                              <p className="text-gray-500 text-xs">
-                                {basePrice.toLocaleString('en-IN')} ÷ {displayEnrolled} = {formatPrice(currentPrice)}
-                              </p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-gray-600 mb-1">Capacity price</p>
-                              <p className="text-primary-600 font-semibold text-sm">{formatPrice(potentialPrice)}</p>
-                              <p className="text-gray-500 text-xs">
-                                {basePrice.toLocaleString('en-IN')} ÷ {course.maxStudents} = {formatPrice(potentialPrice)}
-                              </p>
-                            </div>
-                          </div>
-                        )
-                      })()}
-                      <p className="text-gray-500 text-xs mt-3 text-center">Price drops as more students join</p>
-                    </div>
-                  </>
-                ) : (
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium">Dynamic group pricing:</span>
-                    </div>
-                    <span className="text-primary-600 font-semibold text-xs">{course.price}</span>
-                    <span className="text-gray-500 text-xs block text-center">Price drops as more students join</span>
-                  </div>
-                )}
-              </div>
-              <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
+              )}
+              <div className="pt-4 border-t border-gray-200 mt-auto flex-shrink-0 text-center">
                 <span className="text-primary-600 font-semibold text-sm hover:underline">
                   View Details →
                 </span>
