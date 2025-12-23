@@ -46,19 +46,14 @@ export default function CommunityVoiceContent() {
   })
   const [polls, setPolls] = useState<Poll[]>([
     {
-      id: '1',
-      title: 'Which Advanced DevOps Course Should We Launch Next?',
-      description: 'Help us decide the next advanced course to add to our curriculum. Your vote determines what we prioritize.',
-      options: [
-        { id: 'opt1', label: 'Kubernetes Advanced Administration', votes: 245, percentage: 35 },
-        { id: 'opt2', label: 'Terraform Infrastructure as Code', votes: 189, percentage: 27 },
-        { id: 'opt3', label: 'GitOps with ArgoCD', votes: 156, percentage: 22 },
-        { id: 'opt4', label: 'Docker Swarm Orchestration', votes: 108, percentage: 16 },
-      ],
-      totalVotes: 698,
+      id: '2',
+      title: 'New Poll',
+      description: 'Vote on this poll.',
+      options: [],
+      totalVotes: 0,
       status: 'active',
-      endDate: '2024-02-15',
-      category: 'DevOps'
+      endDate: '2024-12-31',
+      category: 'General'
     },
   ])
 
@@ -176,11 +171,6 @@ Why is this important: ${formData.whyImportant}`
       <section className="py-6 md:py-8 px-4 bg-gradient-to-br from-primary-100 to-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-4 md:space-y-6">
-            <div className="flex justify-center mb-4">
-              <div className="bg-primary-600 text-white rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
-                <Vote className="w-8 h-8 md:w-10 md:h-10" />
-              </div>
-            </div>
             <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-bold text-gray-900">
               Community Voice
             </h1>
@@ -214,7 +204,7 @@ Why is this important: ${formData.whyImportant}`
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
             {howItWorks.map((item, index) => (
-              <div key={item.step} className="flex items-center gap-4 md:gap-8">
+              <div key={item.step} className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                 <div className="text-center flex-shrink-0">
                   <div className="text-primary-600 mb-4 flex justify-center">
                     {item.icon}
@@ -227,7 +217,10 @@ Why is this important: ${formData.whyImportant}`
                   </p>
                 </div>
                 {index < howItWorks.length - 1 && (
-                  <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-primary-600 flex-shrink-0 hidden md:block" />
+                  <>
+                    <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-primary-600 flex-shrink-0 hidden md:block rotate-0" />
+                    <ArrowRight className="w-6 h-6 text-primary-600 flex-shrink-0 md:hidden rotate-90" />
+                  </>
                 )}
               </div>
             ))}
@@ -247,8 +240,8 @@ Why is this important: ${formData.whyImportant}`
 
           <div className="flex flex-col items-center">
             {activePolls.map((poll) => {
-              // Render StrawPoll embed for poll id '1'
-              if (poll.id === '1') {
+              // Render StrawPoll embed for poll id '2'
+              if (poll.id === '2') {
                 return (
                   <div
                     key={poll.id}
@@ -256,12 +249,12 @@ Why is this important: ${formData.whyImportant}`
                   >
                     <div
                       className="strawpoll-embed flex w-full max-w-[640px] flex-col"
-                      id="strawpoll_Dwyo3d7VNyA"
+                      id="strawpoll_NPgxeGQPPZ2"
                     >
                       <iframe
                         title="StrawPoll Embed"
-                        id="strawpoll_iframe_Dwyo3d7VNyA"
-                        src="https://strawpoll.com/embed/Dwyo3d7VNyA"
+                        id="strawpoll_iframe_NPgxeGQPPZ2"
+                        src="https://strawpoll.com/embed/NPgxeGQPPZ2"
                         className="block w-full border-none min-h-[520px]"
                         frameBorder="0"
                         allowFullScreen
