@@ -7,7 +7,7 @@ duration: 10 weeks
 level: Beginner to Intermediate
 instructor: Senior Linux Administrator
 price: ₹49,000
-studentsEnrolled: 0
+studentsEnrolled: 12
 maxStudents: 25
 batchType: collective
 tags: [Linux, System Administration, Shell Scripting, Bash, Server Management]

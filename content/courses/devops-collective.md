@@ -7,7 +7,7 @@ duration: 12 weeks
 level: Intermediate
 instructor: Expert DevOps Engineer
 price: ₹99,000
-studentsEnrolled: 0
+studentsEnrolled: 12
 maxStudents: 50
 batchType: collective
 tags: [DevOps, CI/CD, Docker, Kubernetes, Terraform]
