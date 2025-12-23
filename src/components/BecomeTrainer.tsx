@@ -72,17 +72,17 @@ export default function BecomeTrainer() {
     <>
       {/* Hero Section */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-br from-primary-50 to-white">
-        <div className="container mx-auto px-4 max-w-screen-lg">
+      <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-6 md:space-y-8">
             <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900">
-              Become a Trainer
+            Become a Trainer
             </h1>
             <p className="text-[clamp(1.25rem,3vw,2rem)] text-primary-600 font-semibold">
               Share Your Expertise. Grow Your Impact.
             </p>
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their career goals.
-            </p>
+            Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their career goals.
+          </p>
             {/* CTA Button */}
             <div className="flex justify-center pt-4 md:pt-6">
               <a
@@ -92,7 +92,7 @@ export default function BecomeTrainer() {
               >
                 Apply Now
               </a>
-            </div>
+              </div>
           </div>
         </div>
       </section>
@@ -106,20 +106,20 @@ export default function BecomeTrainer() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
             {applicationSteps.map((step, index) => (
               <>
-                <div
-                  key={step.step}
+              <div
+                key={step.step}
                   className="flex flex-col items-center text-center flex-1 max-w-[280px]"
-                >
+              >
                   <div className="bg-primary-600 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-lg">
                     {step.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {step.title}
+                  {step.title}
                   </h3>
-                  <p className="text-gray-600 text-sm md:text-base">
-                    {step.description}
-                  </p>
-                </div>
+                <p className="text-gray-600 text-sm md:text-base">
+                  {step.description}
+                </p>
+              </div>
                 {index < applicationSteps.length - 1 && (
                   <>
                     <div className="hidden md:block text-primary-600 flex-shrink-0">
@@ -171,7 +171,7 @@ export default function BecomeTrainer() {
       </div>
     </section>
 
-      {/* CTA Section */}
+        {/* CTA Section */}
       <section id="apply" className="py-12 md:py-16 px-4 bg-gradient-to-br from-primary-600 to-primary-800 text-white scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center max-w-2xl mx-auto">
@@ -197,10 +197,10 @@ export default function BecomeTrainer() {
                 <Phone className="w-5 h-5" />
                 Contact Us
               </a>
-            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
     </>
   )
 }

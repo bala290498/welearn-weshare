@@ -228,16 +228,16 @@ export default function OpeningsContent({ jobs }: OpeningsContentProps) {
             </h2>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-primary-100 mb-8">
               Looking to hire? Post your job openings and connect with talented professionals.
-            </p>
+                </p>
 
-            <a
+                <a
               href="mailto:openings@welearnweshare.com?subject=Post Job Opening"
               className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 px-6 py-3 md:px-8 md:py-4 rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold text-base md:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
-            >
+              >
               <FilePlus className="w-5 h-5" />
               Post Opening
               <ArrowRight className="w-5 h-5" />
-            </a>
+              </a>
           </div>
         </div>
       </section>

@@ -169,3 +169,8 @@ a {
 .animate-accordion-up {
   animation: accordion-up 0.2s ease-out;
 }
+
+/* Fix StrawPoll embed spacing - ensure proper layout */
+.strawpoll-embed iframe {
+  border: none !important;
+}

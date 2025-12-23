@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function CommunityVoicePage() {
   return (
-    <main className="min-h-screen">
+    <main>
       <Navigation />
       <CommunityVoiceContent />
       <Footer />

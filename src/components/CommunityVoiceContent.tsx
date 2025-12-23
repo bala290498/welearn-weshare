@@ -188,7 +188,7 @@ Why is this important: ${formData.whyImportant}`
   return (
     <>
       {/* Hero Section */}
-      <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
+      <section className="py-6 md:py-8 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-4 md:space-y-6">
             <div className="flex justify-center mb-4">
@@ -210,7 +210,7 @@ Why is this important: ${formData.whyImportant}`
       </section>
 
       {/* How It Works */}
-      <section className="py-6 md:py-10 px-4 bg-white">
+      <section className="py-6 md:py-8 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
             How It Works
@@ -247,50 +247,38 @@ Why is this important: ${formData.whyImportant}`
       </section>
 
       {/* Active Polls */}
-      <section className="py-6 md:py-10 px-4 bg-gray-50">
+      <section className="py-6 md:py-8 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
+          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-3">
             Active Polls
           </h2>
-          <p className="text-center text-gray-600 mb-8 md:mb-12 text-[clamp(0.875rem,2vw,1rem)] max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 mb-6 text-[clamp(0.875rem,2vw,1rem)] max-w-2xl mx-auto">
             Cast your vote and help decide what courses we launch next
           </p>
 
-          <div className="space-y-6 md:space-y-8">
+          <div className="flex flex-col items-center">
             {activePolls.map((poll) => {
               // Render StrawPoll embed for poll id '1'
               if (poll.id === '1') {
                 return (
                   <div
                     key={poll.id}
-                    className="strawpoll-embed"
-                    id="strawpoll_Dwyo3d7VNyA"
-                    style={{
-                      height: '644px',
-                      maxWidth: '640px',
-                      width: '100%',
-                      margin: '0 auto',
-                      display: 'flex',
-                      flexDirection: 'column'
-                    }}
+                    className="w-full flex justify-center"
                   >
-                    <iframe
-                      title="StrawPoll Embed"
-                      id="strawpoll_iframe_Dwyo3d7VNyA"
-                      src="https://strawpoll.com/embed/Dwyo3d7VNyA"
-                      style={{
-                        position: 'static',
-                        visibility: 'visible',
-                        display: 'block',
-                        width: '100%',
-                        flexGrow: 1
-                      }}
-                      frameBorder="0"
-                      allowFullScreen
-                      allowTransparency
+                    <div
+                      className="strawpoll-embed flex w-full max-w-[640px] flex-col"
+                      id="strawpoll_Dwyo3d7VNyA"
                     >
-                      Loading...
-                    </iframe>
+                      <iframe
+                        title="StrawPoll Embed"
+                        id="strawpoll_iframe_Dwyo3d7VNyA"
+                        src="https://strawpoll.com/embed/Dwyo3d7VNyA"
+                        className="block w-full border-none min-h-[520px]"
+                        frameBorder="0"
+                        allowFullScreen
+                        allowTransparency
+                      />
+                    </div>
                   </div>
                 )
               }
@@ -300,34 +288,22 @@ Why is this important: ${formData.whyImportant}`
                 return (
                   <div
                     key={poll.id}
-                    className="strawpoll-embed"
-                    id="strawpoll_jVyG2emLzZ7"
-                    style={{
-                      height: '644px',
-                      maxWidth: '640px',
-                      width: '100%',
-                      margin: '0 auto',
-                      display: 'flex',
-                      flexDirection: 'column'
-                    }}
+                    className="w-full flex justify-center"
                   >
-                    <iframe
-                      title="StrawPoll Embed"
-                      id="strawpoll_iframe_jVyG2emLzZ7"
-                      src="https://strawpoll.com/embed/jVyG2emLzZ7"
-                      style={{
-                        position: 'static',
-                        visibility: 'visible',
-                        display: 'block',
-                        width: '100%',
-                        flexGrow: 1
-                      }}
-                      frameBorder="0"
-                      allowFullScreen
-                      allowTransparency
+                    <div
+                      className="strawpoll-embed flex w-full max-w-[640px] flex-col"
+                      id="strawpoll_jVyG2emLzZ7"
                     >
-                      Loading...
-                    </iframe>
+                      <iframe
+                        title="StrawPoll Embed"
+                        id="strawpoll_iframe_jVyG2emLzZ7"
+                        src="https://strawpoll.com/embed/jVyG2emLzZ7"
+                        className="block w-full border-none min-h-[520px]"
+                        frameBorder="0"
+                        allowFullScreen
+                        allowTransparency
+                      />
+                    </div>
                   </div>
                 )
               }
@@ -440,12 +416,12 @@ Why is this important: ${formData.whyImportant}`
       </section>
 
       {/* Benefits Section */}
-      <section className="py-6 md:py-10 px-4 bg-white">
+      <section className="py-6 md:py-8 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
             Why Community Voice Matters
           </h2>
-          <p className="text-center text-gray-600 mb-8 md:mb-12 text-[clamp(0.875rem,2vw,1rem)] max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 mb-8 md:mb-10 text-[clamp(0.875rem,2vw,1rem)] max-w-2xl mx-auto">
             Building a learning community where your voice shapes the curriculum
           </p>
 
@@ -473,27 +449,27 @@ Why is this important: ${formData.whyImportant}`
       </section>
 
       {/* CTA Section */}
-      <section className="py-6 md:py-10 px-4 bg-white">
+      <section className="py-6 md:py-8 px-4 bg-gradient-to-br from-primary-600 to-primary-800">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="bg-gradient-to-br from-primary-50 to-white rounded-xl shadow-lg p-6 md:p-8 lg:p-12 border-2 border-primary-200 text-center">
-            <h2 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900 mb-4">
+          <div className="text-center text-white">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-3">
               Have a Course Idea?
             </h2>
-            <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
+            <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-primary-100 mb-6 md:mb-8 max-w-2xl mx-auto">
               Suggest a course you&apos;d like to see, and we&apos;ll create a poll for the community to vote on it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
               >
-                <Vote className="w-4 h-4" />
+                <Vote className="w-5 h-5" />
                 Suggest a Course
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5" />
               </button>
               <a
                 href="/openings"
-                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 bg-transparent text-white border-2 border-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl hover:bg-white hover:text-primary-600 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
               >
                 View Openings
               </a>

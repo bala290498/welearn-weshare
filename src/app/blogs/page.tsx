@@ -135,39 +135,39 @@ export default function BlogsPage() {
                       {blog.title}
                     </h2>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-3 min-h-[60px] flex-shrink-0 leading-relaxed">
-                      {blog.description}
-                    </p>
+                    {blog.description}
+                  </p>
                     <div className="space-y-2.5 mb-4 text-sm text-gray-600 flex-shrink-0 flex flex-col">
                       <div className="flex items-center gap-2 min-h-[24px]">
                         <User className="w-4 h-4 text-gray-400" />
                         <span className="text-gray-700">{blog.author}</span>
-                      </div>
+                    </div>
                       <div className="flex items-center gap-2 min-h-[24px]">
                         <Calendar className="w-4 h-4 text-gray-400" />
                         <span className="text-gray-700">{new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-                      </div>
-                      {blog.tags && blog.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 pt-1 min-h-[28px]">
-                          {blog.tags.slice(0, 3).map((tag, index) => (
-                            <span
-                              key={index}
-                              className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-medium"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
                     </div>
+                    {blog.tags && blog.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2 pt-1 min-h-[28px]">
+                        {blog.tags.slice(0, 3).map((tag, index) => (
+                          <span
+                            key={index}
+                              className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-medium"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                     <div className="pt-4 border-t border-gray-200 mt-auto min-h-[40px] flex-shrink-0">
                       <span className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm group-hover:gap-3 transition-all">
                         Read More
                         <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
             </>
           )}
         </div>
