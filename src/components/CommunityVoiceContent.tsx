@@ -506,7 +506,7 @@ Why is this important: ${formData.whyImportant}`
       <Script
         src="https://cdn.strawpoll.com/dist/widgets.js"
         strategy="lazyOnload"
-        charset="utf-8"
+        charSet="utf-8"
       />
 
       {/* Course Suggestion Modal */}
