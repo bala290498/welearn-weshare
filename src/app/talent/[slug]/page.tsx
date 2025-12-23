@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { getAllStudents, getStudentBySlug } from '@/data/students'
-import { CheckCircle, Award, Linkedin, Github, Globe, Mail, Phone } from 'lucide-react'
+import { CheckCircle, Award, Linkedin, Github, Globe, Mail } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
   }
 
-  const description = `Meet ${student.name}, a ${student.category} expert from WeLearnWeShare. View portfolio, achievements, and connect.`
+  const description = `Meet ${student.name}, a ${student.category} expert from WeLearnWeShare. View portfolio, achievements, and links.`
 
   return {
     title: `${student.name} - Talent Showcase - WeLearnWeShare`,
@@ -185,12 +185,12 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
               </ul>
             </div>
 
-            {/* Connect */}
+            {/* Links */}
             {(student.socialLinks.linkedin || student.socialLinks.github || student.socialLinks.website) && (
               <div>
                 <div className="border-b-2 border-gray-200 pb-3 mb-6">
                   <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
-                    Connect
+                    Links
                   </h2>
                 </div>
                 <div className="flex flex-wrap gap-4">
@@ -210,7 +210,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
                       href={student.socialLinks.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
+                      className="flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
                     >
                       <Github className="w-5 h-5" />
                       <span>GitHub</span>
@@ -249,18 +249,6 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
                     className="text-primary-600 hover:text-primary-700 text-sm md:text-base"
                   >
                     {student.contactEmail}
-                  </a>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <Phone className="w-4 h-4 text-gray-600" />
-                    <h3 className="text-sm font-semibold text-gray-700">Phone</h3>
-                  </div>
-                  <a 
-                    href={`tel:${student.contactPhone}`}
-                    className="text-primary-600 hover:text-primary-700 text-sm md:text-base"
-                  >
-                    {student.contactPhone}
                   </a>
                 </div>
               </div>

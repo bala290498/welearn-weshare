@@ -92,7 +92,7 @@ export const courses: Course[] = [
   {
     id: 'aws',
     title: 'AWS Cloud Computing',
-    category: 'Cloud',
+    category: 'AWS',
     description: 'Comprehensive AWS training covering EC2, S3, Lambda, and cloud architecture best practices.',
     duration: '14 weeks',
     level: 'Intermediate',

@@ -64,9 +64,9 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
                     </div>
                   </div>
 
-                  {/* Connect Icons */}
+                  {/* Links Icons */}
                   <div className="mb-4 min-h-[32px] flex-shrink-0">
-                    <p className="text-xs text-gray-500 font-medium mb-2">Connect</p>
+                    <p className="text-xs text-gray-500 font-medium mb-2">Links</p>
                     <div className="flex gap-2">
                       {student.socialLinks.linkedin && (
                         <a
@@ -84,7 +84,7 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
                           href={student.socialLinks.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-8 h-8 rounded-lg bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 transition"
+                          className="w-8 h-8 rounded-lg bg-gray-200 text-gray-700 flex items-center justify-center hover:bg-gray-300 transition"
                           aria-label="GitHub"
                         >
                           <Github className="w-4 h-4" />

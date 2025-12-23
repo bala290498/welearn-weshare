@@ -154,36 +154,43 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               <p className="text-lg font-bold text-gray-900">{course.duration}</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4 md:p-6">
-              <h3 className="text-sm font-semibold text-gray-500 mb-2">Dynamic group pricing</h3>
+              <h3 className="text-sm font-semibold text-gray-500 mb-4">Dynamic group pricing</h3>
               {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
-                <>
-                  <div className="mb-3 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-600">Course price:</span>
-                      <span className="text-sm font-semibold text-gray-900">{course.price}</span>
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm text-gray-600">Course price:</span>
+                      <span className="text-base font-semibold text-gray-900">{course.price}</span>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-600">Students enrolled:</span>
-                      <span className="text-sm font-semibold text-primary-600">{validEnrolled} / {course.maxStudents}</span>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-gray-600">Students enrolled:</span>
+                      <span className="text-base font-semibold text-primary-600">{validEnrolled} / {maxStudents}</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
                       <div
                         className="bg-primary-600 h-2.5 rounded-full transition-all duration-300"
-                        style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
+                        style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
                       />
                     </div>
                   </div>
                   <div className="pt-3 border-t border-gray-300">
-                    <p className="text-xs text-gray-600 mb-1">Price per head:</p>
-                    <p className="text-lg font-bold text-primary-600">
+                    <p className="text-sm text-gray-600 mb-2">Price per head:</p>
+                    <p className="text-xl font-bold text-primary-600 mb-3">
                       {formatPrice(currentPrice)} - {formatPrice(potentialPrice)}
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">
-                      Current ({validEnrolled}): {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled} = {formatPrice(currentPrice)} | Capacity ({maxStudents}): {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
-                    </p>
+                    <div className="space-y-1 text-xs text-gray-500">
+                      <p>
+                        Current ({validEnrolled}): {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled} = {formatPrice(currentPrice)}
+                      </p>
+                      <p>
+                        Capacity ({maxStudents}): {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
+                      </p>
+                    </div>
                   </div>
                   <p className="text-xs text-gray-500 mt-3">Price drops as more students join</p>
-                </>
+                </div>
               ) : (
                 <>
                   <p className="text-lg font-bold text-primary-600 mb-1">{course.price}</p>
@@ -194,6 +201,18 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
           </div>
 
           <div className="space-y-8 md:space-y-12">
+            {/* Instructor */}
+            <div>
+              <div className="border-b-2 border-gray-200 pb-3 mb-6">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                  Instructor
+                </h2>
+              </div>
+              <p className="text-gray-700 text-sm md:text-base">
+                {course.instructor}
+              </p>
+            </div>
+
             {/* Course Syllabus */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
@@ -245,18 +264,6 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Instructor */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
-                  Instructor
-                </h2>
-              </div>
-              <p className="text-gray-700 text-sm md:text-base">
-                {course.instructor}
-              </p>
             </div>
 
             {/* Contact Details */}

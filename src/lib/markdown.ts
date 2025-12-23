@@ -20,6 +20,8 @@ export interface CourseFrontmatter {
   maxStudents?: number
   contactEmail: string
   contactPhone: string
+  batchType?: 'prime' | 'collective'
+  tags?: string[]
 }
 
 export interface TalentFrontmatter {

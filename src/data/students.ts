@@ -25,7 +25,7 @@ export const students: Student[] = [
   {
     slug: 'rajesh-kumar',
     name: 'Rajesh Kumar',
-    tag: 'DevOps Expert',
+    tag: 'DevOps',
     category: 'DevOps',
     batchEnrolled: 'DevOps Batch 2024',
     performance: 'Top Performer',
@@ -35,7 +35,7 @@ export const students: Student[] = [
       'Terraform Infrastructure',
       'Docker Containerization'
     ],
-    skillLevel: 'Expert',
+    skillLevel: '',
     portfolio: [
       'Built CI/CD pipeline for 50+ microservices',
       'Reduced deployment time by 80%',
@@ -63,7 +63,7 @@ export const students: Student[] = [
   {
     slug: 'sneha-reddy',
     name: 'Sneha Reddy',
-    tag: 'DevOps Specialist',
+    tag: 'DevOps',
     category: 'DevOps',
     batchEnrolled: 'DevOps Batch 2024',
     performance: 'Excellent',
@@ -73,7 +73,7 @@ export const students: Student[] = [
       'Monitoring & Alerting System',
       'Disaster Recovery Solution'
     ],
-    skillLevel: 'Advanced',
+    skillLevel: '',
     portfolio: [
       'Implemented GitOps workflows',
       'Containerized legacy applications',
@@ -100,8 +100,8 @@ export const students: Student[] = [
   {
     slug: 'amit-patel',
     name: 'Amit Patel',
-    tag: 'AWS Solutions Architect',
-    category: 'AWS',
+    tag: 'AWS',
+    category: 'Cloud Computing',
     batchEnrolled: 'AWS Batch 2024',
     performance: 'Outstanding',
     projectsDone: [
@@ -110,7 +110,7 @@ export const students: Student[] = [
       'Cloud Cost Optimization',
       'Scalable Architecture Design'
     ],
-    skillLevel: 'Expert',
+    skillLevel: '',
     portfolio: [
       'Architected multi-region AWS infrastructure',
       'Reduced cloud costs by 45%',
@@ -138,8 +138,8 @@ export const students: Student[] = [
   {
     slug: 'vikram-singh',
     name: 'Vikram Singh',
-    tag: 'AWS Cloud Engineer',
-    category: 'AWS',
+    tag: 'AWS',
+    category: 'Cloud Computing',
     batchEnrolled: 'AWS Batch 2024',
     performance: 'Excellent',
     projectsDone: [
@@ -148,7 +148,7 @@ export const students: Student[] = [
       'RDS Performance Optimization',
       'Cost-Effective Solutions'
     ],
-    skillLevel: 'Advanced',
+    skillLevel: '',
     portfolio: [
       'Migrated on-premise infrastructure to AWS',
       'Implemented auto-scaling solutions',
@@ -157,7 +157,7 @@ export const students: Student[] = [
     ],
     achievements: [
       'AWS Migration Specialist',
-      'Cloud Cost Optimization Expert',
+      'Cloud Cost Optimization',
       'Top Performer: AWS Training Program'
     ],
     competitions: [
@@ -175,8 +175,8 @@ export const students: Student[] = [
   {
     slug: 'ananya-krishnan',
     name: 'Ananya Krishnan',
-    tag: 'AWS Cloud Developer',
-    category: 'AWS',
+    tag: 'AWS',
+    category: 'Cloud Computing',
     batchEnrolled: 'AWS Batch 2024',
     performance: 'Very Good',
     projectsDone: [
@@ -185,7 +185,7 @@ export const students: Student[] = [
       'CloudWatch Monitoring',
       'API Gateway Setup'
     ],
-    skillLevel: 'Intermediate',
+    skillLevel: '',
     portfolio: [
       'Developed serverless applications on AWS',
       'Implemented S3-based storage solutions',
@@ -212,7 +212,7 @@ export const students: Student[] = [
   {
     slug: 'priya-sharma',
     name: 'Priya Sharma',
-    tag: 'Linux System Admin',
+    tag: 'Linux',
     category: 'Linux',
     batchEnrolled: 'Linux Batch 2024',
     performance: 'Top Performer',
@@ -222,7 +222,7 @@ export const students: Student[] = [
       'Performance Optimization',
       'Shell Scripting Automation'
     ],
-    skillLevel: 'Advanced',
+    skillLevel: '',
     portfolio: [
       'Managed 100+ Linux servers in production',
       'Created automated backup solutions',
