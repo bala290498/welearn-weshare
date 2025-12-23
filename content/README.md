@@ -1,6 +1,6 @@
 # Content Management Guide
 
-This directory contains all markdown-based content for the WeLearnWeShare platform. Admins can manage courses, talents, hobby clusters, and blogs by editing markdown files.
+This directory contains all markdown-based content for the WeLearnWeShare platform. Admins can manage courses, talents, groups, and blogs by editing markdown files.
 
 ## Directory Structure
 
@@ -16,8 +16,8 @@ content/
 │   ├── talent-1.md
 │   ├── talent-2.md
 │   └── ...
-├── hobby-clusters/   # Community clusters
-│   ├── _template.md  # Template for new clusters
+├── groups/           # Community groups
+│   ├── _template.md  # Template for new groups
 │   ├── it-devops.md
 │   ├── it-linux.md
 │   └── ...
@@ -44,12 +44,12 @@ content/
 3. Add portfolio, achievements, and competitions sections
 4. Save the file - it will automatically appear on the talent showcase
 
-### Adding a New Hobby Cluster
+### Adding a New Group
 
-1. Copy `hobby-clusters/_template.md` to `hobby-clusters/your-cluster-id.md`
-2. Fill in the frontmatter with cluster information
+1. Copy `groups/_template.md` to `groups/your-group-id.md`
+2. Fill in the frontmatter with group information
 3. Add topics list
-4. Save the file - it will automatically appear on the hobby cluster page
+4. Save the file - it will automatically appear on the groups page
 
 ### Adding a New Blog Post
 
@@ -85,7 +85,7 @@ content/
 - `website`: Personal website URL (optional)
 - `twitter`: Twitter URL (optional)
 
-### Hobby Cluster Frontmatter
+### Group Frontmatter
 - `id`: Unique identifier
 - `name`: Community name
 - `category`: Category (IT/HR/Other)
@@ -118,7 +118,7 @@ Use markdown headings `##` for sections:
 - `## Achievements` - Bullet list of awards
 - `## Competitions & Challenges` - Numbered list of competitions
 
-### Hobby Cluster Sections
+### Group Sections
 - `## Topics` - Bullet list of discussion topics
 
 ### Blog Sections

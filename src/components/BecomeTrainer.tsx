@@ -6,11 +6,10 @@ import {
   BookOpen, 
   TrendingUp,
   FileText,
-  Mail,
-  Phone,
   ArrowRight
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 export default function BecomeTrainer() {
   const applicationSteps = [
@@ -98,7 +97,7 @@ export default function BecomeTrainer() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-12 md:py-16 px-4 bg-white">
+      <section className="py-12 md:py-16 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
             How It Works
@@ -136,7 +135,7 @@ export default function BecomeTrainer() {
         </div>
       </section>
 
-      <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
+      <section className="py-6 md:py-10 px-4 bg-primary-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
 
         {/* Benefits */}
@@ -183,18 +182,22 @@ export default function BecomeTrainer() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
               <a
-                href="mailto:trainers@welearnweshare.com"
+                href={`https://wa.me/917010584543?text=${encodeURIComponent('Hi! I would like to become a trainer on WeLearnWeShare. Please provide more information about the application process.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
               >
-                <Mail className="w-5 h-5" />
+                <WhatsAppIcon className="w-5 h-5" />
                 Apply Now
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
-                href="tel:+919876543210"
+                href={`https://wa.me/917010584543?text=${encodeURIComponent('Hi! I have a question about becoming a trainer.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-transparent text-white border-2 border-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-white/10 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
               >
-                <Phone className="w-5 h-5" />
+                <WhatsAppIcon className="w-5 h-5" />
                 Contact Us
               </a>
           </div>

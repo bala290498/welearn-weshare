@@ -1,28 +1,28 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import HobbyClusterClient from '@/components/HobbyClusterClient'
-import { hobbyClusters } from '@/data/hobbyClusters'
+import GroupsClient from '@/components/GroupsClient'
+import { groups } from '@/data/groups'
 import { UserPlus, MessageCircle, BookOpen, ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Hobby Cluster - WeLearnWeShare',
-  description: 'Explore your passions and hobbies with like-minded learners in our community-driven hobby clusters. Micro-communities within the club based on interests or professions.',
+  title: 'Groups - WeLearnWeShare',
+  description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
   openGraph: {
-    title: 'Hobby Cluster - WeLearnWeShare',
-    description: 'Explore your passions and hobbies with like-minded learners in our community-driven hobby clusters.',
+    title: 'Groups - WeLearnWeShare',
+    description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
     type: 'website',
-    url: 'https://welearnweshare.com/hobby-cluster',
+    url: 'https://welearnweshare.com/groups',
     siteName: 'WeLearnWeShare',
   },
   twitter: {
     card: 'summary',
-    title: 'Hobby Cluster - WeLearnWeShare',
-    description: 'Explore your passions and hobbies with like-minded learners in our community-driven hobby clusters.',
+    title: 'Groups - WeLearnWeShare',
+    description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
   },
 }
 
-export default function HobbyClusterPage() {
+export default function GroupsPage() {
 
   return (
     <main className="min-h-screen">
@@ -33,13 +33,13 @@ export default function HobbyClusterPage() {
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-6 md:space-y-8">
             <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900">
-              Hobby Cluster
+              Groups
             </h1>
             <p className="text-[clamp(1.25rem,3vw,2rem)] text-primary-600 font-semibold">
-              Learn for the Love of It
+              Find Your People
             </p>
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Explore your passions and hobbies with like-minded learners in our community-driven hobby clusters. Micro-communities within the club based on interests or professions.
+              Join micro-communities designed for shared interests, skills, and professional growth.
             </p>
             {/* CTA Button */}
             <div className="flex justify-center pt-4 md:pt-6">
@@ -56,7 +56,7 @@ export default function HobbyClusterPage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-12 md:py-16 px-4 bg-white">
+      <section className="py-12 md:py-16 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
             How It Works
@@ -116,7 +116,7 @@ export default function HobbyClusterPage() {
 
       <section id="groups" className="py-6 md:py-10 px-4 bg-white scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <HobbyClusterClient clusters={hobbyClusters} />
+          <GroupsClient groups={groups} />
         </div>
       </section>
 
@@ -124,5 +124,4 @@ export default function HobbyClusterPage() {
     </main>
   )
 }
-
 

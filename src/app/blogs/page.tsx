@@ -53,7 +53,7 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      <section className="py-6 md:py-10 px-4 bg-white">
+      <section className="py-6 md:py-10 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
           {sortedBlogs.length === 0 ? (
             <div className="text-center mb-8 md:mb-12">

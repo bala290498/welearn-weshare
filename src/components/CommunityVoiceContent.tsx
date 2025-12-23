@@ -168,24 +168,23 @@ Why is this important: ${formData.whyImportant}`
   return (
     <>
       {/* Hero Section */}
-      <section className="py-6 md:py-8 px-4 bg-gradient-to-br from-primary-100 to-white">
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="text-center space-y-4 md:space-y-6">
-            <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-bold text-gray-900">
+          <div className="text-center space-y-6 md:space-y-8">
+            <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900">
               Community Voice
             </h1>
-            <p className="text-[clamp(1rem,2.5vw,1.5rem)] text-primary-600 font-semibold">
+            <p className="text-[clamp(1.25rem,3vw,2rem)] text-primary-600 font-semibold">
               Your voice shapes our courses
             </p>
-            <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Vote in real time and influence what we launch next.
             </p>
             <div className="mt-6">
               <a
                 href="#active-polls"
-                className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
               >
-                <Vote className="w-5 h-5" />
                 Vote
               </a>
             </div>
@@ -194,7 +193,7 @@ Why is this important: ${formData.whyImportant}`
       </section>
 
       {/* How It Works */}
-      <section className="py-6 md:py-8 px-4 bg-white">
+      <section className="py-6 md:py-8 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
             How It Works
@@ -229,7 +228,7 @@ Why is this important: ${formData.whyImportant}`
       </section>
 
       {/* Active Polls */}
-      <section id="active-polls" className="py-6 md:py-8 px-4 bg-gray-50 scroll-mt-20">
+      <section id="active-polls" className="py-6 md:py-8 px-4 bg-white scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-3">
             Active Polls
@@ -373,7 +372,7 @@ Why is this important: ${formData.whyImportant}`
       </section>
 
       {/* Benefits Section */}
-      <section className="py-6 md:py-8 px-4 bg-white">
+      <section className="py-6 md:py-8 px-4 bg-primary-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-10">
             Why Community Voice Matters
@@ -422,10 +421,10 @@ Why is this important: ${formData.whyImportant}`
                 <ArrowRight className="w-5 h-5" />
               </button>
               <a
-                href="/openings"
+                href="/opportunities"
                 className="inline-flex items-center justify-center gap-2 bg-transparent text-white border-2 border-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl hover:bg-white hover:text-primary-600 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
               >
-                View Openings
+                View Opportunities
               </a>
             </div>
           </div>

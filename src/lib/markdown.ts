@@ -36,7 +36,7 @@ export interface TalentFrontmatter {
   twitter?: string
 }
 
-export interface HobbyClusterFrontmatter {
+export interface GroupFrontmatter {
   id: string
   name: string
   category: string
@@ -62,7 +62,7 @@ export interface JobFrontmatter {
   id: string
   title: string
   company: string
-  type: 'full-time' | 'freelance' | 'internship'
+  type: 'full-time' | 'freelance' | 'internship' | 'workshop' | 'webinar'
   location: string
   category: string
   description: string
@@ -156,18 +156,18 @@ export function getTalentsByCategory(category: string) {
   )
 }
 
-export function getHobbyClusterSlugs(): string[] {
-  const clustersDir = path.join(contentDirectory, 'hobby-clusters')
-  if (!fs.existsSync(clustersDir)) return []
+export function getGroupSlugs(): string[] {
+  const groupsDir = path.join(contentDirectory, 'groups')
+  if (!fs.existsSync(groupsDir)) return []
   
-  const files = fs.readdirSync(clustersDir)
+  const files = fs.readdirSync(groupsDir)
   return files
     .filter(file => file.endsWith('.md') && !file.startsWith('_'))
     .map(file => file.replace(/\.md$/, ''))
 }
 
-export function getHobbyClusterBySlug(slug: string) {
-  const fullPath = path.join(contentDirectory, 'hobby-clusters', `${slug}.md`)
+export function getGroupBySlug(slug: string) {
+  const fullPath = path.join(contentDirectory, 'groups', `${slug}.md`)
   if (!fs.existsSync(fullPath)) return null
   
   const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -176,20 +176,20 @@ export function getHobbyClusterBySlug(slug: string) {
   const sections = parseMarkdownSections(content)
   
   return {
-    frontmatter: data as HobbyClusterFrontmatter,
+    frontmatter: data as GroupFrontmatter,
     content: sections,
     rawContent: content
   }
 }
 
-export function getAllHobbyClusters() {
-  const slugs = getHobbyClusterSlugs()
+export function getAllGroups() {
+  const slugs = getGroupSlugs()
   return slugs
     .map(slug => {
-      const cluster = getHobbyClusterBySlug(slug)
-      return cluster ? { ...cluster.frontmatter, slug, topics: extractTopics(cluster.rawContent) } : null
+      const group = getGroupBySlug(slug)
+      return group ? { ...group.frontmatter, slug, topics: extractTopics(group.rawContent) } : null
     })
-    .filter(Boolean) as (HobbyClusterFrontmatter & { slug: string, topics: string[] })[]
+    .filter(Boolean) as (GroupFrontmatter & { slug: string, topics: string[] })[]
 }
 
 function parseMarkdownSections(content: string) {

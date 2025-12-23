@@ -13,12 +13,12 @@ import {
   Users, 
   Globe, 
   ArrowLeft,
-  Send,
   CheckCircle,
   ExternalLink
 } from 'lucide-react'
 import Link from 'next/link'
 import CopyUrlButton from '@/components/CopyUrlButton'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 export async function generateStaticParams() {
   const jobs = getAllJobs()
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       title: `${job.title} at ${job.company} - WeLearnWeShare`,
       description: job.description,
       type: 'article',
-      url: `https://welearnweshare.com/openings/${id}`,
+      url: `https://welearnweshare.com/opportunities/${id}`,
       siteName: 'WeLearnWeShare',
     },
     twitter: {
@@ -74,14 +74,14 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
       
       <div className="py-6 md:py-10 px-4">
         <div className="container mx-auto px-4 max-w-screen-xl">
-          {/* Back to Openings */}
+          {/* Back to Opportunities */}
           <div className="mb-6">
             <Link
-              href="/openings"
+              href="/opportunities"
               className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to Openings
+              Back to Opportunities
             </Link>
           </div>
 
@@ -105,9 +105,13 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
                       ? 'bg-blue-100 text-blue-700' 
                       : job.type === 'freelance'
                       ? 'bg-purple-100 text-purple-700'
-                      : 'bg-green-100 text-green-700'
+                      : job.type === 'internship'
+                      ? 'bg-green-100 text-green-700'
+                      : job.type === 'workshop'
+                      ? 'bg-orange-100 text-orange-700'
+                      : 'bg-pink-100 text-pink-700'
                   }`}>
-                    {job.type === 'full-time' ? 'Full-Time' : job.type === 'freelance' ? 'Freelance' : 'Internship'}
+                    {job.type === 'full-time' ? 'Full-Time' : job.type === 'freelance' ? 'Freelance' : job.type === 'internship' ? 'Internship' : job.type === 'workshop' ? 'Workshop' : 'Webinar'}
                   </span>
                 </div>
 
@@ -208,11 +212,13 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
               {/* Apply Card */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sticky top-6">
                 <a
-                  href={job.applyLink}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-xl shadow-sm hover:bg-primary-700 transition font-semibold mb-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                  href={`https://wa.me/917010584543?text=${encodeURIComponent(`Hi! I'm interested in applying for the ${job.title} position at ${job.company}. Please provide more details.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-xl shadow-sm hover:bg-green-700 transition font-semibold mb-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2"
                 >
-                  <Send className="w-5 h-5" />
-                  Apply Now
+                  <WhatsAppIcon className="w-5 h-5" />
+                  Apply via WhatsApp
                 </a>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-2 text-gray-600">
@@ -225,7 +231,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
                     <Briefcase className="w-4 h-4" />
-                    <span>{job.type === 'full-time' ? 'Full-Time' : job.type === 'freelance' ? 'Freelance' : 'Internship'} Position</span>
+                    <span>{job.type === 'full-time' ? 'Full-Time' : job.type === 'freelance' ? 'Freelance' : job.type === 'internship' ? 'Internship' : job.type === 'workshop' ? 'Workshop' : 'Webinar'}</span>
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
                     <MapPin className="w-4 h-4" />
@@ -280,7 +286,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
               {/* Share Card */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">Share this Job</h3>
-                <CopyUrlButton url={`https://welearnweshare.com/openings/${id}`} />
+                <CopyUrlButton url={`https://welearnweshare.com/opportunities/${id}`} />
               </div>
             </div>
           </div>

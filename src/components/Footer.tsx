@@ -49,8 +49,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/openings" className="hover:text-white transition">
-                  Openings
+                <a href="/opportunities" className="hover:text-white transition">
+                  Opportunities
                 </a>
               </li>
               <li>

@@ -28,30 +28,31 @@ export default function SkillBuildingPage() {
     <main className="min-h-screen">
       <Navigation />
       
-      <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
+      {/* Hero Section */}
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="text-center space-y-4 md:space-y-6">
-            <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-bold text-gray-900">
+          <div className="text-center space-y-6 md:space-y-8">
+            <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900">
               Skill Building
             </h1>
-            <p className="text-[clamp(1rem,2.5vw,1.5rem)] text-primary-600 font-semibold">
+            <p className="text-[clamp(1.25rem,3vw,2rem)] text-primary-600 font-semibold">
               Build Your Skills. Build Your Future.
             </p>
-            <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover comprehensive courses designed to help you master in-demand skills and advance your career.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-6 md:py-10 px-4 bg-white">
+      <section className="py-6 md:py-10 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <SkillBuildingClient courses={courses} />
         </div>
       </section>
 
       {/* Roadmap Section */}
-      <section className="py-6 md:py-10 px-4 bg-gray-50">
+      <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
             Roadmap

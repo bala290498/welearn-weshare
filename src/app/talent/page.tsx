@@ -57,23 +57,24 @@ export default function TalentPage() {
     <main className="min-h-screen">
       <Navigation />
       
-      <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
+      {/* Hero Section */}
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="text-center space-y-4 md:space-y-6">
-            <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-bold text-gray-900">
+          <div className="text-center space-y-6 md:space-y-8">
+            <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900">
               Talent Showcase
             </h1>
-            <h2 className="text-[clamp(1.25rem,3vw,2rem)] font-bold text-gray-900">
+            <p className="text-[clamp(1.25rem,3vw,2rem)] text-primary-600 font-semibold">
               Find real talents, not paper talents
-            </h2>
-            <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            </p>
+            <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover top performers from our community. These talents have proven their skills through regular in-house challenges and tasks.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-6 md:py-10 px-4 bg-white">
+      <section className="py-6 md:py-10 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <TalentFilterClient categories={categories} talentsByCategory={studentsByCategory} />
         </div>

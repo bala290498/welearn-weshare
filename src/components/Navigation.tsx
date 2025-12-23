@@ -65,16 +65,16 @@ export default function Navigation() {
                 Talent
               </a>
             <a
-              href="/openings"
+              href="/opportunities"
               className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
             >
-              Openings
+              Opportunities
             </a>
               <a 
-                href="/hobby-cluster" 
+                href="/groups" 
                 className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
               >
-                Hobby Cluster
+                Groups
               </a>
               <a
                 href="/become-trainer"
@@ -144,18 +144,18 @@ export default function Navigation() {
                 Talent
               </a>
             <a
-              href="/openings"
+              href="/opportunities"
               className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
               onClick={closeMobileMenu}
             >
-              Openings
+              Opportunities
             </a>
               <a
-                href="/hobby-cluster"
+                href="/groups"
                 className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                 onClick={closeMobileMenu}
               >
-                Hobby Cluster
+                Groups
               </a>
               <a
                 href="/become-trainer"
