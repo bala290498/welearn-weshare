@@ -32,9 +32,6 @@ export default function GroupsPage() {
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-6 md:space-y-8">
-            <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900">
-              Groups
-            </h1>
             <p className="text-[clamp(1.25rem,3vw,2rem)] text-primary-600 font-semibold">
               Find Your People
             </p>

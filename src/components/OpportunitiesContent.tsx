@@ -10,7 +10,9 @@ import {
   FilePlus,
   BookOpen,
   Video,
-  X
+  X,
+  FileText,
+  GraduationCap
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
@@ -118,7 +120,7 @@ Description: ${formData.description}`
             {/* Full-Time Card */}
             <div className="bg-white border-2 border-blue-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Briefcase className="w-6 h-6 text-blue-600" />
+                <Building2 className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Full-Time</h3>
               <p className="text-sm text-gray-600">Permanent positions with companies</p>
@@ -127,7 +129,7 @@ Description: ${formData.description}`
             {/* Freelance Card */}
             <div className="bg-white border-2 border-purple-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Briefcase className="w-6 h-6 text-purple-600" />
+                <FileText className="w-6 h-6 text-purple-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Freelance</h3>
               <p className="text-sm text-gray-600">Project-based work opportunities</p>
@@ -136,7 +138,7 @@ Description: ${formData.description}`
             {/* Internship Card */}
             <div className="bg-white border-2 border-green-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Briefcase className="w-6 h-6 text-green-600" />
+                <GraduationCap className="w-6 h-6 text-green-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Internships</h3>
               <p className="text-sm text-gray-600">Learning opportunities for students</p>
@@ -166,13 +168,6 @@ Description: ${formData.description}`
       {/* Opportunities Section */}
       <section id="opportunities" className="py-6 md:py-10 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
-            Opportunities
-          </h2>
-          <p className="text-center text-gray-600 mb-8 md:mb-12 text-[clamp(0.875rem,2vw,1rem)] max-w-2xl mx-auto">
-            Browse available positions from our hiring partners
-          </p>
-
           {/* Filter Tabs */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {(['all', 'full-time', 'freelance', 'internship', 'workshop', 'webinar'] as JobType[]).map((type) => (
