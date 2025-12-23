@@ -5,10 +5,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Become a Trainer - WeLearnWeShare',
-  description: 'Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their career goals. Apply to become a trainer on WeLearnWeShare.',
+  description: 'Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their goals across diverse fields. Apply to become a trainer on WeLearnWeShare.',
   openGraph: {
     title: 'Become a Trainer - WeLearnWeShare',
-    description: 'Join our community of expert trainers and help shape the next generation of tech professionals.',
+    description: 'Join our community of expert trainers and help shape the next generation of learners and professionals.',
     type: 'website',
     url: 'https://welearnweshare.com/become-trainer',
     siteName: 'WeLearnWeShare',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     title: 'Become a Trainer - WeLearnWeShare',
-    description: 'Join our community of expert trainers and help shape the next generation of tech professionals.',
+    description: 'Join our community of expert trainers and help shape the next generation of learners and professionals.',
   },
 }
 

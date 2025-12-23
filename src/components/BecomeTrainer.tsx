@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import { 
   CheckCircle, 
   Award, 
@@ -6,12 +9,51 @@ import {
   BookOpen, 
   TrendingUp,
   FileText,
-  ArrowRight
+  ArrowRight,
+  X
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 export default function BecomeTrainer() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    contactNo: '',
+    expertise: '',
+    courseIdea: '',
+    bio: ''
+  })
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmitWhatsApp = () => {
+    const message = `Trainer Application
+
+Name: ${formData.name}
+Email: ${formData.email}
+Contact No: ${formData.contactNo}
+Expertise/Domain: ${formData.expertise}
+Course Idea/Topic: ${formData.courseIdea}
+Bio/Notes: ${formData.bio}`
+
+    const whatsappUrl = `https://wa.me/917010584543?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
+    setIsModalOpen(false)
+    setFormData({
+      name: '',
+      email: '',
+      contactNo: '',
+      expertise: '',
+      courseIdea: '',
+      bio: ''
+    })
+  }
+
   const applicationSteps = [
     {
       step: 1,
@@ -35,8 +77,8 @@ export default function BecomeTrainer() {
 
   const benefits = [
     {
-      title: 'Get Paid for Performance',
-      description: 'Enrollment-driven income.',
+      title: 'Get Paid',
+      description: 'Earn consistently.',
       icon: <IndianRupee className="w-8 h-8" />,
       gradientClass: 'bg-gradient-to-br from-green-500 to-emerald-600',
       iconColor: 'text-green-600',
@@ -181,19 +223,16 @@ export default function BecomeTrainer() {
               Ready to Start Teaching?
             </h3>
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-primary-100 mb-8 md:mb-10">
-              Join our community of expert trainers and help shape the next generation of tech professionals.
+              Join our community of expert trainers and help shape the next generation of learners and professionals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
-              <a
-                href={`https://wa.me/917010584543?text=${encodeURIComponent('Hi! I would like to become a trainer on WeLearnWeShare. Please provide more information about the application process.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
               >
-                <WhatsAppIcon className="w-5 h-5" />
                 Apply Now
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </button>
               <a
                 href={`https://wa.me/917010584543?text=${encodeURIComponent('Hi! I have a question about becoming a trainer.')}`}
                 target="_blank"
@@ -207,6 +246,149 @@ export default function BecomeTrainer() {
         </div>
       </div>
     </section>
+    {isModalOpen && (
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50"
+        onClick={() => setIsModalOpen(false)}
+      >
+        <div
+          className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between rounded-t-xl">
+            <h3 className="text-xl font-bold text-gray-900">Become a Trainer Application</h3>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="text-gray-400 hover:text-gray-600 transition"
+              aria-label="Close modal"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          <div className="p-6 space-y-4">
+            <div>
+              <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                Your Name *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                placeholder="Enter your name"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Your Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div>
+                <label htmlFor="contactNo" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Contact No *
+                </label>
+                <input
+                  type="tel"
+                  id="contactNo"
+                  name="contactNo"
+                  value={formData.contactNo}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  placeholder="Enter your contact number"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="expertise" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Expertise / Domain *
+                </label>
+                <input
+                  type="text"
+                  id="expertise"
+                  name="expertise"
+                  value={formData.expertise}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  placeholder="e.g., Design, Product, Marketing, Data, Leadership"
+                />
+              </div>
+              <div>
+                <label htmlFor="courseIdea" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Course / Topic *
+                </label>
+                <input
+                  type="text"
+                  id="courseIdea"
+                  name="courseIdea"
+                  value={formData.courseIdea}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  placeholder="e.g., Community Building 101"
+                />
+              </div>
+            </div>
+
+            <div>
+                <label htmlFor="bio" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Description
+              </label>
+              <textarea
+                id="bio"
+                name="bio"
+                value={formData.bio}
+                onChange={handleInputChange}
+                rows={4}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent resize-none"
+                  placeholder="Short description or additional context..."
+              />
+            </div>
+          </div>
+
+          <div className="sticky bottom-0 bg-gray-50 border-t border-gray-200 px-6 py-4 flex gap-3 rounded-b-xl">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 transition font-semibold"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleSubmitWhatsApp}
+              disabled={
+                !formData.name ||
+                !formData.email ||
+                !formData.contactNo ||
+                !formData.expertise ||
+                  !formData.courseIdea
+              }
+              className="flex-1 px-4 py-2 bg-[#25D366] text-white rounded-lg hover:bg-[#20BA5A] transition font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              Send via WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
     </>
   )
 }

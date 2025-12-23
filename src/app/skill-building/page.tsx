@@ -101,7 +101,7 @@ export default function SkillBuildingPage() {
                   'Learn backend development (Node.js/Python)',
                   'Understand databases and APIs',
                   'Build full-stack projects',
-                  'Prepare for technical interviews'
+                  'Prepare for interviews'
                 ],
                 icon: <GraduationCap className="w-8 h-8" />
               },
