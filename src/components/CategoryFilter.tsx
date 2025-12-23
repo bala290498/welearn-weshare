@@ -31,7 +31,7 @@ export default function CategoryFilter({ categories, selectedCategory, onCategor
             )}
             aria-label={`Filter by ${displayLabel}`}
             aria-pressed={isSelected}
-          >
+              >
             {displayLabel}
           </button>
         )

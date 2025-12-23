@@ -1,7 +1,11 @@
 export interface Student {
   slug: string
   name: string
+  tag: string
   category: string
+  batchEnrolled: string
+  performance: string
+  projectsDone: string[]
   skillLevel: string
   photo?: string
   portfolio: string[]
@@ -21,7 +25,16 @@ export const students: Student[] = [
   {
     slug: 'rajesh-kumar',
     name: 'Rajesh Kumar',
+    tag: 'DevOps Expert',
     category: 'DevOps',
+    batchEnrolled: 'DevOps Batch 2024',
+    performance: 'Top Performer',
+    projectsDone: [
+      'CI/CD Pipeline Automation',
+      'Kubernetes Cluster Setup',
+      'Terraform Infrastructure',
+      'Docker Containerization'
+    ],
     skillLevel: 'Expert',
     portfolio: [
       'Built CI/CD pipeline for 50+ microservices',
@@ -48,37 +61,55 @@ export const students: Student[] = [
     contactPhone: '+91-9876543201'
   },
   {
-    slug: 'priya-sharma',
-    name: 'Priya Sharma',
-    category: 'Linux',
+    slug: 'sneha-reddy',
+    name: 'Sneha Reddy',
+    tag: 'DevOps Specialist',
+    category: 'DevOps',
+    batchEnrolled: 'DevOps Batch 2024',
+    performance: 'Excellent',
+    projectsDone: [
+      'GitOps Workflow Implementation',
+      'Container Orchestration',
+      'Monitoring & Alerting System',
+      'Disaster Recovery Solution'
+    ],
     skillLevel: 'Advanced',
     portfolio: [
-      'Managed 100+ Linux servers in production',
-      'Created automated backup solutions',
-      'Optimized system performance by 60%',
-      'Developed custom shell scripts for automation'
+      'Implemented GitOps workflows',
+      'Containerized legacy applications',
+      'Set up monitoring and alerting systems',
+      'Created disaster recovery solutions'
     ],
     achievements: [
-      'Linux System Admin Excellence Award',
-      'Top Contributor: Open Source Linux Tools',
-      'Featured: Best Scripting Solution'
+      'DevOps Excellence Award',
+      'Best CI/CD Implementation',
+      'Top Contributor: DevOps Community'
     ],
     competitions: [
-      'Linux Administration Challenge - 1st Place',
-      'Shell Scripting Competition - Winner',
-      'Server Optimization Contest - Top 3'
+      'DevOps Innovation Challenge - 2nd Place',
+      'Container Orchestration Contest - Winner',
+      'Automation Excellence Award'
     ],
     socialLinks: {
-      linkedin: 'https://linkedin.com/in/priya-sharma',
-      github: 'https://github.com/priya-sharma'
+      linkedin: 'https://linkedin.com/in/sneha-reddy',
+      github: 'https://github.com/sneha-reddy'
     },
-    contactEmail: 'priya.sharma@example.com',
-    contactPhone: '+91-9876543202'
+    contactEmail: 'sneha.reddy@example.com',
+    contactPhone: '+91-9876543204'
   },
   {
     slug: 'amit-patel',
     name: 'Amit Patel',
+    tag: 'AWS Solutions Architect',
     category: 'AWS',
+    batchEnrolled: 'AWS Batch 2024',
+    performance: 'Outstanding',
+    projectsDone: [
+      'Multi-Region AWS Infrastructure',
+      'Serverless Application',
+      'Cloud Cost Optimization',
+      'Scalable Architecture Design'
+    ],
     skillLevel: 'Expert',
     portfolio: [
       'Architected multi-region AWS infrastructure',
@@ -105,37 +136,18 @@ export const students: Student[] = [
     contactPhone: '+91-9876543203'
   },
   {
-    slug: 'sneha-reddy',
-    name: 'Sneha Reddy',
-    category: 'DevOps',
-    skillLevel: 'Advanced',
-    portfolio: [
-      'Implemented GitOps workflows',
-      'Containerized legacy applications',
-      'Set up monitoring and alerting systems',
-      'Created disaster recovery solutions'
-    ],
-    achievements: [
-      'DevOps Excellence Award',
-      'Best CI/CD Implementation',
-      'Top Contributor: DevOps Community'
-    ],
-    competitions: [
-      'DevOps Innovation Challenge - 2nd Place',
-      'Container Orchestration Contest - Winner',
-      'Automation Excellence Award'
-    ],
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/sneha-reddy',
-      github: 'https://github.com/sneha-reddy'
-    },
-    contactEmail: 'sneha.reddy@example.com',
-    contactPhone: '+91-9876543204'
-  },
-  {
     slug: 'vikram-singh',
     name: 'Vikram Singh',
+    tag: 'AWS Cloud Engineer',
     category: 'AWS',
+    batchEnrolled: 'AWS Batch 2024',
+    performance: 'Excellent',
+    projectsDone: [
+      'Cloud Migration Project',
+      'Auto-Scaling Implementation',
+      'RDS Performance Optimization',
+      'Cost-Effective Solutions'
+    ],
     skillLevel: 'Advanced',
     portfolio: [
       'Migrated on-premise infrastructure to AWS',
@@ -159,6 +171,80 @@ export const students: Student[] = [
     },
     contactEmail: 'vikram.singh@example.com',
     contactPhone: '+91-9876543205'
+  },
+  {
+    slug: 'ananya-krishnan',
+    name: 'Ananya Krishnan',
+    tag: 'AWS Cloud Developer',
+    category: 'AWS',
+    batchEnrolled: 'AWS Batch 2024',
+    performance: 'Very Good',
+    projectsDone: [
+      'Lambda Function Development',
+      'S3 Bucket Management',
+      'CloudWatch Monitoring',
+      'API Gateway Setup'
+    ],
+    skillLevel: 'Intermediate',
+    portfolio: [
+      'Developed serverless applications on AWS',
+      'Implemented S3-based storage solutions',
+      'Set up CloudWatch monitoring dashboards',
+      'Created RESTful APIs using API Gateway'
+    ],
+    achievements: [
+      'AWS Developer Associate Certified',
+      'Serverless Innovation Award',
+      'Top Learner: AWS Training Program'
+    ],
+    competitions: [
+      'AWS Serverless Challenge - 2nd Place',
+      'API Development Contest - Top 5',
+      'Cloud Innovation Hackathon - Participant'
+    ],
+    socialLinks: {
+      linkedin: 'https://linkedin.com/in/ananya-krishnan',
+      github: 'https://github.com/ananya-krishnan'
+    },
+    contactEmail: 'ananya.krishnan@example.com',
+    contactPhone: '+91-9876543206'
+  },
+  {
+    slug: 'priya-sharma',
+    name: 'Priya Sharma',
+    tag: 'Linux System Admin',
+    category: 'Linux',
+    batchEnrolled: 'Linux Batch 2024',
+    performance: 'Top Performer',
+    projectsDone: [
+      'Server Management System',
+      'Automated Backup Solution',
+      'Performance Optimization',
+      'Shell Scripting Automation'
+    ],
+    skillLevel: 'Advanced',
+    portfolio: [
+      'Managed 100+ Linux servers in production',
+      'Created automated backup solutions',
+      'Optimized system performance by 60%',
+      'Developed custom shell scripts for automation'
+    ],
+    achievements: [
+      'Linux System Admin Excellence Award',
+      'Top Contributor: Open Source Linux Tools',
+      'Featured: Best Scripting Solution'
+    ],
+    competitions: [
+      'Linux Administration Challenge - 1st Place',
+      'Shell Scripting Competition - Winner',
+      'Server Optimization Contest - Top 3'
+    ],
+    socialLinks: {
+      linkedin: 'https://linkedin.com/in/priya-sharma',
+      github: 'https://github.com/priya-sharma'
+    },
+    contactEmail: 'priya.sharma@example.com',
+    contactPhone: '+91-9876543202'
   }
 ]
 

@@ -47,6 +47,12 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
               <a 
+                href="/" 
+                className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
+              >
+                Home
+              </a>
+              <a 
                 href="/skill-building" 
                 className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
               >
@@ -122,6 +128,13 @@ export default function Navigation() {
           }`}
         >
           <div className="py-4 space-y-1 border-t border-gray-200">
+              <a
+                href="/"
+                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                onClick={closeMobileMenu}
+              >
+                Home
+              </a>
               <a
                 href="/skill-building"
                 className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"

@@ -3,11 +3,20 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { getAllStudents } from '@/data/students'
 import { notFound } from 'next/navigation'
-import { ChevronLeft, Linkedin, Github } from 'lucide-react'
+import { ChevronLeft, Linkedin, Github, ArrowRight } from 'lucide-react'
 
 export default async function CategoryTalentPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params
   const allStudents = getAllStudents()
+
+  // Helper function to get initials from name
+  const getInitials = (name: string) => {
+    const parts = name.trim().split(' ')
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+    }
+    return name.substring(0, 2).toUpperCase()
+  }
   
   // Normalize category name (handle URL encoding and case)
   // Convert "devops" -> "DevOps", "linux" -> "Linux", etc.
@@ -54,54 +63,43 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
         </div>
       </section>
 
-      <section className="py-6 md:py-10 px-4 bg-white">
-        <div className="container mx-auto px-4 max-w-screen-lg">
-          {/* Mobile: Horizontal snap-scroll */}
-          <div className="lg:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4 pb-4">
-            <div className="flex gap-4 w-max">
-              {categoryStudents.map((student) => (
-                <div
-                  key={student.slug}
-                  className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow w-[calc(85vw_-_16px)] flex-shrink-0 snap-center overflow-hidden"
-                >
-                  <Link
-                    href={`/talent/${student.slug}`}
-                    className="block focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none rounded"
-                  >
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
-                        {student.name.charAt(0)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h2 className="text-[clamp(1rem,2vw,1.125rem)] font-bold text-gray-900 mb-1 truncate">
-                          {student.name}
-                        </h2>
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs font-semibold rounded">
-                            {student.category}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="mb-4">
-                      <h3 className="text-sm font-semibold text-gray-700 mb-2">Portfolio Preview</h3>
-                      <p className="text-xs text-gray-600 line-clamp-2">
-                        View full portfolio on profile page
-                      </p>
-                    </div>
-                  </Link>
+      <section className="py-6 md:py-10 px-4 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-screen-xl">
+          {/* Mobile: 1 column */}
+          <div className="lg:hidden space-y-4">
+            {categoryStudents.map((student) => (
+              <div
+                key={student.slug}
+                className="bg-white rounded-xl border border-gray-200 p-5 md:p-6 shadow-sm hover:shadow-lg hover:border-primary-300 transition-all duration-300 flex flex-col"
+              >
+                {/* Initials Icon and Name */}
+                <div className="mb-4 min-h-[60px] flex-shrink-0 flex items-start gap-4">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">
+                    {getInitials(student.name)}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1 line-clamp-1">
+                      {student.name}
+                    </h3>
+                    <p className="text-sm text-primary-600 font-medium line-clamp-1">
+                      {student.category}
+                    </p>
+                  </div>
+                </div>
 
-                  <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
+                {/* Connect Icons */}
+                <div className="mb-4 min-h-[32px] flex-shrink-0">
+                  <p className="text-xs text-gray-500 font-medium mb-2">Connect</p>
+                  <div className="flex gap-2">
                     {student.socialLinks.linkedin && (
                       <a
                         href={student.socialLinks.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-blue-600 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        className="w-8 h-8 rounded-lg bg-[#0077b5] text-white flex items-center justify-center hover:bg-[#006399] transition"
                         aria-label="LinkedIn"
                       >
-                        <Linkedin className="w-5 h-5" />
+                        <Linkedin className="w-4 h-4" />
                       </a>
                     )}
                     {student.socialLinks.github && (
@@ -109,86 +107,88 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
                         href={student.socialLinks.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-gray-900 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
+                        className="w-8 h-8 rounded-lg bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 transition"
                         aria-label="GitHub"
                       >
-                        <Github className="w-5 h-5" />
+                        <Github className="w-4 h-4" />
                       </a>
                     )}
-                    <Link
-                      href={`/talent/${student.slug}`}
-                      className="text-primary-600 font-semibold text-sm ml-auto hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
-                    >
-                      View Profile →
-                    </Link>
                   </div>
                 </div>
-              ))}
-            </div>
+
+                {/* View Details Button */}
+                <div className="mt-auto pt-4 border-t border-gray-200 min-h-[48px] flex-shrink-0 flex justify-center">
+                  <Link
+                    href={`/talent/${student.slug}`}
+                    className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 transition font-semibold text-sm group"
+                  >
+                    View Details
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
-          {/* Desktop: Grid layout */}
-          <div className="hidden lg:grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 xl:gap-6">
+
+          {/* Desktop: 3 column grid */}
+          <div className="hidden lg:grid grid-cols-3 gap-4 xl:gap-6">
             {categoryStudents.map((student) => (
               <div
                 key={student.slug}
-                className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                className="bg-white rounded-xl border border-gray-200 p-5 md:p-6 shadow-sm hover:shadow-lg hover:border-primary-300 transition-all duration-300 flex flex-col"
               >
-                <Link
-                  href={`/talent/${student.slug}`}
-                  className="block focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none rounded"
-                >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
-                      {student.name.charAt(0)}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h2 className="text-[clamp(1rem,1.5vw,1.125rem)] font-bold text-gray-900 mb-1 truncate">
-                        {student.name}
-                      </h2>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs font-semibold rounded">
-                          {student.category}
-                        </span>
-                      </div>
-                    </div>
+                {/* Initials Icon and Name */}
+                <div className="mb-4 min-h-[60px] flex-shrink-0 flex items-start gap-4">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">
+                    {getInitials(student.name)}
                   </div>
-                  
-                  <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-gray-700 mb-2">Portfolio Preview</h3>
-                    <p className="text-xs text-gray-600 line-clamp-2">
-                      View full portfolio on profile page
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1 line-clamp-1">
+                      {student.name}
+                    </h3>
+                    <p className="text-sm text-primary-600 font-medium line-clamp-1">
+                      {student.category}
                     </p>
                   </div>
-                </Link>
+                </div>
 
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
-                  {student.socialLinks.linkedin && (
-                    <a
-                      href={student.socialLinks.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-blue-600 transition"
-                      aria-label="LinkedIn"
-                    >
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  )}
-                  {student.socialLinks.github && (
-                    <a
-                      href={student.socialLinks.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-900 transition"
-                      aria-label="GitHub"
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
-                  )}
+                {/* Connect Icons */}
+                <div className="mb-4 min-h-[32px] flex-shrink-0">
+                  <p className="text-xs text-gray-500 font-medium mb-2">Connect</p>
+                  <div className="flex gap-2">
+                    {student.socialLinks.linkedin && (
+                      <a
+                        href={student.socialLinks.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-[#0077b5] text-white flex items-center justify-center hover:bg-[#006399] transition"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+                    )}
+                    {student.socialLinks.github && (
+                      <a
+                        href={student.socialLinks.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 transition"
+                        aria-label="GitHub"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* View Details Button */}
+                <div className="mt-auto pt-4 border-t border-gray-200 min-h-[48px] flex-shrink-0 flex justify-center">
                   <Link
                     href={`/talent/${student.slug}`}
-                    className="text-primary-600 font-semibold text-sm ml-auto hover:underline"
+                    className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 transition font-semibold text-sm group"
                   >
-                    View Profile →
+                    View Details
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
