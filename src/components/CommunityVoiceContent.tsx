@@ -60,21 +60,6 @@ export default function CommunityVoiceContent() {
       endDate: '2024-02-15',
       category: 'DevOps'
     },
-    {
-      id: '2',
-      title: 'What Cloud Platform Should We Focus On?',
-      description: 'Tell us which cloud platform you want to master. We\'ll create comprehensive courses based on your choice.',
-      options: [
-        { id: 'opt1', label: 'AWS (Amazon Web Services)', votes: 312, percentage: 42 },
-        { id: 'opt2', label: 'Google Cloud Platform (GCP)', votes: 198, percentage: 27 },
-        { id: 'opt3', label: 'Microsoft Azure', votes: 156, percentage: 21 },
-        { id: 'opt4', label: 'Multi-Cloud Strategy', votes: 72, percentage: 10 },
-      ],
-      totalVotes: 738,
-      status: 'active',
-      endDate: '2024-02-20',
-      category: 'Cloud'
-    },
   ])
 
   const handleVote = (pollId: string, optionId: string) => {
@@ -188,7 +173,7 @@ Why is this important: ${formData.whyImportant}`
   return (
     <>
       {/* Hero Section */}
-      <section className="py-6 md:py-8 px-4 bg-gradient-to-br from-primary-50 to-white">
+      <section className="py-6 md:py-8 px-4 bg-gradient-to-br from-primary-100 to-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-4 md:space-y-6">
             <div className="flex justify-center mb-4">
@@ -205,6 +190,15 @@ Why is this important: ${formData.whyImportant}`
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Vote in real time and influence what we launch next.
             </p>
+            <div className="mt-6">
+              <a
+                href="#active-polls"
+                className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+              >
+                <Vote className="w-5 h-5" />
+                Vote
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -222,11 +216,6 @@ Why is this important: ${formData.whyImportant}`
             {howItWorks.map((item, index) => (
               <div key={item.step} className="flex items-center gap-4 md:gap-8">
                 <div className="text-center flex-shrink-0">
-                  <div className="flex justify-center mb-4">
-                    <div className="bg-primary-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">
-                      {item.step}
-                    </div>
-                  </div>
                   <div className="text-primary-600 mb-4 flex justify-center">
                     {item.icon}
                   </div>
@@ -247,13 +236,13 @@ Why is this important: ${formData.whyImportant}`
       </section>
 
       {/* Active Polls */}
-      <section className="py-6 md:py-8 px-4 bg-gray-50">
+      <section id="active-polls" className="py-6 md:py-8 px-4 bg-gray-50 scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-3">
             Active Polls
           </h2>
           <p className="text-center text-gray-600 mb-6 text-[clamp(0.875rem,2vw,1rem)] max-w-2xl mx-auto">
-            Cast your vote and help decide what courses we launch next
+            Your vote decides what we launch next.
           </p>
 
           <div className="flex flex-col items-center">
@@ -273,31 +262,6 @@ Why is this important: ${formData.whyImportant}`
                         title="StrawPoll Embed"
                         id="strawpoll_iframe_Dwyo3d7VNyA"
                         src="https://strawpoll.com/embed/Dwyo3d7VNyA"
-                        className="block w-full border-none min-h-[520px]"
-                        frameBorder="0"
-                        allowFullScreen
-                        allowTransparency
-                      />
-                    </div>
-                  </div>
-                )
-              }
-
-              // Render StrawPoll embed for poll id '2'
-              if (poll.id === '2') {
-                return (
-                  <div
-                    key={poll.id}
-                    className="w-full flex justify-center"
-                  >
-                    <div
-                      className="strawpoll-embed flex w-full max-w-[640px] flex-col"
-                      id="strawpoll_jVyG2emLzZ7"
-                    >
-                      <iframe
-                        title="StrawPoll Embed"
-                        id="strawpoll_iframe_jVyG2emLzZ7"
-                        src="https://strawpoll.com/embed/jVyG2emLzZ7"
                         className="block w-full border-none min-h-[520px]"
                         frameBorder="0"
                         allowFullScreen
@@ -418,12 +382,9 @@ Why is this important: ${formData.whyImportant}`
       {/* Benefits Section */}
       <section className="py-6 md:py-8 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
+          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-10">
             Why Community Voice Matters
           </h2>
-          <p className="text-center text-gray-600 mb-8 md:mb-10 text-[clamp(0.875rem,2vw,1rem)] max-w-2xl mx-auto">
-            Building a learning community where your voice shapes the curriculum
-          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {benefits.map((benefit, index) => (
