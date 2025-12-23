@@ -23,11 +23,11 @@ export default function CategoryFilter({ categories, selectedCategory, onCategor
             key={category}
             onClick={() => onCategoryChange(category === 'All' ? 'All' : category)}
             className={cn(
-              'px-4 py-2 rounded-full text-sm font-medium transition-all',
-              'border-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
+              'px-4 py-2 rounded-lg text-sm md:text-base font-medium transition',
+              'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2',
               isSelected
-                ? 'bg-primary-600 text-white border-primary-600 shadow-md'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-primary-300 hover:text-primary-600 hover:bg-primary-50'
+                ? 'bg-primary-600 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             )}
             aria-label={`Filter by ${displayLabel}`}
             aria-pressed={isSelected}

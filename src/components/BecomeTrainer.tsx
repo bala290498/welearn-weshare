@@ -38,32 +38,43 @@ export default function BecomeTrainer() {
       title: 'Get Paid for Performance',
       description: 'Enrollment-driven income.',
       icon: <IndianRupee className="w-8 h-8" />,
-      highlight: true,
+      gradientClass: 'bg-gradient-to-br from-green-500 to-emerald-600',
+      iconColor: 'text-green-600',
     },
     {
       title: 'Work Your Way',
       description: 'Flexible teaching hours.',
       icon: <TrendingUp className="w-8 h-8" />,
+      gradientClass: 'bg-gradient-to-br from-blue-500 to-cyan-600',
+      iconColor: 'text-blue-600',
     },
     {
       title: 'No Audience Building Needed',
       description: 'Learners are already here.',
       icon: <Users className="w-8 h-8" />,
+      gradientClass: 'bg-gradient-to-br from-purple-500 to-violet-600',
+      iconColor: 'text-purple-600',
     },
     {
       title: 'Zero Admin Hassle',
       description: 'We run the platform for you.',
       icon: <CheckCircle className="w-8 h-8" />,
+      gradientClass: 'bg-gradient-to-br from-teal-500 to-cyan-600',
+      iconColor: 'text-teal-600',
     },
     {
       title: 'Level Up Professionally',
       description: 'Grow your influence and reach.',
       icon: <Award className="w-8 h-8" />,
+      gradientClass: 'bg-gradient-to-br from-amber-500 to-orange-600',
+      iconColor: 'text-amber-600',
     },
     {
       title: 'Teach with Purpose',
       description: 'Change lives and get recognized.',
       icon: <BookOpen className="w-8 h-8" />,
+      gradientClass: 'bg-gradient-to-br from-indigo-500 to-purple-600',
+      iconColor: 'text-indigo-600',
     },
   ]
 
@@ -73,9 +84,6 @@ export default function BecomeTrainer() {
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-br from-primary-50 to-white">
       <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-6 md:space-y-8">
-            <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900">
-            Become a Trainer
-            </h1>
             <p className="text-[clamp(1.25rem,3vw,2rem)] text-primary-600 font-semibold">
               Share Your Expertise. Grow Your Impact.
             </p>
@@ -140,7 +148,7 @@ export default function BecomeTrainer() {
 
         {/* Benefits */}
         <div className="mb-12 md:mb-16">
-          <h3 className="text-[clamp(1.125rem,2vw,1.75rem)] font-bold text-gray-900 mb-6 text-center">
+          <h3 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-900 mb-8 md:mb-12 text-center">
             Why Teach With Us
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -148,19 +156,14 @@ export default function BecomeTrainer() {
               <div
                 key={index}
                 className={cn(
-                  'bg-white p-4 md:p-6 rounded-lg border shadow-sm hover:shadow-md transition',
-                  benefit.highlight
-                    ? 'border-primary-300 border-2 bg-primary-50/50'
-                    : 'border-gray-200'
+                  'p-4 md:p-6 rounded-lg shadow-sm hover:shadow-md transition text-white',
+                  benefit.gradientClass
                 )}
               >
-                <div className="text-primary-600 mb-4 flex justify-center">
-                  {benefit.icon}
-                </div>
-                <h4 className="text-[clamp(1rem,1.5vw,1.125rem)] font-semibold text-gray-900 mb-2">
+                <h4 className="text-[clamp(1rem,1.5vw,1.125rem)] font-semibold text-white mb-2 text-center">
                   {benefit.title}
                 </h4>
-                <p className="text-gray-600 text-sm md:text-base">
+                <p className="text-white/90 text-sm md:text-base text-center">
                   {benefit.description}
                 </p>
               </div>
