@@ -87,3 +87,4 @@ InnovateLabs is an innovation lab focused on AI and ML solutions, with 100-500 e
 
 To apply, please send your resume, GitHub profile, and portfolio to the email address provided. We are looking for candidates who can start immediately or within 2 weeks.
 
+
