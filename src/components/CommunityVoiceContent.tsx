@@ -112,23 +112,23 @@ export default function CommunityVoiceContent() {
 
   const benefits = [
     {
-      title: 'Ownership & Influence',
-      description: 'You help decide what courses are made.',
-      icon: <Award className="w-8 h-8" />,
+      title: 'You Decide',
+      description: 'Choose the courses you want to learn.',
+      icon: <Vote className="w-8 h-8" />,
     },
     {
-      title: 'Transparency',
-      description: 'You can see the results and how decisions are made.',
+      title: 'Full Transparency',
+      description: 'Open voting and See the results.',
       icon: <PieChart className="w-8 h-8" />,
     },
     {
       title: 'Community Trust',
-      description: 'Everyone has a voice, and decisions are made openly.',
+      description: 'Open, voice-driven decisions.',
       icon: <Users className="w-8 h-8" />,
     },
     {
       title: 'Relevant Content',
-      description: 'Courses are created based on what you actually need to learn.',
+      description: "Learn what's actually need.",
       icon: <TrendingUp className="w-8 h-8" />,
     },
   ]
