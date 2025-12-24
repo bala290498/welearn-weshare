@@ -42,7 +42,7 @@ export default function Home() {
                 <p className="mt-2 text-slate-300">Start immediately. Learn with focus.</p>
                 <div className="mt-4 inline-flex items-center gap-2 rounded-lg border border-orange-500/40 px-4 py-2 text-sm text-orange-300">
                   <Users className="h-4 w-4" />
-                  Joining alone? We'll form the batch for you.
+                  Joining alone? We&apos;ll form the batch for you.
                 </div>
               </div>
 

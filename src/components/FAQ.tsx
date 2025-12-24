@@ -82,7 +82,7 @@ export default function FAQ() {
           </Accordion>
 
           <p className="text-gray-600 text-center">
-            Can't find what you're looking for? Contact our{' '}
+            Can&apos;t find what you&apos;re looking for? Contact our{' '}
             <Link href="/contact" className="text-primary-600 font-medium hover:underline">
               support team
             </Link>

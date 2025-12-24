@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 // --- Types ---
 interface Testimonial {
@@ -122,7 +123,7 @@ const TestimonialsColumn = (props: {
                       {text}
                     </p>
                     <footer className="flex items-center gap-3 mt-6">
-                      <img
+                      <Image
                         width={40}
                         height={40}
                         src={image}
