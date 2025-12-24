@@ -2,8 +2,6 @@ import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import HowItWorks from '@/components/HowItWorks'
 import Features from '@/components/Features'
-import Pricing from '@/components/Pricing'
-import TalentPortal from '@/components/TalentPortal'
 import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
 import FinalCTA from '@/components/FinalCTA'
@@ -22,7 +20,7 @@ export default function Home() {
       <section className="py-12 md:py-16 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-xl">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 mb-6 text-center">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
               What is Dynamic Group Pricing?
             </h2>
             <div className="prose prose-lg max-w-none">
@@ -44,7 +42,7 @@ export default function Home() {
       <section className="py-12 md:py-16 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-xl">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-center text-neutral-900 mb-4">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
               Find the Right Batch for You
             </h2>
           </div>
@@ -113,26 +111,6 @@ export default function Home() {
                       <br />
                       <span className="text-sm text-slate-300">
                         Start immediately without batch formation delays.
-                      </span>
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-orange-500 flex-shrink-0" />
-                    <span>
-                      <strong>Focused Groups</strong>
-                      <br />
-                      <span className="text-sm text-slate-300">
-                        Smaller cohorts ensure personalized attention.
-                      </span>
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-orange-500 flex-shrink-0" />
-                    <span>
-                      <strong>Faster Outcomes</strong>
-                      <br />
-                      <span className="text-sm text-slate-300">
-                        More trainer interaction accelerates progress.
                       </span>
                     </span>
                   </li>
@@ -215,26 +193,6 @@ export default function Home() {
                       </span>
                     </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-purple-500 flex-shrink-0" />
-                    <span>
-                      <strong>Community Power</strong>
-                      <br />
-                      <span className="text-sm text-slate-300">
-                        Leverage peer-to-peer learning with structured cohorts.
-                      </span>
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-purple-500 flex-shrink-0" />
-                    <span>
-                      <strong>Flexible Timelines</strong>
-                      <br />
-                      <span className="text-sm text-slate-300">
-                        Start when your group is ready with rolling admissions.
-                      </span>
-                    </span>
-                  </li>
                 </ul>
 
                 <Link
@@ -255,8 +213,6 @@ export default function Home() {
       </div>
       
       <HowItWorks />
-      <Pricing />
-      <TalentPortal />
       <Testimonials />
       <FAQ />
       <FinalCTA />

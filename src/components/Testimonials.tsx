@@ -172,7 +172,7 @@ export default function Testimonials() {
           }}
           className="flex flex-col items-center justify-center w-full mx-auto mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-center text-neutral-900 transition-colors">
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
             What Our Learners Say
           </h2>
           <p className="text-center mt-5 text-neutral-500 text-lg leading-relaxed w-full max-w-3xl transition-colors">

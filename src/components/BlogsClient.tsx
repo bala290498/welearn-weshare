@@ -37,7 +37,7 @@ export default function BlogsClient({ blogs }: BlogsClientProps) {
   if (sortedBlogs.length === 0) {
     return (
       <div className="text-center mb-8 md:mb-12">
-        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-gray-900">
+        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
           Coming Soon
         </h2>
         <p className="text-[clamp(1rem,2vw,1.25rem)] text-gray-600 mt-4">

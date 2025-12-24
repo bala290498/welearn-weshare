@@ -54,7 +54,7 @@ export default function FAQ() {
       <div className="mx-auto max-w-2xl px-6">
         <div className="space-y-12">
           <div className="w-full">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-center text-neutral-900">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
               Common Questions, Answered
             </h2>
             <p className="text-gray-600 mt-4 text-center text-lg w-full max-w-3xl mx-auto">

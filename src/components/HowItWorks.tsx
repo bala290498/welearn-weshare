@@ -1,26 +1,47 @@
-import { BookOpen, Users, Briefcase } from 'lucide-react'
+import { BookOpen, Users, TrendingDown, Code, Award, Briefcase, ArrowRight } from 'lucide-react'
 
 export default function HowItWorks() {
   const steps = [
     {
       number: 1,
-      title: 'Pick a Course',
+      title: 'Choose a Course',
       description:
-        'Choose a skill track and reserve your seat with a small booking fee.',
+        'Pick a skill track aligned with your career goals.',
       icon: <BookOpen className="w-12 h-12" />,
     },
     {
       number: 2,
-      title: 'Grow the Community',
+      title: 'Join the Community',
       description:
-        'Invite peers — as enrollment rises the per-student fee drops automatically.',
+        'Learn alongside peers in shared forums.',
       icon: <Users className="w-12 h-12" />,
     },
     {
       number: 3,
-      title: 'Learn & Get Hired',
+      title: 'Unlock Group Pricing',
       description:
-        'Complete projects, earn certification, get listed on our Talent Portal for direct hiring.',
+        'Prices drop automatically as more students join.',
+      icon: <TrendingDown className="w-12 h-12" />,
+    },
+    {
+      number: 4,
+      title: 'Build Real Skills',
+      description:
+        'Expert-led lessons with hands-on projects.',
+      icon: <Code className="w-12 h-12" />,
+    },
+    {
+      number: 5,
+      title: 'Earn Certification',
+      description:
+        'Receive certification and join our Talent Portal.',
+      icon: <Award className="w-12 h-12" />,
+    },
+    {
+      number: 6,
+      title: 'Get Hired',
+      description:
+        'Access interviews with hiring partners.',
       icon: <Briefcase className="w-12 h-12" />,
     },
   ]
@@ -28,20 +49,12 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-6 md:py-10 px-4 bg-white">
       <div className="container mx-auto px-4 max-w-screen-lg">
-        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
+        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
           How It Works
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              className="text-center p-8 rounded-xl bg-gradient-to-br from-primary-50 to-white border border-primary-100 hover:shadow-lg transition"
-            >
-              <div className="flex justify-center mb-4">
-                <div className="bg-primary-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-semibold mb-4">
-                  {step.number}
-                </div>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative">
+          {steps.map((step, index) => (
+            <div key={step.number} className="text-center relative">
               <div className="text-primary-600 mb-4 flex justify-center">
                 {step.icon}
               </div>
@@ -49,6 +62,12 @@ export default function HowItWorks() {
                 {step.title}
               </h3>
               <p className="text-gray-600 text-sm md:text-base">{step.description}</p>
+              {/* Arrow between items in the same row */}
+              {index < steps.length - 1 && (index + 1) % 3 !== 0 && (
+                <div className="hidden md:flex absolute top-1/2 -right-4 transform -translate-y-1/2 items-center justify-center">
+                  <ArrowRight className="w-6 h-6 text-primary-600" />
+                </div>
+              )}
             </div>
           ))}
         </div>

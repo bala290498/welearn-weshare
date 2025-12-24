@@ -6,7 +6,7 @@ export default function TalentPortal() {
       <div className="container mx-auto px-4 max-w-screen-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="w-full">
-            <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-semibold text-gray-900 mb-4 md:mb-6">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
               Turn Projects Into Job Opportunities
             </h2>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 mb-6">
