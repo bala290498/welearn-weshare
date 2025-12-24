@@ -1,5 +1,4 @@
 import Navigation from '@/components/Navigation'
-import Hero from '@/components/Hero'
 import HowItWorks from '@/components/HowItWorks'
 import Features from '@/components/Features'
 import Pricing from '@/components/Pricing'
@@ -16,25 +15,29 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navigation />
-      <Hero />
       
-      {/* Dynamic Group Pricing Section */}
-      <section className="py-12 md:py-16 px-4 bg-gradient-to-br from-primary-50 to-white">
+      {/* Dynamic Group Pricing Hero Section */}
+      <section className="py-16 md:py-24 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Pricing Card - Left */}
-            <div className="order-2 md:order-1">
-              <LivePricingCards />
+            {/* Content - Left */}
+            <div className="order-1 md:order-1">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6">
+                <span className="text-primary-600">Learn Together.</span><br />
+                <span className="text-purple-600">Pay Less.</span><br />
+                <span className="text-orange-600">Get Hired.</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600">
+                Join WeLearn-WeShare and experience India&apos;s first community-powered learning platform
+              </p>
+              <p className="text-xl md:text-2xl text-gray-600 mt-4">
+                —Learning that becomes more affordable as the community grows.
+              </p>
             </div>
             
-            {/* Content - Right */}
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 mb-4">
-                Dynamic Group Pricing
-              </h2>
-              <p className="text-lg md:text-xl text-gray-600">
-                India&apos;s first platform offers dynamic group pricing
-              </p>
+            {/* Pricing Card - Right */}
+            <div className="order-2 md:order-2">
+              <LivePricingCards />
             </div>
           </div>
         </div>
