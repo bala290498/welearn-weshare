@@ -51,7 +51,7 @@ export default function LivePricingCards() {
           <NumberFlow 
             key={cycleKey}
             value={students} 
-            trend={true}
+            trend="increasing"
             transformTiming={{ duration: 2000, easing: 'ease-out' }}
             spinTiming={{ duration: 2000, easing: 'ease-out' }}
             opacityTiming={{ duration: 2000, easing: 'ease-out' }}

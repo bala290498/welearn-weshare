@@ -43,6 +43,28 @@ export default function Home() {
         </div>
       </section>
       
+      {/* What is Dynamic Group Pricing Section */}
+      <section className="py-12 md:py-16 px-4 bg-white">
+        <div className="container mx-auto px-4 max-w-screen-xl">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 mb-6 text-center">
+              What is Dynamic Group Pricing?
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-gray-600 leading-relaxed mb-4">
+                Dynamic Group Pricing is a revolutionary pricing model where the cost per student decreases automatically as more learners join the same course batch.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed mb-4">
+                Here&apos;s how it works: We set a fixed total course price upfront. As more students enroll, we divide that total price by the number of enrolled students. The more learners who join, the lower the price becomes for everyone.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                This means you get premium quality training at an affordable price that gets better as the community grows. It&apos;s learning powered by community, for the community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Batch Details Section */}
       <section className="py-12 md:py-16 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-xl">
