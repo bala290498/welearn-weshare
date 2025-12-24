@@ -18,7 +18,7 @@ function TrueDemo() {
       className="min-h-screen w-full min-w-[100vw] flex flex-col items-center justify-center cursor-pointer text-[40px]"
     >
       <div className="pointer-events-none">
-        <NumberFlow value={values[currentIndex]} trend={true} />
+        <NumberFlow value={values[currentIndex]} />
       </div>
       <p className="absolute bottom-6 text-sm text-gray-500 pointer-events-none">
         Click anywhere to change values
@@ -40,7 +40,7 @@ function FalseDemo() {
       className="min-h-screen w-full min-w-[100vw] flex flex-col items-center justify-center cursor-pointer text-[40px]"
     >
       <div className="pointer-events-none">
-        <NumberFlow value={values[currentIndex]} trend={false} />
+        <NumberFlow value={values[currentIndex]} />
       </div>
       <p className="absolute bottom-6 text-sm text-gray-500 pointer-events-none">
         Click anywhere to change values
@@ -62,7 +62,7 @@ function IncreasingDemo() {
       className="min-h-screen w-full min-w-[100vw] flex flex-col items-center justify-center cursor-pointer text-[40px]"
     >
       <div className="pointer-events-none">
-        <NumberFlow value={values[currentIndex]} trend="increasing" />
+        <NumberFlow value={values[currentIndex]} />
       </div>
       <p className="absolute bottom-6 text-sm text-gray-500 pointer-events-none">
         Click anywhere to change values
@@ -84,7 +84,7 @@ function DecreasingDemo() {
       className="min-h-screen w-full min-w-[100vw] flex flex-col items-center justify-center cursor-pointer text-[40px]"
     >
       <div className="pointer-events-none">
-        <NumberFlow value={values[currentIndex]} trend="decreasing" />
+        <NumberFlow value={values[currentIndex]} />
       </div>
       <p className="absolute bottom-6 text-sm text-gray-500 pointer-events-none">
         Click anywhere to change values

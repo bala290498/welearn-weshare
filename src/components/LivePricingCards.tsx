@@ -65,7 +65,6 @@ export default function LivePricingCards() {
               <NumberFlow 
                 key={onesKey}
                 value={onesDigit} 
-                trend="increasing"
                 transformTiming={{ duration: 2000, easing: 'ease-out' }}
                 spinTiming={{ duration: 2000, easing: 'ease-out' }}
                 opacityTiming={{ duration: 2000, easing: 'ease-out' }}
