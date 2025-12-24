@@ -122,7 +122,7 @@ Description: ${formData.description}`
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Building2 className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Full-Time</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Full-Time</h3>
               <p className="text-sm text-gray-600">Permanent positions with companies</p>
             </div>
 
@@ -131,7 +131,7 @@ Description: ${formData.description}`
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileText className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Freelance</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Freelance</h3>
               <p className="text-sm text-gray-600">Project-based work opportunities</p>
             </div>
 
@@ -140,7 +140,7 @@ Description: ${formData.description}`
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <GraduationCap className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Internships</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Internships</h3>
               <p className="text-sm text-gray-600">Learning opportunities for students</p>
             </div>
 
@@ -149,7 +149,7 @@ Description: ${formData.description}`
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="w-6 h-6 text-orange-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Workshops</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Workshops</h3>
               <p className="text-sm text-gray-600">Hands-on learning sessions</p>
             </div>
 
@@ -158,7 +158,7 @@ Description: ${formData.description}`
               <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Video className="w-6 h-6 text-pink-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Webinars</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Webinars</h3>
               <p className="text-sm text-gray-600">Online learning events</p>
             </div>
           </div>
@@ -203,7 +203,7 @@ Description: ${formData.description}`
                 >
                   <div className="flex-1 flex flex-col">
                     <div className="flex items-start justify-between gap-2 mb-3 h-[48px] flex-shrink-0">
-                      <h3 className="text-[clamp(1rem,1.5vw,1.125rem)] font-bold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2 flex-1">
+                      <h3 className="text-[clamp(1rem,1.5vw,1.125rem)] font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2 flex-1">
                           {job.title}
                         </h3>
                         <span className={cn(
@@ -286,7 +286,7 @@ Description: ${formData.description}`
       <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-3">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold mb-3">
               Post Your Opportunity
             </h2>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-primary-100 mb-8">
@@ -309,7 +309,7 @@ Description: ${formData.description}`
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50" onClick={() => setIsModalOpen(false)}>
           <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between rounded-t-xl">
-              <h3 className="text-xl font-bold text-gray-900">Post Opportunity</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Post Opportunity</h3>
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="text-gray-400 hover:text-gray-600 transition"

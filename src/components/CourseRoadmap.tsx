@@ -29,7 +29,7 @@ export default function CourseRoadmap() {
   return (
     <section id="courses" className="py-6 md:py-10 px-4 bg-white">
       <div className="container mx-auto px-4 max-w-screen-lg">
-        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
+        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-semibold text-center text-gray-900 mb-4">
           From Fundamentals to Job-Ready
         </h2>
         <p className="text-center text-gray-600 mb-8 md:mb-12 text-[clamp(0.875rem,2vw,1rem)]">

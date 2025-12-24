@@ -4,7 +4,7 @@ import ShareButton from '@/components/ShareButton'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { Check, Info } from 'lucide-react'
+import { Check, Info, Clock } from 'lucide-react'
 
 // Calculate current price per head based on enrollment
 // Formula: Price per head = total fixed price ÷ current number of enrolled students
@@ -132,10 +132,21 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             </a>
           </div>
           <div className="space-y-4 md:space-y-6">
-            <div>
+            <div className="flex flex-wrap gap-2">
               <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full mb-4">
                 {course.category}
               </span>
+              {course.batchType === 'prime' && (
+                <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-semibold rounded-full mb-4 flex items-center gap-1">
+                  <Clock size={14} />
+                  Prime Batch
+                </span>
+              )}
+              {course.batchType === 'collective' && (
+                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-sm font-semibold rounded-full mb-4">
+                  Collective Batch
+                </span>
+              )}
             </div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <h1 className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-gray-900 flex-1">
@@ -159,17 +170,23 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
       {course.studentsEnrolled !== undefined && course.maxStudents !== undefined && (
         <section className="py-6 md:py-10 px-4 bg-gray-50">
           <div className="container mx-auto px-4 max-w-screen-lg">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Dynamic group pricing</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Dynamic Group Pricing</h2>
             
             {/* Three Column Layout */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Column 1: Students Enrolled */}
               <div className="px-4 md:px-6 text-center">
                 <p className="text-xs text-gray-600 mb-2">Students enrolled:</p>
-                <p className="text-3xl md:text-4xl font-bold text-primary-600 mb-4">{validEnrolled} / {maxStudents}</p>
+                <p className={`text-3xl md:text-4xl font-bold mb-4 ${
+                  course.batchType === 'collective' ? 'text-purple-600' : 
+                  course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
+                }`}>{validEnrolled} / {maxStudents}</p>
                 <div className="w-full bg-gray-200 rounded-full h-2.5">
                   <div
-                    className="bg-primary-600 h-2.5 rounded-full transition-all duration-300"
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      course.batchType === 'collective' ? 'bg-purple-600' : 
+                      course.batchType === 'prime' ? 'bg-orange-600' : 'bg-primary-600'
+                    }`}
                     style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
                   />
                 </div>
@@ -178,7 +195,10 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               {/* Column 2: Capacity Price */}
               <div className="px-4 md:px-6 text-center">
                 <p className="text-xs text-gray-600 mb-1">Capacity price</p>
-                <p className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{formatPrice(potentialPrice)}</p>
+                <p className={`text-3xl md:text-4xl font-bold mb-2 ${
+                  course.batchType === 'collective' ? 'text-purple-600' : 
+                  course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
+                }`}>{formatPrice(potentialPrice)}</p>
                 <p className="text-xs text-gray-500">
                   Capacity ({maxStudents}): {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
                 </p>
@@ -187,7 +207,10 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               {/* Column 3: Current Price */}
               <div className="px-4 md:px-6 text-center">
                 <p className="text-xs text-gray-600 mb-1">Current price</p>
-                <p className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{formatPrice(currentPrice)}</p>
+                <p className={`text-3xl md:text-4xl font-bold mb-2 ${
+                  course.batchType === 'collective' ? 'text-purple-600' : 
+                  course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
+                }`}>{formatPrice(currentPrice)}</p>
                 <p className="text-xs text-gray-500">
                   Current ({validEnrolled}): {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled || 0} = {formatPrice(currentPrice)}
                 </p>

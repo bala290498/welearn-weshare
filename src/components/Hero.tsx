@@ -54,7 +54,7 @@ export default function Hero() {
         <div className="text-center space-y-6 md:space-y-8">
           {/* Hero Content */}
           <div className="space-y-4 md:space-y-6">
-            <h1 className="text-[clamp(1.5rem,4vw,3rem)] md:text-[clamp(2rem,5vw,4rem)] font-bold text-gray-900 leading-tight">
+            <h1 className="text-[clamp(1.5rem,4vw,3rem)] md:text-[clamp(2rem,5vw,4rem)] font-semibold text-gray-900 leading-tight">
               Learn Together. Pay Less.{' '}
               <span className="text-primary-600 block">Get Hired.</span>
             </h1>

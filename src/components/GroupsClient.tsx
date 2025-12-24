@@ -59,7 +59,7 @@ export default function GroupsClient({ groups }: GroupsClientProps) {
                 })()}
               </div>
               <div className="flex-1 min-w-0">
-                <h2 className="text-lg font-bold text-gray-900 mb-1 truncate">
+                <h2 className="text-lg font-semibold text-gray-900 mb-1 truncate">
                   {group.name}
                 </h2>
                 <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded">

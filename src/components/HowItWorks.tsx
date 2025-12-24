@@ -28,7 +28,7 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-6 md:py-10 px-4 bg-white">
       <div className="container mx-auto px-4 max-w-screen-lg">
-        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
+        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
           How It Works
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">

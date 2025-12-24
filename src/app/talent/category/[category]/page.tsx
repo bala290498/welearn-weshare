@@ -18,6 +18,18 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
     return name.substring(0, 2).toUpperCase()
   }
   
+  // Helper to get role from category
+  const getRole = (category: string) => {
+    // Map categories to role names
+    const roleMap: Record<string, string> = {
+      'DevOps': 'DevOps Engineer',
+      'AWS': 'Cloud Engineer',
+      'Cloud Computing': 'Cloud Engineer',
+      'Linux': 'Linux Engineer',
+    }
+    return roleMap[category] || category
+  }
+  
   // Normalize category name (handle URL encoding and case)
   // Convert "devops" -> "DevOps", "linux" -> "Linux", etc.
   const categorySlug = decodeURIComponent(category).toLowerCase()
@@ -66,66 +78,75 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
       <section className="py-6 md:py-10 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-xl">
           {/* Mobile: 1 column */}
-          <div className="lg:hidden space-y-4">
+          <div className="lg:hidden grid grid-cols-1 gap-4">
             {categoryStudents.map((student) => (
               <div
                 key={student.slug}
-                className="bg-white rounded-xl border border-gray-200 p-5 md:p-6 shadow-sm hover:shadow-lg hover:border-primary-300 transition-all duration-300 flex flex-col"
+                className="bg-white rounded-3xl shadow-md p-6 text-center flex flex-col"
               >
-                {/* Initials Icon and Name */}
-                <div className="mb-4 min-h-[60px] flex-shrink-0 flex items-start gap-4">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">
-                    {getInitials(student.name)}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1 line-clamp-1">
-                      {student.name}
-                    </h3>
-                    <p className="text-sm text-primary-600 font-medium line-clamp-1">
-                      {student.category}
-                    </p>
+                {/* Avatar (initials only) */}
+                <div className="flex justify-center">
+                  <div className="w-28 h-28 rounded-full bg-gray-200 flex items-center justify-center">
+                    <span className="text-3xl font-semibold text-gray-700">
+                      {getInitials(student.name)}
+                    </span>
                   </div>
                 </div>
 
-                {/* Links Icons */}
-                <div className="mb-4 min-h-[32px] flex-shrink-0">
-                  <p className="text-xs text-gray-500 font-medium mb-2">Links</p>
-                  <div className="flex gap-2">
-                    {student.socialLinks.linkedin && (
-                      <a
-                        href={student.socialLinks.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-lg bg-[#0077b5] text-white flex items-center justify-center hover:bg-[#006399] transition"
-                        aria-label="LinkedIn"
-                      >
-                        <Linkedin className="w-4 h-4" />
-                      </a>
-                    )}
-                    {student.socialLinks.github && (
-                      <a
-                        href={student.socialLinks.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-lg bg-gray-200 text-gray-700 flex items-center justify-center hover:bg-gray-300 transition"
-                        aria-label="GitHub"
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
+                {/* Name */}
+                <h2 className="mt-4 text-xl font-semibold text-gray-900">
+                  {student.name}
+                </h2>
+
+                {/* Role */}
+                <p className="mt-1 flex items-center justify-center gap-2 text-gray-500">
+                  <span
+                    className="inline-block w-2 h-2 rounded-full bg-blue-500"
+                    aria-hidden="true"
+                  />
+                  <span>{getRole(student.category)}</span>
+                </p>
+
+                {/* Divider */}
+                <div className="my-6 h-px bg-gray-200" />
+
+                {/* Icons */}
+                <div className="flex justify-center gap-6 mb-6">
+                  {student.socialLinks.linkedin && (
+                    <a
+                      href={student.socialLinks.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn profile"
+                      className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
+                    >
+                      <Linkedin className="w-5 h-5 text-gray-600" aria-hidden="true" />
+                    </a>
+                  )}
+                  {student.socialLinks.github && (
+                    <a
+                      href={student.socialLinks.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub profile"
+                      className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
+                    >
+                      <Github className="w-5 h-5 text-gray-600" aria-hidden="true" />
+                    </a>
+                  )}
                 </div>
 
-                {/* View Details Button */}
-                <div className="mt-auto pt-4 border-t border-gray-200 min-h-[48px] flex-shrink-0 flex justify-center">
-                  <Link
-                    href={`/talent/${student.slug}`}
-                    className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 transition font-semibold text-sm group"
-                  >
-                    View Details
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
+                {/* Button (text-style with arrow) */}
+                <Link
+                  href={`/talent/${student.slug}`}
+                  className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
+                >
+                  <span className="group-hover:underline">View Details</span>
+                  <ArrowRight
+                    className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
               </div>
             ))}
           </div>
@@ -135,62 +156,71 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
             {categoryStudents.map((student) => (
               <div
                 key={student.slug}
-                className="bg-white rounded-xl border border-gray-200 p-5 md:p-6 shadow-sm hover:shadow-lg hover:border-primary-300 transition-all duration-300 flex flex-col"
+                className="bg-white rounded-3xl shadow-md p-6 text-center flex flex-col"
               >
-                {/* Initials Icon and Name */}
-                <div className="mb-4 min-h-[60px] flex-shrink-0 flex items-start gap-4">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">
-                    {getInitials(student.name)}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1 line-clamp-1">
-                      {student.name}
-                    </h3>
-                    <p className="text-sm text-primary-600 font-medium line-clamp-1">
-                      {student.category}
-                    </p>
+                {/* Avatar (initials only) */}
+                <div className="flex justify-center">
+                  <div className="w-28 h-28 rounded-full bg-gray-200 flex items-center justify-center">
+                    <span className="text-3xl font-semibold text-gray-700">
+                      {getInitials(student.name)}
+                    </span>
                   </div>
                 </div>
 
-                {/* Links Icons */}
-                <div className="mb-4 min-h-[32px] flex-shrink-0">
-                  <p className="text-xs text-gray-500 font-medium mb-2">Links</p>
-                  <div className="flex gap-2">
-                    {student.socialLinks.linkedin && (
-                      <a
-                        href={student.socialLinks.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-lg bg-[#0077b5] text-white flex items-center justify-center hover:bg-[#006399] transition"
-                        aria-label="LinkedIn"
-                      >
-                        <Linkedin className="w-4 h-4" />
-                      </a>
-                    )}
-                    {student.socialLinks.github && (
-                      <a
-                        href={student.socialLinks.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-lg bg-gray-200 text-gray-700 flex items-center justify-center hover:bg-gray-300 transition"
-                        aria-label="GitHub"
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
+                {/* Name */}
+                <h2 className="mt-4 text-xl font-semibold text-gray-900">
+                  {student.name}
+                </h2>
+
+                {/* Role */}
+                <p className="mt-1 flex items-center justify-center gap-2 text-gray-500">
+                  <span
+                    className="inline-block w-2 h-2 rounded-full bg-blue-500"
+                    aria-hidden="true"
+                  />
+                  <span>{getRole(student.category)}</span>
+                </p>
+
+                {/* Divider */}
+                <div className="my-6 h-px bg-gray-200" />
+
+                {/* Icons */}
+                <div className="flex justify-center gap-6 mb-6">
+                  {student.socialLinks.linkedin && (
+                    <a
+                      href={student.socialLinks.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn profile"
+                      className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
+                    >
+                      <Linkedin className="w-5 h-5 text-gray-600" aria-hidden="true" />
+                    </a>
+                  )}
+                  {student.socialLinks.github && (
+                    <a
+                      href={student.socialLinks.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub profile"
+                      className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
+                    >
+                      <Github className="w-5 h-5 text-gray-600" aria-hidden="true" />
+                    </a>
+                  )}
                 </div>
 
-                {/* View Details Button */}
-                <div className="mt-auto pt-4 border-t border-gray-200 min-h-[48px] flex-shrink-0 flex justify-center">
-                  <Link
-                    href={`/talent/${student.slug}`}
-                    className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 transition font-semibold text-sm group"
-                  >
-                    View Details
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
+                {/* Button (text-style with arrow) */}
+                <Link
+                  href={`/talent/${student.slug}`}
+                  className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
+                >
+                  <span className="group-hover:underline">View Details</span>
+                  <ArrowRight
+                    className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
               </div>
             ))}
           </div>

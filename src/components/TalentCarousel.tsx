@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
-import { ChevronLeft, ChevronRight, Linkedin, Github } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Linkedin, Github, ArrowRight } from 'lucide-react'
 
 interface Talent {
   id: string
@@ -17,6 +17,27 @@ interface Talent {
 interface TalentCarouselProps {
   category: string
   talents: Talent[]
+}
+
+// Helper function to get initials from name
+const getInitials = (name: string) => {
+  const parts = name.trim().split(' ')
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+  }
+  return name.substring(0, 2).toUpperCase()
+}
+
+// Helper to get role from category
+const getRole = (category: string) => {
+  // Map categories to role names
+  const roleMap: Record<string, string> = {
+    'DevOps': 'DevOps Engineer',
+    'AWS': 'Cloud Engineer',
+    'Cloud Computing': 'Cloud Engineer',
+    'Linux': 'Linux Engineer',
+  }
+  return roleMap[category] || category
 }
 
 export default function TalentCarousel({ category, talents }: TalentCarouselProps) {
@@ -84,7 +105,7 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
   return (
     <div className="mb-12 md:mb-16">
       <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+        <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
           Best Performers in {category}
         </h3>
         <div className="flex items-center gap-3">
@@ -129,48 +150,47 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
           {(isMobile ? talents : visibleTalents).map((talent) => (
             <div
               key={talent.id}
-              className={`bg-white rounded-lg border border-gray-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full overflow-hidden ${
+              className={`bg-white rounded-3xl shadow-md p-6 text-center flex flex-col h-full overflow-hidden ${
                 itemsPerView === 1 ? 'flex-shrink-0 w-[calc(85vw_-_16px)] snap-center' : 'min-w-0'
               }`}
             >
-              <Link
-                href={`/talent/${talent.slug}`}
-                className="block focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:outline-none rounded flex-grow flex flex-col"
-              >
-                <div className="flex items-start gap-4 mb-4 flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
-                    {talent.name.charAt(0)}
-                  </div>
-                    <div className="flex-1 min-w-0">
-                      <h2 className="text-[clamp(1rem,2vw,1.125rem)] font-bold text-gray-900 mb-1 truncate">
-                        {talent.name}
-                      </h2>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs font-semibold rounded">
-                          {talent.category}
-                        </span>
-                      </div>
-                    </div>
+              {/* Avatar (initials only) */}
+              <div className="flex justify-center">
+                <div className="w-28 h-28 rounded-full bg-gray-200 flex items-center justify-center">
+                  <span className="text-3xl font-semibold text-gray-700">
+                    {getInitials(talent.name)}
+                  </span>
                 </div>
-                
-                <div className="mb-4 flex-grow">
-                  <h3 className="text-sm font-semibold text-gray-700 mb-2">Portfolio Preview</h3>
-                  <p className="text-xs text-gray-600 line-clamp-2">
-                    View full portfolio on profile page
-                  </p>
-                </div>
-              </Link>
+              </div>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-200 mt-auto flex-shrink-0">
+              {/* Name */}
+              <h2 className="mt-4 text-xl font-semibold text-gray-900">
+                {talent.name}
+              </h2>
+
+              {/* Role */}
+              <p className="mt-1 flex items-center justify-center gap-2 text-gray-500">
+                <span
+                  className="inline-block w-2 h-2 rounded-full bg-blue-500"
+                  aria-hidden="true"
+                />
+                <span>{getRole(talent.category)}</span>
+              </p>
+
+              {/* Divider */}
+              <div className="my-6 h-px bg-gray-200" />
+
+              {/* Icons */}
+              <div className="flex justify-center gap-6 mb-6">
                 {talent.linkedin && (
                   <a
                     href={talent.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-blue-600 transition"
-                    aria-label="LinkedIn"
+                    aria-label="LinkedIn profile"
+                    className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
                   >
-                    <Linkedin className="w-5 h-5" />
+                    <Linkedin className="w-5 h-5 text-gray-600" aria-hidden="true" />
                   </a>
                 )}
                 {talent.github && (
@@ -178,19 +198,25 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
                     href={talent.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-gray-900 transition"
-                    aria-label="GitHub"
+                    aria-label="GitHub profile"
+                    className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
                   >
-                    <Github className="w-5 h-5" />
+                    <Github className="w-5 h-5 text-gray-600" aria-hidden="true" />
                   </a>
                 )}
-                <Link
-                  href={`/talent/${talent.slug}`}
-                  className="text-primary-600 font-semibold text-sm ml-auto hover:underline"
-                >
-                  View Profile →
-                </Link>
               </div>
+
+              {/* Button (text-style with arrow) */}
+              <Link
+                href={`/talent/${talent.slug}`}
+                className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
+              >
+                <span className="group-hover:underline">View Details</span>
+                <ArrowRight
+                  className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
             </div>
           ))}
         </div>

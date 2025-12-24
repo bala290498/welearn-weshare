@@ -2,7 +2,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
       <div className="container mx-auto px-4 max-w-screen-lg">
-        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
+        <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-semibold text-center text-gray-900 mb-4">
           Transparent, Community-Based Pricing
         </h2>
         <p className="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto text-[clamp(0.875rem,2vw,1rem)]">

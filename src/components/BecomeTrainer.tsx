@@ -149,7 +149,7 @@ Bio/Notes: ${formData.bio}`
       {/* How It Works Section */}
       <section className="py-12 md:py-16 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
             How It Works
           </h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
@@ -190,7 +190,7 @@ Bio/Notes: ${formData.bio}`
 
         {/* Benefits */}
         <div className="mb-12 md:mb-16">
-          <h3 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-900 mb-8 md:mb-12 text-center">
+          <h3 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-gray-900 mb-8 md:mb-12 text-center">
             Why Teach With Us
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -219,7 +219,7 @@ Bio/Notes: ${formData.bio}`
       <section id="apply" className="py-12 md:py-16 px-4 bg-gradient-to-br from-primary-600 to-primary-800 text-white scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">
+            <h3 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold mb-4">
               Ready to Start Teaching?
             </h3>
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-primary-100 mb-8 md:mb-10">
@@ -256,7 +256,7 @@ Bio/Notes: ${formData.bio}`
           onClick={(e) => e.stopPropagation()}
         >
           <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between rounded-t-xl">
-            <h3 className="text-xl font-bold text-gray-900">Become a Trainer Application</h3>
+            <h3 className="text-xl font-semibold text-gray-900">Become a Trainer Application</h3>
             <button
               onClick={() => setIsModalOpen(false)}
               className="text-gray-400 hover:text-gray-600 transition"

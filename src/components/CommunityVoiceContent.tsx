@@ -195,7 +195,7 @@ Why is this important: ${formData.whyImportant}`
       {/* How It Works */}
       <section className="py-6 md:py-8 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-4">
+          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-semibold text-center text-gray-900 mb-4">
             How It Works
           </h2>
           <p className="text-center text-gray-600 mb-8 md:mb-12 text-[clamp(0.875rem,2vw,1rem)] max-w-2xl mx-auto">
@@ -230,7 +230,7 @@ Why is this important: ${formData.whyImportant}`
       {/* Active Polls */}
       <section id="active-polls" className="py-6 md:py-8 px-4 bg-white scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-3">
+          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-semibold text-center text-gray-900 mb-3">
             Active Polls
           </h2>
           <p className="text-center text-gray-600 mb-6 text-[clamp(0.875rem,2vw,1rem)] max-w-2xl mx-auto">
@@ -284,7 +284,7 @@ Why is this important: ${formData.whyImportant}`
                             Ends {new Date(poll.endDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                           </span>
                         </div>
-                        <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-2">
+                        <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-semibold text-gray-900 mb-2">
                           {poll.title}
                         </h3>
                         <p className="text-gray-600 text-sm md:text-base mb-4">
@@ -374,7 +374,7 @@ Why is this important: ${formData.whyImportant}`
       {/* Benefits Section */}
       <section className="py-6 md:py-8 px-4 bg-primary-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-10">
+          <h2 className="text-[clamp(1.25rem,2.5vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-10">
             Why Community Voice Matters
           </h2>
 
@@ -405,7 +405,7 @@ Why is this important: ${formData.whyImportant}`
       <section className="py-6 md:py-8 px-4 bg-gradient-to-br from-primary-600 to-primary-800">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center text-white">
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-3">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold mb-3">
               Have a Course Idea?
             </h2>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-primary-100 mb-6 md:mb-8 max-w-2xl mx-auto">
@@ -441,7 +441,7 @@ Why is this important: ${formData.whyImportant}`
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50" onClick={() => setIsModalOpen(false)}>
           <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between rounded-t-xl">
-              <h3 className="text-xl font-bold text-gray-900">Suggest a Course</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Suggest a Course</h3>
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="text-gray-400 hover:text-gray-600 transition"

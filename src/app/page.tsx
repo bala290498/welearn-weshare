@@ -8,7 +8,8 @@ import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
 import FinalCTA from '@/components/FinalCTA'
 import Footer from '@/components/Footer'
-import { Clock, Users, Calendar, DollarSign, Zap, ArrowRight } from 'lucide-react'
+import { BadgeCheck, Users, Users2, Sparkles, CheckCircle, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -20,172 +21,209 @@ export default function Home() {
       <section className="py-12 md:py-16 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-xl">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-900 mb-4">
-              Choose Your Learning Path
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-center text-neutral-900 mb-4">
+              Find the Right Batch for You
             </h2>
-            <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-2xl mx-auto">
-              Two flexible batch models designed to fit your learning style and timeline
-            </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          <div className="flex flex-col lg:flex-row gap-6 items-start justify-center">
             {/* Prime Batch Card */}
-            <div className="bg-gradient-to-br from-primary-50 to-white rounded-xl border-2 border-primary-200 p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-white" />
+            <div className="max-w-md rounded-2xl bg-slate-900 text-slate-100 shadow-xl overflow-hidden w-full">
+              {/* Header */}
+              <div className="bg-gradient-to-r from-orange-500/20 to-slate-800 p-6">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-2xl font-semibold flex items-center gap-3">
+                    Prime Batch
+                    <span className="rounded-full bg-orange-500 px-3 py-1 text-xs font-bold tracking-wide text-black">
+                      EXCLUSIVE
+                    </span>
+                  </h2>
+                  <BadgeCheck className="h-6 w-6 text-orange-500" />
                 </div>
-                <h3 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
-                  Prime Batch
-                </h3>
-              </div>
-              <p className="text-[clamp(1rem,2vw,1.25rem)] text-primary-600 font-semibold mb-4">
-                Start immediately. Learn with focus.
-              </p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-1">Best for:</p>
-                    <p className="text-sm text-gray-600">Learners with time urgency or those who prefer controlled class strength</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <Calendar className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-1">Start:</p>
-                    <p className="text-sm text-gray-600">Immediate or fixed monthly dates</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-1">Model:</p>
-                    <p className="text-sm text-gray-600">Time-based</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <Calendar className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-1">Pre-booking:</p>
-                    <p className="text-sm text-gray-600">Available up to 20 days in advance</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <DollarSign className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-1">Pricing:</p>
-                    <p className="text-sm text-gray-600">Final price is applied on the batch start date</p>
-                  </div>
+                <p className="mt-2 text-slate-300">Start immediately. Learn with focus.</p>
+                <div className="mt-4 inline-flex items-center gap-2 rounded-lg border border-orange-500/40 px-4 py-2 text-sm text-orange-300">
+                  <Users className="h-4 w-4" />
+                  Joining alone? We'll form the batch for you.
                 </div>
               </div>
 
-              <div className="bg-primary-100 rounded-lg p-4 mb-6">
-                <p className="text-sm font-semibold text-gray-900 mb-2">Why choose Prime:</p>
-                <ul className="space-y-2 text-sm text-gray-700">
+              {/* Body */}
+              <div className="p-6 grid grid-cols-2 gap-6">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-slate-400">Best for</p>
+                  <p className="mt-1 font-medium">Solo,<br />Working Professionals</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-slate-400">Start</p>
+                  <p className="mt-1 font-medium">Fixed Date</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-slate-400">Model</p>
+                  <p className="mt-1 font-medium">Time-based</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-slate-400">Pricing</p>
+                  <p className="mt-1 font-medium">Dynamic Group Pricing</p>
+                </div>
+              </div>
+
+              {/* Pricing */}
+              <div className="mx-6 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="rounded-xl bg-slate-800 p-4 border border-slate-700">
+                  <p className="text-sm uppercase tracking-wider text-slate-400">Group Size</p>
+                  <p className="mt-1 text-2xl font-semibold text-slate-100">Up to 10</p>
+                </div>
+                <div className="rounded-xl bg-slate-800 p-4 border-2 border-orange-500">
+                  <p className="text-sm uppercase tracking-wider text-slate-400">Per Head Price</p>
+                  <p className="mt-1 text-2xl font-semibold text-slate-100">Dynamic Group Pricing</p>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="px-6 pb-6">
+                <p className="mb-4 text-xs uppercase tracking-widest text-slate-400">
+                  Why choose Prime?
+                </p>
+                <ul className="space-y-3">
                   <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-0.5">•</span>
-                    <span>No waiting</span>
+                    <CheckCircle className="h-4 w-4 text-orange-500 flex-shrink-0" />
+                    <span>
+                      <strong>No Waiting</strong>
+                      <br />
+                      <span className="text-sm text-slate-300">
+                        Start immediately without batch formation delays.
+                      </span>
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-0.5">•</span>
-                    <span>Smaller, focused groups</span>
+                    <CheckCircle className="h-4 w-4 text-orange-500 flex-shrink-0" />
+                    <span>
+                      <strong>Focused Groups</strong>
+                      <br />
+                      <span className="text-sm text-slate-300">
+                        Smaller cohorts ensure personalized attention.
+                      </span>
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-primary-600 mt-0.5">•</span>
-                    <span>Faster progress with more trainer interaction</span>
+                    <CheckCircle className="h-4 w-4 text-orange-500 flex-shrink-0" />
+                    <span>
+                      <strong>Faster Outcomes</strong>
+                      <br />
+                      <span className="text-sm text-slate-300">
+                        More trainer interaction accelerates progress.
+                      </span>
+                    </span>
                   </li>
                 </ul>
-              </div>
 
-              <a
-                href="#join"
-                className="inline-flex items-center justify-center gap-2 w-full bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition shadow-sm"
-              >
-                Join Prime Batch
-                <ArrowRight className="w-4 h-4" />
-              </a>
+                <Link
+                  href="/prime"
+                  className="mt-6 w-full flex items-center justify-center gap-2 rounded-xl bg-orange-500 py-3 font-semibold text-black hover:bg-orange-400 transition"
+                >
+                  Join Prime Batch
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
             </div>
 
             {/* Collective Batch Card */}
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl border-2 border-blue-200 p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center">
-                  <Users className="w-6 h-6 text-white" />
+            <div className="max-w-md rounded-2xl bg-slate-900 text-slate-100 shadow-xl overflow-hidden w-full">
+              {/* Header */}
+              <div className="bg-gradient-to-r from-purple-500/20 to-slate-800 p-6">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-2xl font-semibold flex items-center gap-3">
+                    Collective Batch
+                    <span className="rounded-full bg-purple-600 px-3 py-1 text-xs font-bold tracking-wide text-white">
+                      BEST VALUE
+                    </span>
+                  </h2>
+                  <Sparkles className="h-6 w-6 text-purple-500" />
                 </div>
-                <h3 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
-                  Collective Batch
-                </h3>
-              </div>
-              <p className="text-[clamp(1rem,2vw,1.25rem)] text-blue-600 font-semibold mb-4">
-                Learn together. Pay less.
-              </p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-1">Best for:</p>
-                    <p className="text-sm text-gray-600">College students and non-urgent learners</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-1">Model:</p>
-                    <p className="text-sm text-gray-600">Capacity-based</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <Calendar className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-1">Start:</p>
-                    <p className="text-sm text-gray-600">Only when maximum capacity is reached</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <DollarSign className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 mb-1">Dynamic group pricing:</p>
-                    <p className="text-sm text-gray-600">₹49,000 → up to 25 students</p>
-                    <p className="text-sm text-gray-600">₹99,000 → up to 50 students</p>
-                  </div>
+                <p className="mt-2 text-slate-300">Learn together. Pay less.</p>
+                <div className="mt-4 inline-flex items-center gap-2 rounded-lg border border-purple-500/40 px-4 py-2 text-sm text-purple-300">
+                  <Users2 className="h-4 w-4" />
+                  Have a group? Learn together and pay less.
                 </div>
               </div>
 
-              <div className="bg-blue-100 rounded-lg p-4 mb-6">
-                <p className="text-sm font-semibold text-gray-900 mb-2">Why choose Collective:</p>
-                <ul className="space-y-2 text-sm text-gray-700">
+              {/* Body */}
+              <div className="p-6 grid grid-cols-2 gap-6">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-slate-400">Best for</p>
+                  <p className="mt-1 font-medium">Group,<br />College Students</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-slate-400">Start</p>
+                  <p className="mt-1 font-medium">Flexible Date</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-slate-400">Model</p>
+                  <p className="mt-1 font-medium">Capacity-based</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-slate-400">Pricing</p>
+                  <p className="mt-1 font-medium">Dynamic group pricing</p>
+                </div>
+              </div>
+
+              {/* Pricing */}
+              <div className="mx-6 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="rounded-xl bg-slate-800 p-4 border border-slate-700">
+                  <p className="text-sm uppercase tracking-wider text-slate-400">Group Size</p>
+                  <p className="mt-1 text-2xl font-semibold text-slate-100">Up to 25</p>
+                </div>
+                <div className="rounded-xl bg-slate-800 p-4 border-2 border-purple-500">
+                  <p className="text-sm uppercase tracking-wider text-slate-400">Per Head Price</p>
+                  <p className="mt-1 text-2xl font-semibold text-slate-100">Dynamic Group Pricing</p>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="px-6 pb-6">
+                <p className="mb-4 text-xs uppercase tracking-widest text-slate-400">
+                  Why choose Collective?
+                </p>
+                <ul className="space-y-3">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-0.5">•</span>
-                    <span>Lowest per-student price</span>
+                    <CheckCircle className="h-4 w-4 text-purple-500 flex-shrink-0" />
+                    <span>
+                      <strong>Lowest Price</strong>
+                      <br />
+                      <span className="text-sm text-slate-300">
+                        Best per-student pricing available across all batch types.
+                      </span>
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-0.5">•</span>
-                    <span>Community-powered learning</span>
+                    <CheckCircle className="h-4 w-4 text-purple-500 flex-shrink-0" />
+                    <span>
+                      <strong>Community Power</strong>
+                      <br />
+                      <span className="text-sm text-slate-300">
+                        Leverage peer-to-peer learning with structured cohorts.
+                      </span>
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-0.5">•</span>
-                    <span>Flexible timelines</span>
+                    <CheckCircle className="h-4 w-4 text-purple-500 flex-shrink-0" />
+                    <span>
+                      <strong>Flexible Timelines</strong>
+                      <br />
+                      <span className="text-sm text-slate-300">
+                        Start when your group is ready with rolling admissions.
+                      </span>
+                    </span>
                   </li>
                 </ul>
-              </div>
 
-              <a
-                href="#join"
-                className="inline-flex items-center justify-center gap-2 w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-sm"
-              >
-                Join Collective Batch
-                <ArrowRight className="w-4 h-4" />
-              </a>
+                <Link
+                  href="/collective"
+                  className="mt-6 w-full flex items-center justify-center gap-2 rounded-xl bg-purple-600 py-3 font-semibold hover:bg-purple-700 transition"
+                >
+                  Join Collective Batch
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
