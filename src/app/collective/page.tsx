@@ -173,7 +173,7 @@ export default function CollectivePage() {
       <section className="py-6 md:py-10 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
-            Features Available in Both Prime & Collective Batches
+            Batch Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {/* Smarter Pricing Card */}
@@ -194,12 +194,12 @@ export default function CollectivePage() {
               <p className="text-sm text-gray-600">Expert-led, community-priced.</p>
             </div>
 
-            {/* Trainer Voting Card */}
+            {/* Live Voting Card */}
             <div className="bg-white border-2 border-green-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BarChart3 className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Trainer Voting</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Live Voting</h3>
               <p className="text-sm text-gray-600">Students control quality.</p>
             </div>
 

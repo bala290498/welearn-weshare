@@ -8,7 +8,8 @@ import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
 import FinalCTA from '@/components/FinalCTA'
 import Footer from '@/components/Footer'
-import { BadgeCheck, Users, Users2, Sparkles, CheckCircle, ArrowRight } from 'lucide-react'
+import LivePricingCards from '@/components/LivePricingCards'
+import { Users, Users2, CheckCircle, ArrowRight, TrendingDown, Award, BarChart3, FileText, Briefcase, ClipboardCheck, BookOpen } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Home() {
@@ -16,6 +17,28 @@ export default function Home() {
     <main className="min-h-screen">
       <Navigation />
       <Hero />
+      
+      {/* Dynamic Group Pricing Section */}
+      <section className="py-12 md:py-16 px-4 bg-gradient-to-br from-primary-50 to-white">
+        <div className="container mx-auto px-4 max-w-screen-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            {/* Pricing Card - Left */}
+            <div className="order-2 md:order-1">
+              <LivePricingCards />
+            </div>
+            
+            {/* Content - Right */}
+            <div className="order-1 md:order-2">
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 mb-4">
+                Dynamic Group Pricing
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600">
+                India&apos;s first platform offers dynamic group pricing
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       
       {/* Batch Details Section */}
       <section className="py-12 md:py-16 px-4 bg-white">
@@ -30,14 +53,13 @@ export default function Home() {
             <div className="max-w-md rounded-2xl bg-slate-900 text-slate-100 shadow-xl overflow-hidden w-full">
               {/* Header */}
               <div className="bg-gradient-to-r from-orange-500/20 to-slate-800 p-6">
-                <div className="flex items-center justify-between">
+                <div>
                   <h2 className="text-2xl font-semibold flex items-center gap-3">
                     Prime Batch
                     <span className="rounded-full bg-orange-500 px-3 py-1 text-xs font-bold tracking-wide text-black">
                       EXCLUSIVE
                     </span>
                   </h2>
-                  <BadgeCheck className="h-6 w-6 text-orange-500" />
                 </div>
                 <p className="mt-2 text-slate-300">Start immediately. Learn with focus.</p>
                 <div className="mt-4 inline-flex items-center gap-2 rounded-lg border border-orange-500/40 px-4 py-2 text-sm text-orange-300">
@@ -130,14 +152,13 @@ export default function Home() {
             <div className="max-w-md rounded-2xl bg-slate-900 text-slate-100 shadow-xl overflow-hidden w-full">
               {/* Header */}
               <div className="bg-gradient-to-r from-purple-500/20 to-slate-800 p-6">
-                <div className="flex items-center justify-between">
+                <div>
                   <h2 className="text-2xl font-semibold flex items-center gap-3">
                     Collective Batch
                     <span className="rounded-full bg-purple-600 px-3 py-1 text-xs font-bold tracking-wide text-white">
                       BEST VALUE
                     </span>
                   </h2>
-                  <Sparkles className="h-6 w-6 text-purple-500" />
                 </div>
                 <p className="mt-2 text-slate-300">Learn together. Pay less.</p>
                 <div className="mt-4 inline-flex items-center gap-2 rounded-lg border border-purple-500/40 px-4 py-2 text-sm text-purple-300">
@@ -224,6 +245,88 @@ export default function Home() {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Batch Features Section */}
+      <section className="py-6 md:py-10 px-4 bg-white">
+        <div className="container mx-auto px-4 max-w-screen-lg">
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
+            Batch Features
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {/* Smarter Pricing Card */}
+            <div className="bg-white border-2 border-purple-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingDown className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Smarter Pricing</h3>
+              <p className="text-sm text-gray-600">More learners, lower cost.</p>
+            </div>
+
+            {/* Top Trainers Card */}
+            <div className="bg-white border-2 border-blue-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Top Trainers</h3>
+              <p className="text-sm text-gray-600">Expert-led, community-priced.</p>
+            </div>
+
+            {/* Live Voting Card */}
+            <div className="bg-white border-2 border-green-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BarChart3 className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Live Voting</h3>
+              <p className="text-sm text-gray-600">Students control quality.</p>
+            </div>
+
+            {/* Certificates Included Card */}
+            <div className="bg-white border-2 border-orange-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FileText className="w-6 h-6 text-orange-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Certificates Included</h3>
+              <p className="text-sm text-gray-600">Proof of completion + resources.</p>
+            </div>
+
+            {/* Strong Community Card */}
+            <div className="bg-white border-2 border-pink-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users2 className="w-6 h-6 text-pink-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Strong Community</h3>
+              <p className="text-sm text-gray-600">Mentors, peers, and support.</p>
+            </div>
+
+            {/* Hiring Pipeline Card */}
+            <div className="bg-white border-2 border-indigo-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Briefcase className="w-6 h-6 text-indigo-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Hiring Pipeline</h3>
+              <p className="text-sm text-gray-600">Tasks lead to interviews.</p>
+            </div>
+
+            {/* Clear Roadmap Card */}
+            <div className="bg-white border-2 border-teal-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <ClipboardCheck className="w-6 h-6 text-teal-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Clear Roadmap</h3>
+              <p className="text-sm text-gray-600">Weekly goals, real projects.</p>
+            </div>
+
+            {/* Career Mentorship Card */}
+            <div className="bg-white border-2 border-amber-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="w-6 h-6 text-amber-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Career Mentorship</h3>
+              <p className="text-sm text-gray-600">Guidance that gets you hired.</p>
             </div>
           </div>
         </div>
