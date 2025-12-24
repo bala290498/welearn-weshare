@@ -7,11 +7,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
           <div>
             <h3 
-              className="text-2xl font-bold text-white mb-4 italic uppercase"
+              className="text-2xl font-bold mb-4 italic uppercase"
               style={{ fontFamily: 'var(--font-open-sans)' }}
             >
-              <span className="block leading-tight">We Learn</span>
-              <span className="block leading-tight">We Share</span>
+              <span className="block leading-tight" style={{ color: '#004aad' }}>We Learn</span>
+              <span className="block leading-tight" style={{ color: '#00bf63' }}>We Share</span>
             </h3>
             <p className="text-sm">Learn Together. Grow Together.</p>
           </div>
