@@ -54,7 +54,7 @@ export default function Navigation() {
           <div className="flex items-center flex-shrink-0">
             <a 
               href="/" 
-              className="text-[clamp(0.875rem,1.25vw,1.125rem)] font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md italic uppercase transition-colors"
+              className="text-[clamp(0.875rem,1.25vw,1.125rem)] font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md italic uppercase transition-colors"
               style={{ fontFamily: 'var(--font-open-sans)', lineHeight: '1.1' }}
               onClick={closeMobileMenu}
             >

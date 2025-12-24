@@ -84,7 +84,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
             </div>
             
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-4 leading-tight">
               {blog.title}
             </h1>
             
@@ -126,14 +126,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
           {/* Blog Content */}
           <div 
             className="prose prose-lg max-w-none 
-              prose-headings:text-gray-900 prose-headings:font-bold
-              prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6 prose-h1:font-bold prose-h1:tracking-tight
-              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-5 prose-h2:font-bold prose-h2:tracking-tight prose-h2:text-gray-900 prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-2
+              prose-headings:text-gray-900 prose-headings:font-semibold
+              prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6 prose-h1:font-semibold prose-h1:tracking-tight
+              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-5 prose-h2:font-semibold prose-h2:tracking-tight prose-h2:text-gray-900 prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-2
               prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:font-semibold prose-h3:text-gray-800
               prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:font-semibold prose-h4:text-gray-800
               prose-p:text-gray-700 prose-p:mb-6 prose-p:leading-relaxed prose-p:text-base prose-p:text-[16px]
               prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
-              prose-strong:text-gray-900 prose-strong:font-bold prose-strong:text-[16px]
+              prose-strong:text-gray-900 prose-strong:font-semibold prose-strong:text-[16px]
               prose-ul:my-6 prose-ul:space-y-3 prose-ul:pl-6 prose-ul:list-disc prose-ul:marker:text-gray-500
               prose-ol:my-6 prose-ol:space-y-3 prose-ol:pl-6 prose-ol:list-decimal prose-ol:marker:text-gray-500 prose-ol:marker:font-semibold
               prose-li:text-gray-700 prose-li:leading-relaxed prose-li:mb-2 prose-li:pl-2
@@ -142,10 +142,10 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
               prose-hr:border-gray-300 prose-hr:my-10 prose-hr:border-t-2
               prose-img:hidden
               [&_h1]:!bg-transparent [&_h1]:!border-none [&_h1]:!p-0
-              [&_h2]:!bg-transparent [&_h2]:!p-0 [&_h2]:!text-2xl [&_h2]:!font-bold [&_h2]:!mt-10 [&_h2]:!mb-5 [&_h2]:!border-b [&_h2]:!border-gray-200 [&_h2]:!pb-2
+              [&_h2]:!bg-transparent [&_h2]:!p-0 [&_h2]:!text-2xl [&_h2]:!font-semibold [&_h2]:!mt-10 [&_h2]:!mb-5 [&_h2]:!border-b [&_h2]:!border-gray-200 [&_h2]:!pb-2
               [&_h3]:!bg-transparent [&_h3]:!p-0 [&_h3]:!block [&_h3]:!text-xl [&_h3]:!font-semibold [&_h3]:!mt-8 [&_h3]:!mb-4 [&_h3]:!text-gray-800
               [&_p]:!mb-6 [&_p]:!text-gray-700 [&_p]:!leading-relaxed [&_p]:!text-base
-              [&_strong]:!font-bold [&_strong]:!text-gray-900
+              [&_strong]:!font-semibold [&_strong]:!text-gray-900
               [&_ul]:!my-6 [&_ul]:!space-y-3 [&_ul]:!pl-6 [&_ul]:!list-disc
               [&_ol]:!my-6 [&_ol]:!space-y-3 [&_ol]:!pl-6 [&_ol]:!list-decimal
               [&_li]:!mb-2 [&_li]:!text-gray-700 [&_li]:!leading-relaxed"

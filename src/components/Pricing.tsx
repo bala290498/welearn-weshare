@@ -14,18 +14,18 @@ export default function Pricing() {
         <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 lg:p-12 border-2 border-primary-200">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
             <div className="text-center p-4 md:p-6 bg-primary-50 rounded-lg">
-              <div className="text-[clamp(1.5rem,3vw,2rem)] font-bold text-primary-600 mb-2">10</div>
+              <div className="text-[clamp(1.5rem,3vw,2rem)] font-semibold text-primary-600 mb-2">10</div>
               <div className="text-gray-600 text-sm">Students</div>
               <div className="text-xl font-semibold text-gray-900 mt-2">₹37,500</div>
             </div>
             <div className="text-center p-4 md:p-6 bg-primary-100 rounded-lg border-2 border-primary-400">
-              <div className="text-[clamp(1.5rem,3vw,2rem)] font-bold text-primary-700 mb-2">50</div>
+              <div className="text-[clamp(1.5rem,3vw,2rem)] font-semibold text-primary-700 mb-2">50</div>
               <div className="text-gray-600 text-sm">Students</div>
               <div className="text-xl font-semibold text-gray-900 mt-2">₹20,750</div>
               <div className="text-xs text-primary-700 mt-1 font-semibold">Most Popular</div>
             </div>
             <div className="text-center p-4 md:p-6 bg-primary-50 rounded-lg">
-              <div className="text-[clamp(1.5rem,3vw,2rem)] font-bold text-primary-600 mb-2">100+</div>
+              <div className="text-[clamp(1.5rem,3vw,2rem)] font-semibold text-primary-600 mb-2">100+</div>
               <div className="text-gray-600 text-sm">Students</div>
               <div className="text-xl font-semibold text-gray-900 mt-2">₹12,500</div>
             </div>

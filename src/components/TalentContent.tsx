@@ -19,7 +19,7 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
     }
     return name.substring(0, 2).toUpperCase()
   }
-  
+
   // Helper to get role from category
   const getRole = (category: string) => {
     // Map categories to role names
@@ -65,7 +65,7 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
                   <div className="flex justify-center">
                     <div className="w-28 h-28 rounded-full bg-gray-200 flex items-center justify-center">
                       <span className="text-3xl font-semibold text-gray-700">
-                        {getInitials(student.name)}
+                      {getInitials(student.name)}
                       </span>
                     </div>
                   </div>
@@ -89,33 +89,33 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
 
                   {/* Icons */}
                   <div className="flex justify-center gap-6 mb-6">
-                    {student.socialLinks.linkedin && (
-                      <a
-                        href={student.socialLinks.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      {student.socialLinks.linkedin && (
+                        <a
+                          href={student.socialLinks.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         aria-label="LinkedIn profile"
                         className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
-                      >
+                        >
                         <Linkedin className="w-5 h-5 text-gray-600" aria-hidden="true" />
-                      </a>
-                    )}
-                    {student.socialLinks.github && (
-                      <a
-                        href={student.socialLinks.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        </a>
+                      )}
+                      {student.socialLinks.github && (
+                        <a
+                          href={student.socialLinks.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         aria-label="GitHub profile"
                         className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
-                      >
+                        >
                         <Github className="w-5 h-5 text-gray-600" aria-hidden="true" />
-                      </a>
-                    )}
+                        </a>
+                      )}
                   </div>
 
                   {/* Button (text-style with arrow) */}
-                  <Link
-                    href={`/talent/${student.slug}`}
+                    <Link
+                      href={`/talent/${student.slug}`}
                     className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
                   >
                     <span className="group-hover:underline">View Details</span>
@@ -123,7 +123,7 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
                       className="w-4 h-4 transition-transform group-hover:translate-x-1"
                       aria-hidden="true"
                     />
-                  </Link>
+                    </Link>
                 </div>
               ))}
             </div>

@@ -126,8 +126,8 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
               <>
                 <div className="mb-4 flex flex-wrap gap-2">
                   <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full">
-                    {course.category}
-                  </span>
+                  {course.category}
+                </span>
                   {course.batchType === 'collective' && (
                     <span className="inline-block px-3 py-1 text-sm rounded-full bg-purple-100 text-purple-600 font-medium flex items-center gap-1">
                       <Users size={14} />
@@ -140,34 +140,34 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                       Prime
                     </span>
                   )}
-                </div>
+              </div>
                 <div className="mb-4">
                   <h2 className="text-[clamp(1rem,2vw,1.25rem)] font-semibold text-gray-900 mb-1 flex-shrink-0">
-                    {course.title}
-                  </h2>
+                {course.title}
+              </h2>
                   <p className="text-gray-500 text-sm line-clamp-2">
-                    {course.description}
-                  </p>
+                {course.description}
+              </p>
                 </div>
                 {course.batchType === 'collective' && course.studentsEnrolled !== undefined && course.maxStudents !== undefined && (
                   <>
-                    {(() => {
-                      const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
-                      const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
-                      const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
+                      {(() => {
+                        const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
+                        const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
+                        const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
                       const potentialPrice = calculatePotentialPrice(basePrice, course.maxStudents)
-                      return (
-                        <>
+                        return (
+                          <>
                           {/* Pricing */}
                           <div className="grid grid-cols-2 gap-4 mb-4">
                             <div className="border border-purple-200 rounded-xl p-4 text-center">
                               <p className="text-xs text-gray-500 font-medium">CURRENT PRICE</p>
-                              <p className="text-2xl font-bold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
+                              <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
                               <p className="text-sm line-through text-gray-400">{course.price}</p>
                             </div>
                             <div className="border border-purple-200 rounded-xl p-4 text-center bg-purple-100">
                               <p className="text-xs text-purple-600 font-medium">CAPACITY PRICE</p>
-                              <p className="text-2xl font-bold text-purple-600 mt-1">{formatPrice(potentialPrice)}</p>
+                              <p className="text-2xl font-semibold text-purple-600 mt-1">{formatPrice(potentialPrice)}</p>
                               <p className="text-sm text-purple-700">Lowest possible</p>
                             </div>
                           </div>
@@ -181,7 +181,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                               </span>
                             </div>
                             <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                              <div 
+                              <div
                                 className="h-full bg-purple-600 transition-all duration-300"
                                 style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
                               />
@@ -190,7 +190,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                               <Info size={14} />
                               Price drops as more students join
                             </p>
-                          </div>
+                    </div>
                           {/* Button */}
                           <Link
                             href={`/skill-building/${course.slug}`}
@@ -199,9 +199,9 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                             Join Collective
                             <ArrowRight size={18} />
                           </Link>
-                        </>
-                      )
-                    })()}
+                          </>
+                        )
+                      })()}
                   </>
                 )}
                 {course.batchType === 'prime' && (
@@ -221,7 +221,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                   className="bg-white rounded-lg border border-purple-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-auto overflow-hidden"
                 >
                   {cardContent}
-                </div>
+              </div>
               )
             }
             
@@ -232,7 +232,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                 className="bg-white rounded-lg border border-orange-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-auto overflow-hidden"
               >
                 {cardContent}
-              </Link>
+            </Link>
             )
           })
         )}
@@ -250,8 +250,8 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
               <>
               <div className="mb-4 flex flex-wrap gap-2">
                 <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full">
-                  {course.category}
-                </span>
+                {course.category}
+              </span>
                 {course.batchType === 'collective' && (
                   <span className="inline-block px-3 py-1 text-sm rounded-full bg-purple-100 text-purple-600 font-medium flex items-center gap-1">
                     <Users size={14} />
@@ -264,34 +264,34 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                     Prime
                   </span>
                 )}
-              </div>
+            </div>
               <div className="mb-4">
                 <h2 className="text-[clamp(1rem,1.5vw,1.25rem)] font-semibold text-gray-900 mb-1 flex-shrink-0">
-                  {course.title}
-                </h2>
+              {course.title}
+            </h2>
                 <p className="text-gray-500 text-sm line-clamp-2">
-                  {course.description}
-                </p>
+              {course.description}
+            </p>
               </div>
               {course.batchType === 'collective' && course.studentsEnrolled !== undefined && course.maxStudents !== undefined && (
                 <>
-                  {(() => {
-                    const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
-                    const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
-                    const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
+                    {(() => {
+                      const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
+                      const validEnrolled = Math.min(course.studentsEnrolled, course.maxStudents)
+                      const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, course.maxStudents)
                     const potentialPrice = calculatePotentialPrice(basePrice, course.maxStudents)
-                    return (
-                      <>
+                      return (
+                        <>
                         {/* Pricing */}
                         <div className="grid grid-cols-2 gap-4 mb-4">
                           <div className="border border-purple-200 rounded-xl p-4 text-center">
                             <p className="text-xs text-gray-500 font-medium">CURRENT PRICE</p>
-                            <p className="text-2xl font-bold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
+                            <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
                             <p className="text-sm line-through text-gray-400">{course.price}</p>
                           </div>
                           <div className="border border-purple-200 rounded-xl p-4 text-center bg-purple-100">
                             <p className="text-xs text-purple-600 font-medium">CAPACITY PRICE</p>
-                            <p className="text-2xl font-bold text-purple-600 mt-1">{formatPrice(potentialPrice)}</p>
+                            <p className="text-2xl font-semibold text-purple-600 mt-1">{formatPrice(potentialPrice)}</p>
                             <p className="text-sm text-purple-700">Lowest possible</p>
                           </div>
                         </div>
@@ -305,7 +305,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                             </span>
                           </div>
                           <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                            <div 
+                            <div
                               className="h-full bg-purple-600 transition-all duration-300"
                               style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
                             />
@@ -314,7 +314,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                             <Info size={14} />
                             Price drops as more students join
                           </p>
-                        </div>
+                  </div>
                         {/* Button */}
                         <Link
                           href={`/skill-building/${course.slug}`}
@@ -323,17 +323,17 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                           Join Collective
                           <ArrowRight size={18} />
                         </Link>
-                      </>
-                    )
-                  })()}
+                        </>
+                      )
+                    })()}
                 </>
               )}
               {course.batchType === 'prime' && (
                 <div className="pt-4 border-t border-orange-200 mt-auto flex-shrink-0 text-center">
                   <span className="text-orange-600 font-semibold text-sm hover:underline">
-                    View Details →
-                  </span>
-                  </div>
+                View Details →
+              </span>
+            </div>
                 )}
               </>
             )
@@ -356,7 +356,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                 className="bg-white rounded-lg border border-orange-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full overflow-hidden"
               >
                 {cardContent}
-              </Link>
+          </Link>
             )
           })
         )}

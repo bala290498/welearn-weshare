@@ -39,7 +39,7 @@ export default function CourseRoadmap() {
           {phases.map((phase, index) => (
             <div key={index} className="mb-8">
               <div className="flex items-start gap-4 mb-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-semibold">
                   {index + 1}
                 </div>
                 <div className="flex-1">

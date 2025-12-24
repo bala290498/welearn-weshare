@@ -65,7 +65,7 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
             </Link>
           </div>
           <div className="text-center space-y-4 md:space-y-6">
-            <h1 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-gray-900">
+            <h1 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold text-gray-900">
               Best Performers in {actualCategory}
             </h1>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -88,7 +88,7 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
                 <div className="flex justify-center">
                   <div className="w-28 h-28 rounded-full bg-gray-200 flex items-center justify-center">
                     <span className="text-3xl font-semibold text-gray-700">
-                      {getInitials(student.name)}
+                    {getInitials(student.name)}
                     </span>
                   </div>
                 </div>
@@ -112,33 +112,33 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
 
                 {/* Icons */}
                 <div className="flex justify-center gap-6 mb-6">
-                  {student.socialLinks.linkedin && (
-                    <a
-                      href={student.socialLinks.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    {student.socialLinks.linkedin && (
+                      <a
+                        href={student.socialLinks.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       aria-label="LinkedIn profile"
                       className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
-                    >
+                      >
                       <Linkedin className="w-5 h-5 text-gray-600" aria-hidden="true" />
-                    </a>
-                  )}
-                  {student.socialLinks.github && (
-                    <a
-                      href={student.socialLinks.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      </a>
+                    )}
+                    {student.socialLinks.github && (
+                      <a
+                        href={student.socialLinks.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       aria-label="GitHub profile"
                       className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
-                    >
+                      >
                       <Github className="w-5 h-5 text-gray-600" aria-hidden="true" />
-                    </a>
-                  )}
+                      </a>
+                    )}
                 </div>
 
                 {/* Button (text-style with arrow) */}
-                <Link
-                  href={`/talent/${student.slug}`}
+                  <Link
+                    href={`/talent/${student.slug}`}
                   className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
                 >
                   <span className="group-hover:underline">View Details</span>
@@ -146,7 +146,7 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
                     className="w-4 h-4 transition-transform group-hover:translate-x-1"
                     aria-hidden="true"
                   />
-                </Link>
+                  </Link>
               </div>
             ))}
           </div>
@@ -162,7 +162,7 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
                 <div className="flex justify-center">
                   <div className="w-28 h-28 rounded-full bg-gray-200 flex items-center justify-center">
                     <span className="text-3xl font-semibold text-gray-700">
-                      {getInitials(student.name)}
+                    {getInitials(student.name)}
                     </span>
                   </div>
                 </div>
@@ -186,33 +186,33 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
 
                 {/* Icons */}
                 <div className="flex justify-center gap-6 mb-6">
-                  {student.socialLinks.linkedin && (
-                    <a
-                      href={student.socialLinks.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    {student.socialLinks.linkedin && (
+                      <a
+                        href={student.socialLinks.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       aria-label="LinkedIn profile"
                       className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
-                    >
+                      >
                       <Linkedin className="w-5 h-5 text-gray-600" aria-hidden="true" />
-                    </a>
-                  )}
-                  {student.socialLinks.github && (
-                    <a
-                      href={student.socialLinks.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      </a>
+                    )}
+                    {student.socialLinks.github && (
+                      <a
+                        href={student.socialLinks.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       aria-label="GitHub profile"
                       className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
-                    >
+                      >
                       <Github className="w-5 h-5 text-gray-600" aria-hidden="true" />
-                    </a>
-                  )}
+                      </a>
+                    )}
                 </div>
 
                 {/* Button (text-style with arrow) */}
-                <Link
-                  href={`/talent/${student.slug}`}
+                  <Link
+                    href={`/talent/${student.slug}`}
                   className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
                 >
                   <span className="group-hover:underline">View Details</span>
@@ -220,7 +220,7 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
                     className="w-4 h-4 transition-transform group-hover:translate-x-1"
                     aria-hidden="true"
                   />
-                </Link>
+                  </Link>
               </div>
             ))}
           </div>

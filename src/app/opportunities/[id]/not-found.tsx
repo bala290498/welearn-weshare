@@ -9,7 +9,7 @@ export default function JobNotFound() {
       <Navigation />
       <div className="py-20 px-4 text-center">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Opportunity Not Found</h1>
+          <h1 className="text-4xl font-semibold text-gray-900 mb-4">Opportunity Not Found</h1>
           <p className="text-gray-600 mb-8">
             The opportunity you&apos;re looking for doesn&apos;t exist or has been removed.
           </p>

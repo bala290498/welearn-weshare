@@ -92,7 +92,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
                       {job.title}
                     </h1>
                     <div className="flex items-center gap-2 text-lg text-gray-600">
@@ -160,14 +160,14 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <div 
                   className="prose prose-lg max-w-none
-                    prose-headings:text-gray-900 prose-headings:font-bold
-                    prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6 prose-h1:font-bold prose-h1:tracking-tight
-                    prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-5 prose-h2:font-bold prose-h2:tracking-tight prose-h2:text-gray-900 prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-2
+                    prose-headings:text-gray-900 prose-headings:font-semibold
+                    prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6 prose-h1:font-semibold prose-h1:tracking-tight
+                    prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-5 prose-h2:font-semibold prose-h2:tracking-tight prose-h2:text-gray-900 prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-2
                     prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:font-semibold prose-h3:text-gray-800
                     prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:font-semibold prose-h4:text-gray-800
                     prose-p:text-gray-700 prose-p:mb-6 prose-p:leading-relaxed prose-p:text-base prose-p:text-[16px]
                     prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
-                    prose-strong:text-gray-900 prose-strong:font-bold prose-strong:text-[16px]
+                    prose-strong:text-gray-900 prose-strong:font-semibold prose-strong:text-[16px]
                     prose-ul:my-6 prose-ul:space-y-3 prose-ul:pl-6 prose-ul:list-disc prose-ul:marker:text-gray-500
                     prose-ol:my-6 prose-ol:space-y-3 prose-ol:pl-6 prose-ol:list-decimal prose-ol:marker:text-gray-500 prose-ol:marker:font-semibold
                     prose-li:text-gray-700 prose-li:leading-relaxed prose-li:mb-2 prose-li:pl-2
@@ -175,10 +175,10 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
                     prose-blockquote:border-l-4 prose-blockquote:border-primary-300 prose-blockquote:pl-4 prose-blockquote:pr-4 prose-blockquote:py-2 prose-blockquote:italic prose-blockquote:text-gray-600 prose-blockquote:my-6 prose-blockquote:bg-gray-50
                     prose-hr:border-gray-300 prose-hr:my-10 prose-hr:border-t-2
                     [&_h1]:!bg-transparent [&_h1]:!border-none [&_h1]:!p-0
-                    [&_h2]:!bg-transparent [&_h2]:!p-0 [&_h2]:!text-2xl [&_h2]:!font-bold [&_h2]:!mt-10 [&_h2]:!mb-5 [&_h2]:!border-b [&_h2]:!border-gray-200 [&_h2]:!pb-2
+                    [&_h2]:!bg-transparent [&_h2]:!p-0 [&_h2]:!text-2xl [&_h2]:!font-semibold [&_h2]:!mt-10 [&_h2]:!mb-5 [&_h2]:!border-b [&_h2]:!border-gray-200 [&_h2]:!pb-2
                     [&_h3]:!bg-transparent [&_h3]:!p-0 [&_h3]:!block [&_h3]:!text-xl [&_h3]:!font-semibold [&_h3]:!mt-8 [&_h3]:!mb-4 [&_h3]:!text-gray-800
                     [&_p]:!mb-6 [&_p]:!text-gray-700 [&_p]:!leading-relaxed [&_p]:!text-base
-                    [&_strong]:!font-bold [&_strong]:!text-gray-900
+                    [&_strong]:!font-semibold [&_strong]:!text-gray-900
                     [&_ul]:!my-6 [&_ul]:!space-y-3 [&_ul]:!pl-6 [&_ul]:!list-disc [&_ul]:!marker:text-gray-500
                     [&_ol]:!my-6 [&_ol]:!space-y-3 [&_ol]:!pl-6 [&_ol]:!list-decimal [&_ol]:!marker:text-gray-500
                     [&_li]:!text-gray-700 [&_li]:!leading-relaxed [&_li]:!mb-2
@@ -192,7 +192,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
               {/* Skills Required */}
               {job.skills && job.skills.length > 0 && (
                 <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                  <h2 className="text-xl font-bold text-gray-900 mb-4">Skills Required</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-4">Skills Required</h2>
                   <div className="flex flex-wrap gap-2">
                     {job.skills.map((skill, index) => (
                       <span
@@ -248,7 +248,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
 
               {/* Company Info Card */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Company Information</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Company Information</h3>
                 <div className="space-y-3 text-sm">
                   <div>
                     <p className="text-gray-500 mb-1">Company</p>
@@ -285,7 +285,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
 
               {/* Share Card */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Share this Job</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Share this Job</h3>
                 <CopyUrlButton url={`https://welearnweshare.com/opportunities/${id}`} />
               </div>
             </div>

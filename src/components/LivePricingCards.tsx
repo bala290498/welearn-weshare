@@ -77,7 +77,7 @@ export default function LivePricingCards() {
           <div className="flex items-center justify-start mb-2">
             <TrendingDown className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#00bf63' }} />
           </div>
-          <div className="text-3xl md:text-4xl font-bold mb-2 transition-colors duration-300 flex items-center justify-between gap-3" style={{ color: '#00bf63' }}>
+          <div className="text-3xl md:text-4xl font-semibold mb-2 transition-colors duration-300 flex items-center justify-between gap-3" style={{ color: '#00bf63' }}>
             <span>{formattedPrice}</span>
             <span className="text-xl md:text-2xl">drops</span>
           </div>

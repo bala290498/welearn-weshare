@@ -53,13 +53,13 @@ export default function LandingPage() {
       <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-4 md:space-y-6">
-            <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-bold text-gray-900">
+            <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-semibold text-gray-900">
               WeLearnWeShare
             </h1>
             <p className="text-[clamp(1rem,2.5vw,1.5rem)] text-primary-600 font-semibold">
               Learn Together. Grow Together.
             </p>
-            <h2 className="text-[clamp(1.25rem,3vw,2.5rem)] font-bold text-gray-900 pt-4">
+            <h2 className="text-[clamp(1.25rem,3vw,2.5rem)] font-semibold text-gray-900 pt-4">
               Unlock Skills. Reduce Costs. Shape Your Career.
             </h2>
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -90,7 +90,7 @@ export default function LandingPage() {
       <section className="py-6 md:py-10 px-4 bg-white" aria-labelledby="comparison-heading">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center space-y-3 md:space-y-6 mb-6 md:mb-12">
-            <h2 id="comparison-heading" className="text-[clamp(1.25rem,4vw,2rem)] font-bold text-gray-900 px-2">
+            <h2 id="comparison-heading" className="text-[clamp(1.25rem,4vw,2rem)] font-semibold text-gray-900 px-2">
               Don&apos;t Fall for Traditional Institute Traps — See How WeLearnWeShare Makes Learning Smarter
             </h2>
             <p className="text-[clamp(0.875rem,2.5vw,1.125rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
@@ -239,7 +239,7 @@ export default function LandingPage() {
       {/* Why Choose Section */}
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
             Why Choose WeLearnWeShare?
           </h2>
           
@@ -269,7 +269,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
-                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900">
+                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-semibold text-gray-900">
                   Community-Powered Discounting
                 </h3>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
@@ -284,7 +284,7 @@ export default function LandingPage() {
             {/* Feature 2 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
               <div className="space-y-4">
-                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900">
+                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-semibold text-gray-900">
                   Learn from the Best — At an Affordable Cost
                 </h3>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
@@ -343,7 +343,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
-                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900">
+                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-semibold text-gray-900">
                   Trainer Quality Guaranteed — Change by Live Voting
                 </h3>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
@@ -361,7 +361,7 @@ export default function LandingPage() {
             {/* Feature 4 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
               <div className="space-y-4">
-                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900">
+                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-semibold text-gray-900">
                   Certification + Learning Materials Included
                 </h3>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed mb-4">
@@ -434,7 +434,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
-                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900">
+                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-semibold text-gray-900">
                   Strong Community Support
                 </h3>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
@@ -463,7 +463,7 @@ export default function LandingPage() {
             {/* Feature 6 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
               <div className="space-y-4">
-                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900">
+                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-semibold text-gray-900">
                   Get Hired Through In-House Tasks
                 </h3>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
@@ -533,7 +533,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="order-1 md:order-2 space-y-4">
-                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900">
+                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-semibold text-gray-900">
                   A Clear Roadmap from Beginner to Job-Ready
                 </h3>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
@@ -562,7 +562,7 @@ export default function LandingPage() {
             {/* Feature 8 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
               <div className="space-y-4">
-                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-gray-900">
+                <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-semibold text-gray-900">
                   Personalized Career Guidance
                 </h3>
                 <p className="text-[clamp(0.875rem,2vw,1rem)] text-gray-600 leading-relaxed">
@@ -617,7 +617,7 @@ export default function LandingPage() {
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="mb-8 md:mb-12">
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-900 text-center">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-gray-900 text-center">
               Your Journey with WeLearnWeShare
             </h2>
           </div>
@@ -662,12 +662,12 @@ export default function LandingPage() {
                 tabIndex={0}
               >
                 {/* Numbered Icon */}
-                <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-primary-600 text-primary-600 font-bold text-lg md:text-xl mb-4 mx-auto bg-transparent">
+                <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-primary-600 text-primary-600 font-semibold text-lg md:text-xl mb-4 mx-auto bg-transparent">
                   {item.step}
                 </div>
                 
                 {/* Title */}
-                <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-bold text-gray-900 mb-2 text-center">
+                <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-semibold text-gray-900 mb-2 text-center">
                   {item.title}
                 </h3>
                 
@@ -684,7 +684,7 @@ export default function LandingPage() {
       {/* CTA Section */}
       <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container mx-auto px-4 max-w-screen-lg text-center space-y-6 md:space-y-8">
-          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold">
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold">
             🚀 Start Learning the Smarter Way
           </h2>
           <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-primary-100 max-w-2xl mx-auto leading-relaxed">
@@ -693,7 +693,7 @@ export default function LandingPage() {
           <p className="text-[clamp(1.125rem,2.5vw,1.5rem)] font-semibold">
             Join WeLearnWeShare today.
           </p>
-          <p className="text-[clamp(1.125rem,2.5vw,1.5rem)] font-bold">
+          <p className="text-[clamp(1.125rem,2.5vw,1.5rem)] font-semibold">
             Learn more. Pay less. Build your future.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap pt-4">

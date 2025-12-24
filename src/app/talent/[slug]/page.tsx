@@ -65,11 +65,11 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
             </a>
           </div>
           <div className="flex items-start gap-6">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-3xl md:text-4xl font-bold flex-shrink-0">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-3xl md:text-4xl font-semibold flex-shrink-0">
               {student.name.charAt(0)}
             </div>
             <div className="flex-1">
-              <h1 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-gray-900 mb-2">
+              <h1 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold text-gray-900 mb-2">
                 {student.name}
               </h1>
               <p className="text-lg text-primary-600 font-semibold mb-3">
@@ -94,7 +94,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
             {/* Batch Enrolled */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Batch Enrolled
                 </h2>
               </div>
@@ -106,7 +106,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
             {/* Performance */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Performance
                 </h2>
               </div>
@@ -118,7 +118,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
             {/* Achievement (Projects Done) */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Achievement (Projects Done)
                 </h2>
               </div>
@@ -135,7 +135,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
             {/* Portfolio */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Portfolio
                 </h2>
               </div>
@@ -152,7 +152,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
             {/* Achievements */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Achievements
                 </h2>
               </div>
@@ -169,7 +169,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
             {/* Competitions */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Competitions & Challenges
                 </h2>
               </div>
@@ -189,7 +189,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
             {(student.socialLinks.linkedin || student.socialLinks.github || student.socialLinks.website) && (
               <div>
                 <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                  <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                  <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                     Links
                   </h2>
                 </div>
@@ -234,7 +234,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
             {/* Contact Details */}
             <div className="bg-primary-50 rounded-lg p-6 md:p-8">
               <div className="border-b-2 border-primary-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Contact Details
                 </h2>
               </div>

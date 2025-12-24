@@ -38,7 +38,7 @@ export default function HowItWorks() {
               className="text-center p-8 rounded-xl bg-gradient-to-br from-primary-50 to-white border border-primary-100 hover:shadow-lg transition"
             >
               <div className="flex justify-center mb-4">
-                <div className="bg-primary-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4">
+                <div className="bg-primary-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-semibold mb-4">
                   {step.number}
                 </div>
               </div>

@@ -149,9 +149,9 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               )}
             </div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <h1 className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-gray-900 flex-1">
-                {course.title}
-              </h1>
+              <h1 className="text-[clamp(1.5rem,4vw,3rem)] font-semibold text-gray-900 flex-1">
+              {course.title}
+            </h1>
               <div className="flex-shrink-0">
                 <ShareButton 
                   url={`https://welearnweshare.com/skill-building/${id}`}
@@ -169,33 +169,33 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
       {/* Dynamic Group Pricing Section */}
       {course.studentsEnrolled !== undefined && course.maxStudents !== undefined && (
         <section className="py-6 md:py-10 px-4 bg-gray-50">
-          <div className="container mx-auto px-4 max-w-screen-lg">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Dynamic Group Pricing</h2>
+        <div className="container mx-auto px-4 max-w-screen-lg">
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-8 text-center">Dynamic Group Pricing</h2>
             
             {/* Three Column Layout */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Column 1: Students Enrolled */}
               <div className="px-4 md:px-6 text-center">
                 <p className="text-xs text-gray-600 mb-2">Students enrolled:</p>
-                <p className={`text-3xl md:text-4xl font-bold mb-4 ${
+                <p className={`text-3xl md:text-4xl font-semibold mb-4 ${
                   course.batchType === 'collective' ? 'text-purple-600' : 
                   course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
                 }`}>{validEnrolled} / {maxStudents}</p>
                 <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div
+                      <div
                     className={`h-2.5 rounded-full transition-all duration-300 ${
                       course.batchType === 'collective' ? 'bg-purple-600' : 
                       course.batchType === 'prime' ? 'bg-orange-600' : 'bg-primary-600'
                     }`}
                     style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
-                  />
-                </div>
-              </div>
+                      />
+                    </div>
+                  </div>
               
               {/* Column 2: Capacity Price */}
               <div className="px-4 md:px-6 text-center">
                 <p className="text-xs text-gray-600 mb-1">Capacity price</p>
-                <p className={`text-3xl md:text-4xl font-bold mb-2 ${
+                <p className={`text-3xl md:text-4xl font-semibold mb-2 ${
                   course.batchType === 'collective' ? 'text-purple-600' : 
                   course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
                 }`}>{formatPrice(potentialPrice)}</p>
@@ -207,14 +207,14 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               {/* Column 3: Current Price */}
               <div className="px-4 md:px-6 text-center">
                 <p className="text-xs text-gray-600 mb-1">Current price</p>
-                <p className={`text-3xl md:text-4xl font-bold mb-2 ${
+                <p className={`text-3xl md:text-4xl font-semibold mb-2 ${
                   course.batchType === 'collective' ? 'text-purple-600' : 
                   course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
                 }`}>{formatPrice(currentPrice)}</p>
                 <p className="text-xs text-gray-500">
                   Current ({validEnrolled}): {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled || 0} = {formatPrice(currentPrice)}
-                </p>
-              </div>
+                    </p>
+                  </div>
             </div>
             <p className="text-xs text-gray-500 mt-6 text-center">Price drops as more students join</p>
           </div>
@@ -227,7 +227,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             {/* Instructor */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Instructor
                 </h2>
               </div>
@@ -239,7 +239,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             {/* Course Syllabus */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Course Syllabus
                 </h2>
               </div>
@@ -258,7 +258,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             {/* Course Features */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Course Features
                 </h2>
               </div>
@@ -275,7 +275,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             {/* Prerequisites */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Prerequisites
                 </h2>
               </div>
@@ -292,7 +292,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             {/* Contact Details */}
             <div className="bg-primary-50 rounded-lg p-6 md:p-8">
               <div className="border-b-2 border-primary-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-bold text-gray-900">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
                   Contact Details
                 </h2>
               </div>

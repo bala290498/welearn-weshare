@@ -55,7 +55,7 @@ export default function GroupsPage() {
       {/* How It Works Section */}
       <section className="py-12 md:py-16 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
             How It Works
           </h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">

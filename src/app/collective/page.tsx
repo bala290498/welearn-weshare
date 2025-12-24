@@ -49,10 +49,10 @@ export default function CollectivePage() {
             >
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
                 <div className="flex flex-col gap-2 items-start">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-600 text-white shadow-sm">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-purple-600 text-white shadow-sm">
                     Best Value
                   </span>
-                  <h1 className="text-white text-3xl sm:text-4xl font-bold leading-tight">Collective Batch</h1>
+                  <h1 className="text-white text-3xl sm:text-4xl font-semibold leading-tight">Collective Batch</h1>
                   <p className="text-slate-200 text-lg sm:text-xl font-medium">Learn together. Pay less.</p>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export default function CollectivePage() {
 
               {/* Pricing Section */}
               <div className="flex flex-col gap-4">
-                <h3 className="text-slate-900 text-xl font-bold leading-tight flex items-center gap-2">
+                <h3 className="text-slate-900 text-xl font-semibold leading-tight flex items-center gap-2">
                   <DollarSign className="w-6 h-6 text-purple-600" />
                   Dynamic Group Pricing
                 </h3>
@@ -86,7 +86,7 @@ export default function CollectivePage() {
                   {/* Pricing Card 1 */}
                   <div className="flex flex-col justify-between gap-4 rounded-xl border border-slate-200 bg-white p-6 transition-all hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10">
                     <div className="flex flex-col gap-2">
-                      <h4 className="text-slate-500 text-sm font-bold uppercase tracking-wider">Small Group</h4>
+                      <h4 className="text-slate-500 text-sm font-semibold uppercase tracking-wider">Small Group</h4>
                       <div className="flex items-baseline gap-1 text-slate-900">
                         <span className="text-4xl font-black tracking-tight">₹49,000</span>
                       </div>
@@ -95,7 +95,7 @@ export default function CollectivePage() {
                         Up to 25 students
                       </div>
                     </div>
-                    <button className="w-full mt-2 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white border border-slate-200 text-slate-900 hover:bg-purple-50 text-sm font-bold transition-colors">
+                    <button className="w-full mt-2 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white border border-slate-200 text-slate-900 hover:bg-purple-50 text-sm font-semibold transition-colors">
                       Select Tier
                     </button>
                   </div>
@@ -103,11 +103,11 @@ export default function CollectivePage() {
                   {/* Pricing Card 2 */}
                   <div className="flex flex-col justify-between gap-4 rounded-xl border-2 border-purple-500/30 bg-purple-500/5 p-6 relative overflow-hidden">
                     {/* Popular badge */}
-                    <div className="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">
+                    <div className="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-semibold px-2 py-1 rounded-bl-lg uppercase tracking-wider">
                       Best Value
                     </div>
                     <div className="flex flex-col gap-2">
-                      <h4 className="text-purple-600 text-sm font-bold uppercase tracking-wider">Large Group</h4>
+                      <h4 className="text-purple-600 text-sm font-semibold uppercase tracking-wider">Large Group</h4>
                       <div className="flex items-baseline gap-1 text-slate-900">
                         <span className="text-4xl font-black tracking-tight">₹99,000</span>
                       </div>
@@ -116,7 +116,7 @@ export default function CollectivePage() {
                         Up to 50 students
                       </div>
                     </div>
-                    <button className="w-full mt-2 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-purple-600 text-white hover:bg-purple-700 text-sm font-bold transition-colors shadow-md shadow-purple-500/20">
+                    <button className="w-full mt-2 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-purple-600 text-white hover:bg-purple-700 text-sm font-semibold transition-colors shadow-md shadow-purple-500/20">
                       Select Tier
                     </button>
                   </div>
@@ -125,27 +125,27 @@ export default function CollectivePage() {
 
               {/* Benefits Section */}
               <div className="flex flex-col gap-4 pt-2 border-t border-slate-200">
-                <h3 className="text-slate-900 text-xl font-bold leading-tight mt-4">Why choose Collective?</h3>
+                <h3 className="text-slate-900 text-xl font-semibold leading-tight mt-4">Why choose Collective?</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="flex flex-col gap-2 p-4 rounded-lg bg-purple-50">
                     <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 mb-1">
                       <Wallet className="w-5 h-5" />
                     </div>
-                    <h5 className="text-slate-900 font-bold text-base">Lowest Price</h5>
+                    <h5 className="text-slate-900 font-semibold text-base">Lowest Price</h5>
                     <p className="text-slate-600 text-sm leading-relaxed">Best per-student pricing available across all batch types.</p>
                   </div>
                   <div className="flex flex-col gap-2 p-4 rounded-lg bg-purple-50">
                     <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 mb-1">
                       <Users2 className="w-5 h-5" />
                     </div>
-                    <h5 className="text-slate-900 font-bold text-base">Community Power</h5>
+                    <h5 className="text-slate-900 font-semibold text-base">Community Power</h5>
                     <p className="text-slate-600 text-sm leading-relaxed">Leverage peer-to-peer learning with structured cohorts.</p>
                   </div>
                   <div className="flex flex-col gap-2 p-4 rounded-lg bg-purple-50">
                     <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-500 mb-1">
                       <Clock className="w-5 h-5" />
                     </div>
-                    <h5 className="text-slate-900 font-bold text-base">Flexible Timelines</h5>
+                    <h5 className="text-slate-900 font-semibold text-base">Flexible Timelines</h5>
                     <p className="text-slate-600 text-sm leading-relaxed">Start when your group is ready with rolling admissions.</p>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export default function CollectivePage() {
               <div className="pt-4">
                 <a
                   href="/skill-building?batchType=collective"
-                  className="w-full py-4 px-6 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg shadow-lg shadow-purple-500/25 transition-all transform active:scale-[0.99] flex items-center justify-center gap-2"
+                  className="w-full py-4 px-6 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-lg shadow-lg shadow-purple-500/25 transition-all transform active:scale-[0.99] flex items-center justify-center gap-2"
                 >
                   <span>Join Collective Batch</span>
                   <ArrowRight className="w-5 h-5" />
@@ -172,7 +172,7 @@ export default function CollectivePage() {
       {/* Features Cards Section */}
       <section className="py-6 md:py-10 px-4 bg-gray-50">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-gray-900 mb-8 md:mb-12">
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
             Batch Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -181,7 +181,7 @@ export default function CollectivePage() {
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingDown className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Smarter Pricing</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Smarter Pricing</h3>
               <p className="text-sm text-gray-600">More learners, lower cost.</p>
             </div>
 
@@ -190,7 +190,7 @@ export default function CollectivePage() {
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Top Trainers</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Top Trainers</h3>
               <p className="text-sm text-gray-600">Expert-led, community-priced.</p>
             </div>
 
@@ -199,7 +199,7 @@ export default function CollectivePage() {
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BarChart3 className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Live Voting</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Live Voting</h3>
               <p className="text-sm text-gray-600">Students control quality.</p>
             </div>
 
@@ -208,7 +208,7 @@ export default function CollectivePage() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileText className="w-6 h-6 text-orange-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Certificates Included</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Certificates Included</h3>
               <p className="text-sm text-gray-600">Proof of completion + resources.</p>
             </div>
 
@@ -217,7 +217,7 @@ export default function CollectivePage() {
               <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users2 className="w-6 h-6 text-pink-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Strong Community</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Strong Community</h3>
               <p className="text-sm text-gray-600">Mentors, peers, and support.</p>
             </div>
 
@@ -226,7 +226,7 @@ export default function CollectivePage() {
               <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Briefcase className="w-6 h-6 text-indigo-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Hiring Pipeline</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Hiring Pipeline</h3>
               <p className="text-sm text-gray-600">Tasks lead to interviews.</p>
             </div>
 
@@ -235,7 +235,7 @@ export default function CollectivePage() {
               <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ClipboardCheck className="w-6 h-6 text-teal-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Clear Roadmap</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Clear Roadmap</h3>
               <p className="text-sm text-gray-600">Weekly goals, real projects.</p>
             </div>
 
@@ -244,7 +244,7 @@ export default function CollectivePage() {
               <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="w-6 h-6 text-amber-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Career Mentorship</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Career Mentorship</h3>
               <p className="text-sm text-gray-600">Guidance that gets you hired.</p>
             </div>
           </div>

@@ -47,16 +47,16 @@ export default function TalentPortal() {
           <div className="lg:w-full bg-gradient-to-br from-primary-100 to-primary-50 rounded-xl p-8 border-2 border-primary-200">
             <div className="space-y-6">
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary-700 mb-2">40%</div>
+                <div className="text-4xl font-semibold text-primary-700 mb-2">40%</div>
                 <div className="text-gray-700">Placed within 3 months</div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-gray-900">500+</div>
+                  <div className="text-2xl font-semibold text-gray-900">500+</div>
                   <div className="text-sm text-gray-600">Active Learners</div>
                 </div>
                 <div className="bg-white rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-gray-900">200+</div>
+                  <div className="text-2xl font-semibold text-gray-900">200+</div>
                   <div className="text-sm text-gray-600">Partner Companies</div>
                 </div>
               </div>

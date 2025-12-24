@@ -159,9 +159,9 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
                 <div className="w-28 h-28 rounded-full bg-gray-200 flex items-center justify-center">
                   <span className="text-3xl font-semibold text-gray-700">
                     {getInitials(talent.name)}
-                  </span>
-                </div>
-              </div>
+                        </span>
+                      </div>
+                    </div>
 
               {/* Name */}
               <h2 className="mt-4 text-xl font-semibold text-gray-900">
@@ -207,8 +207,8 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
               </div>
 
               {/* Button (text-style with arrow) */}
-              <Link
-                href={`/talent/${talent.slug}`}
+                <Link
+                  href={`/talent/${talent.slug}`}
                 className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
               >
                 <span className="group-hover:underline">View Details</span>
@@ -216,7 +216,7 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
                   className="w-4 h-4 transition-transform group-hover:translate-x-1"
                   aria-hidden="true"
                 />
-              </Link>
+                </Link>
             </div>
           ))}
         </div>

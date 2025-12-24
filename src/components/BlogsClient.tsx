@@ -133,7 +133,7 @@ export default function BlogsClient({ blogs }: BlogsClientProps) {
                 {blog.category}
               </span>
             </div>
-            <h2 className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold text-gray-900 mb-3 line-clamp-2 min-h-[48px] flex-shrink-0 group-hover:text-primary-600 transition-colors">
+            <h2 className="text-[clamp(1rem,1.5vw,1.25rem)] font-semibold text-gray-900 mb-3 line-clamp-2 min-h-[48px] flex-shrink-0 group-hover:text-primary-600 transition-colors">
               {blog.title}
             </h2>
             <p className="text-gray-600 text-sm mb-4 line-clamp-3 min-h-[60px] flex-shrink-0 leading-relaxed">
