@@ -132,14 +132,6 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-widest text-gray-500">Start</p>
                   <p className="mt-1 font-medium text-gray-900">Fixed Date</p>
                 </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500">Model</p>
-                  <p className="mt-1 font-medium text-gray-900">Time-based</p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500">Pricing</p>
-                  <p className="mt-1 font-medium text-gray-900">Dynamic Group Pricing</p>
-                </div>
               </div>
 
               {/* Pricing */}
@@ -190,7 +182,7 @@ export default function Home() {
                   <h2 className="text-2xl font-semibold flex items-center gap-3 text-gray-900">
                     Collective Batch
                     <span className="rounded-full bg-purple-600 px-3 py-1 text-xs font-semibold tracking-wide text-white">
-                      BEST VALUE
+                      VALUE
                     </span>
                   </h2>
                 </div>
@@ -210,14 +202,6 @@ export default function Home() {
                 <div>
                   <p className="text-xs uppercase tracking-widest text-gray-500">Start</p>
                   <p className="mt-1 font-medium text-gray-900">Flexible Date</p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500">Model</p>
-                  <p className="mt-1 font-medium text-gray-900">Capacity-based</p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500">Pricing</p>
-                  <p className="mt-1 font-medium text-gray-900">Dynamic group pricing</p>
                 </div>
               </div>
 
