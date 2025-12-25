@@ -16,6 +16,29 @@ export default function Home() {
       <Navigation />
       <Hero />
       
+      {/* Banner Section */}
+      <section className="w-full bg-white py-6 md:py-8">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="flex flex-wrap gap-3 justify-center">
+            <div className="inline-flex items-center px-4 py-2 rounded-lg bg-blue-50 border border-blue-200">
+              <span className="text-sm font-semibold text-blue-700">Working Professionals</span>
+            </div>
+            <div className="inline-flex items-center px-4 py-2 rounded-lg bg-green-50 border border-green-200">
+              <span className="text-sm font-semibold text-green-700">Real Community</span>
+            </div>
+            <div className="inline-flex items-center px-4 py-2 rounded-lg bg-purple-50 border border-purple-200">
+              <span className="text-sm font-semibold text-purple-700">Dynamic Group Pricing</span>
+            </div>
+            <div className="inline-flex items-center px-4 py-2 rounded-lg bg-orange-50 border border-orange-200">
+              <span className="text-sm font-semibold text-orange-700">Live Classes</span>
+            </div>
+            <div className="inline-flex items-center px-4 py-2 rounded-lg bg-indigo-50 border border-indigo-200">
+              <span className="text-sm font-semibold text-indigo-700">Certifications</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <div className="lg:mx-8 xl:mx-16">
       {/* What is Dynamic Group Pricing Section */}
       <section className="py-12 md:py-16 px-4 bg-white">

@@ -5,7 +5,7 @@ import { CheckCircle } from 'lucide-react'
 export default function Hero() {
   return (
     <section className="w-full bg-gradient-to-br from-primary-50 to-white">
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-6 pt-12 pb-20">
         {/* 70/30 split layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-10 items-start justify-center">
           {/* Left column - Content */}
@@ -52,21 +52,6 @@ export default function Hero() {
               >
                 See How Pricing Drops
               </Link>
-            </div>
-
-            {/* Batch Type Cards */}
-            <div className="mt-8 w-full">
-              <div className="flex flex-wrap gap-3">
-                <div className="inline-flex items-center px-4 py-2 rounded-lg bg-blue-50 border border-blue-200">
-                  <span className="text-sm font-semibold text-blue-700">Real Professionals</span>
-                </div>
-                <div className="inline-flex items-center px-4 py-2 rounded-lg bg-green-50 border border-green-200">
-                  <span className="text-sm font-semibold text-green-700">Real Community</span>
-                </div>
-                <div className="inline-flex items-center px-4 py-2 rounded-lg bg-purple-50 border border-purple-200">
-                  <span className="text-sm font-semibold text-purple-700">Smarter Pricing</span>
-                </div>
-              </div>
             </div>
           </div>
 
