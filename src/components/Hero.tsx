@@ -1,4 +1,4 @@
-import LivePricingCards from '@/components/LivePricingCards'
+import HeroPricingCard from '@/components/HeroPricingCard'
 import Link from 'next/link'
 import { CheckCircle } from 'lucide-react'
 
@@ -9,7 +9,7 @@ export default function Hero() {
         {/* 70/30 split layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-10 items-start justify-center">
           {/* Left column - Content */}
-          <div className="flex flex-col items-start lg:ml-10">
+          <div className="flex flex-col items-start lg:ml-10 order-2 lg:order-1">
             <h1 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-left">
               Community-Powered Learning Platform
             </h1>
@@ -56,8 +56,8 @@ export default function Hero() {
           </div>
 
           {/* Right column - Pricing Cards */}
-          <div className="flex justify-center">
-            <LivePricingCards />
+          <div className="flex justify-center order-1 lg:order-2">
+            <HeroPricingCard />
           </div>
         </div>
       </div>
