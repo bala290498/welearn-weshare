@@ -73,6 +73,19 @@ const firstColumn = testimonials.slice(0, 3)
 const secondColumn = testimonials.slice(3, 6)
 const thirdColumn = testimonials.slice(6, 9)
 
+// --- Color Palette for Avatars ---
+const avatarColors = [
+  { bg: 'bg-blue-100', text: 'text-blue-700', ring: 'ring-blue-200' },
+  { bg: 'bg-purple-100', text: 'text-purple-700', ring: 'ring-purple-200' },
+  { bg: 'bg-pink-100', text: 'text-pink-700', ring: 'ring-pink-200' },
+  { bg: 'bg-green-100', text: 'text-green-700', ring: 'ring-green-200' },
+  { bg: 'bg-orange-100', text: 'text-orange-700', ring: 'ring-orange-200' },
+  { bg: 'bg-indigo-100', text: 'text-indigo-700', ring: 'ring-indigo-200' },
+  { bg: 'bg-teal-100', text: 'text-teal-700', ring: 'ring-teal-200' },
+  { bg: 'bg-rose-100', text: 'text-rose-700', ring: 'ring-rose-200' },
+  { bg: 'bg-amber-100', text: 'text-amber-700', ring: 'ring-amber-200' },
+]
+
 // --- Helper Functions ---
 const getInitials = (name: string): string => {
   return name
@@ -83,12 +96,19 @@ const getInitials = (name: string): string => {
     .slice(0, 2)
 }
 
+const getAvatarColor = (index: number) => {
+  return avatarColors[index % avatarColors.length]
+}
+
 // --- Sub-Components ---
 const TestimonialsColumn = (props: {
   className?: string
   testimonials: Testimonial[]
   duration?: number
+  startIndex?: number
 }) => {
+  const startIndex = props.startIndex || 0
+  
   return (
     <div className={props.className}>
       <motion.ul
@@ -106,49 +126,53 @@ const TestimonialsColumn = (props: {
         {[
           ...new Array(2).fill(0).map((_, index) => (
             <React.Fragment key={index}>
-              {props.testimonials.map(({ text, image, name, role }, i) => (
-                <motion.li
-                  key={`${index}-${i}`}
-                  aria-hidden={index === 1 ? 'true' : 'false'}
-                  tabIndex={index === 1 ? -1 : 0}
-                  whileHover={{
-                    scale: 1.03,
-                    y: -8,
-                    boxShadow:
-                      '0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)',
-                    transition: { type: 'spring', stiffness: 400, damping: 17 },
-                  }}
-                  whileFocus={{
-                    scale: 1.03,
-                    y: -8,
-                    boxShadow:
-                      '0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)',
-                    transition: { type: 'spring', stiffness: 400, damping: 17 },
-                  }}
-                  className="p-10 rounded-3xl border border-neutral-200 shadow-lg shadow-black/5 max-w-xs w-full bg-white transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary-600/30"
-                >
-                  <blockquote className="m-0 p-0">
-                    <p className="text-neutral-600 leading-relaxed font-normal m-0 transition-colors duration-300">
-                      {text}
-                    </p>
-                    <footer className="flex items-center gap-3 mt-6">
-                      <div className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center ring-2 ring-neutral-100 group-hover:ring-primary-600/30 transition-all duration-300 ease-in-out">
-                        <span className="text-sm font-semibold text-gray-700">
-                          {getInitials(name)}
-                        </span>
-                      </div>
-                      <div className="flex flex-col">
-                        <cite className="font-semibold not-italic tracking-tight leading-5 text-neutral-900 transition-colors duration-300">
-                          {name}
-                        </cite>
-                        <span className="text-sm leading-5 tracking-tight text-neutral-500 mt-0.5 transition-colors duration-300">
-                          {role}
-                        </span>
-                      </div>
-                    </footer>
-                  </blockquote>
-                </motion.li>
-              ))}
+              {props.testimonials.map(({ text, image, name, role }, i) => {
+                const globalIndex = startIndex + i
+                const colors = getAvatarColor(globalIndex)
+                return (
+                  <motion.li
+                    key={`${index}-${i}`}
+                    aria-hidden={index === 1 ? 'true' : 'false'}
+                    tabIndex={index === 1 ? -1 : 0}
+                    whileHover={{
+                      scale: 1.03,
+                      y: -8,
+                      boxShadow:
+                        '0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)',
+                      transition: { type: 'spring', stiffness: 400, damping: 17 },
+                    }}
+                    whileFocus={{
+                      scale: 1.03,
+                      y: -8,
+                      boxShadow:
+                        '0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)',
+                      transition: { type: 'spring', stiffness: 400, damping: 17 },
+                    }}
+                    className="p-10 rounded-3xl border border-neutral-200 shadow-lg shadow-black/5 max-w-xs w-full bg-white transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary-600/30"
+                  >
+                    <blockquote className="m-0 p-0">
+                      <p className="text-neutral-600 leading-relaxed font-normal m-0 transition-colors duration-300">
+                        {text}
+                      </p>
+                      <footer className="flex items-center gap-3 mt-6">
+                        <div className={`h-10 w-10 rounded-full ${colors.bg} flex items-center justify-center ring-2 ${colors.ring} group-hover:ring-primary-600/30 transition-all duration-300 ease-in-out`}>
+                          <span className={`text-sm font-semibold ${colors.text}`}>
+                            {getInitials(name)}
+                          </span>
+                        </div>
+                        <div className="flex flex-col">
+                          <cite className="font-semibold not-italic tracking-tight leading-5 text-neutral-900 transition-colors duration-300">
+                            {name}
+                          </cite>
+                          <span className="text-sm leading-5 tracking-tight text-neutral-500 mt-0.5 transition-colors duration-300">
+                            {role}
+                          </span>
+                        </div>
+                      </footer>
+                    </blockquote>
+                  </motion.li>
+                )
+              })}
             </React.Fragment>
           )),
         ]}
@@ -185,9 +209,9 @@ export default function Testimonials() {
           role="region"
           aria-label="Scrolling Testimonials"
         >
-          <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+          <TestimonialsColumn testimonials={firstColumn} duration={15} startIndex={0} />
+          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} startIndex={3} />
+          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} startIndex={6} />
         </div>
       </div>
     </section>

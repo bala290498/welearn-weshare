@@ -1,4 +1,4 @@
-import { BookOpen, Users, TrendingDown, Code, Award, Briefcase, ArrowRight } from 'lucide-react'
+import { BookOpen, Users, TrendingDown, Code, Award, Briefcase, ArrowRight, ArrowDown } from 'lucide-react'
 
 export default function HowItWorks() {
   const steps = [
@@ -62,10 +62,16 @@ export default function HowItWorks() {
                 {step.title}
               </h3>
               <p className="text-gray-600 text-sm md:text-base">{step.description}</p>
-              {/* Arrow between items in the same row */}
+              {/* Arrow between items in the same row (desktop) */}
               {index < steps.length - 1 && (index + 1) % 3 !== 0 && (
                 <div className="hidden md:flex absolute top-1/2 -right-4 transform -translate-y-1/2 items-center justify-center">
                   <ArrowRight className="w-6 h-6 text-primary-600" />
+                </div>
+              )}
+              {/* Arrow between items vertically (mobile) */}
+              {index < steps.length - 1 && (
+                <div className="flex md:hidden justify-center mt-6 mb-2">
+                  <ArrowDown className="w-6 h-6 text-primary-600" />
                 </div>
               )}
             </div>
