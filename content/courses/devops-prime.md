@@ -1,5 +1,5 @@
 ---
-id: devops
+id: devops-prime
 title: DevOps Engineering
 category: DevOps
 description: Master DevOps practices, CI/CD pipelines, containerization, and cloud infrastructure automation.
@@ -7,8 +7,8 @@ duration: 12 weeks
 level: Intermediate
 instructor: Expert DevOps Engineer
 price: ₹99,000
-studentsEnrolled: 15
-maxStudents: 25
+studentsEnrolled: 7
+maxStudents: 10
 batchType: prime
 tags: [DevOps, CI/CD, Docker, Kubernetes, Terraform]
 contactEmail: devops@welearnweshare.com

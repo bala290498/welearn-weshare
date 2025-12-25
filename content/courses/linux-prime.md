@@ -1,5 +1,5 @@
 ---
-id: linux
+id: linux-prime
 title: Linux System Administration
 category: Linux
 description: Learn Linux fundamentals, system administration, shell scripting, and server management.
@@ -7,8 +7,8 @@ duration: 10 weeks
 level: Beginner to Intermediate
 instructor: Senior Linux Administrator
 price: ₹49,000
-studentsEnrolled: 15
-maxStudents: 25
+studentsEnrolled: 6
+maxStudents: 10
 batchType: prime
 tags: [Linux, System Administration, Shell Scripting, Bash, Server Management]
 contactEmail: linux@welearnweshare.com

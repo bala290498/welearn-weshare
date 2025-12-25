@@ -8,7 +8,7 @@ level: Intermediate
 instructor: AWS Certified Solutions Architect
 price: ₹99,000
 studentsEnrolled: 12
-maxStudents: 50
+maxStudents: 25
 batchType: collective
 tags: [AWS, Cloud Computing, EC2, S3, Lambda, Serverless]
 contactEmail: aws@welearnweshare.com

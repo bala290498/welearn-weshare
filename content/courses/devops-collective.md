@@ -8,7 +8,7 @@ level: Intermediate
 instructor: Expert DevOps Engineer
 price: ₹99,000
 studentsEnrolled: 12
-maxStudents: 50
+maxStudents: 25
 batchType: collective
 tags: [DevOps, CI/CD, Docker, Kubernetes, Terraform]
 contactEmail: devops@welearnweshare.com

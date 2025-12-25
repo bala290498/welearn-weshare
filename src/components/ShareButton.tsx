@@ -6,9 +6,10 @@ import { useState, useEffect } from 'react'
 interface ShareButtonProps {
   url: string
   title: string
+  className?: string
 }
 
-export default function ShareButton({ url, title }: ShareButtonProps) {
+export default function ShareButton({ url, title, className = '' }: ShareButtonProps) {
   const [copied, setCopied] = useState(false)
   const [currentUrl, setCurrentUrl] = useState(url)
 
@@ -57,7 +58,7 @@ export default function ShareButton({ url, title }: ShareButtonProps) {
   return (
     <button
       onClick={handleShare}
-      className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors font-medium text-sm md:text-base"
+      className={`flex items-center justify-center gap-2 px-4 py-2 bg-white border-2 border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors font-medium text-sm md:text-base ${className}`}
       aria-label="Share course"
     >
       <Share2 className="w-4 h-4 md:w-5 md:h-5" />

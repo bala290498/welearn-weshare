@@ -6,23 +6,23 @@ import { TrendingDown, Award, BarChart3, FileText, Users2, Briefcase, ClipboardC
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Courses - WeLearnWeShare',
-  description: 'Discover comprehensive courses designed to help you master in-demand skills and advance your career. Dynamic Group Pricing - price drops as more students join.',
+  title: 'Batches - WeLearnWeShare',
+  description: 'Discover comprehensive batches designed to help you master in-demand skills and advance your career. Dynamic Group Pricing - price drops as more students join.',
   openGraph: {
-    title: 'Courses - WeLearnWeShare',
-    description: 'Discover comprehensive courses designed to help you master in-demand skills and advance your career. Dynamic Group Pricing - price drops as more students join.',
+    title: 'Batches - WeLearnWeShare',
+    description: 'Discover comprehensive batches designed to help you master in-demand skills and advance your career. Dynamic Group Pricing - price drops as more students join.',
     type: 'website',
-    url: 'https://welearnweshare.com/courses',
+    url: 'https://welearnweshare.com/batches',
     siteName: 'WeLearnWeShare',
   },
   twitter: {
     card: 'summary',
-    title: 'Courses - WeLearnWeShare',
-    description: 'Discover comprehensive courses designed to help you master in-demand skills and advance your career.',
+    title: 'Batches - WeLearnWeShare',
+    description: 'Discover comprehensive batches designed to help you master in-demand skills and advance your career.',
   },
 }
 
-export default function CoursesPage() {
+export default function BatchesPage() {
   const courses = getAllCourses()
   
   return (
@@ -37,17 +37,23 @@ export default function CoursesPage() {
               Build Your Skills. Build Your Future.
             </p>
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Discover comprehensive courses designed to help you master in-demand skills and advance your career.
+              Discover comprehensive batches designed to help you master in-demand skills and advance your career.
             </p>
             <div className="flex justify-center items-center pt-4">
               <a
-                href="#courses"
+                href="#batches"
                 className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
               >
-                Browse Courses
+                Browse Batches
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="batches" className="py-6 md:py-10 px-4 bg-gray-50 scroll-mt-20">
+        <div className="container mx-auto px-4 max-w-screen-lg">
+          <SkillBuildingClient courses={courses} />
         </div>
       </section>
 
@@ -57,7 +63,7 @@ export default function CoursesPage() {
           <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center text-gray-900 mb-8 md:mb-12">
             Batch Features
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
             {/* Dynamic Group Pricing Card */}
             <div className="bg-white border-2 border-purple-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -116,10 +122,10 @@ export default function CoursesPage() {
             <div className="bg-white border-2 border-teal-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
               <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ClipboardCheck className="w-6 h-6 text-teal-600" />
-                </div>
+              </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Clear Roadmap</h3>
               <p className="text-sm text-gray-600">Weekly goals, real projects.</p>
-                </div>
+            </div>
 
             {/* Career Mentorship Card */}
             <div className="bg-white border-2 border-amber-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
@@ -129,13 +135,25 @@ export default function CoursesPage() {
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Career Mentorship</h3>
               <p className="text-sm text-gray-600">Guidance that gets you hired.</p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section id="courses" className="py-6 md:py-10 px-4 bg-gray-50 scroll-mt-20">
-        <div className="container mx-auto px-4 max-w-screen-lg">
-          <SkillBuildingClient courses={courses} />
+            {/* Live Voting Card */}
+            <div className="bg-white border-2 border-green-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BarChart3 className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Live Voting</h3>
+              <p className="text-sm text-gray-600">Students control quality.</p>
+            </div>
+
+            {/* Strong Community Card */}
+            <div className="bg-white border-2 border-pink-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users2 className="w-6 h-6 text-pink-600" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Strong Community</h3>
+              <p className="text-sm text-gray-600">Mentors, peers, and support.</p>
+            </div>
+          </div>
         </div>
       </section>
 

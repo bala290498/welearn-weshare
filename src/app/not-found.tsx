@@ -17,10 +17,10 @@ export default function NotFound() {
             Go home
           </Link>
           <Link
-            href="/courses"
+            href="/batches"
             className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-semibold"
           >
-            Browse courses
+            Browse batches
           </Link>
         </div>
       </div>

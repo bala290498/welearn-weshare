@@ -1,5 +1,5 @@
 ---
-id: aws
+id: aws-prime
 title: AWS Cloud Computing
 category: AWS
 description: Comprehensive AWS training covering EC2, S3, Lambda, and cloud architecture best practices.
@@ -7,8 +7,8 @@ duration: 14 weeks
 level: Intermediate
 instructor: AWS Certified Solutions Architect
 price: ₹99,000
-studentsEnrolled: 12
-maxStudents: 25
+studentsEnrolled: 8
+maxStudents: 10
 batchType: prime
 tags: [AWS, Cloud Computing, EC2, S3, Lambda, Serverless]
 contactEmail: aws@welearnweshare.com

@@ -187,13 +187,12 @@ export default function Home() {
                   </li>
                 </ul>
 
-                <Link
-                  href="/prime"
+                <button
                   className="mt-6 w-full flex items-center justify-center gap-2 rounded-xl bg-orange-500 py-3 font-semibold hover:bg-orange-400 active:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition"
                 >
                   <span className="text-white">Join Prime Batch</span>
                   <ArrowRight className="w-5 h-5 text-white" />
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -258,13 +257,12 @@ export default function Home() {
                   </li>
                 </ul>
 
-                <Link
-                  href="/collective"
+                <button
                   className="mt-6 w-full flex items-center justify-center gap-2 rounded-xl bg-purple-600 py-3 font-semibold hover:bg-purple-700 active:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 transition"
                 >
                   <span className="text-white">Join Collective Batch</span>
                   <ArrowRight className="w-5 h-5 text-white" />
-                </Link>
+                </button>
               </div>
             </div>
           </div>

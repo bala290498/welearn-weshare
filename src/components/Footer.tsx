@@ -19,8 +19,8 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Learn</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#courses" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
-                  Courses
+                <a href="#batches" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Batches
                 </a>
               </li>
               <li>
