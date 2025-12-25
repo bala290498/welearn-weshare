@@ -7,9 +7,10 @@ interface ShareButtonProps {
   url: string
   title: string
   className?: string
+  iconOnly?: boolean
 }
 
-export default function ShareButton({ url, title, className = '' }: ShareButtonProps) {
+export default function ShareButton({ url, title, className = '', iconOnly = false }: ShareButtonProps) {
   const [copied, setCopied] = useState(false)
   const [currentUrl, setCurrentUrl] = useState(url)
 
@@ -58,11 +59,12 @@ export default function ShareButton({ url, title, className = '' }: ShareButtonP
   return (
     <button
       onClick={handleShare}
-      className={`flex items-center justify-center gap-2 px-4 py-2 bg-white border-2 border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors font-medium text-sm md:text-base ${className}`}
+      className={`flex items-center justify-center ${iconOnly ? 'p-1.5' : 'gap-2 px-4 py-2'} bg-white border-2 border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition-colors font-medium text-sm md:text-base ${className}`}
       aria-label="Share course"
+      title={copied ? 'Copied!' : 'Share'}
     >
       <Share2 className="w-4 h-4 md:w-5 md:h-5" />
-      <span>{copied ? 'Copied!' : 'Share'}</span>
+      {!iconOnly && <span>{copied ? 'Copied!' : 'Share'}</span>}
     </button>
   )
 }

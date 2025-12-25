@@ -3,7 +3,8 @@ import ShareButton from '@/components/ShareButton'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { Check, Info, Clock } from 'lucide-react'
+import { Check, Info, Clock, ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 
 // Calculate current price per head based on enrollment
 // Formula: Price per head = total fixed price ÷ current number of enrolled students
@@ -123,12 +124,22 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
       <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-xl">
           <div className="mb-4 lg:ml-8 lg:mr-[calc(33.333%+2rem)]">
-            <a 
-              href="/batches" 
-              className="text-primary-600 hover:text-primary-700 text-sm font-medium"
-            >
-              ← Back to Batches
-            </a>
+            <nav className="flex items-center gap-2 text-sm text-gray-600">
+              <Link 
+                href="/batches" 
+                className="text-primary-600 hover:text-primary-700 font-medium transition-colors"
+              >
+                Batches
+              </Link>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <span className="font-medium text-gray-700">
+                {course.batchType === 'prime' ? 'Prime' : course.batchType === 'collective' ? 'Collective' : 'Batch'}
+              </span>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <span className="text-gray-900 font-semibold">
+                {course.title}
+              </span>
+            </nav>
           </div>
           <div className="space-y-4 md:space-y-6 lg:ml-8 lg:mr-[calc(33.333%+2rem)]">
             <div className="flex flex-wrap gap-2">
@@ -275,14 +286,51 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
           </div>
           
           {/* Fixed Dynamic Group Pricing Card */}
-          <div className="hidden lg:block fixed bottom-4 right-4 xl:right-[calc((100vw-1280px)/2+1rem)] w-[420px] xl:w-[480px] z-50">
-            <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6 space-y-6">
-              <h2 className="text-xl font-semibold text-gray-900 border-b-2 border-gray-200 pb-3">
+          <div className="fixed bottom-0 left-0 right-0 lg:bottom-4 lg:left-auto lg:right-4 xl:right-[calc((100vw-1280px)/2+1rem)] lg:w-[420px] xl:w-[480px] z-50 lg:rounded-lg lg:shadow-lg">
+            <div className="bg-white border-t lg:border border-gray-200 lg:rounded-lg shadow-2xl lg:shadow-lg p-2 lg:p-6 space-y-2 lg:space-y-6 max-h-[85vh] overflow-y-auto">
+              {/* Title - Hidden on mobile */}
+              <h2 className="hidden lg:block text-xl font-semibold text-gray-900 border-b-2 border-gray-200 pb-3">
                 {course.title}
               </h2>
               
-              {/* Students Enrolled - Vertical Stack */}
-              <div className="space-y-2">
+              {/* Mobile Layout: Students Enrolled with Join and Share buttons */}
+              <div className="lg:hidden flex items-center justify-between gap-2 pb-2 border-b border-gray-200">
+                {/* Students Enrolled - Compact */}
+                <div className="flex-1 min-w-0">
+                  <p className="text-[10px] text-gray-600 mb-0.5">Students enrolled:</p>
+                  <p className={`text-lg font-semibold ${
+                    course.batchType === 'collective' ? 'text-purple-600' : 
+                    course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
+                  }`}>{validEnrolled} / {maxStudents}</p>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                    <div
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        course.batchType === 'collective' ? 'bg-purple-600' : 
+                        course.batchType === 'prime' ? 'bg-orange-600' : 'bg-primary-600'
+                      }`}
+                      style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Join and Share buttons */}
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  <a
+                    href="#contact-details"
+                    className="px-3 py-1.5 bg-primary-600 text-white text-xs font-semibold rounded-lg hover:bg-primary-700 transition whitespace-nowrap"
+                  >
+                    Join
+                  </a>
+                  <ShareButton 
+                    url={`https://welearnweshare.com/batches/${id}`}
+                    title={course.title}
+                    iconOnly={true}
+                  />
+                </div>
+              </div>
+              
+              {/* Desktop: Students Enrolled - Vertical Stack */}
+              <div className="hidden lg:block space-y-2">
                 <p className="text-xs text-gray-600">Students enrolled:</p>
                 <p className={`text-2xl font-semibold ${
                   course.batchType === 'collective' ? 'text-purple-600' : 
@@ -300,48 +348,50 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               </div>
               
               {/* Current Price and Capacity Price - Horizontal Layout */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-2 lg:gap-4">
                 {/* Current Price */}
-                <div className="space-y-2">
-                  <p className="text-xs text-gray-600">Current price</p>
-                  <p className={`text-xl font-semibold ${
+                <div className="space-y-1 lg:space-y-2">
+                  <p className="text-[10px] lg:text-xs text-gray-600">Current price</p>
+                  <p className={`text-sm lg:text-xl font-semibold ${
                     course.batchType === 'collective' ? 'text-purple-600' : 
                     course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
                   }`}>{formatPrice(currentPrice)}</p>
-                  <p className="text-xs text-gray-500 whitespace-nowrap">
+                  <p className="text-[9px] lg:text-xs text-gray-500 whitespace-nowrap overflow-hidden text-ellipsis">
                     {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled || 0} = {formatPrice(currentPrice)}
                   </p>
                 </div>
                 
                 {/* Capacity Price */}
-                <div className="space-y-2">
-                  <p className="text-xs text-gray-600">Capacity price</p>
-                  <p className={`text-xl font-semibold ${
+                <div className="space-y-1 lg:space-y-2">
+                  <p className="text-[10px] lg:text-xs text-gray-600">Capacity price</p>
+                  <p className={`text-sm lg:text-xl font-semibold ${
                     course.batchType === 'collective' ? 'text-purple-600' : 
                     course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
                   }`}>{formatPrice(potentialPrice)}</p>
-                  <p className="text-xs text-gray-500 whitespace-nowrap">
+                  <p className="text-[9px] lg:text-xs text-gray-500 whitespace-nowrap overflow-hidden text-ellipsis">
                     {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
                   </p>
                 </div>
               </div>
               
-              <p className="text-xs text-gray-500 pt-2 border-t border-gray-200">Price drops as more students join</p>
+              <p className="hidden lg:block text-xs text-gray-500 pt-2 border-t border-gray-200">Price drops as more students join</p>
               
-              {/* Join Batch Button */}
+              {/* Desktop: Join Batch Button */}
               <a
                 href="#contact-details"
-                className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold text-center block"
+                className="hidden lg:block w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold text-center"
               >
                 Join Batch
               </a>
               
-              {/* Share Button */}
-              <ShareButton 
-                url={`https://welearnweshare.com/batches/${id}`}
-                title={course.title}
-                className="w-full"
-              />
+              {/* Desktop: Share Button */}
+              <div className="hidden lg:block">
+                <ShareButton 
+                  url={`https://welearnweshare.com/batches/${id}`}
+                  title={course.title}
+                  className="w-full"
+                />
+              </div>
             </div>
           </div>
         </section>
