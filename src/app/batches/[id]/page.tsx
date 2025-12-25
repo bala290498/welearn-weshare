@@ -1,5 +1,4 @@
 import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
 import ShareButton from '@/components/ShareButton'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
@@ -276,7 +275,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
           </div>
           
           {/* Fixed Dynamic Group Pricing Card */}
-          <div className="hidden lg:block fixed top-24 right-4 xl:right-[calc((100vw-1280px)/2+1rem)] w-[420px] xl:w-[480px] z-50">
+          <div className="hidden lg:block fixed bottom-4 right-4 xl:right-[calc((100vw-1280px)/2+1rem)] w-[420px] xl:w-[480px] z-50">
             <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6 space-y-6">
               <h2 className="text-xl font-semibold text-gray-900 border-b-2 border-gray-200 pb-3">
                 {course.title}
@@ -447,8 +446,6 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
         </div>
       </section>
       )}
-
-      <Footer />
     </main>
   )
 }
