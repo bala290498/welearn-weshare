@@ -161,11 +161,11 @@ export default function Home() {
               <div className="mx-6 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="rounded-xl bg-gray-50 p-4 border border-gray-200">
                   <p className="text-sm uppercase tracking-wider text-gray-500">Group Size</p>
-                  <p className="mt-1 text-2xl font-semibold text-gray-900">Up to 10</p>
+                  <p className="mt-1 text-xl font-semibold text-gray-900">Up to 10</p>
                 </div>
                 <div className="rounded-xl bg-orange-50 p-4 border-2 border-orange-500">
                   <p className="text-sm uppercase tracking-wider text-gray-600">Per Head Price</p>
-                  <p className="mt-1 text-2xl font-semibold text-gray-900">Dynamic Group Pricing</p>
+                  <p className="mt-1 text-xl font-semibold text-gray-900">Dynamic Group Pricing</p>
                 </div>
               </div>
 
@@ -232,11 +232,11 @@ export default function Home() {
               <div className="mx-6 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="rounded-xl bg-gray-50 p-4 border border-gray-200">
                   <p className="text-sm uppercase tracking-wider text-gray-500">Group Size</p>
-                  <p className="mt-1 text-2xl font-semibold text-gray-900">Up to 25</p>
+                  <p className="mt-1 text-xl font-semibold text-gray-900">Up to 25</p>
                 </div>
                 <div className="rounded-xl bg-purple-50 p-4 border-2 border-purple-500">
                   <p className="text-sm uppercase tracking-wider text-gray-600">Per Head Price</p>
-                  <p className="mt-1 text-2xl font-semibold text-gray-900">Dynamic Group Pricing</p>
+                  <p className="mt-1 text-xl font-semibold text-gray-900">Dynamic Group Pricing</p>
                 </div>
               </div>
 
