@@ -26,11 +26,11 @@ export default function Home() {
             <div className="inline-flex items-center px-4 py-2 rounded-lg bg-green-50 border border-green-200">
               <span className="text-sm font-semibold text-green-700">Real Community</span>
             </div>
-            <div className="inline-flex items-center px-4 py-2 rounded-lg bg-purple-50 border border-purple-200">
-              <span className="text-sm font-semibold text-purple-700">Dynamic Group Pricing</span>
-            </div>
             <div className="inline-flex items-center px-4 py-2 rounded-lg bg-orange-50 border border-orange-200">
               <span className="text-sm font-semibold text-orange-700">Live Classes</span>
+            </div>
+            <div className="inline-flex items-center px-4 py-2 rounded-lg bg-purple-50 border border-purple-200">
+              <span className="text-sm font-semibold text-purple-700">Dynamic Group Pricing</span>
             </div>
             <div className="inline-flex items-center px-4 py-2 rounded-lg bg-indigo-50 border border-indigo-200">
               <span className="text-sm font-semibold text-indigo-700">Certifications</span>
