@@ -18,7 +18,7 @@ export default function HowItWorks() {
     },
     {
       number: 3,
-      title: 'Unlock Group Pricing',
+      title: 'Unlock Dynamic Group Pricing',
       description:
         'Prices drop automatically as more students join.',
       icon: <TrendingDown className="w-12 h-12" />,

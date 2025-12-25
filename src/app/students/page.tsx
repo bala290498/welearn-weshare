@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import TalentContent from '@/components/TalentContent'
 import { getAllStudents } from '@/data/students'
+import { ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -48,12 +49,20 @@ export default function TalentPage() {
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover top performers from our community. These talents have proven their skills through regular in-house challenges and tasks.
             </p>
-            <div className="flex justify-center items-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <a
                 href="#talent-content"
-                className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
               >
                 Browse Students
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#join"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border-2 border-primary-600 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+              >
+                Join Community
+                <ArrowRight className="w-5 h-5" />
               </a>
             </div>
           </div>

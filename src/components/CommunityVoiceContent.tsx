@@ -180,12 +180,20 @@ Why is this important: ${formData.whyImportant}`
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Vote in real time and influence what we launch next.
             </p>
-            <div className="mt-6">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6">
               <a
                 href="#active-polls"
-                className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 w-full sm:w-auto min-w-[200px]"
               >
                 Vote
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#suggest-cta"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border-2 border-primary-600 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 w-full sm:w-auto min-w-[200px]"
+              >
+                Suggest
+                <ArrowRight className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -402,7 +410,7 @@ Why is this important: ${formData.whyImportant}`
       </section>
 
       {/* CTA Section */}
-      <section className="py-6 md:py-8 px-4 bg-gradient-to-br from-primary-600 to-primary-800">
+      <section id="suggest-cta" className="py-6 md:py-8 px-4 bg-gradient-to-br from-primary-600 to-primary-800 scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center text-white">
             <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center mb-8 md:mb-12">
@@ -411,19 +419,13 @@ Why is this important: ${formData.whyImportant}`
             <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-primary-100 mb-6 md:mb-8 max-w-2xl mx-auto">
               Suggest a course you&apos;d like to see, and we&apos;ll create a poll for the community to vote on it.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+            <div className="flex justify-center">
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
               >
                 Suggest a Course
               </button>
-              <a
-                href="/opportunities"
-                className="inline-flex items-center justify-center gap-2 bg-transparent text-white border-2 border-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl hover:bg-white hover:text-primary-600 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
-              >
-                View Opportunities
-              </a>
             </div>
           </div>
         </div>

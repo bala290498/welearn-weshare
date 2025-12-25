@@ -99,14 +99,23 @@ Description: ${formData.description}`
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover jobs, internships, freelance opportunities, workshops & webinars—all in one place.
             </p>
-            {/* CTA Button */}
-            <div className="flex justify-center pt-4 md:pt-6">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 md:pt-6">
               <a
                 href="#opportunities"
-                className="bg-primary-600 text-white px-8 py-3 md:px-10 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 min-w-[200px] text-center"
+                className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-8 py-3 md:px-10 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 min-w-[200px]"
                 aria-label="View all opportunities"
               >
                 View Opportunities
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#post-opportunity"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border-2 border-primary-600 px-8 py-3 md:px-10 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 min-w-[200px]"
+                aria-label="Post an opportunity"
+              >
+                Post Opportunity
+                <ArrowRight className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -283,7 +292,7 @@ Description: ${formData.description}`
       </section>
 
       {/* Apply / Refer Section */}
-      <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+      <section id="post-opportunity" className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-600 to-primary-800 text-white scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold mb-3">

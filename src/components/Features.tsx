@@ -19,12 +19,12 @@ export default function Features() {
           Batch Features
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-          {/* Group Pricing Card */}
+          {/* Dynamic Group Pricing Card */}
           <div className="bg-white border-2 border-purple-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
             <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <TrendingDown className="w-6 h-6 text-purple-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Group Pricing</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Dynamic Group Pricing</h3>
             <p className="text-sm text-gray-600">More learners, lower cost.</p>
           </div>
 

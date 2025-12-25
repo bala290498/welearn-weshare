@@ -68,7 +68,7 @@ export default function CollectivePage() {
                 </div>
                 <div className="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-purple-50 border border-purple-200 px-4 transition-colors hover:border-purple-500/50">
                   <School className="w-5 h-5 text-purple-600" />
-                  <p className="text-purple-700 text-sm font-medium">Model: Cohort-based</p>
+                  <p className="text-purple-700 text-sm font-medium">Model: Batch-based</p>
                 </div>
                 <div className="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-purple-50 border border-purple-200 px-4 transition-colors hover:border-purple-500/50">
                   <Calendar className="w-5 h-5 text-purple-600" />
@@ -139,7 +139,7 @@ export default function CollectivePage() {
                       <Users2 className="w-5 h-5" />
                     </div>
                     <h5 className="text-slate-900 font-semibold text-base">Community Power</h5>
-                    <p className="text-slate-600 text-sm leading-relaxed">Leverage peer-to-peer learning with structured cohorts.</p>
+                    <p className="text-slate-600 text-sm leading-relaxed">Leverage peer-to-peer learning with structured batches.</p>
                   </div>
                   <div className="flex flex-col gap-2 p-4 rounded-lg bg-purple-50">
                     <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-500 mb-1">
@@ -176,12 +176,12 @@ export default function CollectivePage() {
             Batch Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {/* Group Pricing Card */}
+            {/* Dynamic Group Pricing Card */}
             <div className="bg-white border-2 border-purple-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingDown className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Group Pricing</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Dynamic Group Pricing</h3>
               <p className="text-sm text-gray-600">More learners, lower cost.</p>
             </div>
 

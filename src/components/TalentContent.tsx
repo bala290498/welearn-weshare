@@ -55,49 +55,49 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
             </div>
 
             {/* Student Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 xl:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {displayedStudents.map((student) => (
                 <div
                   key={student.slug}
-                  className="bg-white rounded-3xl shadow-md p-6 text-center flex flex-col"
+                  className="bg-white rounded-2xl shadow-md p-4 text-center flex flex-col"
                 >
                   {/* Avatar (initials only) */}
                   <div className="flex justify-center">
-                    <div className="w-28 h-28 rounded-full bg-gray-200 flex items-center justify-center">
-                      <span className="text-3xl font-semibold text-gray-700">
+                    <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
+                      <span className="text-xl font-semibold text-gray-700">
                       {getInitials(student.name)}
                       </span>
                     </div>
                   </div>
 
                   {/* Name */}
-                  <h2 className="mt-4 text-xl font-semibold text-gray-900">
+                  <h2 className="mt-3 text-base font-semibold text-gray-900">
                     {student.name}
                   </h2>
 
                   {/* Role */}
-                  <p className="mt-1 flex items-center justify-center gap-2 text-gray-500">
+                  <p className="mt-1 flex items-center justify-center gap-2 text-sm text-gray-500">
                     <span
-                      className="inline-block w-2 h-2 rounded-full bg-blue-500"
+                      className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500"
                       aria-hidden="true"
                     />
                     <span>{getRole(student.category)}</span>
                   </p>
 
                   {/* Divider */}
-                  <div className="my-6 h-px bg-gray-200" />
+                  <div className="my-4 h-px bg-gray-200" />
 
                   {/* Icons */}
-                  <div className="flex justify-center gap-6 mb-6">
+                  <div className="flex justify-center gap-4 mb-4">
                       {student.socialLinks.linkedin && (
                         <a
                           href={student.socialLinks.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
                         aria-label="LinkedIn profile"
-                        className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
+                        className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
                         >
-                        <Linkedin className="w-5 h-5 text-gray-600" aria-hidden="true" />
+                        <Linkedin className="w-4 h-4 text-gray-600" aria-hidden="true" />
                         </a>
                       )}
                       {student.socialLinks.github && (
@@ -106,9 +106,9 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
                           target="_blank"
                           rel="noopener noreferrer"
                         aria-label="GitHub profile"
-                        className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
+                        className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
                         >
-                        <Github className="w-5 h-5 text-gray-600" aria-hidden="true" />
+                        <Github className="w-4 h-4 text-gray-600" aria-hidden="true" />
                         </a>
                       )}
                   </div>
@@ -116,11 +116,11 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
                   {/* Button (text-style with arrow) */}
                     <Link
                       href={`/students/${student.slug}`}
-                    className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
+                    className="group w-full flex items-center justify-center gap-2 py-2 text-sm text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
                   >
                     <span className="group-hover:underline">View Details</span>
                     <ArrowRight
-                      className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                      className="w-3 h-3 transition-transform group-hover:translate-x-1"
                       aria-hidden="true"
                     />
                     </Link>

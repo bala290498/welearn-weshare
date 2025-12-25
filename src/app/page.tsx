@@ -41,7 +41,7 @@ export default function Home() {
       
       <div className="lg:mx-8 xl:mx-16">
       {/* What is Dynamic Group Pricing Section */}
-      <section className="py-12 md:py-16 px-4 bg-white">
+      <section id="dynamic-group-pricing" className="py-12 md:py-16 px-4 bg-white scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-xl">
           <div className="grid grid-cols-1 lg:grid-cols-[30%_70%] gap-8 lg:gap-10 items-center">
             {/* Left side - Numbers (30%) */}
@@ -72,7 +72,7 @@ export default function Home() {
                       1
                     </div>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                      One total price.
+                      One Group Price.
                     </p>
                   </div>
                   <div className="flex items-center gap-3">

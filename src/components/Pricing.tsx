@@ -8,7 +8,7 @@ export default function Pricing() {
         <p className="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto text-[clamp(0.875rem,2vw,1rem)]">
           We set a course revenue target and divide it by final enrollment. The more learners who
           join, the lower the price per student. Book with a small fee and pay the remaining balance
-          once the cohort size is set — or receive automatic refunds if the final price is lower than
+          once the batch size is set — or receive automatic refunds if the final price is lower than
           your payment.
         </p>
         <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 lg:p-12 border-2 border-primary-200">
@@ -38,7 +38,7 @@ export default function Pricing() {
               Reserve Your Seat
             </a>
             <p className="text-sm text-gray-500 mt-4">
-              Small booking fee required • Full payment after cohort size is confirmed
+              Small booking fee required • Full payment after batch size is confirmed
             </p>
           </div>
         </div>
