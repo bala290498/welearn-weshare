@@ -1,5 +1,6 @@
 import LivePricingCards from '@/components/LivePricingCards'
 import Link from 'next/link'
+import { CheckCircle } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -10,28 +11,62 @@ export default function Hero() {
           {/* Left column - Content */}
           <div className="flex flex-col items-start lg:ml-10">
             <h1 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-left">
-              <span className="text-primary-600">Learn Together.</span>{' '}
-              <span className="text-purple-600">Pay Less.</span>{' '}
-              <span className="text-orange-600">Get Hired.</span>
+              Community-Powered Learning Platform
             </h1>
 
             <p className="mt-6 text-lg text-gray-600 text-left">
-              India&apos;s first community-powered learning platform —Learning that becomes more affordable as the community grows
+              Connecting learners with working professionals and pay less as your learning community grows.
             </p>
 
-            <div className="mt-8 flex gap-4">
+            {/* Key Value Points */}
+            <ul className="mt-6 space-y-3 text-left">
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700">We connect students with working professionals</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700">Dynamic group pricing</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700">Live Interactive classes</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700">Industry level Experience, Certifications and more</span>
+              </li>
+            </ul>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link 
                 href="/skill-building"
                 className="rounded-lg bg-primary-600 px-6 py-3 text-white hover:bg-primary-700 transition"
               >
-                Browse Courses
+                Explore Courses
               </Link>
               <Link 
-                href="/talent"
-                className="rounded-lg border border-gray-300 px-6 py-3 text-gray-700 hover:bg-gray-100 transition"
+                href="#pricing"
+                className="rounded-lg border-2 border-primary-600 px-6 py-3 text-primary-600 bg-transparent hover:bg-primary-50 transition"
               >
-                Browse Talent
+                See How Pricing Drops
               </Link>
+            </div>
+
+            {/* Batch Type Cards */}
+            <div className="mt-8 w-full">
+              <div className="flex flex-wrap gap-3">
+                <div className="inline-flex items-center px-4 py-2 rounded-lg bg-blue-50 border border-blue-200">
+                  <span className="text-sm font-semibold text-blue-700">Real Professionals</span>
+                </div>
+                <div className="inline-flex items-center px-4 py-2 rounded-lg bg-green-50 border border-green-200">
+                  <span className="text-sm font-semibold text-green-700">Real Community</span>
+                </div>
+                <div className="inline-flex items-center px-4 py-2 rounded-lg bg-purple-50 border border-purple-200">
+                  <span className="text-sm font-semibold text-purple-700">Smarter Pricing</span>
+                </div>
+              </div>
             </div>
           </div>
 

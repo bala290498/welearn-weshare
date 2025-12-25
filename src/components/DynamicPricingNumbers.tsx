@@ -5,15 +5,20 @@ import { motion } from 'framer-motion';
 import { SlidingNumber } from '@/components/ui/sliding-number';
 
 export default function DynamicPricingNumbers() {
-  const [students, setStudents] = useState(10);
-  const [perHeadPrice, setPerHeadPrice] = useState(6000);
+  const [onesDigit, setOnesDigit] = useState(0);
+  
+  // Calculate students from onesDigit (always 10 + onesDigit, so 10-19)
+  const students = 10 + onesDigit;
+  
+  // Calculate per head price when students change (72000 / students)
+  const basePrice = 72000;
+  const perHeadPrice = Math.round(basePrice / students);
 
   useEffect(() => {
-    // Animate students from 10 to 25
+    // Continuously increment the ones digit from 0 to 9, then loop back to 0 seamlessly
     const studentInterval = setInterval(() => {
-      setStudents((prev) => {
-        if (prev >= 25) return 10;
-        return prev + 1;
+      setOnesDigit((prev) => {
+        return (prev + 1) % 10;
       });
     }, 800);
 
@@ -22,19 +27,13 @@ export default function DynamicPricingNumbers() {
     };
   }, []);
 
-  useEffect(() => {
-    // Update per head price when students change (72000 / students)
-    const basePrice = 72000;
-    const calculatedPrice = Math.round(basePrice / students);
-    setPerHeadPrice(calculatedPrice);
-  }, [students]);
-
   return (
     <div className="space-y-6 md:space-y-8 w-full">
       {/* Students Count */}
       <div className="text-center">
         <div className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2 flex items-center justify-center" style={{ color: '#004aad' }}>
-          <SlidingNumber value={students} />
+          <span className="tabular-nums">1</span>
+          <SlidingNumber value={onesDigit} />
         </div>
         <p className="text-xs md:text-sm lg:text-base uppercase tracking-wide" style={{ color: '#004aad' }}>
           Students Joined

@@ -32,7 +32,7 @@ export default function Home() {
                 What is Dynamic Group Pricing?
               </h2>
               <div className="prose prose-lg max-w-none mb-6 md:mb-8">
-                <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-4">
+                <p className="text-base md:text-lg font-semibold text-gray-600 leading-relaxed mb-4">
                   India&apos;s first platform with Dynamic Group Pricing.
                 </p>
                 <p className="text-base md:text-lg font-semibold leading-relaxed mb-6">
@@ -43,13 +43,33 @@ export default function Home() {
                 <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
                   How It Works
                 </h3>
-                <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-4">
-                  One total price. More students join. Everyone pays less automatically.
-                </p>
+                <div className="flex flex-col gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-600 text-white flex items-center justify-center text-sm font-semibold">
+                      1
+                    </div>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                      One total price.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-600 text-white flex items-center justify-center text-sm font-semibold">
+                      2
+                    </div>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                      More students join.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-600 text-white flex items-center justify-center text-sm font-semibold">
+                      3
+                    </div>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                      Everyone pays less automatically.
+                    </p>
+                  </div>
+                </div>
                 
-                <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-4">
-                  Get premium training without the premium price.
-                </p>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                   The more the community grows, the more everyone saves.
                 </p>
