@@ -5,11 +5,11 @@ import { CheckCircle } from 'lucide-react'
 export default function Hero() {
   return (
     <section className="w-full bg-gradient-to-br from-primary-50 to-white">
-      <div className="mx-auto max-w-7xl px-6 pt-12 pb-20">
+      <div className="mx-auto max-w-5xl px-6 pt-12 pb-20">
         {/* 70/30 split layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-10 items-start justify-center">
           {/* Left column - Content */}
-          <div className="flex flex-col items-start lg:ml-10 order-2 lg:order-1">
+          <div className="flex flex-col items-start order-2 lg:order-1">
             <h1 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-left">
               Community-Powered Learning Platform
             </h1>

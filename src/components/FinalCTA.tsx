@@ -1,7 +1,7 @@
 export default function FinalCTA() {
   return (
     <section id="join" className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
-      <div className="container mx-auto px-4 max-w-screen-lg text-center">
+      <div className="container mx-auto px-4 max-w-3xl text-center">
         <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-center mb-8 md:mb-12">
           Ready to Learn, Save, and Get Hired?
         </h2>
