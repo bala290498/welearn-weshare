@@ -40,12 +40,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#talent-portal" className="hover:text-white transition">
-                  Talent Portal
-                </a>
-              </li>
-              <li>
-                <a href="/become-trainer" className="hover:text-white transition">
-                  Become a Trainer
+                  Students Portal
                 </a>
               </li>
               <li>

@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${student.name} - ${student.category} Expert`,
       description,
       type: 'profile',
-      url: `https://welearnweshare.com/talent/${slug}`,
+      url: `https://welearnweshare.com/students/${slug}`,
       siteName: 'WeLearnWeShare',
     },
     twitter: {
@@ -58,7 +58,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="mb-4">
             <a 
-              href="/talent" 
+              href="/students" 
               className="text-primary-600 hover:text-primary-700 text-sm font-medium"
             >
               ← Back to Talent Showcase

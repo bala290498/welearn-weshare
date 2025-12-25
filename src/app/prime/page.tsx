@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
-import { Clock, Calendar, School, DollarSign, CheckCircle, ArrowRight, Wallet, Users2, Zap, ChevronLeft, TrendingDown, Award, BarChart3, FileText, Briefcase, ClipboardCheck, BookOpen } from 'lucide-react'
+import { Clock, Calendar, School, DollarSign, CheckCircle, ArrowRight, Wallet, Users2, Zap, ChevronLeft, TrendingDown, Award, BarChart3, FileText, Briefcase, ClipboardCheck, BookOpen, Video, Download } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function PrimePage() {
         <div className="container mx-auto px-4 max-w-[960px]">
           <div className="mb-4">
             <Link 
-              href="/skill-building" 
+              href="/courses" 
               className="text-orange-600 hover:text-orange-700 text-sm font-medium inline-flex items-center gap-1"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -154,7 +154,7 @@ export default function PrimePage() {
               {/* Main CTA */}
               <div className="pt-4">
                 <a
-                  href="/skill-building?batchType=prime"
+                  href="/courses?batchType=prime"
                   className="w-full py-4 px-6 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-semibold text-lg shadow-lg shadow-orange-500/25 transition-all transform active:scale-[0.99] flex items-center justify-center gap-2"
                 >
                   <span>Join Prime Batch</span>
@@ -176,12 +176,12 @@ export default function PrimePage() {
             Batch Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {/* Smarter Pricing Card */}
+            {/* Group Pricing Card */}
             <div className="bg-white border-2 border-purple-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingDown className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Smarter Pricing</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Group Pricing</h3>
               <p className="text-sm text-gray-600">More learners, lower cost.</p>
             </div>
 
@@ -194,13 +194,13 @@ export default function PrimePage() {
               <p className="text-sm text-gray-600">Expert-led, community-priced.</p>
             </div>
 
-            {/* Live Voting Card */}
-            <div className="bg-white border-2 border-green-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="w-6 h-6 text-green-600" />
+            {/* Live Training Card */}
+            <div className="bg-white border-2 border-red-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Video className="w-6 h-6 text-red-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Live Voting</h3>
-              <p className="text-sm text-gray-600">Students control quality.</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Live Training</h3>
+              <p className="text-sm text-gray-600">Live Interactive Classes</p>
             </div>
 
             {/* Certificates Included Card */}
@@ -212,13 +212,13 @@ export default function PrimePage() {
               <p className="text-sm text-gray-600">Proof of completion + resources.</p>
             </div>
 
-            {/* Strong Community Card */}
-            <div className="bg-white border-2 border-pink-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
-              <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users2 className="w-6 h-6 text-pink-600" />
+            {/* Study Resources Card */}
+            <div className="bg-white border-2 border-cyan-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Download className="w-6 h-6 text-cyan-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Strong Community</h3>
-              <p className="text-sm text-gray-600">Mentors, peers, and support.</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Study Resources</h3>
+              <p className="text-sm text-gray-600">Downloadable Learning Materials</p>
             </div>
 
             {/* Hiring Pipeline Card */}

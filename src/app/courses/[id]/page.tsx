@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     description += ` | Price: ${course.price}`
   }
   
-  description += ` | Duration: ${course.duration} | Price drops as more students join. Join now: welearnweshare.com/skill-building/${id}`
+  description += ` | Duration: ${course.duration} | Price drops as more students join. Join now: welearnweshare.com/courses/${id}`
 
   // Create a more detailed Open Graph description with enrollment and pricing at the start
   const ogDescription = course.studentsEnrolled !== undefined && course.maxStudents !== undefined
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       title: `${course.title} - WeLearnWeShare`,
       description: ogDescription,
       type: 'website',
-      url: `https://welearnweshare.com/skill-building/${id}`,
+      url: `https://welearnweshare.com/courses/${id}`,
       siteName: 'WeLearnWeShare',
       // Explicitly no images
       images: [],
@@ -125,7 +125,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
         <div className="container mx-auto px-4 max-w-screen-xl">
           <div className="mb-4">
             <a 
-              href="/skill-building" 
+              href="/courses" 
               className="text-primary-600 hover:text-primary-700 text-sm font-medium"
             >
               ← Back to Courses
@@ -154,7 +154,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             </h1>
               <div className="flex-shrink-0">
                 <ShareButton 
-                  url={`https://welearnweshare.com/skill-building/${id}`}
+                  url={`https://welearnweshare.com/courses/${id}`}
                   title={course.title}
                 />
               </div>

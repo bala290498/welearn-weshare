@@ -193,7 +193,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                     </div>
                           {/* Button */}
                           <Link
-                            href={`/skill-building/${course.slug}`}
+                            href={`/courses/${course.slug}`}
                             className="w-full py-3 rounded-xl bg-gray-900 text-white font-semibold hover:bg-gray-800 transition flex items-center justify-center gap-2"
                           >
                             Join Collective
@@ -228,7 +228,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
             return (
               <Link
                 key={course.slug}
-                href={`/skill-building/${course.slug}`}
+                href={`/courses/${course.slug}`}
                 className="bg-white rounded-lg border border-orange-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-auto overflow-hidden"
               >
                 {cardContent}
@@ -317,7 +317,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                   </div>
                         {/* Button */}
                         <Link
-                          href={`/skill-building/${course.slug}`}
+                          href={`/courses/${course.slug}`}
                           className="w-full py-3 rounded-xl bg-gray-900 text-white font-semibold hover:bg-gray-800 transition flex items-center justify-center gap-2"
                         >
                           Join Collective
@@ -352,7 +352,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
             return (
               <Link
                 key={course.slug}
-                href={`/skill-building/${course.slug}`}
+                href={`/courses/${course.slug}`}
                 className="bg-white rounded-lg border border-orange-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full overflow-hidden"
               >
                 {cardContent}

@@ -6,18 +6,18 @@ import { UserPlus, MessageCircle, BookOpen, ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Groups - WeLearnWeShare',
+  title: 'Community Groups - WeLearnWeShare',
   description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
   openGraph: {
-    title: 'Groups - WeLearnWeShare',
+    title: 'Community Groups - WeLearnWeShare',
     description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
     type: 'website',
-    url: 'https://welearnweshare.com/groups',
+    url: 'https://welearnweshare.com/community-groups',
     siteName: 'WeLearnWeShare',
   },
   twitter: {
     card: 'summary',
-    title: 'Groups - WeLearnWeShare',
+    title: 'Community Groups - WeLearnWeShare',
     description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
   },
 }
@@ -45,7 +45,7 @@ export default function GroupsPage() {
                 className="bg-primary-600 text-white px-8 py-3 md:px-10 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 min-w-[200px] text-center"
                 aria-label="Explore all groups"
               >
-                Explore All Groups
+                Explore All Community Groups
               </a>
             </div>
           </div>

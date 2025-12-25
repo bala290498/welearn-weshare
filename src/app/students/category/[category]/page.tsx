@@ -57,7 +57,7 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="mb-4">
             <Link 
-              href="/talent" 
+              href="/students" 
               className="text-primary-600 hover:text-primary-700 text-sm font-medium inline-flex items-center gap-1"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -138,7 +138,7 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
 
                 {/* Button (text-style with arrow) */}
                   <Link
-                    href={`/talent/${student.slug}`}
+                    href={`/students/${student.slug}`}
                   className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
                 >
                   <span className="group-hover:underline">View Details</span>
@@ -212,7 +212,7 @@ export default async function CategoryTalentPage({ params }: { params: Promise<{
 
                 {/* Button (text-style with arrow) */}
                   <Link
-                    href={`/talent/${student.slug}`}
+                    href={`/students/${student.slug}`}
                   className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
                 >
                   <span className="group-hover:underline">View Details</span>

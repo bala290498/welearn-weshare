@@ -71,11 +71,17 @@ export default function Navigation() {
               >
                 Home
               </a>
+            <a
+              href="/community-voice"
+              className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
+            >
+              Community Voice
+            </a>
               <a 
-                href="/skill-building" 
+                href="/courses" 
                 className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
               >
-                Skill Building
+                Courses
               </a>
               {/* Batches Dropdown */}
               <div className="relative" ref={batchesRef}>
@@ -105,17 +111,23 @@ export default function Navigation() {
                   </div>
                 )}
               </div>
-            <a
-              href="/community-voice"
-              className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
-            >
-              Community Voice
-            </a>
               <a 
-                href="/talent" 
+                href="/students" 
                 className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
               >
-                Talent
+                Students
+              </a>
+              <a 
+                href="/professionals" 
+                className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
+              >
+                Professionals
+              </a>
+              <a 
+                href="/community-groups" 
+                className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
+              >
+                Community Groups
               </a>
             <a
               href="/opportunities"
@@ -123,18 +135,6 @@ export default function Navigation() {
             >
               Opportunities
             </a>
-              <a 
-                href="/groups" 
-                className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
-              >
-                Groups
-              </a>
-              <a
-                href="/become-trainer"
-                className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
-              >
-                Become a Trainer
-              </a>
               <a
               href="/blogs"
                 className="text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md px-3 py-2"
@@ -182,12 +182,19 @@ export default function Navigation() {
               >
                 Home
               </a>
+            <a
+              href="/community-voice"
+              className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+              onClick={closeMobileMenu}
+            >
+              Community Voice
+            </a>
               <a
-                href="/skill-building"
+                href="/courses"
                 className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                 onClick={closeMobileMenu}
               >
-                Skill Building
+                Courses
               </a>
               <div className="px-3 py-2">
                 <button
@@ -216,19 +223,26 @@ export default function Navigation() {
                   </div>
                 )}
               </div>
-            <a
-              href="/community-voice"
-              className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-              onClick={closeMobileMenu}
-            >
-              Community Voice
-            </a>
               <a
-                href="/talent"
+                href="/students"
                 className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                 onClick={closeMobileMenu}
               >
-                Talent
+                Students
+              </a>
+              <a
+                href="/professionals"
+                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                onClick={closeMobileMenu}
+              >
+                Professionals
+              </a>
+              <a
+                href="/community-groups"
+                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                onClick={closeMobileMenu}
+              >
+                Community Groups
               </a>
             <a
               href="/opportunities"
@@ -237,20 +251,6 @@ export default function Navigation() {
             >
               Opportunities
             </a>
-              <a
-                href="/groups"
-                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                onClick={closeMobileMenu}
-              >
-                Groups
-              </a>
-              <a
-                href="/become-trainer"
-                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                onClick={closeMobileMenu}
-              >
-                Become a Trainer
-              </a>
               <a
               href="/blogs"
                 className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"

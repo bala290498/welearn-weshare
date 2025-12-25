@@ -2,27 +2,27 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import SkillBuildingClient from '@/components/SkillBuildingClient'
 import { getAllCourses } from '@/lib/markdown'
-import { TrendingDown, Award, BarChart3, FileText, Users2, Briefcase, ClipboardCheck, BookOpen } from 'lucide-react'
+import { TrendingDown, Award, BarChart3, FileText, Users2, Briefcase, ClipboardCheck, BookOpen, Video, Download } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Skill Building Courses - WeLearnWeShare',
+  title: 'Courses - WeLearnWeShare',
   description: 'Discover comprehensive courses designed to help you master in-demand skills and advance your career. Dynamic Group Pricing - price drops as more students join.',
   openGraph: {
-    title: 'Skill Building Courses - WeLearnWeShare',
+    title: 'Courses - WeLearnWeShare',
     description: 'Discover comprehensive courses designed to help you master in-demand skills and advance your career. Dynamic Group Pricing - price drops as more students join.',
     type: 'website',
-    url: 'https://welearnweshare.com/skill-building',
+    url: 'https://welearnweshare.com/courses',
     siteName: 'WeLearnWeShare',
   },
   twitter: {
     card: 'summary',
-    title: 'Skill Building Courses - WeLearnWeShare',
+    title: 'Courses - WeLearnWeShare',
     description: 'Discover comprehensive courses designed to help you master in-demand skills and advance your career.',
   },
 }
 
-export default function SkillBuildingPage() {
+export default function CoursesPage() {
   const courses = getAllCourses()
   
   return (
@@ -58,12 +58,12 @@ export default function SkillBuildingPage() {
             Batch Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {/* Smarter Pricing Card */}
+            {/* Group Pricing Card */}
             <div className="bg-white border-2 border-purple-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingDown className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Smarter Pricing</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Group Pricing</h3>
               <p className="text-sm text-gray-600">More learners, lower cost.</p>
             </div>
 
@@ -76,13 +76,13 @@ export default function SkillBuildingPage() {
               <p className="text-sm text-gray-600">Expert-led, community-priced.</p>
             </div>
 
-            {/* Live Voting Card */}
-            <div className="bg-white border-2 border-green-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="w-6 h-6 text-green-600" />
+            {/* Live Training Card */}
+            <div className="bg-white border-2 border-red-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Video className="w-6 h-6 text-red-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Live Voting</h3>
-              <p className="text-sm text-gray-600">Students control quality.</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Live Training</h3>
+              <p className="text-sm text-gray-600">Live Interactive Classes</p>
             </div>
 
             {/* Certificates Included Card */}
@@ -94,13 +94,13 @@ export default function SkillBuildingPage() {
               <p className="text-sm text-gray-600">Proof of completion + resources.</p>
             </div>
 
-            {/* Strong Community Card */}
-            <div className="bg-white border-2 border-pink-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
-              <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users2 className="w-6 h-6 text-pink-600" />
+            {/* Study Resources Card */}
+            <div className="bg-white border-2 border-cyan-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+              <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Download className="w-6 h-6 text-cyan-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Strong Community</h3>
-              <p className="text-sm text-gray-600">Mentors, peers, and support.</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Study Resources</h3>
+              <p className="text-sm text-gray-600">Downloadable Learning Materials</p>
             </div>
 
             {/* Hiring Pipeline Card */}
@@ -143,4 +143,3 @@ export default function SkillBuildingPage() {
     </main>
   )
 }
-

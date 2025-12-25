@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="w-full bg-gradient-to-br from-primary-50 to-white">
       <div className="mx-auto max-w-5xl px-6 pt-12 pb-20">
         {/* 70/30 split layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-10 items-start justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-10 items-center justify-center">
           {/* Left column - Content */}
           <div className="flex flex-col items-start order-2 lg:order-1">
             <h1 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-left">
@@ -41,7 +41,7 @@ export default function Hero() {
             {/* CTAs */}
             <div className="mt-8 flex flex-col md:flex-row gap-4 w-full">
               <Link 
-                href="/skill-building"
+                href="/courses"
                 className="rounded-lg bg-primary-600 px-6 py-3 text-white hover:bg-primary-700 transition w-full md:flex-1 text-center"
               >
                 Explore Courses
@@ -56,7 +56,7 @@ export default function Hero() {
           </div>
 
           {/* Right column - Pricing Cards */}
-          <div className="flex justify-center order-1 lg:order-2">
+          <div className="flex justify-center items-center order-1 lg:order-2">
             <HeroPricingCard />
           </div>
         </div>

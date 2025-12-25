@@ -17,7 +17,7 @@ export default function NotFound() {
             Go home
           </Link>
           <Link
-            href="/skill-building"
+            href="/courses"
             className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-semibold"
           >
             Browse courses

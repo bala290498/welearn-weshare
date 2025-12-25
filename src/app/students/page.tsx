@@ -5,18 +5,18 @@ import { getAllStudents } from '@/data/students'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Talent - WeLearnWeShare',
+  title: 'Students - WeLearnWeShare',
   description: 'Find real talent, Not just resumes. Discover top performers from our community.',
   openGraph: {
-    title: 'Talent - WeLearnWeShare',
+    title: 'Students - WeLearnWeShare',
     description: 'Find real talent, Not just resumes. Discover top performers from our community.',
     type: 'website',
-    url: 'https://welearnweshare.com/talent',
+    url: 'https://welearnweshare.com/students',
     siteName: 'WeLearnWeShare',
   },
   twitter: {
     card: 'summary',
-    title: 'Talent - WeLearnWeShare',
+    title: 'Students - WeLearnWeShare',
     description: 'Find real talent, Not just resumes. Discover top performers from our community.',
   },
 }
@@ -53,7 +53,7 @@ export default function TalentPage() {
                 href="#talent-content"
                 className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
               >
-                Browse Talent
+                Browse Students
               </a>
             </div>
           </div>

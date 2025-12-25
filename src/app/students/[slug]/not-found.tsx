@@ -11,7 +11,7 @@ export default function StudentNotFound() {
         </p>
         <div className="flex gap-4 justify-center">
           <Link
-            href="/talent"
+            href="/students"
             className="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold"
           >
             Browse all talents

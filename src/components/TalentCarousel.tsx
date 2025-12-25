@@ -128,7 +128,7 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
             </div>
           )}
           <Link
-            href={`/talent/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
+            href={`/students/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
             className="px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           >
             View All ({talents.length})
@@ -208,7 +208,7 @@ export default function TalentCarousel({ category, talents }: TalentCarouselProp
 
               {/* Button (text-style with arrow) */}
                 <Link
-                  href={`/talent/${talent.slug}`}
+                  href={`/students/${talent.slug}`}
                 className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
               >
                 <span className="group-hover:underline">View Details</span>

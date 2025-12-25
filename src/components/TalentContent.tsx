@@ -46,7 +46,7 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
                 Top Performers — {category} Batch
               </h2>
               <Link
-                href={`/talent/category/${category.toLowerCase()}`}
+                href={`/students/category/${category.toLowerCase()}`}
                 className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition font-semibold text-sm flex items-center gap-2"
               >
                 View All ({categoryStudents.length})
@@ -115,7 +115,7 @@ export default function TalentContent({ studentsByCategory }: TalentContentProps
 
                   {/* Button (text-style with arrow) */}
                     <Link
-                      href={`/talent/${student.slug}`}
+                      href={`/students/${student.slug}`}
                     className="group w-full flex items-center justify-center gap-2 py-2 text-blue-600 font-medium hover:text-blue-700 transition bg-transparent"
                   >
                     <span className="group-hover:underline">View Details</span>

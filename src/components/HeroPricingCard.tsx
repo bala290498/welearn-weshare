@@ -27,9 +27,9 @@ export default function HeroPricingCard() {
   }, []);
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="flex justify-center">
       {/* Single Card Container */}
-      <div className="rounded-2xl bg-white border border-gray-200 shadow-xl p-4 md:p-4 w-full md:max-w-xs lg:max-w-sm">
+      <div className="rounded-2xl bg-white border border-gray-200 shadow-xl p-4 md:p-4 w-full md:w-auto md:max-w-xs lg:max-w-sm">
         {/* Text at top of card */}
         <p className="text-sm text-gray-600 mb-2 md:mb-3 text-center">
           Current price based on
