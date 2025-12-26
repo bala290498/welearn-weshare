@@ -340,10 +340,10 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 </div>
               </div>
               
-              {/* Current Price and Capacity Price - Horizontal Layout, Centered on Mobile */}
-              <div className="flex justify-center lg:grid lg:grid-cols-2 gap-2 lg:gap-4">
+              {/* Current Price and Capacity Price - 2 Column Grid Layout, Centered */}
+              <div className="grid grid-cols-2 gap-2 lg:gap-4">
                 {/* Current Price */}
-                <div className="space-y-1 lg:space-y-2 text-center lg:text-left">
+                <div className="space-y-1 lg:space-y-2 text-center">
                   <p className="text-[10px] lg:text-xs text-gray-600">Current price</p>
                   <p className={`text-sm lg:text-xl font-semibold ${
                     course.batchType === 'collective' ? 'text-purple-600' : 
@@ -355,7 +355,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 </div>
                 
                 {/* Capacity Price */}
-                <div className="space-y-1 lg:space-y-2 text-center lg:text-left">
+                <div className="space-y-1 lg:space-y-2 text-center">
                   <p className="text-[10px] lg:text-xs text-gray-600">Capacity price</p>
                   <p className={`text-sm lg:text-xl font-semibold ${
                     course.batchType === 'collective' ? 'text-purple-600' : 
