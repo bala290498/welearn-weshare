@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation'
 import ShareButton from '@/components/ShareButton'
+import JoinBatchButton from '@/components/JoinBatchButton'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -304,12 +305,13 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 </div>
                 
                 {/* Join button */}
-                <a
-                  href="#contact-details"
+                <JoinBatchButton
+                  courseTitle={course.title}
+                  batchType={course.batchType}
                   className="flex-1 px-3 py-1.5 bg-primary-600 text-white text-xs font-semibold rounded-lg hover:bg-primary-700 transition text-center"
                 >
                   Join
-                </a>
+                </JoinBatchButton>
                 
                 {/* Share button */}
                 <div className="flex-1">
@@ -370,12 +372,13 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               <p className="hidden lg:block text-xs text-gray-500 pt-2 border-t border-gray-200">Price drops as more students join</p>
               
               {/* Desktop: Join Batch Button */}
-              <a
-                href="#contact-details"
+              <JoinBatchButton
+                courseTitle={course.title}
+                batchType={course.batchType}
                 className="hidden lg:block w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold text-center"
               >
                 Join Batch
-              </a>
+              </JoinBatchButton>
               
               {/* Desktop: Share Button */}
               <div className="hidden lg:block">
