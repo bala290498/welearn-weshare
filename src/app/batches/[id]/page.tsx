@@ -172,7 +172,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
 
       {/* Two Column Layout: Content + Fixed Pricing */}
       {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
-        <section className="py-6 md:py-10 px-4 bg-white relative">
+        <section className="py-6 md:py-10 px-4 bg-white relative pb-32 lg:pb-6">
           <div className="container mx-auto px-4 max-w-screen-xl">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Left Column: Main Content */}
@@ -294,37 +294,30 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               </h2>
               
               {/* Mobile Layout: Students Enrolled with Join and Share buttons */}
-              <div className="lg:hidden flex items-center justify-between gap-2 pb-2 border-b border-gray-200">
+              <div className="lg:hidden flex items-center gap-2 pb-2 border-b border-gray-200">
                 {/* Students Enrolled - Compact */}
-                <div className="flex-1 min-w-0">
-                  <p className="text-[10px] text-gray-600 mb-0.5">Students enrolled:</p>
+                <div className="flex-1 flex items-center justify-center">
                   <p className={`text-lg font-semibold ${
                     course.batchType === 'collective' ? 'text-purple-600' : 
                     course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
                   }`}>{validEnrolled} / {maxStudents}</p>
-                  <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1">
-                    <div
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        course.batchType === 'collective' ? 'bg-purple-600' : 
-                        course.batchType === 'prime' ? 'bg-orange-600' : 'bg-primary-600'
-                      }`}
-                      style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
-                    />
-                  </div>
                 </div>
                 
-                {/* Join and Share buttons */}
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  <a
-                    href="#contact-details"
-                    className="px-3 py-1.5 bg-primary-600 text-white text-xs font-semibold rounded-lg hover:bg-primary-700 transition whitespace-nowrap"
-                  >
-                    Join
-                  </a>
+                {/* Join button */}
+                <a
+                  href="#contact-details"
+                  className="flex-1 px-3 py-1.5 bg-primary-600 text-white text-xs font-semibold rounded-lg hover:bg-primary-700 transition text-center"
+                >
+                  Join
+                </a>
+                
+                {/* Share button */}
+                <div className="flex-1">
                   <ShareButton 
                     url={`https://welearnweshare.com/batches/${id}`}
                     title={course.title}
                     iconOnly={true}
+                    className="w-full"
                   />
                 </div>
               </div>
@@ -347,28 +340,28 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 </div>
               </div>
               
-              {/* Current Price and Capacity Price - Horizontal Layout */}
-              <div className="grid grid-cols-2 gap-2 lg:gap-4">
+              {/* Current Price and Capacity Price - Horizontal Layout, Centered on Mobile */}
+              <div className="flex justify-center lg:grid lg:grid-cols-2 gap-2 lg:gap-4">
                 {/* Current Price */}
-                <div className="space-y-1 lg:space-y-2">
+                <div className="space-y-1 lg:space-y-2 text-center lg:text-left">
                   <p className="text-[10px] lg:text-xs text-gray-600">Current price</p>
                   <p className={`text-sm lg:text-xl font-semibold ${
                     course.batchType === 'collective' ? 'text-purple-600' : 
                     course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
                   }`}>{formatPrice(currentPrice)}</p>
-                  <p className="text-[9px] lg:text-xs text-gray-500 whitespace-nowrap overflow-hidden text-ellipsis">
+                  <p className="text-[9px] lg:text-xs text-gray-500 whitespace-nowrap">
                     {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled || 0} = {formatPrice(currentPrice)}
                   </p>
                 </div>
                 
                 {/* Capacity Price */}
-                <div className="space-y-1 lg:space-y-2">
+                <div className="space-y-1 lg:space-y-2 text-center lg:text-left">
                   <p className="text-[10px] lg:text-xs text-gray-600">Capacity price</p>
                   <p className={`text-sm lg:text-xl font-semibold ${
                     course.batchType === 'collective' ? 'text-purple-600' : 
                     course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
                   }`}>{formatPrice(potentialPrice)}</p>
-                  <p className="text-[9px] lg:text-xs text-gray-500 whitespace-nowrap overflow-hidden text-ellipsis">
+                  <p className="text-[9px] lg:text-xs text-gray-500 whitespace-nowrap">
                     {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
                   </p>
                 </div>
