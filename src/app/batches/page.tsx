@@ -3,6 +3,7 @@ import Footer from '@/components/Footer'
 import SkillBuildingClient from '@/components/SkillBuildingClient'
 import { getAllCourses } from '@/lib/markdown'
 import { TrendingDown, Award, BarChart3, FileText, Users2, Briefcase, ClipboardCheck, BookOpen, Video, Download } from 'lucide-react'
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -53,7 +54,9 @@ export default function BatchesPage() {
 
       <section id="batches" className="py-6 md:py-10 px-4 bg-gray-50 scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
-          <SkillBuildingClient courses={courses} />
+          <Suspense fallback={<div className="text-center py-8">Loading batches...</div>}>
+            <SkillBuildingClient courses={courses} />
+          </Suspense>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Users, Info, ArrowRight, Clock, Share2 } from 'lucide-react'
 import CategoryFilter from './CategoryFilter'
@@ -50,13 +51,21 @@ function formatPrice(price: number): string {
 }
 
 export default function SkillBuildingClient({ courses }: SkillBuildingClientProps) {
-  const [selectedBatchType, setSelectedBatchType] = useState<'prime' | 'collective'>('prime')
+  const searchParams = useSearchParams()
+  const typeParam = searchParams.get('type')
+  const initialBatchType = (typeParam === 'prime' || typeParam === 'collective') ? typeParam : 'prime'
+  
+  const [selectedBatchType, setSelectedBatchType] = useState<'prime' | 'collective'>(initialBatchType)
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
   const [mounted, setMounted] = useState(false)
   
   useEffect(() => {
     setMounted(true)
-  }, [])
+    // Update batch type if URL parameter changes
+    if (typeParam === 'prime' || typeParam === 'collective') {
+      setSelectedBatchType(typeParam)
+    }
+  }, [typeParam])
   
   // Get all unique categories
   const categories = Array.from(new Set(courses.map(course => course.category)))

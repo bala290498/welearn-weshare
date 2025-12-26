@@ -1,3 +1,7 @@
+'use client'
+
+import JoinCommunityButton from '@/components/JoinCommunityButton'
+
 export default function FinalCTA() {
   return (
     <section id="join" className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
@@ -10,12 +14,9 @@ export default function FinalCTA() {
           finish real projects, and get listed for hiring.
         </p>
         <div className="flex justify-center">
-          <a
-            href="#join-form"
-            className="bg-white text-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600"
-          >
+          <JoinCommunityButton className="bg-white text-primary-600 px-4 py-2 md:px-5 md:py-3 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600">
             Join Community
-          </a>
+          </JoinCommunityButton>
         </div>
       </div>
     </section>

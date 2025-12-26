@@ -92,19 +92,19 @@ export default function CommunityVoiceContent() {
   const howItWorks = [
     {
       step: 1,
-      title: 'Community Suggests',
+      title: 'Suggest',
       description: 'Ideas come straight from learners.',
       icon: <Users className="w-8 h-8" />,
     },
     {
       step: 2,
-      title: 'Community Decides',
+      title: 'Decide',
       description: 'Votes choose what gets built.',
       icon: <Vote className="w-8 h-8" />,
     },
     {
       step: 3,
-      title: 'Courses Launch',
+      title: 'Launch',
       description: 'Demand-backed courses go live.',
       icon: <CheckCircle className="w-8 h-8" />,
     },

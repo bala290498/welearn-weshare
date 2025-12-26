@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import JoinCommunityButton from '@/components/JoinCommunityButton'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -98,12 +99,9 @@ export default function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center flex-shrink-0 ml-6">
-            <a
-              href="#join"
-              className="bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:bg-primary-700 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 whitespace-nowrap"
-            >
+            <JoinCommunityButton className="bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:bg-primary-700 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 whitespace-nowrap">
               Join Now
-            </a>
+            </JoinCommunityButton>
           </div>
 
           {/* Mobile Menu Button */}
@@ -187,13 +185,9 @@ export default function Navigation() {
 
             {/* Mobile CTA */}
             <div className="pt-3 border-t border-gray-200">
-              <a
-                href="#join"
-                className="block bg-primary-600 text-white text-center text-base font-semibold px-4 py-3 rounded-lg shadow-sm hover:bg-primary-700 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                onClick={closeMobileMenu}
-              >
+              <JoinCommunityButton className="block bg-primary-600 text-white text-center text-base font-semibold px-4 py-3 rounded-lg shadow-sm hover:bg-primary-700 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
                 Join Now
-              </a>
+              </JoinCommunityButton>
             </div>
           </div>
         </div>

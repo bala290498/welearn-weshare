@@ -63,12 +63,6 @@ Bio/Notes: ${formData.bio}`
     },
     {
       step: 2,
-      title: 'Review',
-      description: 'We review your application.',
-      icon: <Users className="w-8 h-8" />,
-    },
-    {
-      step: 3,
       title: 'Launch',
       description: 'Set up your profile, and start teaching.',
       icon: <CheckCircle className="w-8 h-8" />,

@@ -1,4 +1,4 @@
-import { BookOpen, Users, TrendingDown, Code, Award, Briefcase, ArrowRight, ArrowDown } from 'lucide-react'
+import { ArrowRight, ArrowDown } from 'lucide-react'
 
 export default function HowItWorks() {
   const steps = [
@@ -7,42 +7,36 @@ export default function HowItWorks() {
       title: 'Choose a Course',
       description:
         'Pick a skill track aligned with your career goals.',
-      icon: <BookOpen className="w-12 h-12" />,
     },
     {
       number: 2,
       title: 'Join the Community',
       description:
         'Learn alongside peers in shared forums.',
-      icon: <Users className="w-12 h-12" />,
     },
     {
       number: 3,
       title: 'Unlock Dynamic Group Pricing',
       description:
         'Prices drop automatically as more students join.',
-      icon: <TrendingDown className="w-12 h-12" />,
     },
     {
       number: 4,
       title: 'Build Real Skills',
       description:
         'Expert-led lessons with hands-on projects.',
-      icon: <Code className="w-12 h-12" />,
     },
     {
       number: 5,
       title: 'Earn Certification',
       description:
         'Receive certification and join our Talent Portal.',
-      icon: <Award className="w-12 h-12" />,
     },
     {
       number: 6,
       title: 'Get Hired',
       description:
         'Access interviews with hiring partners.',
-      icon: <Briefcase className="w-12 h-12" />,
     },
   ]
 
@@ -55,8 +49,10 @@ export default function HowItWorks() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative">
           {steps.map((step, index) => (
             <div key={step.number} className="text-center relative">
-              <div className="text-primary-600 mb-4 flex justify-center">
-                {step.icon}
+              <div className="mb-4 flex justify-center">
+                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-semibold shadow-lg">
+                  {step.number}
+                </div>
               </div>
               <h3 className="text-[clamp(1rem,2vw,1.25rem)] font-semibold text-gray-900 mb-3">
                 {step.title}

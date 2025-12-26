@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import JoinCommunityButton from '@/components/JoinCommunityButton'
 
 const comparisonData = [
   {
@@ -67,13 +68,12 @@ export default function LandingPage() {
             </p>
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 md:pt-8 flex-wrap">
-              <a
-                href="#join"
+              <JoinCommunityButton
                 className="bg-primary-600 text-white px-8 py-3 md:px-10 md:py-4 text-sm md:text-base rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 min-w-[160px] text-center"
                 aria-label="Join WeLearnWeShare now"
               >
                 Join Now
-              </a>
+              </JoinCommunityButton>
               <a
                 href="#courses"
                 className="bg-white text-primary-600 border-2 border-primary-600 px-8 py-3 md:px-10 md:py-4 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 min-w-[160px] text-center"
@@ -697,13 +697,12 @@ export default function LandingPage() {
             Learn more. Pay less. Build your future.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap pt-4">
-            <a
-              href="#join"
+            <JoinCommunityButton
               className="bg-white text-primary-600 px-8 py-3 md:px-10 md:py-4 text-sm md:text-base rounded-xl shadow-sm hover:bg-primary-50 transition font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 min-w-[160px] text-center"
               aria-label="Join WeLearnWeShare now"
             >
               Join Now
-            </a>
+            </JoinCommunityButton>
             <a
               href="#courses"
               className="bg-transparent text-white border-2 border-white px-8 py-3 md:px-10 md:py-4 text-sm md:text-base rounded-xl shadow-sm hover:bg-white/10 transition font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 min-w-[160px] text-center"

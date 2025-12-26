@@ -1,5 +1,6 @@
 import HeroPricingCard from '@/components/HeroPricingCard'
 import Link from 'next/link'
+import JoinCommunityButton from '@/components/JoinCommunityButton'
 import { CheckCircle } from 'lucide-react'
 
 export default function Hero() {
@@ -40,12 +41,9 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-col md:flex-row gap-4 w-full">
-              <Link 
-                href="#join"
-                className="rounded-lg bg-primary-600 px-6 py-3 text-white hover:bg-primary-700 transition w-full md:flex-1 text-center"
-              >
+              <JoinCommunityButton className="rounded-lg bg-primary-600 px-6 py-3 text-white hover:bg-primary-700 transition w-full md:flex-1 text-center">
                 Join Community
-              </Link>
+              </JoinCommunityButton>
               <Link 
                 href="#dynamic-group-pricing"
                 className="rounded-lg border-2 border-primary-600 px-6 py-3 text-primary-600 bg-transparent hover:bg-primary-50 transition w-full md:flex-1 text-center"
