@@ -1,50 +1,17 @@
-import Navigation from '@/components/Navigation'
-import ShareButton from '@/components/ShareButton'
-import JoinBatchButton from '@/components/JoinBatchButton'
-import JoinCommunityButton from '@/components/JoinCommunityButton'
-import CoachProfileCard from '@/components/CoachProfileCard'
-import CompanyLogo from '@/components/CompanyLogo'
-import SecureSpotForm from '@/components/SecureSpotForm'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { Check, Info, ChevronRight, Download, TrendingUp, TrendingDown, Award, BarChart3, FileText, Users2, Briefcase, ClipboardCheck, BookOpen, Video, Linkedin, UserCheck, FileCheck, MessageSquare } from 'lucide-react'
-import WhatsAppIcon from '@/components/WhatsAppIcon'
-import Link from 'next/link'
+import CoursePage from '@/components/course/CoursePage'
+import { calculateCoursePricing, formatPrice } from '@/lib/course-utils'
 
-// Calculate current price per head based on enrollment
-// Formula: Price per head = total fixed price ÷ current number of enrolled students
-// This ensures the total revenue stays constant while price per head decreases
-function calculateCurrentPrice(basePrice: number, studentsEnrolled: number, maxStudents: number): number {
-  // Validation: avoid division by zero
-  if (studentsEnrolled <= 0) {
-    return basePrice // If no students, show total price (one student would pay full amount)
-  }
-  // Validation: prevent enrollments over max capacity
-  if (studentsEnrolled > maxStudents) {
-    return basePrice / maxStudents // At or over max capacity, use max capacity for calculation
-  }
-  // Price per head = total fixed price ÷ current number of enrolled students
-  return basePrice / studentsEnrolled
-}
-
-// Calculate potential price at full capacity
-function calculatePotentialPrice(basePrice: number, maxStudents: number): number {
-  if (maxStudents <= 0) {
-    return basePrice
-  }
-  return basePrice / maxStudents
-}
-
-// Format price without decimals for display
-function formatPrice(price: number): string {
-  return `₹${Math.round(price).toLocaleString('en-IN')}`
-}
-
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}): Promise<Metadata> {
   const { id } = await params
   const courseData = getCourseBySlug(id)
-  
+
   if (!courseData) {
     return {
       title: 'Course Not Found - WeLearnWeShare',
@@ -52,28 +19,28 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   }
 
   const course = courseData.frontmatter
-  const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
-  const studentsEnrolled = course.studentsEnrolled ?? 0
-  const maxStudents = course.maxStudents ?? 100
-  // Validation: ensure studentsEnrolled doesn't exceed maxStudents
-  const validEnrolled = Math.min(studentsEnrolled, maxStudents)
-  const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, maxStudents)
-  
+  const pricing = calculateCoursePricing(
+    course.price,
+    course.studentsEnrolled,
+    course.maxStudents
+  )
+
   // Build description with enrollment and pricing prominently displayed
   let description = `${course.title} - ${course.description}`
-  
+
   if (course.studentsEnrolled !== undefined && course.maxStudents !== undefined) {
-    description += ` | Students Enrolled: ${validEnrolled}/${maxStudents} | Current Price: ${formatPrice(currentPrice)} per head`
+    description += ` | Students Enrolled: ${pricing.validEnrolled}/${pricing.maxStudents} | Current Price: ${formatPrice(pricing.currentPrice)} per head`
   } else {
     description += ` | Price: ${course.price}`
   }
-  
+
   description += ` | Duration: ${course.duration} | Price drops as more students join. Join now: welearnweshare.com/batches/${id}`
 
   // Create a more detailed Open Graph description with enrollment and pricing at the start
-  const ogDescription = course.studentsEnrolled !== undefined && course.maxStudents !== undefined
-    ? `📊 Students Enrolled: ${validEnrolled}/${maxStudents} | 💰 Current Price: ${formatPrice(currentPrice)} per head | ${course.description} | Duration: ${course.duration} | Price drops as more students join!`
-    : `${course.description} | Duration: ${course.duration} | ${course.price}`
+  const ogDescription =
+    course.studentsEnrolled !== undefined && course.maxStudents !== undefined
+      ? `📊 Students Enrolled: ${pricing.validEnrolled}/${pricing.maxStudents} | 💰 Current Price: ${formatPrice(pricing.currentPrice)} per head | ${course.description} | Duration: ${course.duration} | Price drops as more students join!`
+      : `${course.description} | Duration: ${course.duration} | ${course.price}`
 
   return {
     title: `${course.title} - WeLearnWeShare`,
@@ -96,14 +63,18 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     },
     ...(course.studentsEnrolled !== undefined && {
       other: {
-        'og:price:amount': currentPrice.toString(),
+        'og:price:amount': pricing.currentPrice.toString(),
         'og:price:currency': 'INR',
       },
     }),
   }
 }
 
-export default async function CourseDetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function CourseDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
   const { id } = await params
   const courseData = getCourseBySlug(id)
 
@@ -113,615 +84,25 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
 
   const course = courseData.frontmatter
   const content = courseData.content
-  
-  // Calculate values for display
-  const basePrice = parseInt(course.price.replace(/[₹,]/g, ''))
-  const studentsEnrolled = course.studentsEnrolled ?? 0
-  const maxStudents = course.maxStudents ?? 100
-  // Validation: ensure studentsEnrolled doesn't exceed maxStudents
-  const validEnrolled = Math.min(studentsEnrolled, maxStudents)
-  const currentPrice = calculateCurrentPrice(basePrice, validEnrolled, maxStudents)
-  const potentialPrice = calculatePotentialPrice(basePrice, maxStudents)
+
+  // Calculate pricing using utility function
+  const pricing = calculateCoursePricing(
+    course.price,
+    course.studentsEnrolled,
+    course.maxStudents
+  )
+
+  // Determine if course has dynamic pricing
+  const hasDynamicPricing =
+    course.studentsEnrolled !== undefined && course.maxStudents !== undefined
 
   return (
-    <main className="min-h-screen -mt-16 md:mt-0">
-      <div className="hidden lg:block">
-      <Navigation />
-      </div>
-      
-      <section className="pt-0 pb-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
-        <div className="container mx-auto px-4 max-w-screen-xl">
-          <div className="mb-4 lg:mr-[calc(33.333%+2rem)] pt-4 md:pt-0">
-            <nav className="flex items-center gap-2 text-sm text-gray-600">
-              <Link 
-              href="/batches" 
-                className="text-primary-600 hover:text-primary-700 font-medium transition-colors"
-              >
-                Batches
-              </Link>
-              <ChevronRight className="w-4 h-4 text-gray-400" />
-              <span className="font-medium text-gray-700">
-                {course.batchType === 'prime' ? 'Prime' : course.batchType === 'collective' ? 'Collective' : 'Batch'}
-              </span>
-              <ChevronRight className="w-4 h-4 text-gray-400" />
-              <span className="text-gray-900 font-semibold">
-                {course.title}
-                </span>
-            </nav>
-            </div>
-          <div className="space-y-2 md:space-y-3 lg:mr-[calc(33.333%+2rem)]">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <h1 className="text-[clamp(1.5rem,4vw,3rem)] font-semibold text-gray-900 flex-1">
-              {course.title}
-            </h1>
-            </div>
-            <p className="text-[clamp(0.875rem,2vw,1.25rem)] text-gray-600 leading-relaxed">
-              {course.description}
-            </p>
-            
-            {/* Key Points */}
-            <ul className="space-y-2 md:space-y-3 mt-4 md:mt-6 mb-12 md:mb-20">
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 text-sm md:text-base">Working professionals</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 text-sm md:text-base">Dynamic group pricing</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 text-sm md:text-base">Live Interactive classes</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 text-sm md:text-base">Industry level Experience, Certifications and more</span>
-              </li>
-            </ul>
-            
-            {/* Spacer */}
-            <div className="h-8 md:h-12"></div>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-              <JoinCommunityButton className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-2 md:px-6 md:py-3 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring focus-visible:ring-primary-600 focus-visible:ring-offset-2 w-full sm:w-auto">
-                Join Community
-              </JoinCommunityButton>
-              <a
-                href={`https://wa.me/917010584543?text=${encodeURIComponent(`Hi! I would like to get the brochure for ${course.title}.`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border border-primary-600 px-4 py-2 md:px-6 md:py-3 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring focus-visible:ring-primary-600 focus-visible:ring-offset-2 w-full sm:w-auto"
-              >
-                <Download className="w-5 h-5" />
-                Get Brochure
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Badge Banner Section */}
-      <section className="py-4 md:py-6 bg-primary-50">
-        <div className="container mx-auto px-4 max-w-screen-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 lg:mr-8">
-              <div className="flex flex-wrap gap-3 justify-center">
-                <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-sm font-semibold rounded-full border border-green-200">
-                  Live Training
-                </span>
-                <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-amber-100 to-orange-100 text-orange-700 text-sm font-semibold rounded-full border border-orange-200">
-                  Certification
-                </span>
-                <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-violet-100 text-purple-700 text-sm font-semibold rounded-full border border-purple-200">
-                  Dynamic Group Pricing
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Two Column Layout: Content + Fixed Pricing */}
-      {course.studentsEnrolled !== undefined && course.maxStudents !== undefined ? (
-        <section className="py-6 md:py-10 px-4 bg-white relative pb-32 lg:pb-6">
-          <div className="container mx-auto px-4 max-w-screen-xl">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Left Column: Main Content */}
-              <div className="lg:col-span-2 space-y-8 md:space-y-12 lg:mr-8">
-            {/* Professional Partner */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Professional Partner
-                </h2>
-              </div>
-              <div className="flex justify-center">
-                <CoachProfileCard courseId={id} />
-              </div>
-            </div>
-
-            {/* Course Syllabus */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Course Syllabus
-                </h2>
-              </div>
-              <ul className="space-y-3">
-                {(content['Course Syllabus'] || []).map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center text-sm font-semibold mt-0.5">
-                      {index + 1}
-                    </span>
-                    <span className="text-gray-700 text-sm md:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Course Features */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Course Features
-                </h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                {/* Dynamic Group Pricing Card */}
-                <div className="bg-purple-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <TrendingDown className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Dynamic Group Pricing</h3>
-                    <p className="text-sm text-gray-600">More learners, lower cost.</p>
-                  </div>
-                </div>
-
-                {/* Top Trainers Card */}
-                <div className="bg-blue-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Award className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Top Trainers</h3>
-                    <p className="text-sm text-gray-600">Expert-led, community-priced.</p>
-                  </div>
-                </div>
-
-                {/* Live Training Card */}
-                <div className="bg-red-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Video className="w-6 h-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Live Training</h3>
-                    <p className="text-sm text-gray-600">Live Interactive Classes</p>
-                  </div>
-                </div>
-
-                {/* Certificates Included Card */}
-                <div className="bg-orange-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Certificates Included</h3>
-                    <p className="text-sm text-gray-600">Proof of completion + resources.</p>
-                  </div>
-                </div>
-
-                {/* Study Resources Card */}
-                <div className="bg-cyan-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Download className="w-6 h-6 text-cyan-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Study Resources</h3>
-                    <p className="text-sm text-gray-600">Downloadable Learning Materials</p>
-                  </div>
-                </div>
-
-                {/* Hiring Pipeline Card */}
-                <div className="bg-indigo-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Briefcase className="w-6 h-6 text-indigo-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Hiring Pipeline</h3>
-                    <p className="text-sm text-gray-600">Tasks lead to interviews.</p>
-                  </div>
-                </div>
-
-                {/* Clear Roadmap Card */}
-                <div className="bg-teal-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <ClipboardCheck className="w-6 h-6 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Clear Roadmap</h3>
-                    <p className="text-sm text-gray-600">Weekly goals, real projects.</p>
-                  </div>
-                </div>
-
-                {/* Career Mentorship Card */}
-                <div className="bg-amber-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <BookOpen className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Career Mentorship</h3>
-                    <p className="text-sm text-gray-600">Guidance that gets you hired.</p>
-                  </div>
-                </div>
-
-                {/* Live Voting Card */}
-                <div className="bg-green-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <BarChart3 className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Live Voting</h3>
-                    <p className="text-sm text-gray-600">Students control quality.</p>
-                  </div>
-                </div>
-
-                {/* Strong Community Card */}
-                <div className="bg-pink-50 p-4 md:p-6 flex items-center gap-4">
-                  <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Users2 className="w-6 h-6 text-pink-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Strong Community</h3>
-                    <p className="text-sm text-gray-600">Mentors, peers, and support.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Job Opportunities */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Job Opportunities
-                </h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                {/* Job Available on LinkedIn */}
-                <div className="bg-blue-50 p-4 md:p-6 flex items-center gap-3">
-                  <Linkedin className="w-6 h-6 md:w-8 md:h-8 text-blue-600 flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xl md:text-2xl font-bold text-blue-600 mb-1 leading-tight">25,000+</p>
-                    <p className="text-xs md:text-sm text-gray-700">DevOps roles</p>
-                  </div>
-                </div>
-
-                {/* CAGR */}
-                <div className="bg-green-50 p-4 md:p-6 flex items-center gap-3">
-                  <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-green-600 flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xl md:text-2xl font-bold text-green-600 mb-1 leading-tight">25%</p>
-                    <p className="text-xs md:text-sm text-gray-700">CAGR</p>
-                  </div>
-                </div>
-
-                {/* Salary Range */}
-                <div className="bg-purple-50 p-4 md:p-6 flex items-center gap-3">
-                  <Briefcase className="w-6 h-6 md:w-8 md:h-8 text-purple-600 flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xl md:text-2xl font-bold text-purple-600 mb-1 leading-tight">₹6–18</p>
-                    <p className="text-xs md:text-sm text-gray-700">LPA</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Top Companies Hiring */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Top Companies Hiring
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <CompanyLogo name="CMA CGM" logoPath="CMA CGM_idGDHHFMrC_1.png" fallbackColor="006699" fallbackText="CMA CGM" />
-                <CompanyLogo name="BNP Paribas" logoPath="BNP Paribas_idB_LxSRBU_1.png" fallbackColor="006699" fallbackText="BNP Paribas" />
-                <CompanyLogo name="Infosys" logoPath="Infosys_idxq8SaZnR_1.png" fallbackColor="006699" fallbackText="Infosys" />
-                <CompanyLogo name="LTIMindtree" logoPath="LTIMindtree Canada_idNMzBu7uZ_1.png" fallbackColor="006699" fallbackText="LTIMindtree" />
-                <CompanyLogo name="Mphasis" logoPath="Mphasis_idEVXnwruT_0.png" fallbackColor="006699" fallbackText="Mphasis" />
-                <CompanyLogo name="TCS" logoPath="tcs.png" fallbackColor="006699" fallbackText="TCS" />
-                <CompanyLogo name="Tech Mahindra" logoPath="Tech Mahindra_id9pyBT3BD_1.png" fallbackColor="006699" fallbackText="Tech Mahindra" />
-                <CompanyLogo name="Virtusa" logoPath="Virtusa_id9Rmwc8n7_1.png" fallbackColor="006699" fallbackText="Virtusa" />
-              </div>
-            </div>
-
-            {/* Career Services */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Career Services
-                </h2>
-                <p className="text-sm md:text-base text-gray-600 mt-2">What we provide?</p>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Placement Assistance</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Mock Interview Preparation</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">1 on 1 Career Mentoring Sessions</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Career Oriented Sessions</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Resume & LinkedIn Profile Building</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Secure Spot Form */}
-            <SecureSpotForm courseTitle={course.title} batchType={course.batchType} />
-
-            {/* Contact Details */}
-            <div id="contact-details" className="bg-primary-50 rounded-lg p-6 md:p-8">
-              <div className="border-b-2 border-primary-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Contact Details
-                </h2>
-              </div>
-              <div>
-                <a 
-                  href="https://wa.me/917010584543"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-green-600 hover:text-green-700 text-sm md:text-base"
-                >
-                  <WhatsAppIcon className="w-5 h-5 text-green-600" />
-                  +91 7010584543
-                </a>
-              </div>
-              </div>
-              </div>
-
-              {/* Right Column: Fixed Dynamic Group Pricing */}
-              <div className="lg:col-span-1">
-                {/* Spacer div to maintain grid layout */}
-                <div className="lg:block hidden">
-                  <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6 space-y-6 opacity-0 pointer-events-none">
-                    {/* Invisible placeholder to maintain layout */}
-                    <div className="h-96"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Fixed Dynamic Group Pricing Card */}
-          <div className="fixed bottom-0 left-0 right-0 lg:bottom-4 lg:left-auto lg:right-4 xl:right-[calc((100vw-1280px)/2+1rem)] lg:w-[420px] xl:w-[480px] z-50 lg:rounded-lg lg:shadow-lg">
-            <div className="bg-white border-t lg:border border-gray-200 lg:rounded-lg shadow-2xl lg:shadow-lg p-2 lg:p-6 space-y-2 lg:space-y-6 max-h-[85vh] overflow-y-auto">
-              {/* Title - Hidden on mobile */}
-              <h2 className="hidden lg:block text-xl font-semibold text-gray-900 border-b-2 border-gray-200 pb-3">
-                {course.title}
-              </h2>
-              
-              {/* Mobile Layout: Students Enrolled with Join and Share buttons */}
-              <div className="lg:hidden flex items-center gap-2 pb-2 border-b border-gray-200">
-                {/* Students Enrolled - Compact */}
-                <div className="flex-1 flex flex-col items-center justify-center">
-                  <p className="text-xs text-gray-600 mb-0.5">Students</p>
-                  <p className="text-lg font-semibold text-primary-600">{validEnrolled} / {maxStudents}</p>
-                </div>
-                
-                {/* Join button */}
-                <JoinBatchButton
-                  courseTitle={course.title}
-                  batchType={course.batchType}
-                  className="flex-1 px-4 py-2.5 bg-primary-600 text-white text-xs font-semibold rounded-lg hover:bg-primary-700 transition text-center"
-                >
-                  Join
-                </JoinBatchButton>
-                
-                {/* Share button */}
-                <div className="flex-1">
-                  <ShareButton 
-                    url={`https://welearnweshare.com/batches/${id}`}
-                    title={course.title}
-                    iconOnly={true}
-                    className="w-full px-4 py-2.5 border-primary-600 text-primary-600 hover:bg-primary-50"
-                  />
-                </div>
-              </div>
-              
-              {/* Current Price and Capacity Price - 2 Column Grid Layout, Horizontally Aligned */}
-              <div className="flex justify-center items-center gap-2 lg:gap-4">
-                {/* Current Price */}
-                <div className="space-y-1 lg:space-y-2 text-center">
-                  <p className="text-[10px] lg:text-xs text-gray-600">Current price</p>
-                  <p className={`text-sm lg:text-xl font-semibold ${
-                    course.batchType === 'collective' ? 'text-purple-600' : 
-                    course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
-                  }`}>{formatPrice(currentPrice)}</p>
-                  <p className="text-[9px] lg:text-xs text-gray-500 whitespace-nowrap">
-                    {basePrice.toLocaleString('en-IN')} ÷ {validEnrolled || 0} = {formatPrice(currentPrice)}
-                  </p>
-                </div>
-                
-                {/* Capacity Price */}
-                <div className={`space-y-1 lg:space-y-2 text-center border-2 rounded-lg p-2 lg:p-3 bg-transparent ${
-                  course.batchType === 'collective' ? 'border-purple-600' : 
-                  course.batchType === 'prime' ? 'border-orange-600' : 'border-primary-600'
-                }`}>
-                  <p className={`text-[10px] lg:text-xs font-medium ${
-                    course.batchType === 'collective' ? 'text-purple-600' : 
-                    course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
-                  }`}>Capacity price</p>
-                  <p className={`text-sm lg:text-xl font-semibold ${
-                    course.batchType === 'collective' ? 'text-purple-600' : 
-                    course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
-                  }`}>{formatPrice(potentialPrice)}</p>
-                  <p className={`text-[9px] lg:text-xs whitespace-nowrap ${
-                    course.batchType === 'collective' ? 'text-purple-600' : 
-                    course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
-                  }`}>
-                    {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
-                  </p>
-                </div>
-              </div>
-              
-              {/* Desktop: Students Enrolled - Vertical Stack */}
-              <div className="hidden lg:block space-y-2">
-                <p className="text-xs text-gray-600">Students enrolled:</p>
-                <p className="text-2xl font-semibold text-primary-600">{validEnrolled} / {maxStudents}</p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div
-                    className="h-2.5 rounded-full transition-all duration-300 bg-primary-600"
-                    style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
-                  />
-                </div>
-              </div>
-              
-              <p className="hidden lg:block text-xs text-gray-500 pt-2 border-t border-gray-200">Price drops as more students join</p>
-              
-              {/* Desktop: Join Batch Button */}
-              <JoinBatchButton
-                courseTitle={course.title}
-                batchType={course.batchType}
-                className="hidden lg:block w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold text-center"
-              >
-                Join Batch
-              </JoinBatchButton>
-              
-              {/* Desktop: Share Button */}
-              <div className="hidden lg:block">
-              <ShareButton 
-                url={`https://welearnweshare.com/batches/${id}`}
-                title={course.title}
-                  className="w-full border-primary-600 text-primary-600 hover:bg-primary-50"
-              />
-              </div>
-            </div>
-          </div>
-        </section>
-      ) : (
-      <section className="py-6 md:py-10 px-4 bg-white">
-        <div className="container mx-auto px-4 max-w-screen-lg">
-          <div className="space-y-8 md:space-y-12">
-            {/* Professional Partner */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Professional Partner
-                </h2>
-              </div>
-              <div className="flex justify-center">
-                <CoachProfileCard courseId={id} />
-              </div>
-            </div>
-
-            {/* Course Syllabus */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Course Syllabus
-                </h2>
-              </div>
-              <ul className="space-y-3">
-                {(content['Course Syllabus'] || []).map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center text-sm font-semibold mt-0.5">
-                      {index + 1}
-                    </span>
-                    <span className="text-gray-700 text-sm md:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Course Features */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Course Features
-                </h2>
-              </div>
-              <ul className="space-y-3">
-                {(content['Course Features'] || []).map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm md:text-base">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Career Services */}
-            <div>
-              <div className="border-b-2 border-gray-200 pb-3 mb-6">
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Career Services
-                </h2>
-                <p className="text-sm md:text-base text-gray-600 mt-2">What we provide?</p>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Placement Assistance</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Mock Interview Preparation</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">1 on 1 Career Mentoring Sessions</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Career Oriented Sessions</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Resume & LinkedIn Profile Building</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Secure Spot Form */}
-            <SecureSpotForm courseTitle={course.title} batchType={course.batchType} />
-
-            {/* Contact Details */}
-              <div id="contact-details" className="bg-primary-50 rounded-lg p-6 md:p-8">
-                <div className="border-b-2 border-primary-200 pb-3 mb-6">
-                  <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                    Contact Details
-                  </h2>
-                </div>
-                <div>
-                  <a 
-                    href="https://wa.me/917010584543"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-green-600 hover:text-green-700 text-sm md:text-base"
-                  >
-                    <WhatsAppIcon className="w-5 h-5 text-green-600" />
-                    +91 7010584543
-                  </a>
-                </div>
-                </div>
-          </div>
-        </div>
-      </section>
-      )}
-    </main>
+    <CoursePage
+      course={course}
+      courseId={id}
+      content={content}
+      pricing={pricing}
+      hasDynamicPricing={hasDynamicPricing}
+    />
   )
 }
-
