@@ -4,7 +4,7 @@ import BecomeTrainer from '@/components/BecomeTrainer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Professionals - WeLearnWeShare',
+  title: 'Professionals',
   description: 'Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their goals across diverse fields. Apply to become a trainer on WeLearnWeShare.',
   openGraph: {
     title: 'Professionals - WeLearnWeShare',
@@ -12,11 +12,20 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://welearnweshare.com/professionals',
     siteName: 'WeLearnWeShare',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Professionals - WeLearnWeShare',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Professionals - WeLearnWeShare',
     description: 'Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their goals across diverse fields.',
+    images: ['/og-image.svg'],
   },
 }
 

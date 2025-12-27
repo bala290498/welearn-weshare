@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = `Meet ${student.name}, a ${student.category} expert from WeLearnWeShare. View portfolio, achievements, and links.`
 
   return {
-    title: `${student.name} - Talent Showcase - WeLearnWeShare`,
+    title: `${student.name} - Talent Showcase`,
     description,
     openGraph: {
       title: `${student.name} - ${student.category} Expert`,
@@ -34,11 +34,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'profile',
       url: `https://welearnweshare.com/students/${slug}`,
       siteName: 'WeLearnWeShare',
+      images: [
+        {
+          url: '/og-image.svg',
+          width: 1200,
+          height: 630,
+          alt: `${student.name} - ${student.category} Expert`,
+        },
+      ],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: `${student.name} - ${student.category} Expert`,
       description,
+      images: ['/og-image.svg'],
     },
   }
 }

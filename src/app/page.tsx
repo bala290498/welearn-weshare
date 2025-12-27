@@ -9,6 +9,33 @@ import Footer from '@/components/Footer'
 import DynamicPricingNumbers from '@/components/DynamicPricingNumbers'
 import { Users, Users2, CheckCircle, ArrowRight, Award, Video } from 'lucide-react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'Community-powered courses taught by industry experts — fees fall as more students join. Start learning, build projects, and get listed on our talent portal.',
+  openGraph: {
+    title: 'WeLearnWeShare - Learn Together. Grow Together.',
+    description: 'Community-powered courses taught by industry experts — fees fall as more students join. Start learning, build projects, and get listed on our talent portal.',
+    type: 'website',
+    url: 'https://welearnweshare.com',
+    siteName: 'WeLearnWeShare',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'WeLearnWeShare - Learn Together. Grow Together.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'WeLearnWeShare - Learn Together. Grow Together.',
+    description: 'Community-powered courses taught by industry experts — fees fall as more students join.',
+    images: ['/og-image.svg'],
+  },
+}
 
 export default function Home() {
   return (

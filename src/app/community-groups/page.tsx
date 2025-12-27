@@ -6,7 +6,7 @@ import { UserPlus, MessageCircle, BookOpen, ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Community Groups - WeLearnWeShare',
+  title: 'Community Groups',
   description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
   openGraph: {
     title: 'Community Groups - WeLearnWeShare',
@@ -14,11 +14,20 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://welearnweshare.com/community-groups',
     siteName: 'WeLearnWeShare',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Community Groups - WeLearnWeShare',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Community Groups - WeLearnWeShare',
     description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
+    images: ['/og-image.svg'],
   },
 }
 

@@ -10,7 +10,7 @@ interface CompanyLogoProps {
 
 export default function CompanyLogo({ name, imageUrl, logoPath, fallbackColor, fallbackText }: CompanyLogoProps) {
   // Use local logo path if provided, otherwise use imageUrl
-  const src = logoPath ? `/logos/${logoPath}` : (imageUrl || '')
+  const src = logoPath ? `/companies/${logoPath}` : (imageUrl || '')
   
   return (
     <div className="bg-white p-4 md:p-6 flex items-center justify-center border border-gray-200 min-h-[80px] md:min-h-[100px]">

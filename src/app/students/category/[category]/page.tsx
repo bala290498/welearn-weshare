@@ -4,6 +4,49 @@ import Link from 'next/link'
 import { getAllStudents } from '@/data/students'
 import { notFound } from 'next/navigation'
 import { ChevronLeft, Linkedin, Github, ArrowRight } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
+  const { category } = await params
+  const allStudents = getAllStudents()
+  const categorySlug = decodeURIComponent(category).toLowerCase()
+  const actualCategory = allStudents.find(s => 
+    s.category.toLowerCase().replace(/\s+/g, '-') === categorySlug ||
+    s.category.toLowerCase() === categorySlug.replace(/-/g, ' ')
+  )?.category
+
+  if (!actualCategory) {
+    return {
+      title: 'Category Not Found - WeLearnWeShare',
+    }
+  }
+
+  return {
+    title: `${actualCategory} Students`,
+    description: `Discover top performers in ${actualCategory} from our community. Find real talent, not just resumes.`,
+    openGraph: {
+      title: `${actualCategory} Students - WeLearnWeShare`,
+      description: `Discover top performers in ${actualCategory} from our community.`,
+      type: 'website',
+      url: `https://welearnweshare.com/students/category/${category}`,
+      siteName: 'WeLearnWeShare',
+      images: [
+        {
+          url: '/og-image.svg',
+          width: 1200,
+          height: 630,
+          alt: `${actualCategory} Students - WeLearnWeShare`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${actualCategory} Students - WeLearnWeShare`,
+      description: `Discover top performers in ${actualCategory} from our community.`,
+      images: ['/og-image.svg'],
+    },
+  }
+}
 
 export default async function CategoryTalentPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params

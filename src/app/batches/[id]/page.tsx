@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import CoursePage from '@/components/course/CoursePage'
 import { calculateCoursePricing, formatPrice } from '@/lib/course-utils'
+import CourseSchema from '@/components/schema/CourseSchema'
 
 export async function generateMetadata({
   params,
@@ -11,7 +12,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params
   const courseData = getCourseBySlug(id)
-
+  
   if (!courseData) {
     return {
       title: 'Course Not Found - WeLearnWeShare',
@@ -26,19 +27,19 @@ export async function generateMetadata({
   )
 
   let description = `${course.title} - ${course.description}`
-
+  
   if (course.studentsEnrolled !== undefined && course.maxStudents !== undefined) {
     description += ` | Students Enrolled: ${pricing.validEnrolled}/${pricing.maxStudents} | Current Price: ${formatPrice(pricing.currentPrice)} per head`
   } else {
     description += ` | Price: ${course.price}`
   }
-
+  
   description += ` | Duration: ${course.duration} | Price drops as more students join. Join now: welearnweshare.com/batches/${id}`
 
   const ogDescription =
     course.studentsEnrolled !== undefined && course.maxStudents !== undefined
-      ? `📊 Students Enrolled: ${pricing.validEnrolled}/${pricing.maxStudents} | 💰 Current Price: ${formatPrice(pricing.currentPrice)} per head | ${course.description} | Duration: ${course.duration} | Price drops as more students join!`
-      : `${course.description} | Duration: ${course.duration} | ${course.price}`
+      ? `📊 Enrollment: ${pricing.validEnrolled}/${pricing.maxStudents} students | 💰 Current Price: ${formatPrice(pricing.currentPrice)} per head | 🎯 Capacity Price: ${formatPrice(pricing.potentialPrice)} per head | ${course.description} | Duration: ${course.duration} | Dynamic Group Pricing - Price drops as more students join!`
+    : `${course.description} | Duration: ${course.duration} | ${course.price}`
 
   return {
     title: `${course.title} - WeLearnWeShare`,
@@ -49,13 +50,20 @@ export async function generateMetadata({
       type: 'website',
       url: `https://welearnweshare.com/batches/${id}`,
       siteName: 'WeLearnWeShare',
-      images: [],
+      images: [
+        {
+          url: '/og-image.svg',
+          width: 1200,
+          height: 630,
+          alt: course.title,
+        },
+      ],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: `${course.title} - WeLearnWeShare`,
       description: ogDescription,
-      images: [],
+      images: ['/og-image.svg'],
     },
     ...(course.studentsEnrolled !== undefined && {
       other: {
@@ -80,7 +88,7 @@ export default async function CourseDetailPage({
 
   const course = courseData.frontmatter
   const content = courseData.content
-
+  
   const pricing = calculateCoursePricing(
     course.price,
     course.studentsEnrolled,
@@ -91,13 +99,21 @@ export default async function CourseDetailPage({
     course.studentsEnrolled !== undefined && course.maxStudents !== undefined
 
   return (
-    <CoursePage
-      course={course}
-      courseId={id}
-      content={content}
-      pricing={pricing}
-      hasDynamicPricing={hasDynamicPricing}
-    />
+    <>
+      <CourseSchema
+        course={course}
+        courseId={id}
+        pricing={pricing}
+        hasDynamicPricing={hasDynamicPricing}
+      />
+      <CoursePage
+        course={course}
+        courseId={id}
+        content={content}
+        pricing={pricing}
+        hasDynamicPricing={hasDynamicPricing}
+      />
+    </>
   )
 }
 

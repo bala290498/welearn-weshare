@@ -4,6 +4,7 @@ import { getJobBySlug, getAllJobs } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { markdownToHtml } from '@/lib/markdown'
+import ArticleSchema from '@/components/schema/ArticleSchema'
 import { 
   Calendar, 
   MapPin, 
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const job = jobData.frontmatter
 
   return {
-    title: `${job.title} at ${job.company} - WeLearnWeShare`,
+    title: `${job.title} at ${job.company}`,
     description: job.description,
     openGraph: {
       title: `${job.title} at ${job.company} - WeLearnWeShare`,
@@ -49,11 +50,20 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       type: 'article',
       url: `https://welearnweshare.com/opportunities/${id}`,
       siteName: 'WeLearnWeShare',
+      images: [
+        {
+          url: '/og-image.svg',
+          width: 1200,
+          height: 630,
+          alt: `${job.title} at ${job.company}`,
+        },
+      ],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: `${job.title} at ${job.company} - WeLearnWeShare`,
       description: job.description,
+      images: ['/og-image.svg'],
     },
   }
 }
@@ -70,8 +80,14 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
   const htmlContent = await markdownToHtml(jobData.content)
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      <Navigation />
+    <>
+      <ArticleSchema
+        title={`${job.title} at ${job.company}`}
+        description={job.description}
+        url={`https://welearnweshare.com/opportunities/${id}`}
+      />
+      <main className="min-h-screen bg-gray-50">
+        <Navigation />
       
       <div className="py-6 md:py-10 px-4">
         <div className="container mx-auto px-4 max-w-screen-xl">
@@ -306,6 +322,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
 
       <Footer />
     </main>
+    </>
   )
 }
 

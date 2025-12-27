@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { markdownToHtml } from '@/lib/markdown'
 import { Calendar, User, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import ArticleSchema from '@/components/schema/ArticleSchema'
 
 export async function generateStaticParams() {
   const blogs = getAllBlogs()
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const blog = blogData.frontmatter
 
   return {
-    title: `${blog.title} - WeLearnWeShare`,
+    title: blog.title,
     description: blog.description,
     openGraph: {
       title: `${blog.title} - WeLearnWeShare`,
@@ -37,11 +38,20 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       siteName: 'WeLearnWeShare',
       publishedTime: blog.date,
       authors: [blog.author],
+      images: [
+        {
+          url: '/og-image.svg',
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: `${blog.title} - WeLearnWeShare`,
       description: blog.description,
+      images: ['/og-image.svg'],
     },
   }
 }
@@ -58,8 +68,17 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
   const htmlContent = await markdownToHtml(blogData.content)
 
   return (
-    <main className="min-h-screen">
-      <Navigation />
+    <>
+      <ArticleSchema
+        title={blog.title}
+        description={blog.description}
+        url={`https://welearnweshare.com/blogs/${id}`}
+        datePublished={blog.date}
+        author={blog.author}
+        image={blog.image}
+      />
+      <main className="min-h-screen">
+        <Navigation />
       
       <article className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
@@ -167,6 +186,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
 
       <Footer />
     </main>
+    </>
   )
 }
 

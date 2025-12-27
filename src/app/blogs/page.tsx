@@ -5,7 +5,7 @@ import { getAllBlogs } from '@/lib/markdown'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blogs - WeLearnWeShare',
+  title: 'Blogs',
   description: 'Read insights, tips, and stories from our community of learners and experts. Learn about DevOps, Linux, AWS, and more.',
   openGraph: {
     title: 'Blogs - WeLearnWeShare',
@@ -13,11 +13,20 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://welearnweshare.com/blogs',
     siteName: 'WeLearnWeShare',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Blogs - WeLearnWeShare',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Blogs - WeLearnWeShare',
     description: 'Read insights, tips, and stories from our community of learners and experts.',
+    images: ['/og-image.svg'],
   },
 }
 

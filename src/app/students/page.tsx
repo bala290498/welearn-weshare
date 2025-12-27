@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Students - WeLearnWeShare',
+  title: 'Students',
   description: 'Find real talent, Not just resumes. Discover top performers from our community.',
   openGraph: {
     title: 'Students - WeLearnWeShare',
@@ -15,11 +15,20 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://welearnweshare.com/students',
     siteName: 'WeLearnWeShare',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Students - WeLearnWeShare',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Students - WeLearnWeShare',
     description: 'Find real talent, Not just resumes. Discover top performers from our community.',
+    images: ['/og-image.svg'],
   },
 }
 

@@ -7,7 +7,7 @@ import { Suspense } from 'react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Batches - WeLearnWeShare',
+  title: 'Batches',
   description: 'Discover comprehensive batches designed to help you master in-demand skills and advance your career. Dynamic Group Pricing - price drops as more students join.',
   openGraph: {
     title: 'Batches - WeLearnWeShare',
@@ -15,11 +15,20 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://welearnweshare.com/batches',
     siteName: 'WeLearnWeShare',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Batches - WeLearnWeShare',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Batches - WeLearnWeShare',
     description: 'Discover comprehensive batches designed to help you master in-demand skills and advance your career.',
+    images: ['/og-image.svg'],
   },
 }
 

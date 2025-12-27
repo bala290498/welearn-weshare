@@ -5,7 +5,7 @@ import { getAllJobs } from '@/lib/markdown'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Career Opportunities - WeLearnWeShare',
+  title: 'Career Opportunities',
   description: 'Discover jobs, internships, freelance opportunities, workshops & webinars—all in one place.',
   openGraph: {
     title: 'Career Opportunities - WeLearnWeShare',
@@ -13,11 +13,20 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://welearnweshare.com/opportunities',
     siteName: 'WeLearnWeShare',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Career Opportunities - WeLearnWeShare',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Career Opportunities - WeLearnWeShare',
     description: 'Discover jobs, internships, freelance opportunities, workshops & webinars—all in one place.',
+    images: ['/og-image.svg'],
   },
 }
 
