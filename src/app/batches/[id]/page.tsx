@@ -529,7 +529,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 <JoinBatchButton
                   courseTitle={course.title}
                   batchType={course.batchType}
-                  className="flex-1 px-3 py-1.5 bg-primary-600 text-white text-xs font-semibold rounded-lg hover:bg-primary-700 transition text-center"
+                  className="flex-1 px-4 py-2.5 bg-primary-600 text-white text-xs font-semibold rounded-lg hover:bg-primary-700 transition text-center"
                 >
                   Join
                 </JoinBatchButton>
@@ -540,7 +540,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                     url={`https://welearnweshare.com/batches/${id}`}
                     title={course.title}
                     iconOnly={true}
-                    className="w-full border-primary-600 text-primary-600 hover:bg-primary-50"
+                    className="w-full px-4 py-2.5 border-primary-600 text-primary-600 hover:bg-primary-50"
                   />
                 </div>
               </div>
