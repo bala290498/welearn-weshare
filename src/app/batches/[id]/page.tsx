@@ -183,7 +183,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             <div className="h-8 md:h-12"></div>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
               <JoinCommunityButton className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-2 md:px-6 md:py-3 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
                 Join Community
               </JoinCommunityButton>
@@ -451,10 +451,6 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Exclusive access to Intellipaat Job portal</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm md:text-base">Mock Interview Preparation</span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -679,10 +675,6 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm md:text-base">Placement Assistance</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm md:text-base">Exclusive access to Intellipaat Job portal</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
