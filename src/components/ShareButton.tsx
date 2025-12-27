@@ -56,6 +56,15 @@ export default function ShareButton({ url, title, className = '', iconOnly = fal
     }
   }
 
+  // Extract theme color from className if present
+  const getThemeColor = () => {
+    if (className.includes('text-purple-600')) return 'text-purple-600'
+    if (className.includes('text-orange-600')) return 'text-orange-600'
+    return 'text-primary-600'
+  }
+
+  const themeColor = getThemeColor()
+
   return (
     <button
       onClick={handleShare}
@@ -63,8 +72,8 @@ export default function ShareButton({ url, title, className = '', iconOnly = fal
       aria-label="Share course"
       title={copied ? 'Copied!' : 'Share'}
     >
-      <Share2 className="w-4 h-4 md:w-5 md:h-5" />
-      {!iconOnly && <span>{copied ? 'Copied!' : 'Share'}</span>}
+      <Share2 className={`w-4 h-4 md:w-5 md:h-5 ${themeColor}`} />
+      {!iconOnly && <span className={themeColor}>{copied ? 'Copied!' : 'Share'}</span>}
     </button>
   )
 }

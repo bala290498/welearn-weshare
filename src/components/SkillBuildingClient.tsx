@@ -173,8 +173,9 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                       Prime
                     </span>
                   )}
-                  <span className="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-green-500 text-white">
-                    Live Classes
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold rounded-full bg-red-500 text-white uppercase tracking-wide">
+                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                    LIVE
                   </span>
               </div>
                 <div className="mb-4">
@@ -377,8 +378,9 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                     Prime
                   </span>
                 )}
-                <span className="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-green-500 text-white">
-                  Live Classes
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold rounded-full bg-red-500 text-white uppercase tracking-wide">
+                  <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                  LIVE
                 </span>
             </div>
               <div className="mb-4">

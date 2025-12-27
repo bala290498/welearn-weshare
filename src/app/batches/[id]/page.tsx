@@ -120,7 +120,9 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
 
   return (
     <main className="min-h-screen">
-      <Navigation />
+      <div className="hidden lg:block">
+        <Navigation />
+      </div>
       
       <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-xl">
@@ -297,11 +299,9 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               {/* Mobile Layout: Students Enrolled with Join and Share buttons */}
               <div className="lg:hidden flex items-center gap-2 pb-2 border-b border-gray-200">
                 {/* Students Enrolled - Compact */}
-                <div className="flex-1 flex items-center justify-center">
-                  <p className={`text-lg font-semibold ${
-                    course.batchType === 'collective' ? 'text-purple-600' : 
-                    course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
-                  }`}>{validEnrolled} / {maxStudents}</p>
+                <div className="flex-1 flex flex-col items-center justify-center">
+                  <p className="text-xs text-gray-600 mb-0.5">Students</p>
+                  <p className="text-lg font-semibold text-primary-600">{validEnrolled} / {maxStudents}</p>
                 </div>
                 
                 {/* Join button */}
@@ -319,31 +319,13 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                     url={`https://welearnweshare.com/batches/${id}`}
                     title={course.title}
                     iconOnly={true}
-                    className="w-full"
+                    className="w-full border-primary-600 text-primary-600 hover:bg-primary-50"
                   />
                 </div>
               </div>
               
-              {/* Desktop: Students Enrolled - Vertical Stack */}
-              <div className="hidden lg:block space-y-2">
-                <p className="text-xs text-gray-600">Students enrolled:</p>
-                <p className={`text-2xl font-semibold ${
-                  course.batchType === 'collective' ? 'text-purple-600' : 
-                  course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
-                }`}>{validEnrolled} / {maxStudents}</p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
-                      course.batchType === 'collective' ? 'bg-purple-600' : 
-                      course.batchType === 'prime' ? 'bg-orange-600' : 'bg-primary-600'
-                    }`}
-                    style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
-                  />
-                </div>
-              </div>
-              
-              {/* Current Price and Capacity Price - 2 Column Grid Layout, Centered */}
-              <div className="grid grid-cols-2 gap-2 lg:gap-4">
+              {/* Current Price and Capacity Price - 2 Column Grid Layout, Horizontally Aligned */}
+              <div className="grid grid-cols-2 gap-2 lg:gap-4 items-center">
                 {/* Current Price */}
                 <div className="space-y-1 lg:space-y-2 text-center">
                   <p className="text-[10px] lg:text-xs text-gray-600">Current price</p>
@@ -357,15 +339,36 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 </div>
                 
                 {/* Capacity Price */}
-                <div className="space-y-1 lg:space-y-2 text-center">
-                  <p className="text-[10px] lg:text-xs text-gray-600">Capacity price</p>
+                <div className={`space-y-1 lg:space-y-2 text-center border-2 rounded-lg p-2 lg:p-3 bg-transparent ${
+                  course.batchType === 'collective' ? 'border-purple-600' : 
+                  course.batchType === 'prime' ? 'border-orange-600' : 'border-primary-600'
+                }`}>
+                  <p className={`text-[10px] lg:text-xs font-medium ${
+                    course.batchType === 'collective' ? 'text-purple-600' : 
+                    course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
+                  }`}>Capacity price</p>
                   <p className={`text-sm lg:text-xl font-semibold ${
                     course.batchType === 'collective' ? 'text-purple-600' : 
                     course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
                   }`}>{formatPrice(potentialPrice)}</p>
-                  <p className="text-[9px] lg:text-xs text-gray-500 whitespace-nowrap">
+                  <p className={`text-[9px] lg:text-xs whitespace-nowrap ${
+                    course.batchType === 'collective' ? 'text-purple-600' : 
+                    course.batchType === 'prime' ? 'text-orange-600' : 'text-primary-600'
+                  }`}>
                     {basePrice.toLocaleString('en-IN')} ÷ {maxStudents} = {formatPrice(potentialPrice)}
                   </p>
+                </div>
+              </div>
+              
+              {/* Desktop: Students Enrolled - Vertical Stack */}
+              <div className="hidden lg:block space-y-2">
+                <p className="text-xs text-gray-600">Students enrolled:</p>
+                <p className="text-2xl font-semibold text-primary-600">{validEnrolled} / {maxStudents}</p>
+                <div className="w-full bg-gray-200 rounded-full h-2.5">
+                  <div
+                    className="h-2.5 rounded-full transition-all duration-300 bg-primary-600"
+                    style={{ width: `${(validEnrolled / maxStudents) * 100}%` }}
+                  />
                 </div>
               </div>
               
@@ -385,7 +388,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 <ShareButton 
                   url={`https://welearnweshare.com/batches/${id}`}
                   title={course.title}
-                  className="w-full"
+                  className="w-full border-primary-600 text-primary-600 hover:bg-primary-50"
                 />
               </div>
             </div>
