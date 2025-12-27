@@ -46,7 +46,7 @@ export default function BatchesPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
             {/* Dynamic Group Pricing Card */}
-            <div className="bg-white border-2 border-purple-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-purple-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingDown className="w-6 h-6 text-purple-600" />
               </div>
@@ -55,7 +55,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Top Trainers Card */}
-            <div className="bg-white border-2 border-blue-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-blue-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-6 h-6 text-blue-600" />
               </div>
@@ -64,7 +64,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Live Training Card */}
-            <div className="bg-white border-2 border-red-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-red-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Video className="w-6 h-6 text-red-600" />
               </div>
@@ -73,7 +73,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Certificates Included Card */}
-            <div className="bg-white border-2 border-orange-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-orange-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileText className="w-6 h-6 text-orange-600" />
               </div>
@@ -82,7 +82,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Study Resources Card */}
-            <div className="bg-white border-2 border-cyan-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-cyan-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Download className="w-6 h-6 text-cyan-600" />
               </div>
@@ -91,7 +91,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Hiring Pipeline Card */}
-            <div className="bg-white border-2 border-indigo-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-indigo-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Briefcase className="w-6 h-6 text-indigo-600" />
               </div>
@@ -100,7 +100,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Clear Roadmap Card */}
-            <div className="bg-white border-2 border-teal-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-teal-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ClipboardCheck className="w-6 h-6 text-teal-600" />
               </div>
@@ -109,7 +109,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Career Mentorship Card */}
-            <div className="bg-white border-2 border-amber-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-amber-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="w-6 h-6 text-amber-600" />
               </div>
@@ -118,7 +118,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Live Voting Card */}
-            <div className="bg-white border-2 border-green-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-green-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BarChart3 className="w-6 h-6 text-green-600" />
               </div>
@@ -127,7 +127,7 @@ export default function BatchesPage() {
             </div>
 
             {/* Strong Community Card */}
-            <div className="bg-white border-2 border-pink-200 rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition text-center">
+            <div className="bg-pink-50 p-4 md:p-6 text-center">
               <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users2 className="w-6 h-6 text-pink-600" />
               </div>
