@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { 
   CheckCircle, 
   Award, 
-  Users, 
   IndianRupee, 
   BookOpen, 
   TrendingUp,
@@ -35,44 +34,37 @@ export default function BecomeTrainer() {
   const benefits = [
     {
       title: 'Get Paid',
-      description: 'Earn consistently.',
+      description: 'Turn your knowledge into steady income.',
       icon: <IndianRupee className="w-8 h-8" />,
-      gradientClass: 'bg-gradient-to-br from-green-500 to-emerald-600',
+      bgColor: 'bg-green-500',
       iconColor: 'text-green-600',
     },
     {
       title: 'Work Your Way',
-      description: 'Flexible teaching hours.',
+      description: 'Set your hours. Teach at your pace.',
       icon: <TrendingUp className="w-8 h-8" />,
-      gradientClass: 'bg-gradient-to-br from-blue-500 to-cyan-600',
+      bgColor: 'bg-blue-500',
       iconColor: 'text-blue-600',
-    },
-    {
-      title: 'No Audience Building Needed',
-      description: 'Learners are already here.',
-      icon: <Users className="w-8 h-8" />,
-      gradientClass: 'bg-gradient-to-br from-purple-500 to-violet-600',
-      iconColor: 'text-purple-600',
     },
     {
       title: 'Zero Admin Hassle',
       description: 'We run the platform for you.',
       icon: <CheckCircle className="w-8 h-8" />,
-      gradientClass: 'bg-gradient-to-br from-teal-500 to-cyan-600',
+      bgColor: 'bg-teal-500',
       iconColor: 'text-teal-600',
     },
     {
       title: 'Level Up Professionally',
       description: 'Grow your influence and reach.',
       icon: <Award className="w-8 h-8" />,
-      gradientClass: 'bg-gradient-to-br from-amber-500 to-orange-600',
+      bgColor: 'bg-amber-500',
       iconColor: 'text-amber-600',
     },
     {
       title: 'Teach with Purpose',
       description: 'Change lives and get recognized.',
       icon: <BookOpen className="w-8 h-8" />,
-      gradientClass: 'bg-gradient-to-br from-indigo-500 to-purple-600',
+      bgColor: 'bg-indigo-500',
       iconColor: 'text-indigo-600',
     },
   ]
@@ -150,13 +142,13 @@ export default function BecomeTrainer() {
           <h3 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-gray-900 mb-8 md:mb-12 text-center">
             Why Join With Us
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
                 className={cn(
-                  'p-4 md:p-6 rounded-lg shadow-sm hover:shadow-md transition text-white',
-                  benefit.gradientClass
+                  'p-4 md:p-6 text-white',
+                  benefit.bgColor
                 )}
               >
                 <h4 className="text-[clamp(1rem,1.5vw,1.125rem)] font-semibold text-white mb-2 text-center">

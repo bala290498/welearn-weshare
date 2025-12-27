@@ -1,10 +1,11 @@
 import { Twitter, Linkedin, Facebook } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 py-6 md:py-10 px-4">
-      <div className="container mx-auto px-4 max-w-screen-lg">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
+      <div className="container mx-auto px-4 max-w-screen-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-6 md:mb-8">
           <div>
             <h3 
               className="text-2xl font-semibold mb-4 italic uppercase"
@@ -16,22 +17,47 @@ export default function Footer() {
             <p className="text-sm">Learn Together. Grow Together.</p>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-4">Learn</h4>
+            <h4 className="text-white font-semibold mb-4">Batches</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#batches" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
-                  Batches
-                </a>
+                <Link href="/batches" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  All Batches
+                </Link>
               </li>
               <li>
-                <a href="#how-it-works" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
-                  How It Works
-                </a>
+                <Link href="/batches?type=prime" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Prime Batch
+                </Link>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
-                  Pricing
-                </a>
+                <Link href="/batches?type=collective" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Collective Batch
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-semibold mb-4">Community</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/students" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Students
+                </Link>
+              </li>
+              <li>
+                <Link href="/professionals" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Professionals
+                </Link>
+              </li>
+              <li>
+                <Link href="/community-groups" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Community Groups
+                </Link>
+              </li>
+              <li>
+                <Link href="/community-voice" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Community Voice
+                </Link>
               </li>
             </ul>
           </div>
@@ -39,29 +65,19 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#talent-portal" className="hover:text-white transition">
-                  Students Portal
-                </a>
-              </li>
-              <li>
-                <a href="/opportunities" className="hover:text-white transition">
+                <Link href="/opportunities" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
                   Opportunities
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/community-voice" className="hover:text-white transition">
-                  Community Voice
-                </a>
+                <Link href="/blogs" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Blogs
+                </Link>
               </li>
               <li>
-                <a href="#blog" className="hover:text-white transition">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#careers" className="hover:text-white transition">
-                  Careers
-                </a>
+                <Link href="/become-trainer" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Become Trainer
+                </Link>
               </li>
             </ul>
           </div>
@@ -69,12 +85,12 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#contact" className="hover:text-white transition">
-                  Contact
-                </a>
+                <Link href="/" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition">
+                <a href="#faq" className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
                   FAQ
                 </a>
               </li>
