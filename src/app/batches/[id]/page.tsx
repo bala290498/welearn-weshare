@@ -213,16 +213,18 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
       {/* Badge Banner Section */}
       <section className="py-4 md:py-6 px-4 bg-primary-50 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-screen-xl">
-          <div className="flex flex-wrap gap-3 justify-center items-center">
-            <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 text-sm font-semibold rounded-full border border-blue-200">
-              Dynamic Group Pricing
-            </span>
-            <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-sm font-semibold rounded-full border border-green-200">
-              Live Training
-            </span>
-            <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-amber-100 to-orange-100 text-orange-700 text-sm font-semibold rounded-full border border-orange-200">
-              Certification
-            </span>
+          <div className="lg:ml-8 lg:mr-[calc(33.333%+2rem)]">
+            <div className="flex flex-wrap gap-3 justify-center">
+              <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 text-sm font-semibold rounded-full border border-blue-200">
+                Dynamic Group Pricing
+              </span>
+              <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-sm font-semibold rounded-full border border-green-200">
+                Live Training
+              </span>
+              <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-amber-100 to-orange-100 text-orange-700 text-sm font-semibold rounded-full border border-orange-200">
+                Certification
+              </span>
+            </div>
           </div>
         </div>
       </section>
