@@ -31,7 +31,7 @@ export default function CoursePage({
       <CourseBadgeBanner />
 
       {hasDynamicPricing ? (
-        <section className="py-6 md:py-10 px-4 bg-white relative pb-32 lg:pb-6">
+        <section className="py-6 md:py-10 px-4 bg-white relative pb-36 lg:pb-6">
           <div className="container mx-auto px-4 max-w-screen-xl">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-8 md:space-y-12 lg:mr-8">

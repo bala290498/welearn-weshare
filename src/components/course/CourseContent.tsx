@@ -317,7 +317,7 @@ export default function CourseContent({ course, courseId, content }: CourseConte
       <SecureSpotForm courseTitle={course.title} batchType={course.batchType} />
 
       {/* Contact Details */}
-      <div id="contact-details" className="bg-primary-50 rounded-lg p-6 md:p-8">
+      <div id="contact-details" className="bg-primary-50 rounded-lg p-6 md:p-8 mb-4 lg:mb-0">
         <div className="border-b-2 border-primary-200 pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Contact Details
