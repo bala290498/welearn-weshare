@@ -124,14 +124,14 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
   const potentialPrice = calculatePotentialPrice(basePrice, maxStudents)
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen -mt-16 md:mt-0">
       <div className="hidden lg:block">
       <Navigation />
       </div>
       
-      <section className="py-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
+      <section className="pt-0 pb-6 md:py-10 px-4 bg-gradient-to-br from-primary-50 to-white">
         <div className="container mx-auto px-4 max-w-screen-xl">
-          <div className="mb-4 lg:mr-[calc(33.333%+2rem)]">
+          <div className="mb-4 lg:mr-[calc(33.333%+2rem)] pt-4 md:pt-0">
             <nav className="flex items-center gap-2 text-sm text-gray-600">
               <Link 
               href="/batches" 
