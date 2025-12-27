@@ -183,15 +183,15 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             <div className="h-8 md:h-12"></div>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center">
-              <JoinCommunityButton className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-2 md:px-6 md:py-3 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+              <JoinCommunityButton className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-2 md:px-6 md:py-3 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring focus-visible:ring-primary-600 focus-visible:ring-offset-2 w-full sm:w-auto">
                 Join Community
               </JoinCommunityButton>
               <a
                 href={`https://wa.me/917010584543?text=${encodeURIComponent(`Hi! I would like to get the brochure for ${course.title}.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-6 md:py-3 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border border-primary-600 px-4 py-2 md:px-6 md:py-3 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring focus-visible:ring-primary-600 focus-visible:ring-offset-2 w-full sm:w-auto"
               >
                 <Download className="w-5 h-5" />
                 Get Brochure
@@ -542,7 +542,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               </div>
               
               {/* Current Price and Capacity Price - 2 Column Grid Layout, Horizontally Aligned */}
-              <div className="grid grid-cols-2 gap-2 lg:gap-4 items-center">
+              <div className="flex justify-center items-center gap-2 lg:gap-4">
                 {/* Current Price */}
                 <div className="space-y-1 lg:space-y-2 text-center">
                   <p className="text-[10px] lg:text-xs text-gray-600">Current price</p>
