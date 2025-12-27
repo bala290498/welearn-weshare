@@ -34,12 +34,12 @@ export async function generateMetadata({
     description += ` | Price: ${course.price}`
   }
   
-  description += ` | Duration: ${course.duration} | Price drops as more students join. Join now: welearnweshare.com/batches/${id}`
+  description += ` | Price drops as more students join. Join now: welearnweshare.com/batches/${id}`
 
   const ogDescription =
     course.studentsEnrolled !== undefined && course.maxStudents !== undefined
-      ? `📊 Enrollment: ${pricing.validEnrolled}/${pricing.maxStudents} students | 💰 Current Price: ${formatPrice(pricing.currentPrice)} per head | 🎯 Capacity Price: ${formatPrice(pricing.potentialPrice)} per head | ${course.description} | Duration: ${course.duration} | Dynamic Group Pricing - Price drops as more students join!`
-    : `${course.description} | Duration: ${course.duration} | ${course.price}`
+      ? `📊 Enrollment: ${pricing.validEnrolled}/${pricing.maxStudents} students | 💰 Current Price: ${formatPrice(pricing.currentPrice)} per head | 🎯 Capacity Price: ${formatPrice(pricing.potentialPrice)} per head | ${course.description} | Dynamic Group Pricing - Price drops as more students join!`
+      : `${course.description} | ${course.price}`
 
   return {
     title: `${course.title} - WeLearnWeShare`,
