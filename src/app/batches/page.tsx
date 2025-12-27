@@ -55,7 +55,7 @@ export default function BatchesPage() {
       <section id="batches" className="py-6 md:py-10 px-4 bg-gray-50 scroll-mt-20">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <Suspense fallback={<div className="text-center py-8">Loading batches...</div>}>
-            <SkillBuildingClient courses={courses} />
+          <SkillBuildingClient courses={courses} />
           </Suspense>
         </div>
       </section>

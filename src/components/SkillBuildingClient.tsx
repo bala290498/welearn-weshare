@@ -201,10 +201,10 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                               <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
                               <p className="text-sm line-through text-gray-400">{course.price}</p>
                             </div>
-                            <div className="border border-purple-200 rounded-xl p-4 text-center bg-purple-100">
+                            <div className="border-2 border-purple-600 rounded-xl p-4 text-center bg-transparent">
                               <p className="text-xs text-purple-600 font-medium">CAPACITY PRICE</p>
                               <p className="text-2xl font-semibold text-purple-600 mt-1">{formatPrice(potentialPrice)}</p>
-                              <p className="text-sm text-purple-700">Lowest possible</p>
+                              <p className="text-sm text-purple-600">Lowest possible</p>
                             </div>
                           </div>
                           {/* Progress */}
@@ -230,7 +230,10 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                           {/* Button */}
                           <Link
                             href={`/batches/${course.slug}`}
-                            className="w-full py-3 rounded-xl bg-gray-900 text-white font-semibold hover:bg-gray-800 transition flex items-center justify-center gap-2"
+                            className="w-full py-3 rounded-xl text-gray-900 font-semibold transition flex items-center justify-center gap-2"
+                            style={{ backgroundColor: '#ffce13', color: '#000' }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6b911'}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffce13'}
                           >
                             Join Collective
                             <ArrowRight size={18} />
@@ -256,10 +259,10 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                               <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
                               <p className="text-sm line-through text-gray-400">{course.price}</p>
                             </div>
-                            <div className="border border-orange-200 rounded-xl p-4 text-center bg-orange-100">
+                            <div className="border-2 border-orange-600 rounded-xl p-4 text-center bg-transparent">
                               <p className="text-xs text-orange-600 font-medium">CAPACITY PRICE</p>
                               <p className="text-2xl font-semibold text-orange-600 mt-1">{formatPrice(potentialPrice)}</p>
-                              <p className="text-sm text-orange-700">Lowest possible</p>
+                              <p className="text-sm text-orange-600">Lowest possible</p>
                             </div>
                           </div>
                           {/* Progress */}
@@ -285,7 +288,10 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                           {/* Button */}
                           <Link
                             href={`/batches/${course.slug}`}
-                            className="w-full py-3 rounded-xl bg-gray-900 text-white font-semibold hover:bg-gray-800 transition flex items-center justify-center gap-2"
+                            className="w-full py-3 rounded-xl text-gray-900 font-semibold transition flex items-center justify-center gap-2"
+                            style={{ backgroundColor: '#ffce13', color: '#000' }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6b911'}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffce13'}
                           >
                             Join Prime
                             <ArrowRight size={18} />
@@ -399,10 +405,10 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                             <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
                             <p className="text-sm line-through text-gray-400">{course.price}</p>
                           </div>
-                          <div className="border border-purple-200 rounded-xl p-4 text-center bg-purple-100">
+                          <div className="border-2 border-purple-600 rounded-xl p-4 text-center bg-transparent">
                             <p className="text-xs text-purple-600 font-medium">CAPACITY PRICE</p>
                             <p className="text-2xl font-semibold text-purple-600 mt-1">{formatPrice(potentialPrice)}</p>
-                            <p className="text-sm text-purple-700">Lowest possible</p>
+                            <p className="text-sm text-purple-600">Lowest possible</p>
                           </div>
                         </div>
                         {/* Progress */}
@@ -428,7 +434,10 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                         {/* Button */}
                         <Link
                           href={`/batches/${course.slug}`}
-                          className="w-full py-3 rounded-xl bg-gray-900 text-white font-semibold hover:bg-gray-800 transition flex items-center justify-center gap-2"
+                          className="w-full py-3 rounded-xl text-gray-900 font-semibold transition flex items-center justify-center gap-2"
+                          style={{ backgroundColor: '#ffce13', color: '#000' }}
+                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6b911'}
+                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffce13'}
                         >
                           Join Collective
                           <ArrowRight size={18} />
@@ -454,10 +463,10 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                             <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
                             <p className="text-sm line-through text-gray-400">{course.price}</p>
                           </div>
-                          <div className="border border-orange-200 rounded-xl p-4 text-center bg-orange-100">
+                          <div className="border-2 border-orange-600 rounded-xl p-4 text-center bg-transparent">
                             <p className="text-xs text-orange-600 font-medium">CAPACITY PRICE</p>
                             <p className="text-2xl font-semibold text-orange-600 mt-1">{formatPrice(potentialPrice)}</p>
-                            <p className="text-sm text-orange-700">Lowest possible</p>
+                            <p className="text-sm text-orange-600">Lowest possible</p>
                           </div>
                         </div>
                         {/* Progress */}
@@ -483,7 +492,10 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                         {/* Button */}
                         <Link
                           href={`/batches/${course.slug}`}
-                          className="w-full py-3 rounded-xl bg-gray-900 text-white font-semibold hover:bg-gray-800 transition flex items-center justify-center gap-2"
+                          className="w-full py-3 rounded-xl text-gray-900 font-semibold transition flex items-center justify-center gap-2"
+                          style={{ backgroundColor: '#ffce13', color: '#000' }}
+                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6b911'}
+                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffce13'}
                         >
                           Join Prime
                           <ArrowRight size={18} />
