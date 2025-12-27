@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { Users, Info, ArrowRight, Clock, Share2 } from 'lucide-react'
+import { Users, Info, ArrowRight, Clock } from 'lucide-react'
 import CategoryFilter from './CategoryFilter'
 import { cn } from '@/lib/utils'
 
@@ -133,30 +133,6 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
           filteredCourses.map((course) => {
             const cardContent = (
               <>
-                {/* Share Button - Top Right */}
-                <div className="absolute top-4 right-4 z-10">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      const shareUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/batches/${course.slug}`
-                      if (typeof navigator !== 'undefined' && navigator.share) {
-                        navigator.share({
-                          title: course.title,
-                          text: `Check out this batch: ${course.title}`,
-                          url: shareUrl,
-                        }).catch(() => {})
-                      } else if (typeof navigator !== 'undefined' && navigator.clipboard) {
-                        navigator.clipboard.writeText(shareUrl).then(() => {
-                          // Optional: show a toast notification
-                        })
-                      }
-                    }}
-                    className="p-2 rounded-full bg-white border border-primary-600 hover:bg-primary-50 hover:border-primary-700 transition-colors shadow-sm"
-                    aria-label="Share batch"
-                  >
-                    <Share2 className="w-4 h-4 text-primary-600" />
-                  </button>
-                </div>
                 <div className="mb-4 flex flex-wrap gap-2">
                   <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full">
                   {course.category}
@@ -338,30 +314,6 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
           filteredCourses.map((course) => {
             const cardContent = (
               <>
-              {/* Share Button - Top Right */}
-              <div className="absolute top-4 right-4 z-10">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    const shareUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/batches/${course.slug}`
-                    if (typeof navigator !== 'undefined' && navigator.share) {
-                      navigator.share({
-                        title: course.title,
-                        text: `Check out this batch: ${course.title}`,
-                        url: shareUrl,
-                      }).catch(() => {})
-                    } else if (typeof navigator !== 'undefined' && navigator.clipboard) {
-                      navigator.clipboard.writeText(shareUrl).then(() => {
-                        // Optional: show a toast notification
-                      })
-                    }
-                  }}
-                  className="p-2 rounded-full bg-white border border-primary-600 hover:bg-primary-50 hover:border-primary-700 transition-colors shadow-sm"
-                  aria-label="Share batch"
-                >
-                  <Share2 className="w-4 h-4 text-primary-600" />
-                </button>
-              </div>
               <div className="mb-4 flex flex-wrap gap-2">
                 <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full">
                 {course.category}

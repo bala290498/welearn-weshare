@@ -19,6 +19,7 @@ import {
 import Link from 'next/link'
 import CopyUrlButton from '@/components/CopyUrlButton'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
+import ShareButton from '@/components/ShareButton'
 
 export async function generateStaticParams() {
   const jobs = getAllJobs()
@@ -291,6 +292,16 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Floating Share Button - Mobile Only */}
+      <div className="fixed bottom-20 right-4 z-50 lg:hidden">
+        <ShareButton
+          url={`https://welearnweshare.com/opportunities/${id}`}
+          title={`${job.title} at ${job.company}`}
+          iconOnly={true}
+          className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+        />
       </div>
 
       <Footer />

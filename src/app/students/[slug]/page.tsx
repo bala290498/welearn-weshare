@@ -4,6 +4,7 @@ import { getAllStudents, getStudentBySlug } from '@/data/students'
 import { CheckCircle, Award, Linkedin, Github, Globe, Mail } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import ShareButton from '@/components/ShareButton'
 
 export async function generateStaticParams() {
   const students = getAllStudents()
@@ -256,6 +257,16 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
       </section>
+
+      {/* Floating Share Button - Mobile Only */}
+      <div className="fixed bottom-20 right-4 z-50 lg:hidden">
+        <ShareButton
+          url={`https://welearnweshare.com/students/${slug}`}
+          title={`${student.name} - ${student.category} Expert`}
+          iconOnly={true}
+          className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+        />
+      </div>
 
       <Footer />
     </main>
