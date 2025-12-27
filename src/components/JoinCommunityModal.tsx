@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
 
@@ -10,12 +11,19 @@ interface JoinCommunityModalProps {
 }
 
 export default function JoinCommunityModal({ isOpen, onClose }: JoinCommunityModalProps) {
+  const [mounted, setMounted] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    hearAboutUs: [] as string[]
+    hearAboutUs: [] as string[],
+    interestedBatchType: [] as string[]
   })
+
+  useEffect(() => {
+    setMounted(true)
+    return () => setMounted(false)
+  }, [])
 
   const hearAboutOptions = [
     'Instagram',
@@ -23,6 +31,11 @@ export default function JoinCommunityModal({ isOpen, onClose }: JoinCommunityMod
     'YouTube',
     'Friends',
     'Family'
+  ]
+
+  const batchTypeOptions = [
+    'Prime',
+    'Collective'
   ]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,9 +60,30 @@ export default function JoinCommunityModal({ isOpen, onClose }: JoinCommunityMod
     })
   }
 
+  const handleBatchTypeChange = (option: string) => {
+    setFormData(prev => {
+      const currentOptions = prev.interestedBatchType
+      if (currentOptions.includes(option)) {
+        return {
+          ...prev,
+          interestedBatchType: currentOptions.filter(item => item !== option)
+        }
+      } else {
+        return {
+          ...prev,
+          interestedBatchType: [...currentOptions, option]
+        }
+      }
+    })
+  }
+
   const handleSubmitWhatsApp = () => {
     const hearAboutText = formData.hearAboutUs.length > 0 
       ? formData.hearAboutUs.join(', ')
+      : 'Not specified'
+    
+    const batchTypeText = formData.interestedBatchType.length > 0
+      ? formData.interestedBatchType.join(', ')
       : 'Not specified'
     
     const message = `Join Community Application
@@ -57,7 +91,8 @@ export default function JoinCommunityModal({ isOpen, onClose }: JoinCommunityMod
 Name: ${formData.name}
 Email: ${formData.email}
 Phone: ${formData.phone}
-How did you hear about us: ${hearAboutText}`
+How did you hear about us: ${hearAboutText}
+Interested Batch Type: ${batchTypeText}`
 
     const whatsappUrl = `https://wa.me/917010584543?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
@@ -66,13 +101,14 @@ How did you hear about us: ${hearAboutText}`
       name: '',
       email: '',
       phone: '',
-      hearAboutUs: []
+      hearAboutUs: [],
+      interestedBatchType: []
     })
   }
 
-  if (!isOpen) return null
+  if (!isOpen || !mounted || typeof document === 'undefined') return null
 
-  return (
+  const modalContent = (
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black bg-opacity-50"
       onClick={onClose}
@@ -166,6 +202,28 @@ How did you hear about us: ${hearAboutText}`
               <p className="text-xs text-red-500 mt-1">Please select at least one option</p>
             )}
           </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Interested Batch Type
+            </label>
+            <div className="space-y-2 border border-gray-300 rounded-lg p-3">
+              {batchTypeOptions.map((option) => (
+                <label
+                  key={option}
+                  className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-2 rounded"
+                >
+                  <input
+                    type="checkbox"
+                    checked={formData.interestedBatchType.includes(option)}
+                    onChange={() => handleBatchTypeChange(option)}
+                    className="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-600"
+                  />
+                  <span className="text-sm text-gray-700">{option}</span>
+                </label>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="sticky bottom-0 bg-gray-50 border-t border-gray-200 px-6 py-4 rounded-b-xl">
@@ -181,5 +239,7 @@ How did you hear about us: ${hearAboutText}`
       </div>
     </div>
   )
+
+  return createPortal(modalContent, document.body)
 }
 
