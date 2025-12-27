@@ -4,10 +4,11 @@ import JoinBatchButton from '@/components/JoinBatchButton'
 import JoinCommunityButton from '@/components/JoinCommunityButton'
 import CoachProfileCard from '@/components/CoachProfileCard'
 import CompanyLogo from '@/components/CompanyLogo'
+import SecureSpotForm from '@/components/SecureSpotForm'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { Check, Info, ChevronRight, Download, TrendingUp, TrendingDown, Award, BarChart3, FileText, Users2, Briefcase, ClipboardCheck, BookOpen, Video, Linkedin } from 'lucide-react'
+import { Check, Info, ChevronRight, Download, TrendingUp, TrendingDown, Award, BarChart3, FileText, Users2, Briefcase, ClipboardCheck, BookOpen, Video, Linkedin, UserCheck, FileCheck, MessageSquare } from 'lucide-react'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
 import Link from 'next/link'
 
@@ -435,22 +436,44 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               </div>
             </div>
 
-            {/* Prerequisites */}
+            {/* Career Services */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
                 <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Prerequisites
+                  Career Services
                 </h2>
+                <p className="text-sm md:text-base text-gray-600 mt-2">What we provide?</p>
               </div>
               <ul className="space-y-3">
-                {(content['Prerequisites'] || []).map((req, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm md:text-base">{req}</span>
-                  </li>
-                ))}
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Placement Assistance</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Exclusive access to Intellipaat Job portal</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Mock Interview Preparation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">1 on 1 Career Mentoring Sessions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Career Oriented Sessions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Resume & LinkedIn Profile Building</span>
+                </li>
               </ul>
             </div>
+
+            {/* Secure Spot Form */}
+            <SecureSpotForm courseTitle={course.title} batchType={course.batchType} />
 
             {/* Contact Details */}
             <div id="contact-details" className="bg-primary-50 rounded-lg p-6 md:p-8">
@@ -460,7 +483,6 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 </h2>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-gray-700 mb-1">Phone</h3>
                 <a 
                   href="https://wa.me/917010584543"
                   target="_blank"
@@ -645,22 +667,44 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               </ul>
             </div>
 
-            {/* Prerequisites */}
+            {/* Career Services */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
                 <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Prerequisites
+                  Career Services
                 </h2>
+                <p className="text-sm md:text-base text-gray-600 mt-2">What we provide?</p>
               </div>
               <ul className="space-y-3">
-                {(content['Prerequisites'] || []).map((req, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm md:text-base">{req}</span>
-                  </li>
-                ))}
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Placement Assistance</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Exclusive access to Intellipaat Job portal</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Mock Interview Preparation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">1 on 1 Career Mentoring Sessions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Career Oriented Sessions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm md:text-base">Resume & LinkedIn Profile Building</span>
+                </li>
               </ul>
             </div>
+
+            {/* Secure Spot Form */}
+            <SecureSpotForm courseTitle={course.title} batchType={course.batchType} />
 
             {/* Contact Details */}
               <div id="contact-details" className="bg-primary-50 rounded-lg p-6 md:p-8">
@@ -670,7 +714,6 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                   </h2>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-1">Phone</h3>
                   <a 
                     href="https://wa.me/917010584543"
                     target="_blank"
