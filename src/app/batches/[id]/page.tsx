@@ -1,10 +1,11 @@
 import Navigation from '@/components/Navigation'
 import ShareButton from '@/components/ShareButton'
 import JoinBatchButton from '@/components/JoinBatchButton'
+import JoinCommunityButton from '@/components/JoinCommunityButton'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { Check, Info, Clock, ChevronRight } from 'lucide-react'
+import { Check, Info, Clock, ChevronRight, Download } from 'lucide-react'
 import Link from 'next/link'
 
 // Calculate current price per head based on enrollment
@@ -144,19 +145,19 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               </span>
             </nav>
           </div>
-          <div className="space-y-4 md:space-y-6 lg:ml-8 lg:mr-[calc(33.333%+2rem)]">
+          <div className="space-y-2 md:space-y-3 lg:ml-8 lg:mr-[calc(33.333%+2rem)]">
             <div className="flex flex-wrap gap-2">
-              <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full mb-4">
+              <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full">
                 {course.category}
               </span>
               {course.batchType === 'prime' && (
-                <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-semibold rounded-full mb-4 flex items-center gap-1">
+                <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-semibold rounded-full flex items-center gap-1">
                   <Clock size={14} />
                   Prime Batch
                 </span>
               )}
               {course.batchType === 'collective' && (
-                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-sm font-semibold rounded-full mb-4">
+                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-sm font-semibold rounded-full">
                   Collective Batch
                 </span>
               )}
@@ -169,6 +170,59 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             <p className="text-[clamp(0.875rem,2vw,1.25rem)] text-gray-600 leading-relaxed">
               {course.description}
             </p>
+            
+            {/* Key Points */}
+            <ul className="space-y-2 md:space-y-3 mt-4 md:mt-6">
+              <li className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700 text-sm md:text-base">We connect students with working professionals</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700 text-sm md:text-base">Dynamic group pricing</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700 text-sm md:text-base">Live Interactive classes</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700 text-sm md:text-base">Industry level Experience, Certifications and more</span>
+              </li>
+            </ul>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8">
+              <JoinCommunityButton className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
+                Join Community
+              </JoinCommunityButton>
+              <a
+                href={`https://wa.me/917010584543?text=${encodeURIComponent(`Hi! I would like to get the brochure for ${course.title}.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border-2 border-primary-600 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+              >
+                <Download className="w-5 h-5" />
+                Get Brochure
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Badge Banner Section */}
+      <section className="py-4 md:py-6 px-4 bg-primary-50 border-b border-gray-200">
+        <div className="container mx-auto px-4 max-w-screen-xl">
+          <div className="flex flex-wrap gap-3 justify-center items-center">
+            <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 text-sm font-semibold rounded-full border border-blue-200">
+              Dynamic Group Pricing
+            </span>
+            <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-sm font-semibold rounded-full border border-green-200">
+              Live Training
+            </span>
+            <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-amber-100 to-orange-100 text-orange-700 text-sm font-semibold rounded-full border border-orange-200">
+              Certification
+            </span>
           </div>
         </div>
       </section>
