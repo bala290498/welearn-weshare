@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation'
 import ShareButton from '@/components/ShareButton'
 import JoinBatchButton from '@/components/JoinBatchButton'
 import JoinCommunityButton from '@/components/JoinCommunityButton'
+import CoachProfileCard from '@/components/CoachProfileCard'
 import { getCourseBySlug } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -156,10 +157,10 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             </p>
             
             {/* Key Points */}
-            <ul className="space-y-2 md:space-y-3 mt-4 md:mt-6">
+            <ul className="space-y-2 md:space-y-3 mt-4 md:mt-6 mb-12 md:mb-20">
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 text-sm md:text-base">We connect students with working professionals</span>
+                <span className="text-gray-700 text-sm md:text-base">Working professionals</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
@@ -175,16 +176,19 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               </li>
             </ul>
             
+            {/* Spacer */}
+            <div className="h-8 md:h-12"></div>
+            
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-12">
-              <JoinCommunityButton className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <JoinCommunityButton className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-2 md:px-6 md:py-3 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-700 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
                 Join Community
               </JoinCommunityButton>
               <a
                 href={`https://wa.me/917010584543?text=${encodeURIComponent(`Hi! I would like to get the brochure for ${course.title}.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border-2 border-primary-600 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 border-2 border-primary-600 px-4 py-2 md:px-6 md:py-3 text-base md:text-lg rounded-xl shadow-lg hover:bg-primary-50 transition font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
               >
                 <Download className="w-5 h-5" />
                 Get Brochure
@@ -195,19 +199,19 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
       </section>
 
       {/* Badge Banner Section */}
-      <section className="py-4 md:py-6 bg-primary-50 border-b border-gray-200">
+      <section className="py-4 md:py-6 bg-primary-50">
         <div className="container mx-auto px-4 max-w-screen-xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 lg:mr-8">
               <div className="flex flex-wrap gap-3 justify-center">
-                <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-violet-100 text-purple-700 text-sm font-semibold rounded-full border border-purple-200">
-                  Dynamic Group Pricing
-                </span>
                 <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-sm font-semibold rounded-full border border-green-200">
                   Live Training
                 </span>
                 <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-amber-100 to-orange-100 text-orange-700 text-sm font-semibold rounded-full border border-orange-200">
                   Certification
+                </span>
+                <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-violet-100 text-purple-700 text-sm font-semibold rounded-full border border-purple-200">
+                  Dynamic Group Pricing
                 </span>
               </div>
             </div>
@@ -222,16 +226,16 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Left Column: Main Content */}
               <div className="lg:col-span-2 space-y-8 md:space-y-12 lg:mr-8">
-            {/* Instructor */}
+            {/* Professional Partner */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
                 <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Instructor
+                  Professional Partner
                 </h2>
               </div>
-              <p className="text-gray-700 text-sm md:text-base">
-                {course.instructor}
-              </p>
+              <div className="flex justify-center">
+                <CoachProfileCard courseId={id} />
+              </div>
             </div>
 
             {/* Course Syllabus */}
@@ -440,16 +444,16 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
       <section className="py-6 md:py-10 px-4 bg-white">
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="space-y-8 md:space-y-12">
-            {/* Instructor */}
+            {/* Professional Partner */}
             <div>
               <div className="border-b-2 border-gray-200 pb-3 mb-6">
                 <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
-                  Instructor
+                  Professional Partner
                 </h2>
               </div>
-              <p className="text-gray-700 text-sm md:text-base">
-                {course.instructor}
-              </p>
+              <div className="flex justify-center">
+                <CoachProfileCard courseId={id} />
+              </div>
             </div>
 
             {/* Course Syllabus */}

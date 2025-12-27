@@ -1,4 +1,4 @@
-import { Check, Trophy, Users, Award } from 'lucide-react';
+import { Check, Trophy, Users, Award } from "lucide-react";
 
 interface CoachProfileCardProps {
   courseId?: string;
