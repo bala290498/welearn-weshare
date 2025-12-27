@@ -40,7 +40,7 @@ export const groups: Group[] = [
     icon: 'Code',
     description: 'A community for web developers to share frontend and backend development knowledge, frameworks, and best practices.',
     memberCount: 278,
-    communityHead: 'Community Lead',
+    communityHead: 'Ramesh Kumar',
     whatsappUrl: 'https://chat.whatsapp.com/webdev-community',
     topics: ['React', 'Node.js', 'JavaScript', 'Full Stack', 'APIs']
   },
@@ -51,7 +51,7 @@ export const groups: Group[] = [
     icon: 'Palette',
     description: 'Connect with designers to discuss user interface design, user experience principles, and design tools.',
     memberCount: 156,
-    communityHead: 'Community Lead',
+    communityHead: 'Priya Suresh',
     whatsappUrl: 'https://chat.whatsapp.com/uiux-community',
     topics: ['Figma', 'User Research', 'Prototyping', 'Design Systems', 'Wireframing']
   },
@@ -62,7 +62,7 @@ export const groups: Group[] = [
     icon: 'Megaphone',
     description: 'Learn and share digital marketing strategies, SEO, social media marketing, and content creation techniques.',
     memberCount: 203,
-    communityHead: 'Community Lead',
+    communityHead: 'Karthick Senthil',
     whatsappUrl: 'https://chat.whatsapp.com/digitalmarketing-community',
     topics: ['SEO', 'Social Media', 'Content Marketing', 'Analytics', 'PPC']
   }

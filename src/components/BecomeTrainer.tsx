@@ -36,36 +36,46 @@ export default function BecomeTrainer() {
       title: 'Get Paid',
       description: 'Turn your knowledge into steady income.',
       icon: <IndianRupee className="w-8 h-8" />,
-      bgColor: 'bg-green-500',
-      iconColor: 'text-green-600',
+      gradient: 'from-emerald-50 to-teal-50',
+      iconColor: 'text-emerald-600',
+      textColor: 'text-gray-900',
+      borderColor: 'border-emerald-200',
     },
     {
       title: 'Work Your Way',
       description: 'Set your hours. Teach at your pace.',
       icon: <TrendingUp className="w-8 h-8" />,
-      bgColor: 'bg-blue-500',
-      iconColor: 'text-blue-600',
+      gradient: 'from-violet-50 to-purple-50',
+      iconColor: 'text-violet-600',
+      textColor: 'text-gray-900',
+      borderColor: 'border-violet-200',
     },
     {
       title: 'Zero Admin Hassle',
       description: 'We run the platform for you.',
       icon: <CheckCircle className="w-8 h-8" />,
-      bgColor: 'bg-teal-500',
-      iconColor: 'text-teal-600',
+      gradient: 'from-rose-50 to-pink-50',
+      iconColor: 'text-rose-600',
+      textColor: 'text-gray-900',
+      borderColor: 'border-rose-200',
     },
     {
       title: 'Level Up Professionally',
       description: 'Grow your influence and reach.',
       icon: <Award className="w-8 h-8" />,
-      bgColor: 'bg-amber-500',
+      gradient: 'from-amber-50 to-orange-50',
       iconColor: 'text-amber-600',
+      textColor: 'text-gray-900',
+      borderColor: 'border-amber-200',
     },
     {
       title: 'Teach with Purpose',
       description: 'Change lives and get recognized.',
       icon: <BookOpen className="w-8 h-8" />,
-      bgColor: 'bg-indigo-500',
-      iconColor: 'text-indigo-600',
+      gradient: 'from-cyan-50 to-blue-50',
+      iconColor: 'text-cyan-600',
+      textColor: 'text-gray-900',
+      borderColor: 'border-cyan-200',
     },
   ]
 
@@ -147,14 +157,20 @@ export default function BecomeTrainer() {
               <div
                 key={index}
                 className={cn(
-                  'p-4 md:p-6 text-white',
-                  benefit.bgColor
+                  'p-4 md:p-6 bg-gradient-to-br border rounded-lg',
+                  benefit.gradient,
+                  benefit.borderColor
                 )}
               >
-                <h4 className="text-[clamp(1rem,1.5vw,1.125rem)] font-semibold text-white mb-2 text-center">
+                <div className="flex justify-center mb-3">
+                  <div className={cn('p-3 rounded-full bg-white shadow-sm', benefit.iconColor)}>
+                    {benefit.icon}
+                  </div>
+                </div>
+                <h4 className={cn('text-[clamp(1rem,1.5vw,1.125rem)] font-semibold mb-2 text-center', benefit.textColor)}>
                   {benefit.title}
                 </h4>
-                <p className="text-white/90 text-sm md:text-base text-center">
+                <p className={cn('text-sm md:text-base text-center', benefit.textColor, 'opacity-80')}>
                   {benefit.description}
                 </p>
               </div>
@@ -169,7 +185,7 @@ export default function BecomeTrainer() {
         <div className="container mx-auto px-4 max-w-screen-lg">
           <div className="text-center max-w-2xl mx-auto">
             <h3 className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold mb-4">
-              Ready to Start Teaching?
+              Ready to Share your Experience?
             </h3>
             <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-primary-100 mb-8 md:mb-10">
               Join our community of expert trainers and help shape the next generation of learners and professionals.

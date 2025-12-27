@@ -16,8 +16,8 @@ export default function JoinCommunityModal({ isOpen, onClose }: JoinCommunityMod
     name: '',
     email: '',
     phone: '',
-    hearAboutUs: [] as string[],
-    interestedBatchType: [] as string[]
+    hearAboutUs: '',
+    interestedBatchType: ''
   })
 
   useEffect(() => {
@@ -38,61 +38,19 @@ export default function JoinCommunityModal({ isOpen, onClose }: JoinCommunityMod
     'Collective'
   ]
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleCheckboxChange = (option: string) => {
-    setFormData(prev => {
-      const currentOptions = prev.hearAboutUs
-      if (currentOptions.includes(option)) {
-        return {
-          ...prev,
-          hearAboutUs: currentOptions.filter(item => item !== option)
-        }
-      } else {
-        return {
-          ...prev,
-          hearAboutUs: [...currentOptions, option]
-        }
-      }
-    })
-  }
-
-  const handleBatchTypeChange = (option: string) => {
-    setFormData(prev => {
-      const currentOptions = prev.interestedBatchType
-      if (currentOptions.includes(option)) {
-        return {
-          ...prev,
-          interestedBatchType: currentOptions.filter(item => item !== option)
-        }
-      } else {
-        return {
-          ...prev,
-          interestedBatchType: [...currentOptions, option]
-        }
-      }
-    })
-  }
-
   const handleSubmitWhatsApp = () => {
-    const hearAboutText = formData.hearAboutUs.length > 0 
-      ? formData.hearAboutUs.join(', ')
-      : 'Not specified'
-    
-    const batchTypeText = formData.interestedBatchType.length > 0
-      ? formData.interestedBatchType.join(', ')
-      : 'Not specified'
-    
     const message = `Join Community Application
 
 Name: ${formData.name}
 Email: ${formData.email}
 Phone: ${formData.phone}
-How did you hear about us: ${hearAboutText}
-Interested Batch Type: ${batchTypeText}`
+How did you hear about us: ${formData.hearAboutUs}
+Interested Batch Type: ${formData.interestedBatchType}`
 
     const whatsappUrl = `https://wa.me/917010584543?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
@@ -101,8 +59,8 @@ Interested Batch Type: ${batchTypeText}`
       name: '',
       email: '',
       phone: '',
-      hearAboutUs: [],
-      interestedBatchType: []
+      hearAboutUs: '',
+      interestedBatchType: ''
     })
   }
 
@@ -179,57 +137,52 @@ Interested Batch Type: ${batchTypeText}`
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="hearAboutUs" className="block text-sm font-semibold text-gray-700 mb-2">
               How did you hear about us? *
             </label>
-            <div className="space-y-2 border border-gray-300 rounded-lg p-3 max-h-48 overflow-y-auto">
+            <select
+              id="hearAboutUs"
+              name="hearAboutUs"
+              value={formData.hearAboutUs}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent bg-white"
+            >
+              <option value="">Select an option</option>
               {hearAboutOptions.map((option) => (
-                <label
-                  key={option}
-                  className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-2 rounded"
-                >
-                  <input
-                    type="checkbox"
-                    checked={formData.hearAboutUs.includes(option)}
-                    onChange={() => handleCheckboxChange(option)}
-                    className="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-600"
-                  />
-                  <span className="text-sm text-gray-700">{option}</span>
-                </label>
+                <option key={option} value={option}>
+                  {option}
+                </option>
               ))}
-            </div>
-            {formData.hearAboutUs.length === 0 && (
-              <p className="text-xs text-red-500 mt-1">Please select at least one option</p>
-            )}
+            </select>
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Interested Batch Type
+            <label htmlFor="interestedBatchType" className="block text-sm font-semibold text-gray-700 mb-2">
+              Interested Batch Type *
             </label>
-            <div className="space-y-2 border border-gray-300 rounded-lg p-3">
+            <select
+              id="interestedBatchType"
+              name="interestedBatchType"
+              value={formData.interestedBatchType}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent bg-white"
+            >
+              <option value="">Select an option</option>
               {batchTypeOptions.map((option) => (
-                <label
-                  key={option}
-                  className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-2 rounded"
-                >
-                  <input
-                    type="checkbox"
-                    checked={formData.interestedBatchType.includes(option)}
-                    onChange={() => handleBatchTypeChange(option)}
-                    className="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-600"
-                  />
-                  <span className="text-sm text-gray-700">{option}</span>
-                </label>
+                <option key={option} value={option}>
+                  {option}
+                </option>
               ))}
-            </div>
+            </select>
           </div>
         </div>
 
         <div className="sticky bottom-0 bg-gray-50 border-t border-gray-200 px-6 py-4 rounded-b-xl">
           <button
             onClick={handleSubmitWhatsApp}
-            disabled={!formData.name || !formData.email || !formData.phone || formData.hearAboutUs.length === 0}
+            disabled={!formData.name || !formData.email || !formData.phone || !formData.hearAboutUs || !formData.interestedBatchType}
             className="w-full px-4 py-2 bg-[#25D366] text-white rounded-lg hover:bg-[#20BA5A] transition font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             <WhatsAppIcon className="w-5 h-5" />

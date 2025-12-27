@@ -25,7 +25,6 @@ export async function generateMetadata({
     course.maxStudents
   )
 
-  // Build description with enrollment and pricing prominently displayed
   let description = `${course.title} - ${course.description}`
 
   if (course.studentsEnrolled !== undefined && course.maxStudents !== undefined) {
@@ -36,7 +35,6 @@ export async function generateMetadata({
 
   description += ` | Duration: ${course.duration} | Price drops as more students join. Join now: welearnweshare.com/batches/${id}`
 
-  // Create a more detailed Open Graph description with enrollment and pricing at the start
   const ogDescription =
     course.studentsEnrolled !== undefined && course.maxStudents !== undefined
       ? `📊 Students Enrolled: ${pricing.validEnrolled}/${pricing.maxStudents} | 💰 Current Price: ${formatPrice(pricing.currentPrice)} per head | ${course.description} | Duration: ${course.duration} | Price drops as more students join!`
@@ -51,14 +49,12 @@ export async function generateMetadata({
       type: 'website',
       url: `https://welearnweshare.com/batches/${id}`,
       siteName: 'WeLearnWeShare',
-      // Explicitly no images
       images: [],
     },
     twitter: {
       card: 'summary',
       title: `${course.title} - WeLearnWeShare`,
       description: ogDescription,
-      // Explicitly no images
       images: [],
     },
     ...(course.studentsEnrolled !== undefined && {
@@ -85,14 +81,12 @@ export default async function CourseDetailPage({
   const course = courseData.frontmatter
   const content = courseData.content
 
-  // Calculate pricing using utility function
   const pricing = calculateCoursePricing(
     course.price,
     course.studentsEnrolled,
     course.maxStudents
   )
 
-  // Determine if course has dynamic pricing
   const hasDynamicPricing =
     course.studentsEnrolled !== undefined && course.maxStudents !== undefined
 
@@ -106,3 +100,4 @@ export default async function CourseDetailPage({
     />
   )
 }
+
