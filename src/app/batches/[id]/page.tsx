@@ -34,7 +34,7 @@ export async function generateMetadata({
     description += ` | Price: ${course.price}`
   }
   
-  description += ` | Price drops as more students join. Join now: welearnweshare.com/batches/${id}`
+  description += ` | Price drops as more students join. Join now: www.welearnweshare.com/batches/${id}`
 
   const ogDescription =
     course.studentsEnrolled !== undefined && course.maxStudents !== undefined
@@ -44,11 +44,14 @@ export async function generateMetadata({
   return {
     title: `${course.title} - WeLearnWeShare`,
     description,
+    alternates: {
+      canonical: `https://www.welearnweshare.com/batches/${id}`,
+    },
     openGraph: {
       title: `${course.title} - WeLearnWeShare`,
       description: ogDescription,
       type: 'website',
-      url: `https://welearnweshare.com/batches/${id}`,
+      url: `https://www.welearnweshare.com/batches/${id}`,
       siteName: 'WeLearnWeShare',
       images: [
         {

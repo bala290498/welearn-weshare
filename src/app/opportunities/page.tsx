@@ -7,11 +7,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Career Opportunities',
   description: 'Discover jobs, internships, freelance opportunities, workshops & webinars—all in one place.',
+  alternates: {
+    canonical: 'https://www.welearnweshare.com/opportunities',
+  },
   openGraph: {
     title: 'Career Opportunities - WeLearnWeShare',
     description: 'Discover jobs, internships, freelance opportunities, workshops & webinars—all in one place.',
     type: 'website',
-    url: 'https://welearnweshare.com/opportunities',
+    url: 'https://www.welearnweshare.com/opportunities',
     siteName: 'WeLearnWeShare',
     images: [
       {

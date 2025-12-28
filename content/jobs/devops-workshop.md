@@ -10,7 +10,7 @@ experience: Beginner to Intermediate
 salary: ₹2,000 - ₹3,000
 postedDate: 2024-01-20
 applyLink: mailto:workshops@welearnweshare.com?subject=DevOps Workshop Registration
-companyWebsite: https://welearnweshare.com
+companyWebsite: https://www.welearnweshare.com
 companySize: 50-100
 industry: Education
 workMode: Online / In-person
@@ -82,6 +82,8 @@ Join our comprehensive DevOps workshop designed for professionals looking to enh
 ## Registration
 
 To register for this workshop, please contact us via email. Limited seats available. Early bird discounts available for registrations made 2 weeks in advance.
+
+
 
 
 

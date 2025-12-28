@@ -14,11 +14,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Home',
   description: 'Community-powered courses taught by industry experts — fees fall as more students join. Start learning, build projects, and get listed on our talent portal.',
+  alternates: {
+    canonical: 'https://www.welearnweshare.com',
+  },
   openGraph: {
     title: 'WeLearnWeShare - Learn Together. Grow Together.',
     description: 'Community-powered courses taught by industry experts — fees fall as more students join. Start learning, build projects, and get listed on our talent portal.',
     type: 'website',
-    url: 'https://welearnweshare.com',
+    url: 'https://www.welearnweshare.com',
     siteName: 'WeLearnWeShare',
     images: [
       {

@@ -23,13 +23,13 @@ export default function ArticleSchema({
     headline: title,
     description,
     url,
-    image: `https://welearnweshare.com${image}`,
+    image: `https://www.welearnweshare.com${image}`,
     publisher: {
       '@type': 'Organization',
       name: 'WeLearnWeShare',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://welearnweshare.com/og-image.svg',
+        url: 'https://www.welearnweshare.com/og-image.svg',
       },
     },
     ...(datePublished && {

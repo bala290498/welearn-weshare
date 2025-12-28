@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://welearnweshare.com/sitemap.xml',
+    sitemap: 'https://www.welearnweshare.com/sitemap.xml',
   }
 }
 

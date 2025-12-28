@@ -8,11 +8,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Community Groups',
   description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
+  alternates: {
+    canonical: 'https://www.welearnweshare.com/community-groups',
+  },
   openGraph: {
     title: 'Community Groups - WeLearnWeShare',
     description: 'Join micro-communities designed for shared interests, skills, and professional growth.',
     type: 'website',
-    url: 'https://welearnweshare.com/community-groups',
+    url: 'https://www.welearnweshare.com/community-groups',
     siteName: 'WeLearnWeShare',
     images: [
       {

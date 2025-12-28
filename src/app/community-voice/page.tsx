@@ -6,11 +6,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Community Voice',
   description: 'Have a say in what gets taught! Vote in polls to decide upcoming courses and help shape the learning community. Your voice matters.',
+  alternates: {
+    canonical: 'https://www.welearnweshare.com/community-voice',
+  },
   openGraph: {
     title: 'Community Voice - WeLearnWeShare',
     description: 'Vote in polls to decide upcoming courses and help shape the learning community.',
     type: 'website',
-    url: 'https://welearnweshare.com/community-voice',
+    url: 'https://www.welearnweshare.com/community-voice',
     siteName: 'WeLearnWeShare',
     images: [
       {

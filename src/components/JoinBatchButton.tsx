@@ -32,3 +32,5 @@ export default function JoinBatchButton({ courseTitle, batchType, className, chi
 }
 
 
+
+

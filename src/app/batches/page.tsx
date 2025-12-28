@@ -9,11 +9,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Batches',
   description: 'Discover comprehensive batches designed to help you master in-demand skills and advance your career. Dynamic Group Pricing - price drops as more students join.',
+  alternates: {
+    canonical: 'https://www.welearnweshare.com/batches',
+  },
   openGraph: {
     title: 'Batches - WeLearnWeShare',
     description: 'Discover comprehensive batches designed to help you master in-demand skills and advance your career. Dynamic Group Pricing - price drops as more students join.',
     type: 'website',
-    url: 'https://welearnweshare.com/batches',
+    url: 'https://www.welearnweshare.com/batches',
     siteName: 'WeLearnWeShare',
     images: [
       {

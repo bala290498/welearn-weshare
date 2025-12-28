@@ -9,11 +9,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Students',
   description: 'Find real talent, Not just resumes. Discover top performers from our community.',
+  alternates: {
+    canonical: 'https://www.welearnweshare.com/students',
+  },
   openGraph: {
     title: 'Students - WeLearnWeShare',
     description: 'Find real talent, Not just resumes. Discover top performers from our community.',
     type: 'website',
-    url: 'https://welearnweshare.com/students',
+    url: 'https://www.welearnweshare.com/students',
     siteName: 'WeLearnWeShare',
     images: [
       {

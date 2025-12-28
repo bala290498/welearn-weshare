@@ -5,8 +5,8 @@ export default function OrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'WeLearnWeShare',
-    url: 'https://welearnweshare.com',
-    logo: 'https://welearnweshare.com/og-image.svg',
+    url: 'https://www.welearnweshare.com',
+    logo: 'https://www.welearnweshare.com/og-image.svg',
     description: 'Community-powered courses taught by industry experts — fees fall as more students join.',
     sameAs: [
       // Add social media links when available
@@ -22,4 +22,6 @@ export default function OrganizationSchema() {
 
   return <JsonLd data={schema} />
 }
+
+
 

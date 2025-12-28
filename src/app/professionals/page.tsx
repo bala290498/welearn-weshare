@@ -6,11 +6,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Professionals',
   description: 'Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their goals across diverse fields. Apply to become a trainer on WeLearnWeShare.',
+  alternates: {
+    canonical: 'https://www.welearnweshare.com/professionals',
+  },
   openGraph: {
     title: 'Professionals - WeLearnWeShare',
     description: 'Share your expertise, grow your impact, and earn competitive compensation while helping learners achieve their goals across diverse fields.',
     type: 'website',
-    url: 'https://welearnweshare.com/professionals',
+    url: 'https://www.welearnweshare.com/professionals',
     siteName: 'WeLearnWeShare',
     images: [
       {

@@ -28,11 +28,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${student.name} - Talent Showcase`,
     description,
+    alternates: {
+      canonical: `https://www.welearnweshare.com/students/${slug}`,
+    },
     openGraph: {
       title: `${student.name} - ${student.category} Expert`,
       description,
       type: 'profile',
-      url: `https://welearnweshare.com/students/${slug}`,
+      url: `https://www.welearnweshare.com/students/${slug}`,
       siteName: 'WeLearnWeShare',
       images: [
         {
@@ -270,7 +273,7 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
       {/* Floating Share Button - Mobile Only */}
       <div className="fixed bottom-20 right-4 z-50 lg:hidden">
         <ShareButton
-          url={`https://welearnweshare.com/students/${slug}`}
+          url={`https://www.welearnweshare.com/students/${slug}`}
           title={`${student.name} - ${student.category} Expert`}
           iconOnly={true}
           className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-shadow"

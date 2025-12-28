@@ -24,11 +24,14 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   return {
     title: `${actualCategory} Students`,
     description: `Discover top performers in ${actualCategory} from our community. Find real talent, not just resumes.`,
+    alternates: {
+      canonical: `https://www.welearnweshare.com/students/category/${category}`,
+    },
     openGraph: {
       title: `${actualCategory} Students - WeLearnWeShare`,
       description: `Discover top performers in ${actualCategory} from our community.`,
       type: 'website',
-      url: `https://welearnweshare.com/students/category/${category}`,
+      url: `https://www.welearnweshare.com/students/category/${category}`,
       siteName: 'WeLearnWeShare',
       images: [
         {

@@ -44,11 +44,14 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${job.title} at ${job.company}`,
     description: job.description,
+    alternates: {
+      canonical: `https://www.welearnweshare.com/opportunities/${id}`,
+    },
     openGraph: {
       title: `${job.title} at ${job.company} - WeLearnWeShare`,
       description: job.description,
       type: 'article',
-      url: `https://welearnweshare.com/opportunities/${id}`,
+      url: `https://www.welearnweshare.com/opportunities/${id}`,
       siteName: 'WeLearnWeShare',
       images: [
         {
@@ -84,7 +87,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
       <ArticleSchema
         title={`${job.title} at ${job.company}`}
         description={job.description}
-        url={`https://welearnweshare.com/opportunities/${id}`}
+        url={`https://www.welearnweshare.com/opportunities/${id}`}
       />
       <main className="min-h-screen bg-gray-50">
         <Navigation />
@@ -303,7 +306,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
               {/* Share Card */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Share this Job</h3>
-                <CopyUrlButton url={`https://welearnweshare.com/opportunities/${id}`} />
+                <CopyUrlButton url={`https://www.welearnweshare.com/opportunities/${id}`} />
               </div>
             </div>
           </div>
@@ -313,7 +316,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
       {/* Floating Share Button - Mobile Only */}
       <div className="fixed bottom-20 right-4 z-50 lg:hidden">
         <ShareButton
-          url={`https://welearnweshare.com/opportunities/${id}`}
+          url={`https://www.welearnweshare.com/opportunities/${id}`}
           title={`${job.title} at ${job.company}`}
           iconOnly={true}
           className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-shadow"

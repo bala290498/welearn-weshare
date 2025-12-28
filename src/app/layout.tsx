@@ -11,7 +11,7 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://welearnweshare.com'),
+  metadataBase: new URL('https://www.welearnweshare.com'),
   title: {
     default: 'WeLearnWeShare - Learn Together. Grow Together.',
     template: '%s | WeLearnWeShare',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://welearnweshare.com',
+    url: 'https://www.welearnweshare.com',
     siteName: 'WeLearnWeShare',
     title: 'WeLearnWeShare - Learn Together. Grow Together.',
     description: 'Community-powered courses taught by industry experts — fees fall as more students join. Start learning, build projects, and get listed on our talent portal.',

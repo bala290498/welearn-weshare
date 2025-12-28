@@ -7,11 +7,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Blogs',
   description: 'Read insights, tips, and stories from our community of learners and experts. Learn about DevOps, Linux, AWS, and more.',
+  alternates: {
+    canonical: 'https://www.welearnweshare.com/blogs',
+  },
   openGraph: {
     title: 'Blogs - WeLearnWeShare',
     description: 'Read insights, tips, and stories from our community of learners and experts.',
     type: 'website',
-    url: 'https://welearnweshare.com/blogs',
+    url: 'https://www.welearnweshare.com/blogs',
     siteName: 'WeLearnWeShare',
     images: [
       {

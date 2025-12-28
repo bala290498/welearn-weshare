@@ -22,3 +22,5 @@ Use descriptive, lowercase filenames with hyphens:
 - `balasubramani-arumugam.jpg`
 - `trainer-name.jpg`
 
+
+

@@ -30,11 +30,14 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: blog.title,
     description: blog.description,
+    alternates: {
+      canonical: `https://www.welearnweshare.com/blogs/${id}`,
+    },
     openGraph: {
       title: `${blog.title} - WeLearnWeShare`,
       description: blog.description,
       type: 'article',
-      url: `https://welearnweshare.com/blogs/${id}`,
+      url: `https://www.welearnweshare.com/blogs/${id}`,
       siteName: 'WeLearnWeShare',
       publishedTime: blog.date,
       authors: [blog.author],
@@ -72,7 +75,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
       <ArticleSchema
         title={blog.title}
         description={blog.description}
-        url={`https://welearnweshare.com/blogs/${id}`}
+        url={`https://www.welearnweshare.com/blogs/${id}`}
         datePublished={blog.date}
         author={blog.author}
         image={blog.image}

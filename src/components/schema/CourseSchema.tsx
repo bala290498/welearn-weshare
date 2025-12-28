@@ -23,9 +23,9 @@ export default function CourseSchema({
     provider: {
       '@type': 'Organization',
       name: 'WeLearnWeShare',
-      url: 'https://welearnweshare.com',
+      url: 'https://www.welearnweshare.com',
     },
-    url: `https://welearnweshare.com/batches/${courseId}`,
+    url: `https://www.welearnweshare.com/batches/${courseId}`,
     ...(hasDynamicPricing && {
       offers: {
         '@type': 'Offer',
@@ -48,4 +48,6 @@ export default function CourseSchema({
 
   return <JsonLd data={schema} />
 }
+
+
 

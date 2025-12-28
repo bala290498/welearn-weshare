@@ -5,7 +5,7 @@ import { getAllJobs } from '@/lib/markdown'
 import { getAllStudents } from '@/data/students'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://welearnweshare.com'
+  const baseUrl = 'https://www.welearnweshare.com'
   
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
@@ -119,4 +119,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categoryPages,
   ]
 }
+
+
 

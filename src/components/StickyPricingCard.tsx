@@ -91,7 +91,7 @@ export default function StickyPricingCard({
           
           {/* Share Button */}
           <ShareButton 
-            url={`https://welearnweshare.com/batches/${id}`}
+            url={`https://www.welearnweshare.com/batches/${id}`}
             title={course.title}
             className="w-full"
           />

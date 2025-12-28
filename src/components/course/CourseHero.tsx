@@ -89,3 +89,5 @@ export default function CourseHero({ course, courseId }: CourseHeroProps) {
   )
 }
 
+
+
