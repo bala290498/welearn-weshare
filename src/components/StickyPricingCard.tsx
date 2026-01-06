@@ -27,10 +27,6 @@ export default function StickyPricingCard({
 }: StickyPricingCardProps) {
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6 space-y-6">
-          <h2 className="text-xl font-semibold text-gray-900 border-b-2 border-gray-200 pb-3">
-            {course.title}
-          </h2>
-          
           {/* Students Enrolled - Vertical Stack */}
           <div className="space-y-2">
             <p className="text-xs text-gray-600">Students enrolled:</p>
@@ -78,21 +74,23 @@ export default function StickyPricingCard({
           
           <p className="text-xs text-gray-500 pt-2 border-t border-gray-200">Price drops as more students join</p>
           
-          {/* Join Batch Button */}
-          <JoinBatchButton
-            courseTitle={course.title}
-            batchType={course.batchType}
-            className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold text-center"
-          >
-            Join Batch
-          </JoinBatchButton>
-          
-          {/* Share Button */}
-          <ShareButton 
-            url={`https://www.welearnweshare.com/batches/${id}`}
-            title={course.title}
-            className="w-full"
-          />
+          {/* Join Batch and Share in same row */}
+          <div className="flex items-center gap-3">
+            <JoinBatchButton
+              courseTitle={course.title}
+              batchType={course.batchType}
+              className="flex-1 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold text-center"
+            >
+              Join Batch
+            </JoinBatchButton>
+            
+            <ShareButton 
+              url={`https://www.welearnweshare.com/batches/${id}`}
+              title={course.title}
+              iconOnly={true}
+              className="flex-shrink-0"
+            />
+          </div>
         </div>
   )
 }

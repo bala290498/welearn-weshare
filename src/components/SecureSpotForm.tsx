@@ -54,7 +54,7 @@ Mobile: ${formData.phone}`
 
   return (
     <div className={`${bgColor} border ${borderColor} rounded-lg p-6 md:p-8`}>
-      <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900 mb-6">
+      <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900 mb-6 w-fit">
         Interested in this Program? Secure your spot now!
       </h2>
       

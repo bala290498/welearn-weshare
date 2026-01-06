@@ -4,7 +4,6 @@ import CompanyLogo from '@/components/CompanyLogo'
 import SecureSpotForm from '@/components/SecureSpotForm'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
 import {
-  TrendingDown,
   Award,
   BarChart3,
   FileText,
@@ -12,7 +11,6 @@ import {
   Briefcase,
   ClipboardCheck,
   BookOpen,
-  Video,
   Linkedin,
   TrendingUp,
   Download,
@@ -28,9 +26,9 @@ interface CourseContentProps {
 
 export default function CourseContent({ course, courseId, content }: CourseContentProps) {
   return (
-    <>
+    <div className="space-y-12 md:space-y-16">
       {/* Professional Partner */}
-      <div>
+      <section>
         <div className="border-b-2 border-gray-200 pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Professional Partner
@@ -39,10 +37,10 @@ export default function CourseContent({ course, courseId, content }: CourseConte
         <div className="flex justify-center">
           <CoachProfileCard courseId={courseId} />
         </div>
-      </div>
+      </section>
 
       {/* Course Syllabus */}
-      <div>
+      <section>
         <div className="border-b-2 border-gray-200 pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Course Syllabus
@@ -58,27 +56,16 @@ export default function CourseContent({ course, courseId, content }: CourseConte
             </li>
           ))}
         </ul>
-      </div>
+      </section>
 
       {/* Course Features */}
-      <div>
+      <section>
         <div className="border-b-2 border-gray-200 pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Course Features
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {/* Dynamic Group Pricing Card */}
-          <div className="bg-purple-50 p-4 md:p-6 flex items-center gap-4">
-            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <TrendingDown className="w-6 h-6 text-purple-600" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Dynamic Group Pricing</h3>
-              <p className="text-sm text-gray-600">More learners, lower cost.</p>
-            </div>
-          </div>
-
           {/* Top Trainers Card */}
           <div className="bg-blue-50 p-4 md:p-6 flex items-center gap-4">
             <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -87,17 +74,6 @@ export default function CourseContent({ course, courseId, content }: CourseConte
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-1">Top Trainers</h3>
               <p className="text-sm text-gray-600">Expert-led, community-priced.</p>
-            </div>
-          </div>
-
-          {/* Live Training Card */}
-          <div className="bg-red-50 p-4 md:p-6 flex items-center gap-4">
-            <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <Video className="w-6 h-6 text-red-600" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Live Training</h3>
-              <p className="text-sm text-gray-600">Live Interactive Classes</p>
             </div>
           </div>
 
@@ -178,10 +154,10 @@ export default function CourseContent({ course, courseId, content }: CourseConte
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Job Opportunities */}
-      <div>
+      <section>
         <div className="border-b-2 border-gray-200 pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Job Opportunities
@@ -221,10 +197,10 @@ export default function CourseContent({ course, courseId, content }: CourseConte
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Top Companies Hiring */}
-      <div>
+      <section>
         <div className="border-b-2 border-gray-200 pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Top Companies Hiring
@@ -275,15 +251,14 @@ export default function CourseContent({ course, courseId, content }: CourseConte
             fallbackText="Virtusa"
           />
         </div>
-      </div>
+      </section>
 
       {/* Career Services */}
-      <div>
+      <section>
         <div className="border-b-2 border-gray-200 pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Career Services
           </h2>
-          <p className="text-sm md:text-base text-gray-600 mt-2">What we provide?</p>
         </div>
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
@@ -311,13 +286,15 @@ export default function CourseContent({ course, courseId, content }: CourseConte
             </span>
           </li>
         </ul>
-      </div>
+      </section>
 
       {/* Secure Spot Form */}
-      <SecureSpotForm courseTitle={course.title} batchType={course.batchType} />
+      <section>
+        <SecureSpotForm courseTitle={course.title} batchType={course.batchType} />
+      </section>
 
       {/* Contact Details */}
-      <div id="contact-details" className="bg-primary-50 rounded-lg p-6 md:p-8 mb-4 lg:mb-0">
+      <section id="contact-details" className="bg-primary-50 rounded-lg p-6 md:p-8">
         <div className="border-b-2 border-primary-200 pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Contact Details
@@ -334,8 +311,8 @@ export default function CourseContent({ course, courseId, content }: CourseConte
             +91 7010584543
           </a>
         </div>
-      </div>
-    </>
+      </section>
+    </div>
   )
 }
 

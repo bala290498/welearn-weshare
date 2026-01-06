@@ -113,8 +113,6 @@ export default async function CourseDetailPage({
         course={course}
         courseId={id}
         content={content}
-        pricing={pricing}
-        hasDynamicPricing={hasDynamicPricing}
       />
     </>
   )
