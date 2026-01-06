@@ -95,7 +95,7 @@ export default function CoursePricingCard({
 
           {/* Capacity Price */}
           <div
-            className={`space-y-1 lg:space-y-2 text-center border-2 rounded-lg p-2 lg:p-3 bg-transparent ${colors.border}`}
+            className={`space-y-1 lg:space-y-2 text-center border rounded-lg p-2 lg:p-3 bg-transparent ${colors.border}`}
           >
             <p className={`text-[10px] lg:text-xs font-medium ${colors.text}`}>
               Capacity price

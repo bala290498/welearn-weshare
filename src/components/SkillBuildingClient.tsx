@@ -131,37 +131,41 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
           </div>
         ) : (
           filteredCourses.map((course) => {
+            // Extract base course name (remove -prime or -collective suffix)
+            const baseCourseName = course.slug.replace(/-prime$|-collective$/, '')
+            const borderColor = course.batchType === 'collective' ? 'border-purple-200' : 'border-orange-200'
+            const capacityBorderColor = course.batchType === 'collective' ? 'border-purple-400' : 'border-orange-400'
+            const capacityTextColor = course.batchType === 'collective' ? 'text-purple-600' : 'text-orange-600'
+            const progressBgColor = course.batchType === 'collective' ? 'bg-purple-500' : 'bg-orange-500'
+            
             const cardContent = (
               <>
-                <div className="mb-4 flex flex-wrap gap-2">
-                  <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full">
-                  {course.category}
-                </span>
-                  {course.batchType === 'collective' && (
-                    <span className="inline-block px-3 py-1 text-sm rounded-full bg-purple-100 text-purple-600 font-medium flex items-center gap-1">
-                      <Users size={14} />
-                      Collective
-                    </span>
-                  )}
-                  {course.batchType === 'prime' && (
-                    <span className="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-orange-100 text-orange-700 flex items-center gap-1">
-                      <Clock size={14} />
-                      Prime
-                    </span>
-                  )}
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold rounded-full bg-red-500 text-white uppercase tracking-wide">
-                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                    LIVE
+                {/* Course Image with LIVE badge */}
+                <div className="relative h-56 w-full">
+                  <span className="absolute top-4 right-4 z-10 inline-flex items-center justify-center gap-2 px-3 py-1 text-xs font-semibold rounded-full bg-red-500 text-white shadow">
+                    <span className="block w-2 h-2 rounded-full bg-white" />
+                    <span>LIVE</span>
                   </span>
-              </div>
-                <div className="mb-4">
-                  <h2 className="text-[clamp(1rem,2vw,1.25rem)] font-semibold text-gray-900 mb-1 flex-shrink-0">
-                {course.title}
-              </h2>
-                  <p className="text-gray-500 text-sm line-clamp-2">
-                {course.description}
-              </p>
+                  <img
+                    src={`/courses/${baseCourseName}.webp`}
+                    alt={course.title}
+                    className="h-full w-full object-cover"
+                    onError={(e) => {
+                      // Try jpg if webp doesn't exist
+                      const target = e.target as HTMLImageElement
+                      if (!target.src.endsWith('.jpg')) {
+                        target.src = `/courses/${baseCourseName}.jpg`
+                      } else {
+                        // Fallback to placeholder if both don't exist
+                        target.src = '/og-image.svg'
+                      }
+                    }}
+                  />
                 </div>
+
+                {/* Content */}
+                <div className="px-3 py-2">
+                  <h2 className="text-lg font-bold text-gray-900">{course.title}</h2>
                 {course.batchType === 'collective' && course.studentsEnrolled !== undefined && course.maxStudents !== undefined && (
                   <>
                       {(() => {
@@ -172,48 +176,40 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                         return (
                           <>
                           {/* Pricing */}
-                          <div className="grid grid-cols-2 gap-4 mb-4">
-                            <div className="border border-purple-200 rounded-xl p-4 text-center">
-                              <p className="text-xs text-gray-500 font-medium">CURRENT PRICE</p>
-                              <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
-                              <p className="text-sm line-through text-gray-400">{course.price}</p>
+                          <div className="grid grid-cols-2 gap-2 mt-3">
+                            <div className="border rounded-xl p-2 text-center">
+                              <p className="text-sm text-gray-500">CURRENT PRICE</p>
+                              <p className="text-xl font-bold">{formatPrice(currentPrice)}</p>
+                              <p className="text-sm text-gray-400 line-through">{course.price}</p>
                             </div>
-                            <div className="border-2 border-purple-600 rounded-xl p-4 text-center bg-transparent">
-                              <p className="text-xs text-purple-600 font-medium">CAPACITY PRICE</p>
-                              <p className="text-2xl font-semibold text-purple-600 mt-1">{formatPrice(potentialPrice)}</p>
-                              <p className="text-sm text-purple-600">Lowest possible</p>
+                            <div className={`border ${capacityBorderColor} rounded-xl p-2 text-center`}>
+                              <p className={`text-sm ${capacityTextColor}`}>CAPACITY PRICE</p>
+                              <p className={`text-xl font-bold ${capacityTextColor}`}>{formatPrice(potentialPrice)}</p>
+                              <p className={`text-sm ${capacityTextColor}`}>Lowest possible</p>
                             </div>
                           </div>
                           {/* Progress */}
-                          <div className="space-y-2 mb-4">
-                            <div className="flex justify-between items-center text-sm">
+                          <div className="mt-3">
+                            <div className="flex justify-between text-sm mb-2">
                               <span className="text-gray-600">Enrollment Progress</span>
-                              <span className="flex items-center gap-2 text-green-600 font-medium">
-                                <span className="w-2 h-2 rounded-full bg-green-500" />
-                                {validEnrolled} / {course.maxStudents} Joined
-                              </span>
+                              <span className="text-green-600 font-medium">● {validEnrolled} / {course.maxStudents} Joined</span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div className="w-full h-2 bg-gray-200 rounded-full">
                               <div
-                                className="h-full bg-purple-600 transition-all duration-300"
+                                className={`h-2 ${progressBgColor} rounded-full transition-all duration-300`}
                                 style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
                               />
                             </div>
-                            <p className="text-xs text-gray-400 flex items-center justify-center gap-1 text-center">
-                              <Info size={14} />
+                            <p className="text-xs text-gray-400 mt-2">
                               Price drops as more students join
                             </p>
-                    </div>
+                          </div>
                           {/* Button */}
                           <Link
                             href={`/batches/${course.slug}`}
-                            className="w-full py-3 rounded-xl text-gray-900 font-semibold transition flex items-center justify-center gap-2"
-                            style={{ backgroundColor: '#ffce13', color: '#000' }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6b911'}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffce13'}
+                            className="mt-3 w-full bg-yellow-400 hover:bg-yellow-500 transition rounded-xl py-2 text-sm font-semibold flex items-center justify-center gap-2"
                           >
-                            Join Collective
-                            <ArrowRight size={18} />
+                            Join Collective <span aria-hidden>→</span>
                           </Link>
                           </>
                         )
@@ -230,54 +226,47 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                         return (
                           <>
                           {/* Pricing */}
-                          <div className="grid grid-cols-2 gap-4 mb-4">
-                            <div className="border border-orange-200 rounded-xl p-4 text-center">
-                              <p className="text-xs text-gray-500 font-medium">CURRENT PRICE</p>
-                              <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
-                              <p className="text-sm line-through text-gray-400">{course.price}</p>
+                          <div className="grid grid-cols-2 gap-2 mt-3">
+                            <div className="border rounded-xl p-2 text-center">
+                              <p className="text-sm text-gray-500">CURRENT PRICE</p>
+                              <p className="text-xl font-bold">{formatPrice(currentPrice)}</p>
+                              <p className="text-sm text-gray-400 line-through">{course.price}</p>
                             </div>
-                            <div className="border-2 border-orange-600 rounded-xl p-4 text-center bg-transparent">
-                              <p className="text-xs text-orange-600 font-medium">CAPACITY PRICE</p>
-                              <p className="text-2xl font-semibold text-orange-600 mt-1">{formatPrice(potentialPrice)}</p>
-                              <p className="text-sm text-orange-600">Lowest possible</p>
+                            <div className={`border ${capacityBorderColor} rounded-xl p-2 text-center`}>
+                              <p className={`text-sm ${capacityTextColor}`}>CAPACITY PRICE</p>
+                              <p className={`text-xl font-bold ${capacityTextColor}`}>{formatPrice(potentialPrice)}</p>
+                              <p className={`text-sm ${capacityTextColor}`}>Lowest possible</p>
                             </div>
                           </div>
                           {/* Progress */}
-                          <div className="space-y-2 mb-4">
-                            <div className="flex justify-between items-center text-sm">
+                          <div className="mt-3">
+                            <div className="flex justify-between text-sm mb-2">
                               <span className="text-gray-600">Enrollment Progress</span>
-                              <span className="flex items-center gap-2 text-green-600 font-medium">
-                                <span className="w-2 h-2 rounded-full bg-green-500" />
-                                {validEnrolled} / {course.maxStudents} Joined
-                              </span>
+                              <span className="text-green-600 font-medium">● {validEnrolled} / {course.maxStudents} Joined</span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div className="w-full h-2 bg-gray-200 rounded-full">
                               <div
-                                className="h-full bg-orange-600 transition-all duration-300"
+                                className={`h-2 ${progressBgColor} rounded-full transition-all duration-300`}
                                 style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
                               />
                             </div>
-                            <p className="text-xs text-gray-400 flex items-center justify-center gap-1 text-center">
-                              <Info size={14} />
+                            <p className="text-xs text-gray-400 mt-2">
                               Price drops as more students join
                             </p>
-                    </div>
+                          </div>
                           {/* Button */}
                           <Link
                             href={`/batches/${course.slug}`}
-                            className="w-full py-3 rounded-xl text-gray-900 font-semibold transition flex items-center justify-center gap-2"
-                            style={{ backgroundColor: '#ffce13', color: '#000' }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6b911'}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffce13'}
+                            className="mt-3 w-full bg-yellow-400 hover:bg-yellow-500 transition rounded-xl py-2 text-sm font-semibold flex items-center justify-center gap-2"
                           >
-                            Join Prime
-                            <ArrowRight size={18} />
+                            Join Prime <span aria-hidden>→</span>
                           </Link>
                           </>
                         )
                       })()}
                   </>
                 )}
+                </div>
               </>
             )
             
@@ -285,7 +274,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
               return (
                 <div
                   key={course.slug}
-                  className="relative bg-white rounded-lg border border-purple-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-auto overflow-hidden"
+                  className="w-full max-w-sm bg-white rounded-2xl shadow-lg border border-purple-200 overflow-hidden"
                 >
                   {cardContent}
               </div>
@@ -295,7 +284,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
             return (
               <div
                 key={course.slug}
-                className="relative bg-white rounded-lg border border-orange-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-auto overflow-hidden"
+                className="w-full max-w-sm bg-white rounded-2xl shadow-lg border border-orange-200 overflow-hidden"
               >
                 {cardContent}
             </div>
@@ -305,44 +294,48 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
       </div>
       
       {/* Desktop: Grid layout */}
-      <div className="hidden lg:grid grid-cols-2 gap-4 xl:gap-6">
+      <div className="hidden lg:grid grid-cols-3 gap-4 xl:gap-6">
         {filteredCourses.length === 0 ? (
           <div className="col-span-full text-center py-12 text-gray-500">
             No courses found matching your filters.
           </div>
         ) : (
           filteredCourses.map((course) => {
+            // Extract base course name (remove -prime or -collective suffix)
+            const baseCourseName = course.slug.replace(/-prime$|-collective$/, '')
+            const borderColor = course.batchType === 'collective' ? 'border-purple-200' : 'border-orange-200'
+            const capacityBorderColor = course.batchType === 'collective' ? 'border-purple-400' : 'border-orange-400'
+            const capacityTextColor = course.batchType === 'collective' ? 'text-purple-600' : 'text-orange-600'
+            const progressBgColor = course.batchType === 'collective' ? 'bg-purple-500' : 'bg-orange-500'
+            
             const cardContent = (
               <>
-              <div className="mb-4 flex flex-wrap gap-2">
-                <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full">
-                {course.category}
-              </span>
-                {course.batchType === 'collective' && (
-                  <span className="inline-block px-3 py-1 text-sm rounded-full bg-purple-100 text-purple-600 font-medium flex items-center gap-1">
-                    <Users size={14} />
-                    Collective
-                  </span>
-                )}
-                {course.batchType === 'prime' && (
-                  <span className="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-orange-100 text-orange-700 flex items-center gap-1">
-                    <Clock size={14} />
-                    Prime
-                  </span>
-                )}
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold rounded-full bg-red-500 text-white uppercase tracking-wide">
-                  <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                  LIVE
+              {/* Course Image with LIVE badge */}
+              <div className="relative h-56 w-full">
+                <span className="absolute top-4 right-4 z-10 inline-flex items-center justify-center gap-2 px-3 py-1 text-xs font-semibold rounded-full bg-red-500 text-white shadow">
+                  <span className="block w-2 h-2 rounded-full bg-white" />
+                  <span>LIVE</span>
                 </span>
-            </div>
-              <div className="mb-4">
-                <h2 className="text-[clamp(1rem,1.5vw,1.25rem)] font-semibold text-gray-900 mb-1 flex-shrink-0">
-              {course.title}
-            </h2>
-                <p className="text-gray-500 text-sm line-clamp-2">
-              {course.description}
-            </p>
+                <img
+                  src={`/courses/${baseCourseName}.webp`}
+                  alt={course.title}
+                  className="h-full w-full object-cover"
+                  onError={(e) => {
+                    // Try jpg if webp doesn't exist
+                    const target = e.target as HTMLImageElement
+                    if (!target.src.endsWith('.jpg')) {
+                      target.src = `/courses/${baseCourseName}.jpg`
+                    } else {
+                      // Fallback to placeholder if both don't exist
+                      target.src = '/og-image.svg'
+                    }
+                  }}
+                />
               </div>
+
+              {/* Content */}
+              <div className="px-3 py-2">
+                <h2 className="text-lg font-bold text-gray-900">{course.title}</h2>
               {course.batchType === 'collective' && course.studentsEnrolled !== undefined && course.maxStudents !== undefined && (
                 <>
                     {(() => {
@@ -353,48 +346,40 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                       return (
                         <>
                         {/* Pricing */}
-                        <div className="grid grid-cols-2 gap-4 mb-4">
-                          <div className="border border-purple-200 rounded-xl p-4 text-center">
-                            <p className="text-xs text-gray-500 font-medium">CURRENT PRICE</p>
-                            <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
-                            <p className="text-sm line-through text-gray-400">{course.price}</p>
+                        <div className="grid grid-cols-2 gap-2 mt-3">
+                          <div className="border rounded-xl p-2 text-center">
+                            <p className="text-sm text-gray-500">CURRENT PRICE</p>
+                            <p className="text-xl font-bold">{formatPrice(currentPrice)}</p>
+                            <p className="text-sm text-gray-400 line-through">{course.price}</p>
                           </div>
-                          <div className="border-2 border-purple-600 rounded-xl p-4 text-center bg-transparent">
-                            <p className="text-xs text-purple-600 font-medium">CAPACITY PRICE</p>
-                            <p className="text-2xl font-semibold text-purple-600 mt-1">{formatPrice(potentialPrice)}</p>
-                            <p className="text-sm text-purple-600">Lowest possible</p>
+                          <div className={`border ${capacityBorderColor} rounded-xl p-2 text-center`}>
+                            <p className={`text-sm ${capacityTextColor}`}>CAPACITY PRICE</p>
+                            <p className={`text-xl font-bold ${capacityTextColor}`}>{formatPrice(potentialPrice)}</p>
+                            <p className={`text-sm ${capacityTextColor}`}>Lowest possible</p>
                           </div>
                         </div>
                         {/* Progress */}
-                        <div className="space-y-2 mb-4">
-                          <div className="flex justify-between items-center text-sm">
+                        <div className="mt-3">
+                          <div className="flex justify-between text-sm mb-2">
                             <span className="text-gray-600">Enrollment Progress</span>
-                            <span className="flex items-center gap-2 text-green-600 font-medium">
-                              <span className="w-2 h-2 rounded-full bg-green-500" />
-                              {validEnrolled} / {course.maxStudents} Joined
-                            </span>
+                            <span className="text-green-600 font-medium">● {validEnrolled} / {course.maxStudents} Joined</span>
                           </div>
-                          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="w-full h-2 bg-gray-200 rounded-full">
                             <div
-                              className="h-full bg-purple-600 transition-all duration-300"
+                              className={`h-2 ${progressBgColor} rounded-full transition-all duration-300`}
                               style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
                             />
                           </div>
-                          <p className="text-xs text-gray-400 flex items-center justify-center gap-1 text-center">
-                            <Info size={14} />
+                          <p className="text-xs text-gray-400 mt-2">
                             Price drops as more students join
                           </p>
-                  </div>
+                        </div>
                         {/* Button */}
                         <Link
                           href={`/batches/${course.slug}`}
-                          className="w-full py-3 rounded-xl text-gray-900 font-semibold transition flex items-center justify-center gap-2"
-                          style={{ backgroundColor: '#ffce13', color: '#000' }}
-                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6b911'}
-                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffce13'}
+                          className="mt-3 w-full bg-yellow-400 hover:bg-yellow-500 transition rounded-xl py-2 text-sm font-semibold flex items-center justify-center gap-2"
                         >
-                          Join Collective
-                          <ArrowRight size={18} />
+                          Join Collective <span aria-hidden>→</span>
                         </Link>
                         </>
                       )
@@ -411,54 +396,47 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
                       return (
                         <>
                         {/* Pricing */}
-                        <div className="grid grid-cols-2 gap-4 mb-4">
-                          <div className="border border-orange-200 rounded-xl p-4 text-center">
-                            <p className="text-xs text-gray-500 font-medium">CURRENT PRICE</p>
-                            <p className="text-2xl font-semibold mt-1 text-gray-900">{formatPrice(currentPrice)}</p>
-                            <p className="text-sm line-through text-gray-400">{course.price}</p>
+                        <div className="grid grid-cols-2 gap-2 mt-3">
+                          <div className="border rounded-xl p-2 text-center">
+                            <p className="text-sm text-gray-500">CURRENT PRICE</p>
+                            <p className="text-xl font-bold">{formatPrice(currentPrice)}</p>
+                            <p className="text-sm text-gray-400 line-through">{course.price}</p>
                           </div>
-                          <div className="border-2 border-orange-600 rounded-xl p-4 text-center bg-transparent">
-                            <p className="text-xs text-orange-600 font-medium">CAPACITY PRICE</p>
-                            <p className="text-2xl font-semibold text-orange-600 mt-1">{formatPrice(potentialPrice)}</p>
-                            <p className="text-sm text-orange-600">Lowest possible</p>
+                          <div className={`border ${capacityBorderColor} rounded-xl p-2 text-center`}>
+                            <p className={`text-sm ${capacityTextColor}`}>CAPACITY PRICE</p>
+                            <p className={`text-xl font-bold ${capacityTextColor}`}>{formatPrice(potentialPrice)}</p>
+                            <p className={`text-sm ${capacityTextColor}`}>Lowest possible</p>
                           </div>
                         </div>
                         {/* Progress */}
-                        <div className="space-y-2 mb-4">
-                          <div className="flex justify-between items-center text-sm">
+                        <div className="mt-3">
+                          <div className="flex justify-between text-sm mb-2">
                             <span className="text-gray-600">Enrollment Progress</span>
-                            <span className="flex items-center gap-2 text-green-600 font-medium">
-                              <span className="w-2 h-2 rounded-full bg-green-500" />
-                              {validEnrolled} / {course.maxStudents} Joined
-                            </span>
+                            <span className="text-green-600 font-medium">● {validEnrolled} / {course.maxStudents} Joined</span>
                           </div>
-                          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="w-full h-2 bg-gray-200 rounded-full">
                             <div
-                              className="h-full bg-orange-600 transition-all duration-300"
+                              className={`h-2 ${progressBgColor} rounded-full transition-all duration-300`}
                               style={{ width: `${(validEnrolled / course.maxStudents) * 100}%` }}
                             />
                           </div>
-                          <p className="text-xs text-gray-400 flex items-center justify-center gap-1 text-center">
-                            <Info size={14} />
+                          <p className="text-xs text-gray-400 mt-2">
                             Price drops as more students join
                           </p>
-                  </div>
+                        </div>
                         {/* Button */}
                         <Link
                           href={`/batches/${course.slug}`}
-                          className="w-full py-3 rounded-xl text-gray-900 font-semibold transition flex items-center justify-center gap-2"
-                          style={{ backgroundColor: '#ffce13', color: '#000' }}
-                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e6b911'}
-                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffce13'}
+                          className="mt-3 w-full bg-yellow-400 hover:bg-yellow-500 transition rounded-xl py-2 text-sm font-semibold flex items-center justify-center gap-2"
                         >
-                          Join Prime
-                          <ArrowRight size={18} />
+                          Join Prime <span aria-hidden>→</span>
                         </Link>
                         </>
                       )
                     })()}
                 </>
               )}
+              </div>
               </>
             )
             
@@ -466,7 +444,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
               return (
                 <div
                   key={course.slug}
-                  className="relative bg-white rounded-lg border border-purple-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full overflow-hidden"
+                  className="w-full max-w-sm bg-white rounded-2xl shadow-lg border border-purple-200 overflow-hidden"
                 >
                   {cardContent}
                 </div>
@@ -476,7 +454,7 @@ export default function SkillBuildingClient({ courses }: SkillBuildingClientProp
             return (
               <div
                 key={course.slug}
-                className="relative bg-white rounded-lg border border-orange-200 p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2 focus-within:outline-none flex flex-col h-full overflow-hidden"
+                className="w-full max-w-sm bg-white rounded-2xl shadow-lg border border-orange-200 overflow-hidden"
               >
                 {cardContent}
           </div>

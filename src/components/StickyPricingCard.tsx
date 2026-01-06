@@ -1,15 +1,12 @@
 'use client'
 
-import React, { useRef, useLayoutEffect, useState } from 'react'
 import ShareButton from './ShareButton'
+import JoinBatchButton from './JoinBatchButton'
 
 interface StickyPricingCardProps {
   course: {
     title: string
     batchType?: 'prime' | 'collective'
-    studentsEnrolled?: number
-    maxStudents?: number
-    price: string
   }
   id: string
   validEnrolled: number
@@ -82,12 +79,13 @@ export default function StickyPricingCard({
           <p className="text-xs text-gray-500 pt-2 border-t border-gray-200">Price drops as more students join</p>
           
           {/* Join Batch Button */}
-          <a
-            href="#contact-details"
-            className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold text-center block"
+          <JoinBatchButton
+            courseTitle={course.title}
+            batchType={course.batchType}
+            className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold text-center"
           >
             Join Batch
-          </a>
+          </JoinBatchButton>
           
           {/* Share Button */}
           <ShareButton 

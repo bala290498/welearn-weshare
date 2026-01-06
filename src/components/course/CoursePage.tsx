@@ -2,7 +2,9 @@ import Navigation from '@/components/Navigation'
 import CourseHero from './CourseHero'
 import CourseBadgeBanner from './CourseBadgeBanner'
 import CourseContent from './CourseContent'
-import CoursePricingCard from './CoursePricingCard'
+import StickyPricingCard from '@/components/StickyPricingCard'
+import Footer from '@/components/Footer'
+import { formatPrice } from '@/lib/course-utils'
 import type { CourseFrontmatter } from '@/lib/markdown'
 import type { PriceCalculation } from '@/lib/course-utils'
 
@@ -31,28 +33,35 @@ export default function CoursePage({
       <CourseBadgeBanner />
 
       {hasDynamicPricing ? (
-        <section className="py-6 md:py-10 px-4 bg-white relative pb-36 lg:pb-6">
-          <div className="container mx-auto px-4 max-w-screen-xl">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2 space-y-8 md:space-y-12 lg:mr-8">
+        <section className="py-6 md:py-10 px-4 bg-white relative min-h-screen flex flex-col">
+          <div className="container mx-auto px-4 max-w-screen-xl flex-1 flex flex-col">
+            <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 flex-1">
+              {/* 70% Content Column */}
+              <div className="lg:col-span-7 space-y-8 md:space-y-12">
                 <CourseContent course={course} courseId={courseId} content={content} />
               </div>
 
-              {/* Right Column: Fixed Dynamic Group Pricing */}
-              <div className="lg:col-span-1">
-                {/* Spacer div to maintain grid layout */}
-                <div className="lg:block hidden">
-                  <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6 space-y-6 opacity-0 pointer-events-none">
-                    {/* Invisible placeholder to maintain layout */}
-                    <div className="h-96"></div>
-                  </div>
+              {/* 30% Sticky Card Column */}
+              <div className="lg:col-span-3">
+                <div className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-5rem)] lg:overflow-y-auto">
+                  <StickyPricingCard
+                    course={course}
+                    id={courseId}
+                    validEnrolled={pricing.validEnrolled}
+                    maxStudents={pricing.maxStudents}
+                    currentPrice={formatPrice(pricing.currentPrice)}
+                    potentialPrice={formatPrice(pricing.potentialPrice)}
+                    basePrice={pricing.basePrice}
+                  />
                 </div>
               </div>
             </div>
+            
+            {/* Sticky Footer within section */}
+            <div className="mt-auto lg:sticky lg:bottom-0 lg:z-10">
+              <Footer />
+            </div>
           </div>
-
-          {/* Fixed Dynamic Group Pricing Card */}
-          <CoursePricingCard course={course} courseId={courseId} pricing={pricing} />
         </section>
       ) : (
         <section className="py-6 md:py-10 px-4 bg-white">
