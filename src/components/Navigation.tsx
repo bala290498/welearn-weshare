@@ -32,14 +32,22 @@ export default function Navigation() {
       document.addEventListener('touchmove', preventTouchMove, { passive: false })
       
       return () => {
+        const savedScrollY = document.body.style.top
         document.body.style.position = ''
         document.body.style.top = ''
         document.body.style.width = ''
         document.body.style.overflow = ''
-        window.scrollTo(0, scrollY)
         document.removeEventListener('touchmove', preventTouchMove)
+        if (savedScrollY) {
+          const scrollYValue = Math.abs(parseInt(savedScrollY.replace('px', '')) || 0)
+          window.scrollTo(0, scrollYValue)
+        }
       }
     } else {
+      // Ensure styles are reset when menu is closed
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
       document.body.style.overflow = ''
     }
   }, [isMobileMenuOpen])
