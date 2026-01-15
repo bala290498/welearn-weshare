@@ -15,24 +15,29 @@ export default function FixedSideCard({ children }: FixedSideCardProps) {
     const handleScroll = () => {
       if (!cardRef.current) return
 
+      const main = document.querySelector('main')
       const footer = document.querySelector('footer')
-      if (!footer) return
+      if (!main || !footer) return
 
       const cardRect = cardRef.current.getBoundingClientRect()
+      const mainRect = main.getBoundingClientRect()
       const footerRect = footer.getBoundingClientRect()
       const viewportHeight = window.innerHeight
       const cardHeight = cardRect.height
 
       // Calculate the vertical center position
       const centerTop = (viewportHeight - cardHeight) / 2
+      const centerBottom = centerTop + cardHeight
 
-      // Check if card would overlap footer
-      const cardBottom = centerTop + cardHeight
+      // Get the bottom of the main section (where footer starts)
+      const mainBottom = mainRect.bottom
       const footerTop = footerRect.top
 
-      if (cardBottom > footerTop - 24) {
-        // Card would overlap footer, push it up
-        const newTop = footerTop - cardHeight - 24
+      // Check if card would overlap footer or go beyond main section
+      if (centerBottom > footerTop - 24 || centerBottom > mainBottom - 24) {
+        // Card would overlap footer or go beyond main section, push it up
+        const maxBottom = Math.min(footerTop - 24, mainBottom - 24)
+        const newTop = maxBottom - cardHeight
         setCardStyle({
           position: 'fixed',
           top: `${Math.max(96, newTop)}px`,
@@ -40,7 +45,7 @@ export default function FixedSideCard({ children }: FixedSideCardProps) {
           transform: 'none',
         })
       } else {
-        // Normal centered position
+        // Normal centered position (within main section bounds)
         setCardStyle({
           position: 'fixed',
           top: '50%',
@@ -53,12 +58,23 @@ export default function FixedSideCard({ children }: FixedSideCardProps) {
     // Initial calculation
     handleScroll()
 
-    // Add scroll listener
-    window.addEventListener('scroll', handleScroll)
+    // Add scroll listener with requestAnimationFrame for smooth updates
+    let ticking = false
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', handleScroll)
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', handleScroll)
     }
   }, [])

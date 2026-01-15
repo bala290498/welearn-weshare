@@ -16,6 +16,18 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    // Prevent body scroll when mobile menu is open
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
@@ -25,8 +37,9 @@ export default function Navigation() {
   }
 
   return (
+    <>
     <nav
-      className={`fixed top-0 left-0 right-0 w-full z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full z-30 transition-all duration-300 ${
         isScrolled ? 'bg-white shadow-sm' : 'bg-white/95 backdrop-blur-sm'
       }`}
     >
@@ -106,7 +119,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden text-gray-700 hover:text-primary-600 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md p-2"
+            className="lg:hidden text-gray-700 hover:text-primary-600 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md p-2 relative z-30"
             aria-label="Toggle menu"
             onClick={toggleMobileMenu}
             aria-expanded={isMobileMenuOpen}
@@ -118,80 +131,109 @@ export default function Navigation() {
             )}
           </button>
         </div>
-        
-        {/* Mobile Menu */}
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="py-4 space-y-1 border-t border-gray-200">
-              <a
-                href="/"
-                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                onClick={closeMobileMenu}
-              >
-                Home
-              </a>
-            <a
-              href="/community-voice"
-              className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-              onClick={closeMobileMenu}
-            >
-              Community Voice
-            </a>
-              <a
-                href="/batches"
-                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                onClick={closeMobileMenu}
-              >
-                Batches
-              </a>
-              <a
-                href="/students"
-                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                onClick={closeMobileMenu}
-              >
-                Students
-              </a>
-              <a
-                href="/professionals"
-                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                onClick={closeMobileMenu}
-              >
-                Professionals
-              </a>
-              <a
-                href="/community-groups"
-                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                onClick={closeMobileMenu}
-              >
-                Community Groups
-              </a>
-            <a
-              href="/opportunities"
-              className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-              onClick={closeMobileMenu}
-            >
-              Opportunities
-            </a>
-              <a
-              href="/blogs"
-                className="block text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-3 py-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                onClick={closeMobileMenu}
-              >
-              Blogs
-              </a>
-
-            {/* Mobile CTA */}
-            <div className="pt-3 border-t border-gray-200">
-              <JoinCommunityButton className="block bg-primary-600 text-white text-center text-base font-semibold px-4 py-3 rounded-lg shadow-sm hover:bg-primary-700 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
-                Join Now
-              </JoinCommunityButton>
-            </div>
-          </div>
-        </div>
       </div>
     </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+        isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}>
+        {/* Backdrop */}
+        <div
+          className="fixed inset-0 bg-black/50"
+          onClick={closeMobileMenu}
+          aria-hidden="true"
+        />
+        
+        {/* Slide-in Menu Panel */}
+        <div
+          className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+            <div className="flex flex-col h-full">
+              {/* Close Button */}
+              <div className="flex justify-end p-4">
+                <button
+                  onClick={closeMobileMenu}
+                  className="text-gray-700 hover:text-primary-600 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md p-2"
+                  aria-label="Close menu"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Menu Items */}
+              <div className="flex-1 overflow-y-auto flex items-center justify-center">
+                <nav className="w-full space-y-2 px-6 py-8">
+                  <a
+                    href="/"
+                    className="block text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-6 py-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                    onClick={closeMobileMenu}
+                  >
+                    Home
+                  </a>
+                  <a
+                    href="/community-voice"
+                    className="block text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-6 py-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                    onClick={closeMobileMenu}
+                  >
+                    Community Voice
+                  </a>
+                  <a
+                    href="/batches"
+                    className="block text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-6 py-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                    onClick={closeMobileMenu}
+                  >
+                    Batches
+                  </a>
+                  <a
+                    href="/students"
+                    className="block text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-6 py-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                    onClick={closeMobileMenu}
+                  >
+                    Students
+                  </a>
+                  <a
+                    href="/professionals"
+                    className="block text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-6 py-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                    onClick={closeMobileMenu}
+                  >
+                    Professionals
+                  </a>
+                  <a
+                    href="/community-groups"
+                    className="block text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-6 py-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                    onClick={closeMobileMenu}
+                  >
+                    Community Groups
+                  </a>
+                  <a
+                    href="/opportunities"
+                    className="block text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-6 py-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                    onClick={closeMobileMenu}
+                  >
+                    Opportunities
+                  </a>
+                  <a
+                    href="/blogs"
+                    className="block text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-6 py-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                    onClick={closeMobileMenu}
+                  >
+                    Blogs
+                  </a>
+                </nav>
+              </div>
+
+              {/* Mobile CTA */}
+              <div className="p-6">
+                <JoinCommunityButton className="w-full bg-primary-600 text-white text-center text-base font-semibold px-4 py-3 rounded-lg shadow-sm hover:bg-primary-700 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
+                  Join Now
+                </JoinCommunityButton>
+              </div>
+            </div>
+          </div>
+      </div>
+    </>
   )
 }

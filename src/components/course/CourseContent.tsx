@@ -2,6 +2,7 @@ import { Check } from 'lucide-react'
 import CoachProfileCard from '@/components/CoachProfileCard'
 import CompanyLogo from '@/components/CompanyLogo'
 import SecureSpotForm from '@/components/SecureSpotForm'
+import YouMayAlsoLike from './YouMayAlsoLike'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
 import {
   Award,
@@ -22,14 +23,15 @@ interface CourseContentProps {
   course: CourseFrontmatter
   courseId: string
   content: Record<string, string[]>
+  otherCourses?: (CourseFrontmatter & { slug: string })[]
 }
 
-export default function CourseContent({ course, courseId, content }: CourseContentProps) {
+export default function CourseContent({ course, courseId, content, otherCourses = [] }: CourseContentProps) {
   return (
     <div className="space-y-12 md:space-y-16">
       {/* Professional Partner */}
-      <section>
-        <div className="border-b-2 border-gray-200 pb-3 mb-6">
+      <section className="bg-white p-6 md:p-8">
+        <div className="pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Professional Partner
           </h2>
@@ -40,8 +42,8 @@ export default function CourseContent({ course, courseId, content }: CourseConte
       </section>
 
       {/* Course Syllabus */}
-      <section>
-        <div className="border-b-2 border-gray-200 pb-3 mb-6">
+      <section className="bg-gray-50 p-6 md:p-8">
+        <div className="pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Course Syllabus
           </h2>
@@ -59,8 +61,8 @@ export default function CourseContent({ course, courseId, content }: CourseConte
       </section>
 
       {/* Course Features */}
-      <section>
-        <div className="border-b-2 border-gray-200 pb-3 mb-6">
+      <section className="bg-white p-6 md:p-8">
+        <div className="pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Course Features
           </h2>
@@ -157,8 +159,8 @@ export default function CourseContent({ course, courseId, content }: CourseConte
       </section>
 
       {/* Job Opportunities */}
-      <section>
-        <div className="border-b-2 border-gray-200 pb-3 mb-6">
+      <section className="bg-gray-50 p-6 md:p-8">
+        <div className="pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Job Opportunities
           </h2>
@@ -200,8 +202,8 @@ export default function CourseContent({ course, courseId, content }: CourseConte
       </section>
 
       {/* Top Companies Hiring */}
-      <section>
-        <div className="border-b-2 border-gray-200 pb-3 mb-6">
+      <section className="bg-white p-6 md:p-8">
+        <div className="pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Top Companies Hiring
           </h2>
@@ -254,8 +256,8 @@ export default function CourseContent({ course, courseId, content }: CourseConte
       </section>
 
       {/* Career Services */}
-      <section>
-        <div className="border-b-2 border-gray-200 pb-3 mb-6">
+      <section className="bg-gray-50 p-6 md:p-8">
+        <div className="pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Career Services
           </h2>
@@ -289,13 +291,13 @@ export default function CourseContent({ course, courseId, content }: CourseConte
       </section>
 
       {/* Secure Spot Form */}
-      <section>
+      <section className="bg-white p-6 md:p-8">
         <SecureSpotForm courseTitle={course.title} batchType={course.batchType} />
       </section>
 
       {/* Contact Details */}
-      <section id="contact-details" className="bg-primary-50 rounded-lg p-6 md:p-8">
-        <div className="border-b-2 border-primary-200 pb-3 mb-6">
+      <section id="contact-details" className="bg-gray-50 p-6 md:p-8">
+        <div className="pb-3 mb-6">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold text-gray-900">
             Contact Details
           </h2>
@@ -312,6 +314,11 @@ export default function CourseContent({ course, courseId, content }: CourseConte
           </a>
         </div>
       </section>
+
+      {/* You may also like */}
+      {otherCourses.length > 0 && (
+        <YouMayAlsoLike courses={otherCourses} />
+      )}
     </div>
   )
 }

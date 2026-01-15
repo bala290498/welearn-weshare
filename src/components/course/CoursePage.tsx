@@ -1,19 +1,22 @@
 import Navigation from '@/components/Navigation'
 import CourseContent from './CourseContent'
-import FixedSideCard from './FixedSideCard'
-import Footer from '@/components/Footer'
+import ViewportStickyCard from './ViewportStickyCard'
+import ShareButton from '@/components/ShareButton'
+import JoinBatchButton from '@/components/JoinBatchButton'
 import type { CourseFrontmatter } from '@/lib/markdown'
 
 interface CoursePageProps {
   course: CourseFrontmatter
   courseId: string
   content: Record<string, string[]>
+  otherCourses?: (CourseFrontmatter & { slug: string })[]
 }
 
 export default function CoursePage({
   course,
   courseId,
   content,
+  otherCourses = [],
 }: CoursePageProps) {
   return (
     <div className="min-h-screen flex flex-col">
@@ -37,45 +40,75 @@ export default function CoursePage({
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 p-6 max-w-screen-xl mx-auto">
           {/* Left: 70% content */}
           <div className="lg:col-span-7">
-            <CourseContent course={course} courseId={courseId} content={content} />
+            <CourseContent course={course} courseId={courseId} content={content} otherCourses={otherCourses} />
           </div>
 
-          {/* Right: 30% - placeholder for fixed card positioning */}
+          {/* Right: 30% - sticky card within section */}
           <div className="lg:col-span-3 hidden lg:block">
-            {/* Spacer to maintain grid layout */}
+            <ViewportStickyCard>
+              <div className="bg-white shadow-lg border border-orange-200 p-6 space-y-6">
+                {/* Title */}
+                <h2 className="text-lg font-semibold text-gray-900 mb-2 w-fit">
+                  Interested in this Program? Secure your spot now!
+                </h2>
+                
+                {/* Students Enrolled */}
+                <div className="space-y-2">
+                  <p className="text-xs text-gray-600">Students enrolled:</p>
+                  <p className="text-2xl font-semibold text-primary-600">7 / 10</p>
+                  <div className="w-full bg-gray-200 rounded-full h-2.5">
+                    <div
+                      className="h-2.5 rounded-full bg-primary-600 transition-all duration-300"
+                      style={{ width: '70%' }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Current Price and Capacity Price */}
+                <div className="grid grid-cols-2 gap-4 items-start">
+                  {/* Current Price */}
+                  <div className="space-y-2 text-center p-3">
+                    <p className="text-xs text-gray-600">Current price</p>
+                    <p className="text-xl font-semibold text-primary-600">₹14,143</p>
+                    <p className="text-xs text-gray-500 whitespace-nowrap">
+                      99,000/7
+                    </p>
+                  </div>
+                  
+                  {/* Capacity Price */}
+                  <div className="space-y-2 text-center border-2 border-primary-600 rounded-lg p-3">
+                    <p className="text-xs text-gray-600">Capacity price</p>
+                    <p className="text-xl font-semibold text-primary-600">₹9,900</p>
+                    <p className="text-xs text-gray-500 whitespace-nowrap">
+                      99,000/10
+                    </p>
+                  </div>
+                </div>
+                
+                <p className="text-xs text-gray-500 pt-2 border-t border-gray-200">Price drops as more students join</p>
+                
+                {/* Join Batch and Share in same row */}
+                <div className="flex items-center gap-3">
+                  <JoinBatchButton
+                    courseTitle={course.title}
+                    batchType={course.batchType}
+                    className="flex-1 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-semibold text-center"
+                  >
+                    Join Batch
+                  </JoinBatchButton>
+                  
+                  <ShareButton 
+                    url={`https://www.welearnweshare.com/batches/${courseId}`}
+                    title={course.title}
+                    iconOnly={true}
+                    className="flex-shrink-0"
+                  />
+                </div>
+              </div>
+            </ViewportStickyCard>
           </div>
         </div>
-
-        {/* Fixed card - stays in viewport, stops before footer */}
-        <FixedSideCard>
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Sample Card</h3>
-            <p className="text-gray-600 text-sm mb-4">
-              This card stays in the viewport while scrolling.
-            </p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-sm text-gray-700">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                <span>Always in viewport</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-700">
-                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                <span>Vertically centered</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-700">
-                <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                <span>Stops before footer</span>
-              </div>
-            </div>
-            <button className="mt-4 w-full px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-medium">
-              Sample Action
-            </button>
-          </div>
-        </FixedSideCard>
       </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   )
 }

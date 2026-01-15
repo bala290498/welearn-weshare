@@ -1,4 +1,4 @@
-import { getCourseBySlug } from '@/lib/markdown'
+import { getCourseBySlug, getAllCourses } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import CoursePage from '@/components/course/CoursePage'
@@ -101,6 +101,12 @@ export default async function CourseDetailPage({
   const hasDynamicPricing =
     course.studentsEnrolled !== undefined && course.maxStudents !== undefined
 
+  // Get other courses (exclude current course)
+  const allCourses = getAllCourses()
+  const otherCourses = allCourses
+    .filter(c => c.slug !== id)
+    .slice(0, 2) // Limit to 2 courses
+
   return (
     <>
       <CourseSchema
@@ -113,6 +119,7 @@ export default async function CourseDetailPage({
         course={course}
         courseId={id}
         content={content}
+        otherCourses={otherCourses}
       />
     </>
   )

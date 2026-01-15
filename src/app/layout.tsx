@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import './globals.css'
 import OrganizationSchema from '@/components/schema/OrganizationSchema'
+import BottomNav from '@/components/BottomNav'
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -63,9 +64,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={openSans.variable}>
-      <body className="pt-16 md:pt-20">
+      <body className="pt-16 md:pt-20 pb-16 md:pb-0">
         <OrganizationSchema />
         {children}
+        <BottomNav />
       </body>
     </html>
   )
