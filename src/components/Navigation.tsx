@@ -169,7 +169,7 @@ export default function Navigation() {
         >
             <div className="flex flex-col h-full">
               {/* Close Button */}
-              <div className="flex justify-end p-4">
+              <div className="flex justify-end p-4 flex-shrink-0">
                 <button
                   onClick={closeMobileMenu}
                   className="text-gray-700 hover:text-primary-600 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-md p-2"
@@ -180,8 +180,8 @@ export default function Navigation() {
               </div>
 
               {/* Menu Items */}
-              <div className="flex-1 overflow-y-auto flex items-center justify-center">
-                <nav className="w-full space-y-2 px-6 py-8">
+              <div className="flex-1 overflow-y-auto min-h-0">
+                <nav className="w-full space-y-2 px-6 py-4">
                   <a
                     href="/"
                     className="block text-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200 px-6 py-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
@@ -239,13 +239,6 @@ export default function Navigation() {
                     Blogs
                   </a>
                 </nav>
-              </div>
-
-              {/* Mobile CTA */}
-              <div className="p-6">
-                <JoinCommunityButton className="w-full bg-primary-600 text-white text-center text-base font-semibold px-4 py-3 rounded-lg shadow-sm hover:bg-primary-700 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
-                  Join Now
-                </JoinCommunityButton>
               </div>
             </div>
           </div>
