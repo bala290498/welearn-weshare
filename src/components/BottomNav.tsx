@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { Home, GraduationCap, Users, Briefcase, BookOpen, Grid2x2, X, MessageSquare, Users2, FileText } from 'lucide-react'
 import Link from 'next/link'
@@ -59,6 +59,18 @@ const morePages = [
 export default function BottomNav() {
   const pathname = usePathname()
   const [isMoreModalOpen, setIsMoreModalOpen] = useState(false)
+
+  useEffect(() => {
+    // Prevent body scroll when modal is open
+    if (isMoreModalOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMoreModalOpen])
 
   const closeModal = () => {
     setIsMoreModalOpen(false)
