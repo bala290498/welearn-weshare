@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { Home, GraduationCap, Users, Briefcase, BookOpen, Grid3x3, X, MessageSquare, Users2, FileText } from 'lucide-react'
+import { Home, GraduationCap, Users, Briefcase, BookOpen, Grid2x2, X, MessageSquare, Users2, FileText } from 'lucide-react'
 import Link from 'next/link'
 
 const navItems = [
@@ -101,7 +101,7 @@ export default function BottomNav() {
             }`}
             aria-label="More"
           >
-            <Grid3x3 className={`w-5 h-5 ${isMoreModalOpen ? 'stroke-[2.5]' : ''}`} />
+            <Grid2x2 className={`w-5 h-5 ${isMoreModalOpen ? 'stroke-[2.5]' : ''}`} />
             <span className="text-xs font-medium">More</span>
           </button>
         </div>
@@ -118,11 +118,11 @@ export default function BottomNav() {
           
           {/* Modal Content */}
           <div
-            className="relative bg-white rounded-t-2xl shadow-2xl w-full max-h-[calc(80vh-4rem)] overflow-y-auto transform transition-transform duration-300 bottom-16"
+            className="relative bg-white shadow-2xl w-full max-h-[calc(80vh-4rem)] overflow-y-auto transform transition-transform duration-300 bottom-16"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
+            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
               <h3 className="text-xl font-semibold text-gray-900">More Pages</h3>
               <button
                 onClick={closeModal}
@@ -159,4 +159,3 @@ export default function BottomNav() {
     </>
   )
 }
-
