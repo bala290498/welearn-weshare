@@ -151,7 +151,7 @@ export default function Navigation() {
     </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+      <div className={`lg:hidden fixed inset-0 z-[60] transition-opacity duration-300 ${
         isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
         {/* Backdrop */}
@@ -163,7 +163,7 @@ export default function Navigation() {
         
         {/* Slide-in Menu Panel */}
         <div
-          className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out ${
+          className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-[60] shadow-2xl transform transition-transform duration-300 ease-in-out ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
