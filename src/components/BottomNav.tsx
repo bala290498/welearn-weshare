@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { Home, GraduationCap, Users, Briefcase, BookOpen, Grid2x2, X, MessageSquare, Users2, FileText } from 'lucide-react'
+import { Home, GraduationCap, Users, Briefcase, BookOpen, Grid2x2, MessageSquare, Users2, FileText } from 'lucide-react'
 import Link from 'next/link'
 
 const navItems = [
@@ -133,18 +133,6 @@ export default function BottomNav() {
             className="relative bg-white shadow-2xl w-full max-h-[calc(80vh-4rem)] overflow-y-auto transform transition-transform duration-300 bottom-16"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
-              <h3 className="text-xl font-semibold text-gray-900">More Pages</h3>
-              <button
-                onClick={closeModal}
-                className="text-gray-400 hover:text-gray-600 transition"
-                aria-label="Close modal"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
             {/* Pages Grid */}
             <div className="p-6">
               <div className="grid grid-cols-3 gap-4">
